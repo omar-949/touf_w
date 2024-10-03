@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toufwshouf/features/onboarding/presentation/views/widgets/SplashWidget.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 
 class OnboardingView extends StatelessWidget {
@@ -6,8 +7,8 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: OnboardingBody(),
+    return Scaffold(
+      body: OnboardingBody()
     );
   }
 }
