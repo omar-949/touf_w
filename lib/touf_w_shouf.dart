@@ -18,7 +18,7 @@ class ToufWShouf extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme(textTheme)),
-        initialRoute: Routes.onboardingScreen,
+        initialRoute: Routes.signupScreen,
         onGenerateRoute: appRouter.generateRouter,
       ),
     );
