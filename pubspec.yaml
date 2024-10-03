@@ -46,6 +46,7 @@ dependencies:
   pinput: ^5.0.0
   dartz: ^0.10.1
   google_fonts: ^6.2.1
+  flutter_onboarding_slider:
 dev_dependencies:
   flutter_test:
     sdk: flutter
