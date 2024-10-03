@@ -47,20 +47,17 @@ class DioFactory {
   }
 
   static void addInterceptors(Dio dio) {
-    if (!dio.interceptors.any((i) => i is InterceptorsWrapper)) {
       dio.interceptors.add(
         InterceptorsWrapper(
           onRequest: (options, handler) {
-            if (_authToken != null) {
+            if (_authToken.isNotNullOrEmpty()) {
               options.headers['Authorization'] = 'Bearer $_authToken';
             }
             return handler.next(options);
           },
         ),
       );
-    }
 
-    if (!dio.interceptors.any((i) => i is PrettyDioLogger)) {
       dio.interceptors.add(
         PrettyDioLogger(
           requestBody: true,
@@ -69,6 +66,5 @@ class DioFactory {
           responseHeader: true,
         ),
       );
-    }
   }
 }
