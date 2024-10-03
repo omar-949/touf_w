@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/shared_pref_helper.dart';
 import 'package:toufwshouf/core/helpers/shared_pref_keys.dart';
 import 'package:toufwshouf/core/networking/api_endpoints.dart';
@@ -30,19 +31,12 @@ class DioFactory {
   }
 
   static Future<void> setDefaultHeaders(Dio dio) async {
-    try {
-      final storedToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
-      _authToken = storedToken.isNotEmpty ? storedToken : null;
+    _authToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
 
-      dio.options.headers = {
-        'Accept': 'application/json',
-        if (_authToken != null) 'Authorization': 'Bearer $_authToken',
-      };
-    } catch (e) {
-      dio.options.headers = {
-        'Accept': 'application/json',
-      };
-    }
+    dio.options.headers = {
+      'Accept': 'application/json',
+      if (_authToken.isNotNullOrEmpty()) 'Authorization': 'Bearer $_authToken',
+    };
   }
 
   static void updateAuthToken(String token) {

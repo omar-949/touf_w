@@ -45,5 +45,5 @@ void _lockPortraitMode() {
 
 Future<void> _checkIfLoggedUser() async {
   String? userToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
-  isLoggedUser = !userToken.isNullOrEmpty();
+  isLoggedUser = userToken.isNotNullOrEmpty();
 }
