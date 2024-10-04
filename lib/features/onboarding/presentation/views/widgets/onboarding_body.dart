@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/resources/styles.dart';
 import '../../../data/models/OnboardingInfo.dart';
+import 'package:toufwshouf/core/resources/colors.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});
@@ -17,6 +19,11 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
   void initState() {
     super.initState();
     controller = PageController(initialPage: 0);
+  }
+
+  void navigateToPage(int pageIndex) {
+    // Directly set the page to the specified index without animation
+    controller.jumpToPage(pageIndex);
   }
 
   @override
@@ -50,12 +57,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                 right: 35.w,
                 child: Text(
                   contents[i].title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Inter',
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyles.onboardingTitleStyle,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -69,23 +71,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   children: [
                     Text(
                       contents[i].description1,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Inter',
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                      ),
+                      style: TextStyles.onboardingDescriptionStyle,
                       textAlign: TextAlign.center,
                       maxLines: 1,
                     ),
                     Text(
                       contents[i].description2,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Inter',
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                      ),
+                      style: TextStyles.onboardingDescriptionStyle,
                       textAlign: TextAlign.center,
                       maxLines: 1,
                     ),
@@ -95,7 +87,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               Positioned(
                 top: 750.h,
                 left: 158.h,
-                right: 158.h,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
@@ -103,12 +94,12 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         (index) => Container(
                       height: 3.h,
                       width: 17.w,
-                      margin: EdgeInsets.only(right: 7.w),
+                      margin: EdgeInsets.only(right: 12.w),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: index == currentIndex
-                            ? const Color(0xffFFFFFF)
-                            : const Color(0xff777777),
+                            ? TextColors.white
+                            : TextColors.mediumGrey,
                       ),
                     ),
                   ),
@@ -119,15 +110,11 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                 left: 47.w,
                 right: 47.w,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
                       onTap: () {
-                        controller.animateToPage(
-                          contents.length - 1,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeOut,
-                        );
+                        navigateToPage(contents.length - 1); // Jump to last page
                       },
                       child: Container(
                         width: 140.h,
@@ -137,34 +124,27 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           vertical: 5.h,
                         ),
                         decoration: BoxDecoration(
-                          color: const Color(0xff777777),
+                          color: TextColors.mediumGrey,
                           borderRadius: BorderRadius.circular(29),
                           border: Border.all(
-                            color: const Color(0xff303030),
+                            color: TextColors.darkGrey,
                             width: 1.5,
                           ),
                         ),
                         child: Text(
                           'Skip',
-                          style: TextStyle(
-                            color: const Color(0xffFFFFFF),
-                            fontFamily: 'Inter',
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: TextStyles.font16WhiteRegular.copyWith(fontFamily: 'Inter'),
                           textAlign: TextAlign.center,
                         ),
                       ),
                     ),
+                    SizedBox(width: 16.w),
                     GestureDetector(
                       onTap: () {
                         if (currentIndex == contents.length - 1) {
-                          // GoRouter.of(context).go('/signup');
+                          // Navigate to signup page
                         } else {
-                          controller.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeOut,
-                          );
+                          navigateToPage(currentIndex + 1); // Jump to next page
                         }
                       },
                       child: Container(
@@ -175,17 +155,12 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           vertical: 5.h,
                         ),
                         decoration: BoxDecoration(
-                          color: const Color(0xffFFFFFF),
+                          color: TextColors.white,
                           borderRadius: BorderRadius.circular(29),
                         ),
                         child: Text(
                           'Next',
-                          style: TextStyle(
-                            color: const Color(0xff000000),
-                            fontFamily: 'Inter',
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: TextStyles.font16BlackRegular.copyWith(fontFamily: 'Inter'),
                           textAlign: TextAlign.center,
                         ),
                       ),

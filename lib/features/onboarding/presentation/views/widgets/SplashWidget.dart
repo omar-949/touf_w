@@ -10,9 +10,11 @@ class SplashWidget extends StatefulWidget {
 }
 
 class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderStateMixin {
-  double _opacity = 0.0;
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _rotationAnimation;
+  late Animation<double> _backgroundOpacityAnimation;
 
   @override
   void initState() {
@@ -24,13 +26,17 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
     );
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+    _rotationAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.linear),
+    );
+    _backgroundOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(milliseconds: 300), () {
-        setState(() {
-          _opacity = 1.0;
-          _controller.forward();
-        });
-      });
+      _controller.forward();
       Timer(const Duration(seconds: 4), () {
         Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
       });
@@ -51,24 +57,39 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
           fit: StackFit.expand,
           children: [
             Positioned.fill(
-              child: Image.asset(
-                "assets/splash_onboarding/Splash Screen.png",
-                fit: BoxFit.cover,
+              child: FadeTransition(
+                opacity: _backgroundOpacityAnimation,
+                child: Image.asset(
+                  "assets/splash_onboarding/Splash Screen.png",
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Positioned(
               top: 216,
-              child: AnimatedOpacity(
-                opacity: _opacity,
-                duration: const Duration(seconds: 3),
-                child: ScaleTransition(
-                  scale: _scaleAnimation,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 87),
-                    child: Image.asset(
-                      "assets/splash_onboarding/logo_en 2 (1).png",
-                      width: 217,
-                      height: 105,
+              left: 0,
+              right: 0,
+              child: FadeTransition(
+                opacity: _opacityAnimation,
+                child: SlideTransition(
+                  position: Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0)).animate(
+                    CurvedAnimation(
+                      parent: _controller,
+                      curve: Curves.easeOut,
+                    ),
+                  ),
+                  child: ScaleTransition(
+                    scale: _scaleAnimation,
+                    child: RotationTransition(
+                      turns: _rotationAnimation,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 87),
+                        child: Image.asset(
+                          "assets/splash_onboarding/logo_en 2 (1).png",
+                          width: 217,
+                          height: 105,
+                        ),
+                      ),
                     ),
                   ),
                 ),
