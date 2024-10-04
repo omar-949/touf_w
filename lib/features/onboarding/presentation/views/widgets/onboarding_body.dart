@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/resources/styles.dart';
 import '../../../data/models/OnboardingInfo.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
+import 'package:toufwshouf/core/routing/routes.dart';
+import 'package:toufwshouf/features/auth/presentation/views/screens/signUp_screen.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});
@@ -22,7 +24,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
   }
 
   void navigateToPage(int pageIndex) {
-    // Directly set the page to the specified index without animation
     controller.jumpToPage(pageIndex);
   }
 
@@ -114,7 +115,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        navigateToPage(contents.length - 1); // Jump to last page
+                        Navigator.pushReplacementNamed(context, Routes.signupScreen);
                       },
                       child: Container(
                         width: 140.h,
@@ -142,9 +143,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     GestureDetector(
                       onTap: () {
                         if (currentIndex == contents.length - 1) {
-                          // Navigate to signup page
+                          Navigator.pushReplacementNamed(context, Routes.signupScreen);
                         } else {
-                          navigateToPage(currentIndex + 1); // Jump to next page
+                          navigateToPage(currentIndex + 1);
                         }
                       },
                       child: Container(
