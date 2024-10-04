@@ -1,8 +1,7 @@
-// lib/features/splash/presentation/widgets/splash_widget.dart
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../../../../core/resources/assets.dart';
-import '../../../../../core/routing/routes.dart';
+import '../../../../../../core/resources/assets.dart';
+import '../../../../../../core/routing/routes.dart';
 
 class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});
