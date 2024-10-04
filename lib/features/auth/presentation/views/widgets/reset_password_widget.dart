@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/CustomTextField.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
+import 'package:toufwshouf/core/widgets/custom_button.dart';
 import 'package:toufwshouf/core/helpers/app_regex.dart';
 import '../../../../../core/helpers/validator.dart';
 import '../../../../../core/routing/routes.dart';
+import '../../../../../core/widgets/CustomTextField.dart';
 import 'Header_widget.dart';
 
 class ResetPasswordWidget extends StatefulWidget {
@@ -21,7 +21,6 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
   final _confirmPasswordController = TextEditingController();
   bool _isLoading = false;
 
-  // Validation states
   bool _isValidLength = false;
   bool _hasNumber = false;
   bool _hasUppercase = false;
@@ -49,14 +48,13 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
     if (_hasNumber) score++;
     if (_hasUppercase) score++;
     if (_hasLowercase) score++;
-    return score / 4; // Return a value between 0.0 and 1.0
+    return score / 4;
   }
 
   void _resetPassword() {
     if (_formKey.currentState?.validate() ?? false) {
       String pass = _confirmPasswordController.text;
-      // Initiate the reset password request
-      Navigator.pushNamed(context,Routes.codeverificationScreen);
+      Navigator.pushNamed(context, Routes.codeverificationScreen);
     }
   }
 
@@ -95,7 +93,6 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                         onChanged: (value) => _checkPasswordValidation(value),
                       ),
                       SizedBox(height: 8.h),
-                      // Password Strength Indicator
                       Container(
                         height: 3.h,
                         decoration: BoxDecoration(
@@ -147,7 +144,9 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                         hintText: 'Confirm new password',
                         isPassword: true,
                         controller: _confirmPasswordController,
-                        validator: (value) => Validator.passwordConfirmValidator(value, _passwordController.text),
+                        validator: (value) =>
+                            Validator.passwordConfirmValidator(
+                                value, _passwordController.text),
                       ),
                       SizedBox(height: 70.h),
                       if (_isLoading)
@@ -159,7 +158,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                             onPressed: _resetPassword,
                           ),
                         ),
-                      SizedBox(height: 20.h), // Add some bottom padding
+                      SizedBox(height: 20.h),
                     ],
                   ),
                 ),
@@ -193,14 +192,13 @@ class _ValidationRule extends StatelessWidget {
             size: isValid ? 18 : 10,
           ),
         ),
-        const SizedBox(width: 8), // Adjusted space between icon and text
+        const SizedBox(width: 8),
         Expanded(
           child: Text(
             rule,
             style: TextStyles.font14Grey600Regular.copyWith(
               color: isValid ? Colors.green : Color(0xffA0AEC0),
               fontSize: 12.sp,
-
             ),
           ),
         ),

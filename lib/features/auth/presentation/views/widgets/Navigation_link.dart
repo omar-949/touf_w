@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 
-
-
 class NavigationLink extends StatelessWidget {
   final String questionText;
   final String actionText;
@@ -23,20 +21,19 @@ class NavigationLink extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          padding: EdgeInsets.zero, // Remove default padding if needed
+          padding: EdgeInsets.zero,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               questionText,
-              style: TextStyles.font13GreyMedium.copyWith(fontFamily: 'Montserrat') // Responsive font size
-              ),
-
-            SizedBox(width: 4.w), // Add gap between texts
+              style: TextStyles.font13GreyMedium.copyWith(fontFamily: 'Montserrat'),
+            ),
+            SizedBox(width: 4.w),
             Text(
               actionText,
-              style: TextStyles.font13BlueBold.copyWith(fontFamily: 'Montserrat')
+              style: TextStyles.font13BlueBold.copyWith(fontFamily: 'Montserrat'),
             ),
           ],
         ),

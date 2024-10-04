@@ -24,10 +24,10 @@ class Header extends StatelessWidget {
 
   Widget _buildImage(BuildContext context) {
     return Container(
-      width: double.infinity, // Make the container take full width
+      width: double.infinity,
       child: Image.asset(
         imageAsset,
-        fit: BoxFit.cover, // Adjust fit as needed
+        fit: BoxFit.cover,
         height: 255.56.h,
       ),
     );

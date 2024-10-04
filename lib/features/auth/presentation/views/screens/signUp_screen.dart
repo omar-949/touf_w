@@ -1,19 +1,14 @@
-import 'package:dio/dio.dart'; // If you're using Dio for HTTP requests
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/CustomTextField.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/login_screen.dart';
+import 'package:toufwshouf/core/widgets/custom_button.dart';
 
-import '../../../../../core/helpers/font_weight_helper.dart'; // Import your LoginScreen
+import '../../../../../core/widgets/CustomTextField.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -47,11 +42,8 @@ class SignUpScreenState extends State<SignUpScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('You must agree to the terms and conditions.')),
         );
-        return; // Return early if terms are not agreed to
+        return;
       }
-
-      // Proceed with sign-up logic (e.g., API call)
-      // Assuming sign-up is successful, navigate to the login screen
       Navigator.of(context).pushNamed(Routes.loginScreen);
     }
   }

@@ -24,8 +24,8 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 54.w, // Set fixed width for the container
-      height: 54.h, // Set the height for the container
+      width: 54.w,
+      height: 54.h,
       margin: EdgeInsets.symmetric(horizontal: widget.fieldWidth * 0.3),
       alignment: Alignment.bottomCenter,
       decoration: BoxDecoration(
@@ -34,17 +34,16 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // Actual TextFormField
           TextFormField(
             focusNode: widget.currentFocus,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: widget.fieldWidth * 0.6,
-              height: 1.5, // Adjust the line height
+              height: 1.5,
             ),
             keyboardType: TextInputType.number,
-            maxLength: 1, // Limit input to 1 character
-            cursorColor: TextColors.grey200, // Set cursor color to grey
+            maxLength: 1,
+            cursorColor: TextColors.grey200,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
@@ -58,16 +57,15 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
                 borderRadius: BorderRadius.circular(14),
                 borderSide: BorderSide(color: Colors.blue, width: 1),
               ),
-              contentPadding: EdgeInsets.only(bottom: 8), // Adjust bottom padding
-              counterText: '', // Remove the 0/1 count
+              contentPadding: EdgeInsets.only(bottom: 8),
+              counterText: '',
             ),
-            // Display the input value in the TextFormField
             controller: TextEditingController(text: _inputValue)
               ..selection = TextSelection.fromPosition(TextPosition(offset: _inputValue.length)),
             onChanged: (value) {
-              if (value.length <= 1) { // Allow only one character
+              if (value.length <= 1) {
                 setState(() {
-                  _inputValue = value; // Store the input value
+                  _inputValue = value;
                 });
                 if (value.length == 1 && widget.nextFocus != null) {
                   FocusScope.of(context).requestFocus(widget.nextFocus);
@@ -75,23 +73,20 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
               }
             },
           ),
-          // Hint text positioned at the bottom
           Positioned(
-            bottom: 0, // Adjust this value for vertical positioning
+            bottom: 0,
             child: Opacity(
-              opacity: _inputValue.isEmpty ? 1.0 : 0.0, // Hide when there's input
+              opacity: _inputValue.isEmpty ? 1.0 : 0.0,
               child: Text(
-                '-', // Your hint text
+                '-',
                 style: TextStyle(
-                  color: TextColors.grey500.withOpacity(0.5), // Optional: semi-transparent color
+                  color: TextColors.grey500.withOpacity(0.5),
                   fontWeight: FontWeight.w400,
                   fontSize: 20.sp,
                 ),
               ),
             ),
           ),
-          // Input value displayed above the hint text
-
         ],
       ),
     );
