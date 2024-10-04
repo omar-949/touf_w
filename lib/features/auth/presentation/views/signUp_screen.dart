@@ -11,9 +11,9 @@ import 'package:toufwshouf/features/auth/presentation/views/widgets/CustomTextFi
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/login_screen.dart';
+import 'package:toufwshouf/features/auth/presentation/views/login_screen.dart';
 
-import '../../../../../core/helpers/font_weight_helper.dart'; // Import your LoginScreen
+import '../../../../core/helpers/font_weight_helper.dart'; // Import your LoginScreen
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
