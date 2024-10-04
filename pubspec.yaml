@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.1
+  sdk: ">=3.5.0 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -46,7 +46,8 @@ dependencies:
   pinput: ^5.0.0
   dartz: ^0.10.1
   google_fonts: ^6.2.1
-  flutter_onboarding_slider:
+  go_router:
+  country_picker:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -73,7 +74,8 @@ flutter:
   assets:
     - assets/
     - assets/svgs/
-    - assets/splash_onboarding/
+    - assets/auth/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
