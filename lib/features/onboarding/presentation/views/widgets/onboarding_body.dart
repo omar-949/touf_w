@@ -56,12 +56,23 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                 top: 620.h,
                 left: 35.w,
                 right: 35.w,
-                child: Text(
-                  contents[i].title,
-                  style: TextStyles.onboardingTitleStyle,
-                  textAlign: TextAlign.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      contents[i].titlePart1,
+                      style: TextStyles.onboardingTitleStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      contents[i].titlePart2,
+                      style: TextStyles.onboardingTitleStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
+
               Positioned(
                 top: 694.h,
                 left: 25.h,

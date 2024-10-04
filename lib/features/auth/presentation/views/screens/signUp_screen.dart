@@ -11,7 +11,9 @@ import 'package:toufwshouf/features/auth/presentation/views/widgets/CustomTextFi
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/login_screen.dart'; // Import your LoginScreen
+import 'package:toufwshouf/features/auth/presentation/views/screens/login_screen.dart';
+
+import '../../../../../core/helpers/font_weight_helper.dart'; // Import your LoginScreen
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -73,10 +75,10 @@ class SignUpScreenState extends State<SignUpScreen> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 17.h),
-                child: Center(child: Text("Sign up", style: TextStyles.font26GreyExtraBold)),
+                child: Center(child: Text("Sign up", style: TextStyles.font26GreyExtraBold.copyWith(fontFamily: 'Montserrat'))),
               ),
               SizedBox(height: 5.h),
-              Center(child: Text("Hello there! Let’s create your account.", style: TextStyles.font14GreyMedium)),
+              Center(child: Text("Hello there! Let’s create your account.", style: TextStyles.font14GreyMedium.copyWith(fontFamily: 'Montserrat'))),
               SizedBox(height: 10.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
@@ -144,17 +146,17 @@ class SignUpScreenState extends State<SignUpScreen> {
                                   SizedBox(height: 13.h),
                                   RichText(
                                     text: TextSpan(
-                                      style: TextStyles.font14Grey600Regular,
+                                      style: TextStyles.font14Grey600Regular.copyWith(fontFamily: 'Montserrat'),
                                       children: [
                                         TextSpan(text: 'I agree to the Platform'),
                                         TextSpan(
                                           text: ' Terms of Service',
-                                          style: TextStyles.font14Blue500Bold,
+                                          style: TextStyles.font14Blue500Bold.copyWith(fontFamily: 'Montserrat'),
                                         ),
-                                        TextSpan(text: ' and ', style: TextStyles.font14Grey600Regular),
+                                        TextSpan(text: ' and ', style: TextStyles.font14Grey600Regular.copyWith(fontFamily: 'Montserrat')),
                                         TextSpan(
                                           text: 'Privacy Policy',
-                                          style: TextStyles.font14Blue500Bold,
+                                          style: TextStyles.font14Blue500Bold.copyWith(fontFamily: 'Montserrat'),
                                         ),
                                       ],
                                     ),

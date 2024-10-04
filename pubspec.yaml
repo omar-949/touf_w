@@ -74,6 +74,7 @@ flutter:
   assets:
     - assets/
     - assets/svgs/
+    - assets/splash_onboarding/
     - assets/auth/
 
 
@@ -93,7 +94,12 @@ flutter:
        fonts:
          - asset: assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf
          - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
-
+     - family: Montserrat
+       fonts:
+         - asset: assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
+         - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
+         - asset: assets/fonts/Montserrat-Bold.ttf
+         - asset: assets/fonts/Montserrat-Medium.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

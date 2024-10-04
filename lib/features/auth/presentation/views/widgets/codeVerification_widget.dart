@@ -7,7 +7,9 @@ import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/otpdigitfield.dart';
 
 class VerifyPasswordWidget extends StatefulWidget {
   const VerifyPasswordWidget({super.key});
@@ -23,17 +25,15 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
     final width = screenSize.width;
     final height = screenSize.height;
 
-    final containerHeight = 0.50 * height;
-    final textPadding = 0.04 * width;
-    const buttonWidth = 323.0;
-    const buttonHeight = 39.0;
-    double getFontSize(double scaleFactor) => scaleFactor * width / 100;
-    final focusNodes = List<FocusNode>.generate(6, (index) => FocusNode());
+    final focusNodes = List<FocusNode>.generate(4, (index) => FocusNode());
     final otpController = TextEditingController();
 
     @override
     void dispose() {
       otpController.dispose();
+      for (var focusNode in focusNodes) {
+        focusNode.dispose(); // Dispose of each FocusNode
+      }
       super.dispose();
     }
 
@@ -59,52 +59,51 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
                   textAlign: TextAlign.center, // Center the text
                   style: TextStyles.font14GreyMedium,
                 ),
-                 Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left:width * 0.05,right:width * 0.05 ,),
-                        child: Container(
-                          width: width * 0.9,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.white,
-                          ),
-                          child: Column(
-                            children: [
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  for (int i = 0; i < 4; i++)
-                                    _buildOtpDigitField(
-                                      context,
-                                      focusNodes[i],
-                                      i < 5 ? focusNodes[i + 1] : null,
-                                      getFontSize(8),
-                                    ),
-                                ],
+                SizedBox(height: 10.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+                  child: Container(
+                    width: width * 0.9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.white,
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 0; i < 4; i++)
+                              OtpDigitField(
+                                currentFocus: focusNodes[i],
+                                nextFocus: i < 3 ? focusNodes[i + 1] : null,
+                                fieldWidth:40.sp,
                               ),
-                              const SizedBox(height: 30),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: CustomButton(
-                                    text: "Verify",
-                                    onPressed: () async {
-                                      Navigator.of(context).pushNamed(Routes.homeScreen);
-                                    },
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: height * 0.05),
-                            ],
+                          ],
+                        ),
+                        NavigationLink(
+                          questionText: "Didn’t get the code?",
+                          actionText: "Resend code",
+                          onPressed: () => Navigator.of(context).pushNamed(Routes.loginScreen),
+                        ),
+                        SizedBox(height: 60.h),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: CustomButton(
+                              text: "Verify",
+                              onPressed: () async {
+                                Navigator.of(context).pushNamed(Routes.homeScreen);
+                              },
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(height: height * 0.05),
+                      ],
+                    ),
                   ),
-
+                ),
                 SizedBox(height: height * 0.1),
               ],
             ),
@@ -113,47 +112,5 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
       ),
     );
   }
-
-  Widget _buildOtpDigitField(BuildContext context, FocusNode currentFocus, FocusNode? nextFocus, double fieldWidth) {
-    return Container(
-      width: 54.w,
-      height: 54.h, // Set the height and width for the container
-      margin: EdgeInsets.symmetric(horizontal: fieldWidth * 0.1),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.blue, width: 2), // Use Border.all for consistent border
-      ),
-      child: TextFormField(
-        focusNode: currentFocus,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: fieldWidth * 0.6),
-        keyboardType: TextInputType.number,
-        maxLength: 1,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.blue, width: 2), // Keep the color and width same
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.blue, width: 2), // Keep the color and width same
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.red, width: 2), // Keep the color and width same
-          ),
-          contentPadding: EdgeInsets.zero, // Ensure no extra padding
-        ),
-        onChanged: (value) {
-          if (value.length == 1 && nextFocus != null) {
-            FocusScope.of(context).requestFocus(nextFocus);
-          }
-        },
-      ),
-    );
-  }
-
-
-
 }
+
