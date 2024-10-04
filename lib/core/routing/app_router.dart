@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/features/Home/presentation/views/screens/home_screen.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/codeVerification_screen.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/forgetPass_screen.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/login_screen.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/reset_password_screen.dart';
-import 'package:toufwshouf/features/auth/presentation/views/screens/signUp_screen.dart';
+import 'package:toufwshouf/features/auth/presentation/views/codeVerification_screen.dart';
+import 'package:toufwshouf/features/auth/presentation/views/forgetPass_screen.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
 
+import '../../features/auth/presentation/views/login_screen.dart';
+import '../../features/auth/presentation/views/reset_password_screen.dart';
+import '../../features/auth/presentation/views/signUp_screen.dart';
 import '../../features/onboarding/presentation/views/SplashScreen.dart';
 
 class AppRouter {

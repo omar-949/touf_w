@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
 import 'package:toufwshouf/core/helpers/app_regex.dart';
-import '../../../../../core/helpers/validator.dart';
-import '../../../../../core/routing/routes.dart';
-import '../../../../../core/widgets/CustomTextField.dart';
-import 'Header_widget.dart';
+import '../../../../../../core/helpers/validator.dart';
+import '../../../../../../core/routing/routes.dart';
+import '../../../../../../core/widgets/CustomTextField.dart';
+import '../../../../../../core/widgets/Header_widget.dart';
 
 class ResetPasswordWidget extends StatefulWidget {
   const ResetPasswordWidget({super.key});

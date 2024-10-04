@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
+import 'package:toufwshouf/core/widgets/Header_widget.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
-import '../../../../../core/widgets/CustomTextField.dart';
+import '../../../../../../core/widgets/CustomTextField.dart';
 
 class ForgetPasswordWidget extends StatefulWidget {
   const ForgetPasswordWidget({super.key});

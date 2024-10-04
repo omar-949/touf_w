@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/reset_password_widget.dart';
+import 'widgets/reset_pass/reset_password_widget.dart';
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
 

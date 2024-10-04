@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
+import 'package:toufwshouf/core/widgets/Header_widget.dart';
+import 'package:toufwshouf/core/widgets/Navigation_link.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/otpdigitfield.dart';
+import 'otpdigitfield.dart';
 
 class VerifyPasswordWidget extends StatefulWidget {
   const VerifyPasswordWidget({super.key});
