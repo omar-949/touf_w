@@ -19,18 +19,16 @@ class ForgetPasswordWidget extends StatefulWidget {
 class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
+
   @override
   void dispose() {
     _emailController.dispose();
     super.dispose();
   }
 
-
-
   Future<void> _resetPassword() async {
     if (_formKey.currentState?.validate() ?? false) {
       String email = _emailController.text;
-
       // Initiate the reset password request
     }
   }
@@ -57,20 +55,29 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
               children: [
                 const Header(
                   logoAsset: "assets/logo_en 2.png",
-                  imageAsset:"assets/auth/forget_pass.png" ,
+                  imageAsset: "assets/auth/forget_pass.png",
                 ),
-                SizedBox(height: 10.h,),
-                Center(child: Text("Forgot password?",style:TextStyles.font26GreyExtraBold)),
-                SizedBox(height: 10.h,),
-                Center(child: Text("Don’t worry! It’s happens. Please enter the email address associated with your account.",style:TextStyles.font14GreyMedium)),
+                SizedBox(height: 10.h),
+                Center(child: Text("Forgot password?", style: TextStyles.font26GreyExtraBold)),
+                SizedBox(height: 10.h),
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: textPadding),
+                    child: Text(
+                      "Don’t worry! It happens. Please enter the email address associated with your account.",
+                      textAlign: TextAlign.center, // Center the text
+                      style: TextStyles.font14GreyMedium,
+                    ),
+                  ),
+                ),
                 Padding(
-                  padding: EdgeInsets.only(left: 31.w,right: 31.w),
+                  padding: EdgeInsets.only(left: 31.w, right: 31.w),
                   child: SizedBox(
-                    width:327.w,
+                    width: 327.w,
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        color:  Colors.white,
+                        color: Colors.white,
                       ),
                       child: Form(
                         key: _formKey,
@@ -78,18 +85,13 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 0.09 * containerHeight),
-
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: textPadding),
-                              child: CustomTextField(
-
+                            CustomTextField(
                                 hintText: "Insert email address / mobile number",
-
                                 controller: _emailController,
                                 validator: Validator.emailValidator,
                               ),
-                            ),
-                            const SizedBox(height: 20),
+
+                           SizedBox(height: 100.h),
                             Align(
                               alignment: Alignment.center,
                               child: Padding(
@@ -100,7 +102,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 40),
+                            const SizedBox(height: 140),
                           ],
                         ),
                       ),
