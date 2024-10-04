@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/CustomTextField.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
+import 'package:toufwshouf/core/helpers/app_regex.dart';
+import '../../../../../core/helpers/validator.dart';
+import 'Header_widget.dart';
+
 class ResetPasswordWidget extends StatefulWidget {
   const ResetPasswordWidget({super.key});
 
@@ -14,125 +16,197 @@ class ResetPasswordWidget extends StatefulWidget {
 
 class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+  bool _isLoading = false;
+
+  // Validation states
+  bool _isValidLength = false;
+  bool _hasNumber = false;
+  bool _hasUppercase = false;
+  bool _hasLowercase = false;
+
   @override
   void dispose() {
-    _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
-  String? _validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Email is required';
-    }
-    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-      return 'Enter a valid email address';
-    }
-    return null;
+  void _checkPasswordValidation(String password) {
+    setState(() {
+      _isValidLength = password.length >= 8;
+      _hasNumber = AppRegex.hasNumber(password);
+      _hasUppercase = AppRegex.hasUpperCase(password);
+      _hasLowercase = AppRegex.hasLowerCase(password);
+    });
   }
 
-  String? _validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Password is required';
-    }
-    if (value.length < 6) {
-      return 'Password must be at least 6 characters';
-    }
-    return null;
+  double _getStrength() {
+    int score = 0;
+    if (_isValidLength) score++;
+    if (_hasNumber) score++;
+    if (_hasUppercase) score++;
+    if (_hasLowercase) score++;
+    return score / 4; // Return a value between 0.0 and 1.0
   }
 
-  void _login() {
+  void _resetPassword() {
     if (_formKey.currentState?.validate() ?? false) {
-      Routes.homeScreen;
+      setState(() {
+        _isLoading = true;
+      });
+      // Perform reset password action
+      // TODO: Implement your reset password logic here
+      // After completion, set _isLoading back to false
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final screenWidth = mediaQuery.size.width;
-    final screenHeight = mediaQuery.size.height;
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Header(
                 logoAsset: "assets/logo_en 2.png",
-               imageAsset: "assets/auth/reset_pass.png",
+                imageAsset: "assets/auth/reset_pass.png",
               ),
-              Text("Reset password?",style:TextStyles.font26GreyExtraBold),
-              SizedBox(height: screenHeight * 0.05), // Consistent gap between logo and form
+              SizedBox(height: 10.h),
+              Center(
+                child: Text(
+                  "Reset Password",
+                  style: TextStyles.font26GreyExtraBold,
+                ),
+              ),
+              SizedBox(height: 20.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-                child: Container(
-                  padding: EdgeInsets.all(screenWidth * 0.05),
-                  width: screenWidth * 0.9,
-                  decoration: BoxDecoration(
-                    color: const Color.fromRGBO(251, 213, 125, 0.5),
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomTextField(
-
-                          hintText: 'Enter your email',
-
-                          controller: _emailController,
-                          validator: _validateEmail,
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomTextField(
+                        hintText: 'Enter new password',
+                        isPassword: true,
+                        controller: _passwordController,
+                        onChanged: (value) => _checkPasswordValidation(value),
+                      ),
+                      SizedBox(height: 8.h),
+                      // Password Strength Indicator
+                      Container(
+                        height: 3.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: Colors.grey[300],
                         ),
-                        SizedBox(height: screenHeight * 0.02),
-                        CustomTextField(
-
-                          hintText: 'Enter your password',
-                      
-                          isPassword: true,
-                          controller: _passwordController,
-                          validator: _validatePassword,
-                        ),
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: TextButton(
-                            onPressed: () => Routes.forgetpasswordScreen,
-                            child: Text(
-                              'Forgot Password?',
-                              style: TextStyle(
-                                fontFamily: 'Comfortaa',
-                                fontSize: screenWidth * 0.03,
-                                fontWeight: FontWeight.w300,
-                                height: 1.2,
-                                letterSpacing: -0.3,
-                                color: const Color.fromRGBO(54, 54, 54, 1),
-                              ),
+                        child: FractionallySizedBox(
+                          widthFactor: _getStrength(),
+                          heightFactor: 1,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              color: _getStrength() == 1
+                                  ? Colors.green
+                                  : _getStrength() >= 0.5
+                                  ? Color(0xffFFC542)
+                                  : Colors.red,
                             ),
                           ),
                         ),
-                        CustomButton(
-                          text: 'LOGIN',
-                          onPressed: _login,
+                      ),
+                      SizedBox(height: 8.h),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _ValidationRule(
+                              rule: "At least 8 characters",
+                              isValid: _isValidLength,
+                            ),
+                            _ValidationRule(
+                              rule: "At least one number",
+                              isValid: _hasNumber,
+                            ),
+                            _ValidationRule(
+                              rule: "At least one uppercase letter",
+                              isValid: _hasUppercase,
+                            ),
+                            _ValidationRule(
+                              rule: "At least one lowercase letter",
+                              isValid: _hasLowercase,
+                            ),
+                          ],
                         ),
-                        SizedBox(height: screenHeight * 0.005),
-                        NavigationLink(
-                            questionText: "Don't have an account? ",
-                            actionText: "Sign up",
-                            onPressed: () =>  Navigator.of(context).pushNamed(Routes.signupScreen)
+                      ),
+                      SizedBox(height: 16.h),
+                      CustomTextField(
+                        hintText: 'Confirm new password',
+                        isPassword: true,
+                        controller: _confirmPasswordController,
+                        validator: (value) => Validator.passwordConfirmValidator(value, _passwordController.text),
+                      ),
+                      SizedBox(height: 70.h),
+                      if (_isLoading)
+                        const Center(child: CircularProgressIndicator())
+                      else
+                        Center(
+                          child: CustomButton(
+                            text: 'Submitting...',
+                            onPressed: _resetPassword,
+                          ),
                         ),
-                      ],
-                    ),
+                      SizedBox(height: 20.h), // Add some bottom padding
+                    ],
                   ),
                 ),
               ),
-              SizedBox(height: screenHeight * 0.1,)
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class _ValidationRule extends StatelessWidget {
+  final String rule;
+  final bool isValid;
+
+  const _ValidationRule({
+    Key? key,
+    required this.rule,
+    required this.isValid,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          child: Icon(
+            isValid ? Icons.check : Icons.circle,
+            color: isValid ? Colors.green : Color(0xffA0AEC0),
+            size: isValid ? 18 : 10,
+          ),
+        ),
+        const SizedBox(width: 8), // Adjusted space between icon and text
+        Expanded(
+          child: Text(
+            rule,
+            style: TextStyles.font14Grey600Regular.copyWith(
+              color: isValid ? Colors.green : Color(0xffA0AEC0),
+              fontSize: 12.sp,
+
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

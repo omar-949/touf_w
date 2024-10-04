@@ -9,6 +9,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final bool isPhoneField;
+  final ValueChanged<String>? onChanged; // Add this line
 
   const CustomTextField({
     super.key,
@@ -17,6 +18,7 @@ class CustomTextField extends StatefulWidget {
     required this.controller,
     this.validator,
     this.isPhoneField = false,
+    this.onChanged, // Add this line
   });
 
   @override
@@ -117,6 +119,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               validator: widget.validator,
               cursorColor: Colors.black,
               keyboardType: TextInputType.phone,
+              onChanged: widget.onChanged, // Call the onChanged callback
             ),
           ),
         if (!widget.isPhoneField)
@@ -173,6 +176,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               obscureText: _isObscured,
               validator: widget.validator,
               cursorColor: Colors.black,
+              onChanged: widget.onChanged, // Call the onChanged callback
             ),
           ),
       ],

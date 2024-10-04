@@ -49,7 +49,7 @@ class LoginScreenState extends State<LoginScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0), // Add padding to the left
-            child: Image.network(imagePath), // Load images from assets
+            child: Image.asset(imagePath), // Load images from assets
           ),
           Text(
             text,
