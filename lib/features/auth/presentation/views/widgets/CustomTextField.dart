@@ -8,7 +8,7 @@ class CustomTextField extends StatefulWidget {
   final bool isPassword;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-  final bool isPhoneField; // New property to check if this is a phone field
+  final bool isPhoneField;
 
   const CustomTextField({
     super.key,
@@ -16,7 +16,7 @@ class CustomTextField extends StatefulWidget {
     this.isPassword = false,
     required this.controller,
     this.validator,
-    this.isPhoneField = false, // Default to false
+    this.isPhoneField = false,
   });
 
   @override
@@ -39,7 +39,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       showPhoneCode: true,
       onSelect: (Country country) {
         setState(() {
-          _countryFlag = country.flagEmoji; // Update country flag only
+          _countryFlag = country.flagEmoji;
         });
       },
     );
@@ -60,7 +60,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 hintText: widget.hintText,
                 hintStyle: TextStyles.font14Grey600Regular.copyWith(fontFamily: 'Montserrat'),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14.0),
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: const BorderSide(
+                    color: TextColors.grey200,
+                    width: 1.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
                   borderSide: const BorderSide(
                     color: TextColors.grey200,
                     width: 1.0,
@@ -88,7 +95,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       children: [
                         Text(
                           _countryFlag,
-                          style: const TextStyle(fontSize: 20), // Customize the flag size
+                          style: const TextStyle(fontSize: 20),
                         ),
                         const SizedBox(width: 2),
                         const Icon(
@@ -98,10 +105,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         ),
                         const SizedBox(width: 10),
                         Container(
-                          width: 1, // Fixed width for divider
-                          height: 30, // Customize the height of the divider
-                          color: Color(0xffB3BECD), // Divider color
-                        ),// Dropdown icon
+                          width: 1,
+                          height: 30,
+                          color: const Color(0xffB3BECD),
+                        ),
                       ],
                     ),
                   ),
@@ -129,6 +136,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     width: 1.0,
                   ),
                 ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: const BorderSide(
+                    color: TextColors.grey200,
+                    width: 1.0,
+                  ),
+                ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: const BorderSide(
@@ -146,7 +160,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ? IconButton(
                   icon: Icon(
                     _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                    color: Color(0xffA0AEC0),
+                    color: const Color(0xffA0AEC0),
                   ),
                   onPressed: () {
                     setState(() {
