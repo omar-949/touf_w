@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:country_picker/country_picker.dart'; // Import the country picker package
+import 'package:country_picker/country_picker.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-
 import '../../../../../core/resources/colors.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -26,7 +25,6 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late bool _isObscured;
-  String _countryCode = "+20"; // Default to Egypt
   String _countryFlag = "🇪🇬"; // Default flag for Egypt
 
   @override
@@ -41,8 +39,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       showPhoneCode: true,
       onSelect: (Country country) {
         setState(() {
-          _countryCode = country.phoneCode; // Update country code
-          _countryFlag = country.flagEmoji; // Update country flag
+          _countryFlag = country.flagEmoji; // Update country flag only
         });
       },
     );
@@ -55,16 +52,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.isPhoneField) // Show phone field only if it's a phone field
+        if (widget.isPhoneField)
           Container(
-           // height: 70, // Fixed height for the input field
             child: TextFormField(
               controller: widget.controller,
               decoration: InputDecoration(
                 hintText: widget.hintText,
-                hintStyle:  TextStyles.font14Grey600Regular,
+                hintStyle: TextStyles.font14Grey600Regular.copyWith(fontFamily: 'Montserrat'),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(14.0),
                   borderSide: const BorderSide(
                     color: TextColors.grey200,
                     width: 1.0,
@@ -86,19 +82,26 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 prefixIcon: GestureDetector(
                   onTap: _showCountryPicker,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          _countryFlag, // Show country flag
-                          style: TextStyle(fontSize: 20), // Customize the flag size
+                          _countryFlag,
+                          style: const TextStyle(fontSize: 20), // Customize the flag size
                         ),
-                        SizedBox(width: 8.0),
-                        Text(
-                          _countryCode, // Show country code
-                          style: TextStyles.font14Grey600Regular,
+                        const SizedBox(width: 2),
+                        const Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          color: Color(0xffB3BECD),
+                          size: 16,
                         ),
+                        const SizedBox(width: 10),
+                        Container(
+                          width: 1, // Fixed width for divider
+                          height: 30, // Customize the height of the divider
+                          color: Color(0xffB3BECD), // Divider color
+                        ),// Dropdown icon
                       ],
                     ),
                   ),
@@ -106,9 +109,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
               ),
               validator: widget.validator,
               cursorColor: Colors.black,
+              keyboardType: TextInputType.phone,
             ),
           ),
-        if (!widget.isPhoneField) // Handle other text fields
+        if (!widget.isPhoneField)
           Container(
             constraints: const BoxConstraints(
               maxHeight: 70,
@@ -117,11 +121,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
               controller: widget.controller,
               decoration: InputDecoration(
                 hintText: widget.hintText,
-                hintStyle:  TextStyles.font14Grey600Regular,
+                hintStyle: TextStyles.font14Grey600Regular.copyWith(fontFamily: 'Montserrat'),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color:TextColors.grey200,
+                  borderSide: const BorderSide(
+                    color: TextColors.grey200,
                     width: 1.0,
                   ),
                 ),
@@ -142,6 +146,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ? IconButton(
                   icon: Icon(
                     _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                    color: Color(0xffA0AEC0),
                   ),
                   onPressed: () {
                     setState(() {

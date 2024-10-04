@@ -16,24 +16,15 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
   late Animation<double> _rotationAnimation;
   late Animation<double> _backgroundOpacityAnimation;
 
-  final Duration splashDuration = const Duration(seconds: 4);
-  final Duration animationDuration = const Duration(seconds: 7);
-
   @override
   void initState() {
     super.initState();
-    _initializeAnimations();
-    _startSplashScreenTimer();
-  }
-
-  void _initializeAnimations() {
     _controller = AnimationController(
       vsync: this,
-      duration: animationDuration,
+      duration: const Duration(seconds: 3),
     );
-
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+      CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
     );
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
@@ -42,17 +33,13 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
       CurvedAnimation(parent: _controller, curve: Curves.linear),
     );
     _backgroundOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _controller.forward();
-    });
-  }
-
-  void _startSplashScreenTimer() {
-    Timer(splashDuration, () {
-      Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
+      Timer(const Duration(seconds: 4), () {
+        Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
+      });
     });
   }
 
@@ -69,54 +56,46 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
         body: Stack(
           fit: StackFit.expand,
           children: [
-            _buildBackgroundImage(),
-            _buildLogo(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBackgroundImage() {
-    return Positioned.fill(
-      child: FadeTransition(
-        opacity: _backgroundOpacityAnimation,
-        child: Image.asset(
-          "assets/splash_onboarding/Splash Screen.png",
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLogo() {
-    return Positioned(
-      top: 216,
-      left: 0,
-      right: 0,
-      child: FadeTransition(
-        opacity: _opacityAnimation,
-        child: SlideTransition(
-          position: Tween<Offset>(begin: const Offset(0, -0.5), end: Offset.zero).animate(
-            CurvedAnimation(
-              parent: _controller,
-              curve: Curves.easeInOut,
-            ),
-          ),
-          child: ScaleTransition(
-            scale: _scaleAnimation,
-            child: RotationTransition(
-              turns: _rotationAnimation,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 87),
+            Positioned.fill(
+              child: FadeTransition(
+                opacity: _backgroundOpacityAnimation,
                 child: Image.asset(
-                  "assets/splash_onboarding/logo_en 2 (1).png",
-                  width: 217,
-                  height: 105,
+                  "assets/splash_onboarding/Splash Screen.png",
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
-          ),
+            Positioned(
+              top: 216,
+              left: 0,
+              right: 0,
+              child: FadeTransition(
+                opacity: _opacityAnimation,
+                child: SlideTransition(
+                  position: Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0)).animate(
+                    CurvedAnimation(
+                      parent: _controller,
+                      curve: Curves.easeOut,
+                    ),
+                  ),
+                  child: ScaleTransition(
+                    scale: _scaleAnimation,
+                    child: RotationTransition(
+                      turns: _rotationAnimation,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 87),
+                        child: Image.asset(
+                          "assets/splash_onboarding/logo_en 2 (1).png",
+                          width: 217,
+                          height: 105,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
