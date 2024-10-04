@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
+
 class OtpDigitField extends StatefulWidget {
   final FocusNode currentFocus;
   final FocusNode? nextFocus;
@@ -37,9 +38,12 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
           TextFormField(
             focusNode: widget.currentFocus,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: widget.fieldWidth * 0.6),
+            style: TextStyle(
+              fontSize: widget.fieldWidth * 0.6,
+              height: 1.5, // Adjust the line height
+            ),
             keyboardType: TextInputType.number,
-            maxLength: 1,
+            maxLength: 1, // Limit input to 1 character
             cursorColor: TextColors.grey200, // Set cursor color to grey
             decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -54,15 +58,20 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
                 borderRadius: BorderRadius.circular(14),
                 borderSide: BorderSide(color: Colors.blue, width: 1),
               ),
-              contentPadding: EdgeInsets.symmetric(vertical: 20), // Adjust vertical padding
+              contentPadding: EdgeInsets.only(bottom: 8), // Adjust bottom padding
               counterText: '', // Remove the 0/1 count
             ),
+            // Display the input value in the TextFormField
+            controller: TextEditingController(text: _inputValue)
+              ..selection = TextSelection.fromPosition(TextPosition(offset: _inputValue.length)),
             onChanged: (value) {
-              setState(() {
-                _inputValue = value; // Store the input value
-              });
-              if (value.length == 1 && widget.nextFocus != null) {
-                FocusScope.of(context).requestFocus(widget.nextFocus);
+              if (value.length <= 1) { // Allow only one character
+                setState(() {
+                  _inputValue = value; // Store the input value
+                });
+                if (value.length == 1 && widget.nextFocus != null) {
+                  FocusScope.of(context).requestFocus(widget.nextFocus);
+                }
               }
             },
           ),
@@ -81,9 +90,10 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
               ),
             ),
           ),
+          // Input value displayed above the hint text
+
         ],
       ),
     );
   }
 }
-
