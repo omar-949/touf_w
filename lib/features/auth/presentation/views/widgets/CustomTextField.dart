@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart'; // Import the country picker package
 import 'package:toufwshouf/core/resources/styles.dart';
-
 import '../../../../../core/resources/colors.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -57,23 +56,29 @@ class _CustomTextFieldState extends State<CustomTextField> {
       children: [
         if (widget.isPhoneField) // Show phone field only if it's a phone field
           Container(
-           // height: 70, // Fixed height for the input field
             child: TextFormField(
               controller: widget.controller,
               decoration: InputDecoration(
                 hintText: widget.hintText,
-                hintStyle:  TextStyles.font14Grey600Regular,
+                hintStyle: TextStyles.font14Grey600Regular,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
+                  borderSide:  BorderSide(
+                    color: TextColors.grey200, // Set border color to red
+                    width: 1.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
                   borderSide: const BorderSide(
-                    color: TextColors.grey200,
+                    color: TextColors.grey200, // Set enabled border color to red
                     width: 1.0,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: const BorderSide(
-                    color: Colors.blue,
+                    color: Colors.blue, // Set focused border color to red
                     width: 2.0,
                   ),
                 ),
@@ -117,18 +122,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
               controller: widget.controller,
               decoration: InputDecoration(
                 hintText: widget.hintText,
-                hintStyle:  TextStyles.font14Grey600Regular,
+                hintStyle: TextStyles.font14Grey600Regular,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color:TextColors.grey200,
+                  borderSide: const BorderSide(color: TextColors.grey200), // Set border color to red
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: const BorderSide(
+                    color: TextColors.grey200, // Set enabled border color to red
                     width: 1.0,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: const BorderSide(
-                    color: Colors.blue,
+                    color: Colors.blue, // Set focused border color to red
                     width: 2.0,
                   ),
                 ),
