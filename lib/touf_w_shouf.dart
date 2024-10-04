@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 
+
 class ToufWShouf extends StatelessWidget {
   const ToufWShouf({super.key, required this.appRouter});
 
@@ -18,7 +19,7 @@ class ToufWShouf extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme(textTheme)),
-        initialRoute: Routes.signupScreen,
+        initialRoute: Routes.splashScreen,
         onGenerateRoute: appRouter.generateRouter,
       ),
     );

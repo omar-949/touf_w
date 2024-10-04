@@ -134,6 +134,8 @@ abstract class TextStyles {
     color: TextColors.orange,
     fontWeight: FontWeightHelper.medium,
   );
+  ////
+  // rania
   static TextStyle font26GreyExtraBold = TextStyle(
     fontSize: 26.sp,
     color: TextColors.grey800,
@@ -159,5 +161,23 @@ abstract class TextStyles {
     color: TextColors.grey600,
     fontWeight: FontWeightHelper.bold,
   );
+  /////////
+  //onboarding tasneem
+  static TextStyle onboardingTitleStyle = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 24.sp,
+    fontWeight:FontWeightHelper.semiBold ,
+    height: 29.05 / 24,
+    letterSpacing: -0.3,
+    color: TextColors.white,
 
+  );
+  static TextStyle onboardingDescriptionStyle = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    height: 19.36 / 16,
+    letterSpacing: -0.3,
+    color: TextColors.white,
+  );
 }
