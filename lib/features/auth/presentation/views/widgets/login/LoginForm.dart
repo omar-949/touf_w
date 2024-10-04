@@ -2,16 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-
 import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/resources/styles.dart';
 import '../../../../../../core/widgets/CustomTextField.dart';
 import '../../../../../../core/widgets/Navigation_link.dart';
 import '../../../../../../core/widgets/custom_button.dart';
-import 'SocialLoginButton.dart'; // Import the SocialLoginButton
+import 'SocialLoginButton.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+  final Function? onLogin; // Add this line
+  final Function(bool)? onCheckboxChanged; // Add this line
+
+  const LoginForm({
+    Key? key,
+    this.onLogin, // Add this line
+    this.onCheckboxChanged, // Add this line
+  }) : super(key: key);
 
   @override
   LoginFormState createState() => LoginFormState();
@@ -32,6 +38,10 @@ class LoginFormState extends State<LoginForm> {
 
   void _login() {
     if (_formKey.currentState?.validate() ?? false) {
+      // Call the onLogin function if it's provided
+      if (widget.onLogin != null) {
+        widget.onLogin!();
+      }
       Navigator.of(context).pushNamed(Routes.homeScreen);
     }
   }
@@ -77,6 +87,9 @@ class LoginFormState extends State<LoginForm> {
                       setState(() {
                         _agreeToTerms = value ?? false;
                       });
+                      if (widget.onCheckboxChanged != null) {
+                        widget.onCheckboxChanged!(value ?? false); // Call the onCheckboxChanged
+                      }
                     },
                   ),
                   Expanded(
