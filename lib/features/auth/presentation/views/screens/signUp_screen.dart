@@ -2,6 +2,7 @@ import 'package:dio/dio.dart'; // If you're using Dio for HTTP requests
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/app_router.dart';
@@ -26,7 +27,7 @@ class SignUpScreenState extends State<SignUpScreen> {
   final _lastnameController = TextEditingController();
   final _passwordController = TextEditingController();
   final _phoneController = TextEditingController();
-  bool _agreeToTerms = false; // Checkbox state
+  bool _agreeToTerms = false;
 
   @override
   void dispose() {
@@ -35,64 +36,21 @@ class SignUpScreenState extends State<SignUpScreen> {
     _lastnameController.dispose();
     _passwordController.dispose();
     _phoneController.dispose();
-
     super.dispose();
-  }
-
-  String? _validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Email is required';
-    }
-    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-      return 'Enter a valid email address';
-    }
-    return null;
-  }
-
-  String? _validateName(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Name is required';
-    }
-    if (value.length < 3 || value.length > 35) {
-      return 'Username must be between 3 and 35 characters';
-    }
-    return null;
-  }
-
-  String? _validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Password is required';
-    }
-    if (value.length < 8) {
-      return 'Password must be at least 8 characters';
-    }
-    if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$').hasMatch(value)) {
-      return 'Password must contain at least one lowercase letter, one uppercase letter, and one number';
-    }
-    return null;
-  }
-
-  String? _validatePhone(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Phone number is required';
-    }
-    if (!RegExp(r'^01[0-9]{9}$').hasMatch(value)) {
-      return 'Enter a valid Egyptian phone number (e.g., 01022484945)';
-    }
-    return null;
   }
 
   Future<void> _signUp() async {
     if (_formKey.currentState?.validate() ?? false) {
       if (!_agreeToTerms) {
-        // Show an error message if terms are not agreed to
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('You must agree to the terms and conditions.')),
         );
-        Navigator.of(context).pushNamed(Routes.loginScreen);
-        return;
+        return; // Return early if terms are not agreed to
       }
-      // Proceed with sign-up logic
+
+      // Proceed with sign-up logic (e.g., API call)
+      // Assuming sign-up is successful, navigate to the login screen
+      Navigator.of(context).pushNamed(Routes.loginScreen);
     }
   }
 
@@ -136,25 +94,25 @@ class SignUpScreenState extends State<SignUpScreen> {
                         CustomTextField(
                           hintText: 'First Name',
                           controller: _firstnameController,
-                          validator: _validateName,
+                          validator: Validator.userNameValidator,
                         ),
                         SizedBox(height: screenHeight * 0.02),
                         CustomTextField(
                           hintText: 'Last Name',
                           controller: _lastnameController,
-                          validator: _validateName,
+                          validator: Validator.userNameValidator,
                         ),
                         SizedBox(height: screenHeight * 0.02),
                         CustomTextField(
                           hintText: 'Email',
                           controller: _emailController,
-                          validator: _validateEmail,
+                          validator: Validator.emailValidator,
                         ),
                         SizedBox(height: screenHeight * 0.02),
                         CustomTextField(
                           hintText: 'Phone number',
                           controller: _phoneController,
-                          validator: _validatePhone,
+                          validator: Validator.phoneNumberValidator,
                           isPhoneField: true,
                         ),
                         SizedBox(height: screenHeight * 0.02),
@@ -162,18 +120,15 @@ class SignUpScreenState extends State<SignUpScreen> {
                           hintText: 'Password',
                           isPassword: true,
                           controller: _passwordController,
-                          validator: _validatePassword,
+                          validator: Validator.passwordValidator,
                         ),
                         SizedBox(height: screenHeight * 0.01),
-                        // Checkbox for agreeing to terms
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Checkbox(
                               splashRadius: 30,
-                              side: BorderSide(
-                                  color:TextColors.grey600
-                              ),
+                              side: BorderSide(color: TextColors.grey600),
                               activeColor: Colors.blue,
                               value: _agreeToTerms,
                               onChanged: (value) {
@@ -186,7 +141,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SizedBox(height: 13.h,),
+                                  SizedBox(height: 13.h),
                                   RichText(
                                     text: TextSpan(
                                       style: TextStyles.font14Grey600Regular,
@@ -196,12 +151,11 @@ class SignUpScreenState extends State<SignUpScreen> {
                                           text: ' Terms of Service',
                                           style: TextStyles.font14Blue500Bold,
                                         ),
-                                        TextSpan(text: ' and ',style: TextStyles.font14Grey600Regular),
+                                        TextSpan(text: ' and ', style: TextStyles.font14Grey600Regular),
                                         TextSpan(
                                           text: 'Privacy Policy',
                                           style: TextStyles.font14Blue500Bold,
                                         ),
-
                                       ],
                                     ),
                                   ),

@@ -8,10 +8,16 @@ import 'package:toufwshouf/features/auth/presentation/views/screens/reset_passwo
 import 'package:toufwshouf/features/auth/presentation/views/screens/signUp_screen.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
 
+import '../../features/onboarding/presentation/views/SplashScreen.dart';
+
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
+      case Routes.splashScreen: // Add splash screen route
+        return MaterialPageRoute(
+          builder: (_) => const SplashScreen(),
+        );
       case Routes.onboardingScreen:
         return MaterialPageRoute(
           builder: (_) => const OnboardingView(),

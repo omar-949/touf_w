@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
@@ -30,30 +31,12 @@ class LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  String? _validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Email is required';
-    }
-    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-      return 'Enter a valid email address';
-    }
-    return null;
-  }
 
-  String? _validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Password is required';
-    }
-    if (value.length < 6) {
-      return 'Password must be at least 6 characters';
-    }
-    return null;
-  }
 
   void _login() {
     if (_formKey.currentState?.validate() ?? false) {
 
-      Routes.homeScreen;
+      Navigator.of(context).pushNamed(Routes.homeScreen);
     }
   }
 
@@ -97,7 +80,7 @@ class LoginScreenState extends State<LoginScreen> {
                           hintText: 'Email',
 
                           controller: _emailController,
-                          validator: _validateEmail,
+                          validator: Validator.emailValidator,
                         ),
                         SizedBox(height: screenHeight * 0.02),
                         CustomTextField(
@@ -106,7 +89,7 @@ class LoginScreenState extends State<LoginScreen> {
 
                           isPassword: true,
                           controller: _passwordController,
-                          validator: _validatePassword,
+                          validator: Validator.loginPasswordValidator,
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
