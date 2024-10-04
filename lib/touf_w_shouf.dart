@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 
-import 'features/onboarding/presentation/views/SplashScreen.dart';
 
 class ToufWShouf extends StatelessWidget {
   const ToufWShouf({super.key, required this.appRouter});
