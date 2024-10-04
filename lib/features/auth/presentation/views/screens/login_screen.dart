@@ -46,14 +46,17 @@ class LoginScreenState extends State<LoginScreen> {
         border: Border.all(color: Colors.grey[200]!),
       ),
       child: Row(
+
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0), // Add padding to the left
             child: Image.asset(imagePath), // Load images from assets
           ),
+          SizedBox(width: 45.w,),
           Text(
             text,
             style: TextStyles.font14Grey600Regular,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

@@ -30,7 +30,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
     if (_formKey.currentState?.validate() ?? false) {
       String email = _emailController.text;
       // Initiate the reset password request
-      Navigator.pushNamed(context,Routes.codeverificationScreen);
+      Navigator.pushNamed(context,Routes.resetpassScreen);
     }
   }
 

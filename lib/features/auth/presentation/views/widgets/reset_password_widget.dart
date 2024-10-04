@@ -5,6 +5,7 @@ import 'package:toufwshouf/features/auth/presentation/views/widgets/CustomTextFi
 import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:toufwshouf/core/helpers/app_regex.dart';
 import '../../../../../core/helpers/validator.dart';
+import '../../../../../core/routing/routes.dart';
 import 'Header_widget.dart';
 
 class ResetPasswordWidget extends StatefulWidget {
@@ -53,12 +54,9 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
 
   void _resetPassword() {
     if (_formKey.currentState?.validate() ?? false) {
-      setState(() {
-        _isLoading = true;
-      });
-      // Perform reset password action
-      // TODO: Implement your reset password logic here
-      // After completion, set _isLoading back to false
+      String pass = _confirmPasswordController.text;
+      // Initiate the reset password request
+      Navigator.pushNamed(context,Routes.resetpassScreen);
     }
   }
 

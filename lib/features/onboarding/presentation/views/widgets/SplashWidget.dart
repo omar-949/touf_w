@@ -21,8 +21,9 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 10),
     );
+
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
     );
@@ -30,11 +31,13 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
     _rotationAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.linear),
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut), // Smooth rotation
     );
     _backgroundOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
+
+    // Start the animations and navigate after a delay
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _controller.forward();
       Timer(const Duration(seconds: 4), () {
@@ -56,6 +59,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
         body: Stack(
           fit: StackFit.expand,
           children: [
+            // Background image with fade transition
             Positioned.fill(
               child: FadeTransition(
                 opacity: _backgroundOpacityAnimation,
@@ -65,6 +69,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
                 ),
               ),
             ),
+            // Logo and animations
             Positioned(
               top: 216,
               left: 0,
