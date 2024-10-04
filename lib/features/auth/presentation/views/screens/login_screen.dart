@@ -10,8 +10,6 @@ import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widge
 import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
 
-import '../../../../../core/routing/app_router.dart';
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
