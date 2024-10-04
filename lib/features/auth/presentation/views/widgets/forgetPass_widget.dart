@@ -71,9 +71,8 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 31.w, right: 31.w),
-                  child: SizedBox(
+
+                SizedBox(
                     width: 327.w,
                     child: Container(
                       decoration: BoxDecoration(
@@ -93,15 +92,9 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                               ),
 
                            SizedBox(height: 100.h),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: CustomButton(
-                                  text: "Submit",
-                                  onPressed: _resetPassword,
-                                ),
-                              ),
+                            CustomButton(
+                              text: 'Submit',
+                              onPressed: _resetPassword,
                             ),
                             const SizedBox(height: 140),
                           ],
@@ -109,7 +102,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                       ),
                     ),
                   ),
-                ),
+
                 const SizedBox(height: 100),
               ],
             ),
