@@ -4,9 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
 import 'package:toufwshouf/core/widgets/CustomTextField.dart';
-import 'package:toufwshouf/core/widgets/Navigation_link.dart';
-
 import '../../../../../../core/routing/routes.dart';
+import '../../../../../../core/widgets/Navigation_link.dart';
 
 class SignUpForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
