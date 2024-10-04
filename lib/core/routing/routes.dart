@@ -1,4 +1,5 @@
 abstract class Routes {
+  static const String splashScreen = '/splashScreen'; // New splash screen route
   static const String onboardingScreen = '/onBoardingScreen';
   static const String loginScreen = '/loginScreen';
   static const String signupScreen = '/signupScreen';
