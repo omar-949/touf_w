@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../resources/styles.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,9 +16,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: InkWell(
         onTap: () {
-          //
+          Navigator.of(context).pop();
         },
-        child: const Icon(Icons.arrow_back_ios_outlined, color: Colors.black, size: 18,),
+        child: const Icon(Icons.arrow_back_ios_outlined, color: Colors.black, size: 18),
       ),
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -27,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         textAlign: TextAlign.center,
-        style: TextStyles.customTextStyle
+        style: TextStyles.customTextStyle,
       ),
       centerTitle: true,
     );
