@@ -1,15 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Navigation_link.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/otpdigitfield.dart';
+import 'package:toufwshouf/core/widgets/Header_widget.dart';
+import 'package:toufwshouf/core/widgets/custom_button.dart';
+import '../../../../../../core/widgets/Navigation_link.dart';
+import 'otpdigitfield.dart';
 
 class VerifyPasswordWidget extends StatefulWidget {
   const VerifyPasswordWidget({super.key});

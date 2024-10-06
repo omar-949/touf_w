@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../../../../core/routing/routes.dart';
+import '../../../../../../core/resources/assets.dart';
+import '../../../../../../core/routing/routes.dart';
 
 class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});
@@ -21,7 +22,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 10),
+      duration: const Duration(seconds: 15),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
@@ -30,14 +31,16 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
+
     _rotationAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut), // Smooth rotation
+      CurvedAnimation(parent: _controller, curve: Curves.linear),
     );
+
     _backgroundOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
 
-    // Start the animations and navigate after a delay
+    // Start the animations
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _controller.forward();
       Timer(const Duration(seconds: 4), () {
@@ -64,7 +67,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
               child: FadeTransition(
                 opacity: _backgroundOpacityAnimation,
                 child: Image.asset(
-                  "assets/splash_onboarding/Splash Screen.png",
+                  Assets.splashBackgroundImage,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -90,7 +93,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 87),
                         child: Image.asset(
-                          "assets/splash_onboarding/logo_en 2 (1).png",
+                          Assets.splashLogoImage,
                           width: 217,
                           height: 105,
                         ),

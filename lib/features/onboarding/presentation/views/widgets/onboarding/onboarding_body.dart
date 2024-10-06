@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/resources/styles.dart';
-import '../../../data/models/OnboardingInfo.dart';
+import '../../../../../../core/resources/styles.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/auth/presentation/views/signUp_screen.dart';
+
+import 'OnboardingInfo.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});

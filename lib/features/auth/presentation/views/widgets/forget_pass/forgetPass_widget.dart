@@ -1,13 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/Header_widget.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/custom_button.dart';
-import 'CustomTextField.dart';
+import 'package:toufwshouf/core/widgets/Header_widget.dart';
+import 'package:toufwshouf/core/widgets/custom_button.dart';
+import '../../../../../../core/widgets/CustomTextField.dart';
 
 class ForgetPasswordWidget extends StatefulWidget {
   const ForgetPasswordWidget({super.key});
@@ -29,8 +27,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
   Future<void> _resetPassword() async {
     if (_formKey.currentState?.validate() ?? false) {
       String email = _emailController.text;
-      // Initiate the reset password request
-      Navigator.pushNamed(context,Routes.resetpassScreen);
+      Navigator.pushNamed(context, Routes.resetpassScreen);
     }
   }
 
@@ -66,43 +63,40 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                     padding: EdgeInsets.symmetric(horizontal: textPadding),
                     child: Text(
                       "Don’t worry! It happens. Please enter the email address associated with your account.",
-                      textAlign: TextAlign.center, // Center the text
+                      textAlign: TextAlign.center,
                       style: TextStyles.font14GreyMedium,
                     ),
                   ),
                 ),
-
                 SizedBox(
-                    width: 327.w,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        color: Colors.white,
-                      ),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 0.09 * containerHeight),
-                            CustomTextField(
-                                hintText: "Insert email address / mobile number",
-                                controller: _emailController,
-                                validator: Validator.emailValidator,
-                              ),
-
-                           SizedBox(height: 100.h),
-                            CustomButton(
-                              text: 'Submit',
-                              onPressed: _resetPassword,
-                            ),
-                            const SizedBox(height: 140),
-                          ],
-                        ),
+                  width: 327.w,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.white,
+                    ),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 0.09 * containerHeight),
+                          CustomTextField(
+                            hintText: "Insert email address / mobile number",
+                            controller: _emailController,
+                            validator: Validator.emailValidator,
+                          ),
+                          SizedBox(height: 100.h),
+                          CustomButton(
+                            text: 'Submit',
+                            onPressed: _resetPassword,
+                          ),
+                          const SizedBox(height: 140),
+                        ],
                       ),
                     ),
                   ),
-
+                ),
                 const SizedBox(height: 100),
               ],
             ),

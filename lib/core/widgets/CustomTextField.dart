@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import '../../../../../core/resources/colors.dart';
+import '../resources/colors.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hintText;
@@ -9,7 +9,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final bool isPhoneField;
-  final ValueChanged<String>? onChanged; // Add this line
+  final ValueChanged<String>? onChanged;
 
   const CustomTextField({
     super.key,
@@ -18,7 +18,7 @@ class CustomTextField extends StatefulWidget {
     required this.controller,
     this.validator,
     this.isPhoneField = false,
-    this.onChanged, // Add this line
+    this.onChanged,
   });
 
   @override
@@ -119,7 +119,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               validator: widget.validator,
               cursorColor: Colors.black,
               keyboardType: TextInputType.phone,
-              onChanged: widget.onChanged, // Call the onChanged callback
+              onChanged: widget.onChanged,
             ),
           ),
         if (!widget.isPhoneField)
@@ -162,7 +162,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 suffixIcon: widget.isPassword
                     ? IconButton(
                   icon: Icon(
-                    _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                    _isObscured
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
                     color: const Color(0xffA0AEC0),
                   ),
                   onPressed: () {
@@ -176,7 +178,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               obscureText: _isObscured,
               validator: widget.validator,
               cursorColor: Colors.black,
-              onChanged: widget.onChanged, // Call the onChanged callback
+              onChanged: widget.onChanged,
             ),
           ),
       ],

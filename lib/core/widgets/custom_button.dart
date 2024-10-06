@@ -23,18 +23,21 @@ class CustomButton extends StatelessWidget {
           backgroundColor: const Color(0xFF1B85F3),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(14.r), // Rounded top-left corner
-              // Square top-right corner
+              Radius.circular(14.r),
             ),
           ),
-          padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 10.w), // Padding
-          elevation: 0, // No shadow to simulate opacity effect
+          padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 10.w),
+          elevation: 0,
         ),
         child: Text(
           text,
-          style: TextStyles.font16WhiteMedium.copyWith(fontFamily: 'Montserrat', color: Colors.white, fontWeight: FontWeight.w500)
+          style: TextStyles.font16WhiteMedium.copyWith(
+            fontFamily: 'Montserrat',
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
           ),
         ),
+      ),
     );
   }
 }

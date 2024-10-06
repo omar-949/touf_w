@@ -74,6 +74,7 @@ flutter:
   assets:
     - assets/
     - assets/svgs/
+    - assets/payment/
     - assets/splash_onboarding/
     - assets/auth/
 
