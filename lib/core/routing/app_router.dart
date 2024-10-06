@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:toufwshouf/core/routing/route_animations.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/Home/presentation/views/screens/home_screen.dart';
+import 'package:toufwshouf/features/Home/presentation/views/home_screen.dart';
 import 'package:toufwshouf/features/auth/presentation/views/codeVerification_screen.dart';
 import 'package:toufwshouf/features/auth/presentation/views/forgetPass_screen.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
@@ -32,7 +33,7 @@ class AppRouter {
         );
       case Routes.codeverificationScreen:
         return MaterialPageRoute(
-          builder: (_) =>  VerifyPasswordScreen(),
+          builder: (_) => VerifyPasswordScreen(),
         );
       case Routes.signupScreen:
         return MaterialPageRoute(
@@ -43,8 +44,10 @@ class AppRouter {
           builder: (_) => const HomeScreen(),
         );
       case Routes.resetpassScreen:
-        return MaterialPageRoute(
-          builder: (_) => const ResetPasswordScreen(),
+        return RouteAnimations.buildPageRoute(
+          const ResetPasswordScreen(),
+          settings,
+          TransitionType.slideFromBottom,
         );
       default:
         return null;

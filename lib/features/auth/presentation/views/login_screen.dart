@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
               Center(
                   child: Text("Welcome back! Please enter your details.",
                       style: TextStyles.font14GreyMedium)),
-              SizedBox(height: 10.h),
+              10.verticalSpace,
               const LoginForm(), // Use the LoginForm widget here
               SizedBox(height: 10.h),
             ],
