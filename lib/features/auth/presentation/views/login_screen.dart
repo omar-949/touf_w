@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/login/LoginForm.dart';
+import 'package:toufwshouf/core/widgets/header.dart';
 
 import '../../../../core/resources/styles.dart';
-import '../../../../core/widgets/Header_widget.dart';
+import 'widgets/login/login_form.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 

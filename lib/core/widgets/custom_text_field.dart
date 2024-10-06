@@ -55,72 +55,70 @@ class _CustomTextFieldState extends State<CustomTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.isPhoneField)
-          Container(
-            child: TextFormField(
-              controller: widget.controller,
-              decoration: InputDecoration(
-                hintText: widget.hintText,
-                hintStyle: TextStyles.font14Grey600Regular.copyWith(fontFamily: 'Montserrat'),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(
-                    color: TextColors.grey200,
-                    width: 1.0,
-                  ),
+          TextFormField(
+            controller: widget.controller,
+            decoration: InputDecoration(
+              hintText: widget.hintText,
+              hintStyle: TextStyles.font14Grey600Regular.copyWith(fontFamily: 'Montserrat'),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: const BorderSide(
+                  color: TextColors.grey200,
+                  width: 1.0,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(
-                    color: TextColors.grey200,
-                    width: 1.0,
-                  ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: const BorderSide(
+                  color: TextColors.grey200,
+                  width: 1.0,
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(
-                    color: Colors.blue,
-                    width: 2.0,
-                  ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: const BorderSide(
+                  color: Colors.blue,
+                  width: 2.0,
                 ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.04,
-                  vertical: 12.0,
-                ),
-                prefixIcon: GestureDetector(
-                  onTap: _showCountryPicker,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          _countryFlag,
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                        const SizedBox(width: 2),
-                        const Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: Color(0xffB3BECD),
-                          size: 16,
-                        ),
-                        const SizedBox(width: 10),
-                        Container(
-                          width: 1,
-                          height: 30,
-                          color: const Color(0xffB3BECD),
-                        ),
-                      ],
-                    ),
+              ),
+              filled: true,
+              fillColor: Colors.white,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.04,
+                vertical: 12.0,
+              ),
+              prefixIcon: GestureDetector(
+                onTap: _showCountryPicker,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        _countryFlag,
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(width: 2),
+                      const Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: Color(0xffB3BECD),
+                        size: 16,
+                      ),
+                      const SizedBox(width: 10),
+                      Container(
+                        width: 1,
+                        height: 30,
+                        color: const Color(0xffB3BECD),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              validator: widget.validator,
-              cursorColor: Colors.black,
-              keyboardType: TextInputType.phone,
-              onChanged: widget.onChanged,
             ),
+            validator: widget.validator,
+            cursorColor: Colors.black,
+            keyboardType: TextInputType.phone,
+            onChanged: widget.onChanged,
           ),
         if (!widget.isPhoneField)
           Container(

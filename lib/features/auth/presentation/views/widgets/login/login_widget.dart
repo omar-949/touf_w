@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_form.dart';
 import '../../../../../../core/widgets/Navigation_link.dart';
-import 'LoginForm.dart';
-import 'SocialLoginButton.dart';
+import 'social_login_button.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});

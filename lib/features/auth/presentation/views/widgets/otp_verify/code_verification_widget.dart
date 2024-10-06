@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/core/widgets/Header_widget.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
+import 'package:toufwshouf/core/widgets/header.dart';
 import '../../../../../../core/widgets/Navigation_link.dart';
 import 'otpdigitfield.dart';
 
@@ -40,7 +40,7 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
           child: Center(
             child: Column(
               children: [
-                Header(
+                const Header(
                   logoAsset: "assets/logo_en 2.png",
                   imageAsset: "assets/auth/code_validation.png",
                 ),

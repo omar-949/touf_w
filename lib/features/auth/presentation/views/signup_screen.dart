@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/core/widgets/Header_widget.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/SignUpForm.dart';
+import 'package:toufwshouf/core/widgets/header.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/Signup_form.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

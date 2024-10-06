@@ -1,9 +1,8 @@
-// sign_up_form.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
-import 'package:toufwshouf/core/widgets/CustomTextField.dart';
+import 'package:toufwshouf/core/widgets/custom_text_field.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/widgets/Navigation_link.dart';
 
@@ -94,13 +93,13 @@ class SignUpForm extends StatelessWidget {
                       RichText(
                         text: TextSpan(
                           style: TextStyle(fontSize: 14.sp, color: Colors.grey[600]),
-                          children: [
-                            const TextSpan(text: 'I agree to the Platform '),
+                          children: const [
+                            TextSpan(text: 'I agree to the Platform '),
                             TextSpan(
                               text: 'Terms of Service',
                               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                             ),
-                            const TextSpan(text: ' and '),
+                            TextSpan(text: ' and '),
                             TextSpan(
                               text: 'Privacy Policy',
                               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
