@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.3
+  sdk: ">=3.5.0 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -46,6 +46,8 @@ dependencies:
   pinput: ^5.0.0
   dartz: ^0.10.1
   google_fonts: ^6.2.1
+  go_router:
+  country_picker:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,7 +74,9 @@ flutter:
   assets:
     - assets/
     - assets/svgs/
-    - assets/images/
+    - assets/splash_onboarding/
+    - assets/auth/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -85,11 +89,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+     - family: Inter
+       fonts:
+         - asset: assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf
+         - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
+     - family: Montserrat
+       fonts:
+         - asset: assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
+         - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
+         - asset: assets/fonts/Montserrat-Bold.ttf
+         - asset: assets/fonts/Montserrat-Medium.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
