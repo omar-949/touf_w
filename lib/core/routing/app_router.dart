@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/routing/route_animations.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/Home/presentation/views/screens/home_screen.dart';
 import 'package:toufwshouf/features/auth/presentation/views/codeVerification_screen.dart';
 import 'package:toufwshouf/features/auth/presentation/views/forgetPass_screen.dart';
 import 'package:toufwshouf/features/best_selling/presentation/views/DetailScreen.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:toufwshouf/features/payment/presentation/views/payment_screen.dart';
 
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/reset_password_screen.dart';
 import '../../features/auth/presentation/views/signUp_screen.dart';
+import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/onboarding/presentation/views/SplashScreen.dart';
 
 class AppRouter {
@@ -69,6 +70,10 @@ class AppRouter {
           const DetailScreen(),
           settings,
           TransitionType.slideFromLeft,
+        );
+      case Routes.paymentScreen:
+        return MaterialPageRoute(
+          builder: (_) => const PaymentScreen(),
         );
       default:
         return null;
