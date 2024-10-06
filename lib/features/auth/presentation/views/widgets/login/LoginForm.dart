@@ -14,10 +14,10 @@ class LoginForm extends StatefulWidget {
   final Function(bool)? onCheckboxChanged; // Add this line
 
   const LoginForm({
-    Key? key,
+    super.key,
     this.onLogin, // Add this line
     this.onCheckboxChanged, // Add this line
-  }) : super(key: key);
+  });
 
   @override
   LoginFormState createState() => LoginFormState();
@@ -80,7 +80,7 @@ class LoginFormState extends State<LoginForm> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Checkbox(
-                    side: BorderSide(color: TextColors.grey600),
+                    side: const BorderSide(color: TextColors.grey600),
                     activeColor: Colors.blue,
                     value: _agreeToTerms,
                     onChanged: (value) {
@@ -113,7 +113,7 @@ class LoginFormState extends State<LoginForm> {
                 onPressed: _login,
               ),
               SizedBox(height: screenHeight * 0.005),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               NavigationLink(
                 questionText: "",
                 actionText: "Forget password?",
@@ -123,19 +123,19 @@ class LoginFormState extends State<LoginForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Divider(
                       color: Colors.grey,
                       thickness: 1,
                     ),
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   Text(
                     "OR",
                     style: TextStyles.font14Grey600Regular,
                   ),
-                  SizedBox(width: 8.0),
-                  Expanded(
+                  const SizedBox(width: 8.0),
+                  const Expanded(
                     child: Divider(
                       color: Colors.grey,
                       thickness: 1,

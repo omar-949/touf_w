@@ -40,7 +40,7 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
           child: Center(
             child: Column(
               children: [
-                Header(
+                const Header(
                   logoAsset: "assets/logo_en 2.png",
                   imageAsset: "assets/auth/code_validation.png",
                 ),

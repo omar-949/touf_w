@@ -80,7 +80,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
               child: FadeTransition(
                 opacity: _opacityAnimation,
                 child: SlideTransition(
-                  position: Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0)).animate(
+                  position: Tween<Offset>(begin: const Offset(0, -1), end: const Offset(0, 0)).animate(
                     CurvedAnimation(
                       parent: _controller,
                       curve: Curves.easeOut,

@@ -23,7 +23,7 @@ class Header extends StatelessWidget {
   }
 
   Widget _buildImage(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Image.asset(
         imageAsset,

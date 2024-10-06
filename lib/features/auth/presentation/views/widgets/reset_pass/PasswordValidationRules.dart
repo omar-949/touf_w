@@ -7,12 +7,12 @@ class PasswordValidationRules extends StatelessWidget {
   final bool hasNumber;
 
   const PasswordValidationRules({
-    Key? key,
+    super.key,
     required this.isValidLength,
     required this.hasUppercase,
     required this.hasLowercase,
     required this.hasNumber,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +33,9 @@ class _ValidationRule extends StatelessWidget {
   final bool isValid;
 
   const _ValidationRule({
-    Key? key,
     required this.rule,
     required this.isValid,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

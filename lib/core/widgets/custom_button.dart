@@ -5,22 +5,26 @@ import 'package:toufwshouf/core/resources/styles.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final Color backgroundColor; // Background color parameter
+  final double width; // Width parameter
 
   const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
+    this.backgroundColor = const Color(0xFF1B85F3), // Default color
+    this.width = 327, // Default width
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 327.w,
+      width: width.w, // Use the provided width
       height: 46.h,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF1B85F3),
+          backgroundColor: backgroundColor, // Use the provided color
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(14.r),

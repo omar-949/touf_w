@@ -8,11 +8,11 @@ class OtpDigitField extends StatefulWidget {
   final double fieldWidth;
 
   const OtpDigitField({
-    Key? key,
+    super.key,
     required this.currentFocus,
     this.nextFocus,
     required this.fieldWidth,
-  }) : super(key: key);
+  });
 
   @override
   _OtpDigitFieldState createState() => _OtpDigitFieldState();
@@ -47,17 +47,17 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
-                borderSide: BorderSide(color: TextColors.grey200, width: 1),
+                borderSide: const BorderSide(color: TextColors.grey200, width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
-                borderSide: BorderSide(color: TextColors.grey200, width: 1),
+                borderSide: const BorderSide(color: TextColors.grey200, width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
-                borderSide: BorderSide(color: Colors.blue, width: 1),
+                borderSide: const BorderSide(color: Colors.blue, width: 1),
               ),
-              contentPadding: EdgeInsets.only(bottom: 8),
+              contentPadding: const EdgeInsets.only(bottom: 8),
               counterText: '',
             ),
             controller: TextEditingController(text: _inputValue)

@@ -19,7 +19,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-  bool _isLoading = false;
+  final bool _isLoading = false;
 
   bool _isValidLength = false;
   bool _hasNumber = false;
@@ -108,7 +108,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                               color: _getStrength() == 1
                                   ? Colors.green
                                   : _getStrength() >= 0.5
-                                  ? Color(0xffFFC542)
+                                  ? const Color(0xffFFC542)
                                   : Colors.red,
                             ),
                           ),
@@ -176,10 +176,9 @@ class _ValidationRule extends StatelessWidget {
   final bool isValid;
 
   const _ValidationRule({
-    Key? key,
     required this.rule,
     required this.isValid,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +187,7 @@ class _ValidationRule extends StatelessWidget {
         Container(
           child: Icon(
             isValid ? Icons.check : Icons.circle,
-            color: isValid ? Colors.green : Color(0xffA0AEC0),
+            color: isValid ? Colors.green : const Color(0xffA0AEC0),
             size: isValid ? 18 : 10,
           ),
         ),
@@ -197,7 +196,7 @@ class _ValidationRule extends StatelessWidget {
           child: Text(
             rule,
             style: TextStyles.font14Grey600Regular.copyWith(
-              color: isValid ? Colors.green : Color(0xffA0AEC0),
+              color: isValid ? Colors.green : const Color(0xffA0AEC0),
               fontSize: 12.sp,
             ),
           ),

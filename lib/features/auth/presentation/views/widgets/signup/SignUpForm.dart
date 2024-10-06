@@ -19,7 +19,7 @@ class SignUpForm extends StatelessWidget {
   final Function() onSignUp;
 
   const SignUpForm({
-    Key? key,
+    super.key,
     required this.formKey,
     required this.emailController,
     required this.firstnameController,
@@ -29,7 +29,7 @@ class SignUpForm extends StatelessWidget {
     required this.agreeToTerms,
     required this.onAgreeToTermsChanged,
     required this.onSignUp,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -94,13 +94,13 @@ class SignUpForm extends StatelessWidget {
                       RichText(
                         text: TextSpan(
                           style: TextStyle(fontSize: 14.sp, color: Colors.grey[600]),
-                          children: [
-                            const TextSpan(text: 'I agree to the Platform '),
+                          children: const [
+                            TextSpan(text: 'I agree to the Platform '),
                             TextSpan(
                               text: 'Terms of Service',
                               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                             ),
-                            const TextSpan(text: ' and '),
+                            TextSpan(text: ' and '),
                             TextSpan(
                               text: 'Privacy Policy',
                               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),

@@ -142,8 +142,8 @@ abstract class TextStyles {
     fontWeight: FontWeightHelper.regular,
       fontFamily: 'Montserrat'
   );
-  static TextStyle font14LightGreyRegular = TextStyle(
-    fontSize: 14.sp,
+  static TextStyle font16LightGreyRegular = TextStyle(
+    fontSize: 16.sp,
     color: TextColors.lightGrey,
     fontWeight: FontWeightHelper.regular,
       fontFamily: 'Montserrat'
@@ -152,6 +152,12 @@ abstract class TextStyles {
     fontSize: 18.sp,
     color: TextColors.mediumGrey,
     fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font18MediumDarkGreyMedium = TextStyle(
+      fontSize: 18.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat'
   );
   static TextStyle font18OrangeMedium = TextStyle(
@@ -211,4 +217,13 @@ abstract class TextStyles {
     letterSpacing: -0.3,
     color: TextColors.white,
   );
+  static TextStyle customTextStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.medium,
+    height: 1.22,
+  );
 }
+/////
+
+
