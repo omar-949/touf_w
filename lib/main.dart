@@ -34,6 +34,7 @@ void _setSystemUIStyles() {
   );
 }
 
+
 void _lockPortraitMode() {
   SystemChrome.setPreferredOrientations(
     [
