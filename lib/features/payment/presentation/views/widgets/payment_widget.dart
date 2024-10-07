@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/custom_appbar.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/stack_image.dart';
+import 'package:toufwshouf/core/widgets/stack_image.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/BookingDateTimeWidget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/BookingSuccessWidget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/CounterWidget.dart';

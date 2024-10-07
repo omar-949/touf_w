@@ -124,6 +124,12 @@ abstract class TextStyles {
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat'
   );
+  static TextStyle font18darkGreyRegular = TextStyle(
+      fontSize: 18.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Montserrat'
+  );
   static TextStyle font14darkGreyRegular = TextStyle(
       fontSize: 14.sp,
       color: TextColors.darkGrey,
@@ -324,6 +330,12 @@ abstract class TextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.medium,
     height: 1.22,
+  );
+  static TextStyle font19darkGrayMedium = TextStyle(
+      fontSize: 19.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
   );
 }
 /////
