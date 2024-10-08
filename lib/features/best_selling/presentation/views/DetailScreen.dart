@@ -1,24 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/core/resources/assets.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
+
+import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/widgets/custom_appbar.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
+import 'package:toufwshouf/core/widgets/custom_container_details.dart';
+import 'package:toufwshouf/core/widgets/stack_image.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/button_list.dart';
 import 'package:toufwshouf/features/best_selling/presentation/views/widgets/expandable_section.dart';
 import 'package:toufwshouf/features/best_selling/presentation/views/widgets/info_box.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'widgets/button_list.dart';
-import 'widgets/custom_tab_bar.dart';
-import '../../../../core/widgets/stack_image.dart';
-import 'widgets/tab_bar_view.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/custom_tab_bar.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/related_list.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tab_bar_view.dart';
 
 class DetailScreen extends StatefulWidget {
-  const DetailScreen({super.key});
+  DetailScreen({super.key});
+
+  final List<Widget> relatedList = [
+    CustomContainerDetails(
+      image: 'assets/best_selling/Frame 40.png',
+      tripName: "The Egyptian Gulf (Hospice of the Sultan)",
+      rating: 4.5,
+      containerText1: 'Start From',
+      containerSalary1: '850 EGP',
+    ),
+    CustomContainerDetails(
+      image: Assets.bestSelling2,
+      tripName: "The Egyptian Gulf (Hospice of the Sultan)",
+      rating: 4.5,
+      containerText1: 'Start From',
+      containerSalary1: '850 EGP',
+    ),
+  ];
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen>
-    with TickerProviderStateMixin {
+class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMixin {
   bool isTourExpanded = false;
   bool isPolicyExpanded = false;
   late TabController _tabController;
@@ -47,7 +69,7 @@ class _DetailScreenState extends State<DetailScreen>
             SizedBox(height: 10.h),
             const StackImage(
               imageUrl: 'assets/best_selling/header.png',
-              tripName: 'The Egyptian Gulf (Hospice of he Sultan)',
+              tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
             ),
             SizedBox(height: 10.h),
             const ButtonList(),
@@ -58,8 +80,7 @@ class _DetailScreenState extends State<DetailScreen>
             TabBarViewWidget(tabController: _tabController),
             _buildExpandableSection(
               title: 'Tour Including',
-              content:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
+              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
               isExpanded: isTourExpanded,
               onTap: () {
                 setState(() {
@@ -70,8 +91,7 @@ class _DetailScreenState extends State<DetailScreen>
             SizedBox(height: 10.h),
             _buildExpandableSection(
               title: 'Cancellation Policy',
-              content:
-                  'You can cancel up to 24 hours in advance of the experience for a full refund. For a full refund, you must cancel at least 24 hours before the experience’s start time.If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded. Any changes made less than 24 hours before the experience’s start time will not be accepted. Cut-off times are based on theexperience’s local time.',
+              content: 'You can cancel up to 24 hours in advance of the experience for a full refund. For a full refund, you must cancel at least 24 hours before the experience’s start time.If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded. Any changes made less than 24 hours before the experience’s start time will not be accepted. Cut-off times are based on the experience’s local time.',
               isExpanded: isPolicyExpanded,
               onTap: () {
                 setState(() {
@@ -82,9 +102,16 @@ class _DetailScreenState extends State<DetailScreen>
             SizedBox(height: 30.h),
             CustomButton(
               text: 'Book Now',
-              onPressed: () {},
+              onPressed: () {
+                context.pushNamed(Routes.paymentScreen);
+              },
+
               backgroundColor: AppColors.orange,
               width: 358.w,
+            ),
+            SizedBox(height: 30.h),
+            RelatedListWidget(
+              relatedList: widget.relatedList,
             ),
           ],
         ),

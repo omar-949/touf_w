@@ -6,7 +6,7 @@ import 'package:toufwshouf/core/widgets/rating_widget.dart';
 import '../../../../../core/resources/assets.dart';
 import '../../../../../core/resources/colors.dart';
 import '../../../../../core/resources/styles.dart';
-import 'custom_container_details.dart';
+import '../../../../../core/widgets/custom_container_details.dart';
 
 class CustomContainerHotel extends StatelessWidget {
   const CustomContainerHotel(

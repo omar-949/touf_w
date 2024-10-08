@@ -14,7 +14,8 @@ import 'package:toufwshouf/features/payment/presentation/views/widgets/progress_
 class PaymentWidget extends StatefulWidget {
   final Function(bool)? onCheckboxChanged; // Add this line
   final Function(bool)? onCheckboxChanged2;
-  const PaymentWidget({super.key, this.onCheckboxChanged,this.onCheckboxChanged2});
+  const PaymentWidget(
+      {super.key, this.onCheckboxChanged, this.onCheckboxChanged2});
 
   @override
   _PaymentWidgetState createState() => _PaymentWidgetState();
@@ -37,7 +38,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
   Color thirdCircleColor = TextColors.lightGrey;
   Color lineColor1 = TextColors.lightGrey;
   Color lineColor2 = TextColors.lightGrey;
-  bool booking_success=false;
+  bool booking_success = false;
 
   void _onPayPressed() {
     setState(() {
@@ -45,6 +46,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
       lineColor1 = TextColors.orange; // Change line color
     });
   }
+
   void _onconfirmPressed() {
     setState(() {
       thirdCircleColor = TextColors.orange; // Change second circle color
@@ -54,8 +56,12 @@ class _PaymentWidgetState extends State<PaymentWidget> {
 
   // Total calculation
   double get total {
-    return (_babyCount * 20) + (_childCount * 30) + (_adultCount * 50) +
-        (_dinnerCount * 50) + (_busCount * 50) + (_adultserCount * 50);
+    return (_babyCount * 20) +
+        (_childCount * 30) +
+        (_adultCount * 50) +
+        (_dinnerCount * 50) +
+        (_busCount * 50) +
+        (_adultserCount * 50);
   }
 
   void _incrementadultserCounter() {
@@ -93,7 +99,6 @@ class _PaymentWidgetState extends State<PaymentWidget> {
       if (_dinnerCount > 0) _dinnerCount--;
     });
   }
-
 
   void _incrementBabyCounter() {
     setState(() {
@@ -139,26 +144,25 @@ class _PaymentWidgetState extends State<PaymentWidget> {
         route: '',
       ),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView( // Make the entire body scrollable
+      body: SingleChildScrollView(
+        // Make the entire body scrollable
         child: Column(
-
           children: [
-
-          StackImage(
-          imageUrl: 'assets/best_selling/header.png',
-          tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
-        ),
-            ProgressStepWidget(
-              firstCircleColor: firstCircleColor, // Replace with your desired colors
-              secondCircleColor:secondCircleColor,
-              thirdCircleColor:thirdCircleColor,
-              lineColor1:lineColor1,
-              lineColor2:lineColor2,
+            StackImage(
+              imageUrl: 'assets/best_selling/header.png',
+              tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
             ),
-            if(booking_success)
-              BookingSuccessWidget(),
+            ProgressStepWidget(
+              firstCircleColor:
+                  firstCircleColor, // Replace with your desired colors
+              secondCircleColor: secondCircleColor,
+              thirdCircleColor: thirdCircleColor,
+              lineColor1: lineColor1,
+              lineColor2: lineColor2,
+            ),
+            if (booking_success) BookingSuccessWidget(),
             BookingDateTimeWidget(bookingSuccess: booking_success),
-            if(!booking_success)
+            if (!booking_success)
               Container(
                 width: 358.w,
                 margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -199,7 +203,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                   ],
                 ),
               ),
-            if(!booking_success)
+            if (!booking_success)
               Container(
                 width: 358.w,
                 margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -240,9 +244,9 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                   ],
                 ),
               ),
-            if(!booking_success)
+            if (!booking_success)
               Padding(
-                padding: EdgeInsets.only(left: 16.w,right: 16.w),
+                padding: EdgeInsets.only(left: 16.w, right: 16.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -281,18 +285,22 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                 style: TextStyles.font14darkGreyRegular,
                                 children: [
                                   TextSpan(
-                                      text: "I Accept Terms And Conditions and Cancellation policy "),
-                                  TextSpan(text: "Read Terms and conditions",
-                                      style: TextStyle(color:TextColors.darkBlue)),
+                                      text:
+                                          "I Accept Terms And Conditions and Cancellation policy "),
+                                  TextSpan(
+                                      text: "Read Terms and conditions",
+                                      style: TextStyle(
+                                          color: TextColors.darkBlue)),
                                 ],
                               ),
                             ),
                           ),
                         ),
-
                       ],
                     ),
-                    SizedBox(height: 10.h,),
+                    SizedBox(
+                      height: 10.h,
+                    ),
                     SizedBox(
                       width: 358.w,
                       height: 42.h,
@@ -300,14 +308,15 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                         onPressed: () {
                           setState(() {
                             _showPaymentConfirmation =
-                            true; // Show the payment confirmation container
+                                true; // Show the payment confirmation container
                           });
                           _onPayPressed();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: TextColors.orange,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(12.r)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12.r)),
                           ),
                           elevation: 0,
                         ),
@@ -323,7 +332,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(12.r)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12.r)),
                             side: BorderSide(color: Colors.orange, width: 1.0),
                           ),
                           elevation: 0,
@@ -338,7 +348,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 10.h),
-                            Text("Choose payment method", style: TextStyles.font18darkGreyMedium),
+                            Text("Choose payment method",
+                                style: TextStyles.font18darkGreyMedium),
                             SizedBox(height: 10.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -346,7 +357,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      _selectedPaymentMethod = 'visa'; // Set selected method
+                                      _selectedPaymentMethod =
+                                          'visa'; // Set selected method
                                     });
                                   },
                                   child: Container(
@@ -354,39 +366,53 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                       borderRadius: BorderRadius.circular(10.r),
                                       color: TextColors.light2white,
                                       border: _selectedPaymentMethod == 'visa'
-                                          ? Border.all(color: Colors.orange, width: 2)
+                                          ? Border.all(
+                                              color: Colors.orange, width: 2)
                                           : null,
                                     ),
                                     width: 107.w,
                                     height: 53.h,
-                                    child: Center(child: Image.network('assets/payment/visa.png')),
+                                    child: Center(
+                                        child: Image.asset(
+                                            'assets/payment/visa.png')),
                                   ),
                                 ),
-                                SizedBox(width: 10.w), // Space between payment methods
+                                SizedBox(
+                                    width:
+                                        10.w), // Space between payment methods
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      _selectedPaymentMethod = 'mastercard'; // Set selected method
+                                      _selectedPaymentMethod =
+                                          'mastercard'; // Set selected method
                                     });
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10.r),
                                       color: TextColors.light2white,
-                                      border: _selectedPaymentMethod == 'mastercard'
-                                          ? Border.all(color: Colors.orange, width: 2)
-                                          : null,
+                                      border:
+                                          _selectedPaymentMethod == 'mastercard'
+                                              ? Border.all(
+                                                  color: Colors.orange,
+                                                  width: 2)
+                                              : null,
                                     ),
                                     width: 107.w,
                                     height: 53.h,
-                                    child: Center(child: Image.network('assets/payment/mastercard.png')),
+                                    child: Center(
+                                        child: Image.asset(
+                                            'assets/payment/mastercard.png')),
                                   ),
                                 ),
-                                SizedBox(width: 10.w), // Space between payment methods
+                                SizedBox(
+                                    width:
+                                        10.w), // Space between payment methods
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      _selectedPaymentMethod = 'paypal'; // Set selected method
+                                      _selectedPaymentMethod =
+                                          'paypal'; // Set selected method
                                     });
                                   },
                                   child: Container(
@@ -394,30 +420,37 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                       borderRadius: BorderRadius.circular(10.r),
                                       color: TextColors.light2white,
                                       border: _selectedPaymentMethod == 'paypal'
-                                          ? Border.all(color: Colors.orange, width: 2)
+                                          ? Border.all(
+                                              color: Colors.orange, width: 2)
                                           : null,
                                     ),
                                     width: 107.w,
                                     height: 53.h,
-                                    child: Center(child: Image.network('assets/payment/paypal.png')),
+                                    child: Center(
+                                        child: Image.asset(
+                                            'assets/payment/paypal.png')),
                                   ),
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20.h), // Spacing before the text fields
+                            SizedBox(
+                                height: 20.h), // Spacing before the text fields
 
                             // Credit Card and Name on Card Fields Stacked
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Credit Card", style: TextStyles.font16darkGreySemiBold),
+                                Text("Credit Card",
+                                    style: TextStyles.font16darkGreySemiBold),
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: '3485 ****  ****  ****',
-                                    hintStyle: TextStyles.font14lightGreyRegular,
+                                    hintStyle:
+                                        TextStyles.font14lightGreyRegular,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.r),
-                                      borderSide: BorderSide(color: TextColors.lightGrey),
+                                      borderSide: BorderSide(
+                                          color: TextColors.lightGrey),
                                     ),
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
@@ -433,18 +466,23 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                         width: 1.0,
                                       ),
                                     ),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 10.w, vertical: 10.h),
                                   ),
                                 ),
-                                SizedBox(height: 10.h), // Spacing between fields
-                                Text("Name on card", style: TextStyles.font16darkGreySemiBold),
+                                SizedBox(
+                                    height: 10.h), // Spacing between fields
+                                Text("Name on card",
+                                    style: TextStyles.font16darkGreySemiBold),
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: 'Joe Doe',
-                                    hintStyle: TextStyles.font14lightGreyRegular,
+                                    hintStyle:
+                                        TextStyles.font14lightGreyRegular,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.r),
-                                      borderSide: BorderSide(color: Colors.grey),
+                                      borderSide:
+                                          BorderSide(color: Colors.grey),
                                     ),
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
@@ -460,79 +498,102 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                         width: 1.0,
                                       ),
                                     ),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 10.w, vertical: 10.h),
                                   ),
                                 ),
                               ],
                             ),
 
-                            SizedBox(height: 20.h), // Spacing before the new text fields
+                            SizedBox(
+                                height:
+                                    20.h), // Spacing before the new text fields
 
                             // New Text Fields
                             Row(
                               children: [
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("Expiration date", style: TextStyles.font16darkGreySemiBold),
+                                      Text("Expiration date",
+                                          style: TextStyles
+                                              .font16darkGreySemiBold),
                                       TextField(
                                         decoration: InputDecoration(
                                           hintText: 'MM/YY',
-                                          hintStyle: TextStyles.font14lightGreyRegular,
+                                          hintStyle:
+                                              TextStyles.font14lightGreyRegular,
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10.r),
-                                            borderSide: BorderSide(color: TextColors.lightGrey),
+                                            borderRadius:
+                                                BorderRadius.circular(10.r),
+                                            borderSide: BorderSide(
+                                                color: TextColors.lightGrey),
                                           ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
                                             borderSide: const BorderSide(
                                               color: TextColors.lightGrey,
                                               width: 1.0,
                                             ),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
                                             borderSide: const BorderSide(
                                               color: TextColors.orange,
                                               width: 1.0,
                                             ),
                                           ),
-                                          contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: 10.w, vertical: 10.h),
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: 10.w), // Space between the new text fields
+                                SizedBox(
+                                    width: 10
+                                        .w), // Space between the new text fields
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("CVV", style: TextStyles.font16darkGreySemiBold),
+                                      Text("CVV",
+                                          style: TextStyles
+                                              .font16darkGreySemiBold),
                                       TextField(
                                         decoration: InputDecoration(
                                           hintText: '123',
-                                          hintStyle: TextStyles.font14lightGreyRegular,
+                                          hintStyle:
+                                              TextStyles.font14lightGreyRegular,
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10.r),
-                                            borderSide: BorderSide(color: Colors.grey),
+                                            borderRadius:
+                                                BorderRadius.circular(10.r),
+                                            borderSide:
+                                                BorderSide(color: Colors.grey),
                                           ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
                                             borderSide: const BorderSide(
                                               color: TextColors.lightGrey,
                                               width: 1.0,
                                             ),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
                                             borderSide: const BorderSide(
                                               color: TextColors.orange,
                                               width: 1.0,
                                             ),
                                           ),
-                                          contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: 10.w, vertical: 10.h),
                                         ),
                                       ),
                                     ],
@@ -553,7 +614,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                       _agreeToTerms2 = value ?? false;
                                     });
                                     if (widget.onCheckboxChanged2 != null) {
-                                      widget.onCheckboxChanged2!(value ?? false);
+                                      widget
+                                          .onCheckboxChanged2!(value ?? false);
                                     }
                                   },
                                 ),
@@ -564,7 +626,9 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                       text: TextSpan(
                                         style: TextStyles.font14darkGreyRegular,
                                         children: [
-                                          TextSpan(text: "Save my payment details for future booking "),
+                                          TextSpan(
+                                              text:
+                                                  "Save my payment details for future booking "),
                                         ],
                                       ),
                                     ),
@@ -573,7 +637,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                               ],
                             ),
 
-                            SizedBox(height: 20.h), // Spacing before the buttons
+                            SizedBox(
+                                height: 20.h), // Spacing before the buttons
 
                             // Buttons Row
                             Row(
@@ -585,34 +650,37 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                   child: ElevatedButton(
                                     onPressed: () {
                                       _onconfirmPressed();
-                                      booking_success=true;
+                                      booking_success = true;
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: TextColors.orange,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(4.r)),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(4.r)),
                                       ),
                                       elevation: 0,
                                     ),
-                                    child: Text("Confirm", style: TextStyles.font18WhiteMedium),
+                                    child: Text("Confirm",
+                                        style: TextStyles.font18WhiteMedium),
                                   ),
                                 ),
                                 SizedBox(
                                   width: 171.w,
                                   height: 44.h,
                                   child: ElevatedButton(
-                                    onPressed: () {
-
-                                    },
+                                    onPressed: () {},
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor:Colors.transparent,
+                                      backgroundColor: Colors.transparent,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(4.r)),
-                                        side: BorderSide(color: Colors.orange, width: 1.0),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(4.r)),
+                                        side: BorderSide(
+                                            color: Colors.orange, width: 1.0),
                                       ),
                                       elevation: 0,
                                     ),
-                                    child: Text("Back", style: TextStyles.font18OrangeMedium),
+                                    child: Text("Back",
+                                        style: TextStyles.font18OrangeMedium),
                                   ),
                                 ),
                               ],
@@ -624,7 +692,6 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                   ],
                 ),
               ),
-
           ],
         ),
       ),

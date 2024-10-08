@@ -10,6 +10,7 @@ import 'package:toufwshouf/features/payment/presentation/views/payment_screen.da
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/reset_password_screen.dart';
 import '../../features/auth/presentation/views/signUp_screen.dart';
+import '../../features/best_selling/presentation/views/BestSellingScreen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/onboarding/presentation/views/SplashScreen.dart';
 
@@ -27,7 +28,7 @@ class AppRouter {
         return RouteAnimations.buildPageRoute(
           const OnboardingView(),
           settings,
-          TransitionType.slideFromRight,
+          TransitionType.slideFromLeft,
         );
       case Routes.loginScreen:
         return RouteAnimations.buildPageRoute(
@@ -39,35 +40,35 @@ class AppRouter {
         return RouteAnimations.buildPageRoute(
           const Forget_password_screen(),
           settings,
-          TransitionType.slideFromBottom,
+          TransitionType.slideFromLeft,
         );
       case Routes.codeverificationScreen:
         return RouteAnimations.buildPageRoute(
           const VerifyPasswordScreen(),
           settings,
-          TransitionType.slideFromBottom,
+          TransitionType.slideFromLeft,
         );
       case Routes.signupScreen:
         return RouteAnimations.buildPageRoute(
           const SignUpScreen(),
           settings,
-          TransitionType.slideFromRight,
+          TransitionType.slideFromLeft,
         );
       case Routes.homeScreen:
         return RouteAnimations.buildPageRoute(
           const HomeScreen(),
           settings,
-          TransitionType.slideFromBottom,
+          TransitionType.slideFromLeft,
         );
       case Routes.resetpassScreen:
         return RouteAnimations.buildPageRoute(
           const ResetPasswordScreen(),
           settings,
-          TransitionType.slideFromBottom,
+          TransitionType.slideFromLeft,
         );
       case Routes.datailScreen:
         return RouteAnimations.buildPageRoute(
-          const DetailScreen(),
+          DetailScreen(),
           settings,
           TransitionType.slideFromLeft,
         );
@@ -75,6 +76,11 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const PaymentScreen(),
         );
+      case Routes.BestSellingScreen:
+        return MaterialPageRoute(
+          builder: (_) => const BestSellingScreen(),
+        );
+
       default:
         return null;
     }

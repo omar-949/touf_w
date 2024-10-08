@@ -16,7 +16,7 @@ class ContainerSalaryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 44.h,
+      height: 46.h,
       width: 89.w,
       padding: EdgeInsets.only(top: 3.h, bottom: 2.h, left: 5.w),
       decoration: BoxDecoration(

@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/custom_container_details.dart';
-
+import 'package:toufwshouf/core/widgets/custom_container_details.dart';
 import '../../../../../core/resources/assets.dart';
+import '../../../../../core/routing/routes.dart';
 
 class OutingsBody extends StatelessWidget {
   OutingsBody({super.key});
-  List bestSellingList = [
+
+  final List<CustomContainerDetails> bestSellingList = [
     CustomContainerDetails(
       image: Assets.bestSelling1,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
@@ -26,7 +28,8 @@ class OutingsBody extends StatelessWidget {
       containerSalary1: '850 EGP',
     ),
   ];
-  List bestOfferList = [
+
+  final List<CustomContainerDetails> bestOfferList = [
     CustomContainerDetails(
       image: Assets.bestOffer1,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
@@ -44,14 +47,15 @@ class OutingsBody extends StatelessWidget {
       isDashed1: true,
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: NeverScrollableScrollPhysics(),
-      scrollDirection:Axis.vertical ,
+      physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          _buildBestSelling(),
+          _buildBestSelling(context),
           _buildBestSellingListView(),
           _buildTextHeader(textHeader: 'advertisements'),
           _buildAdvertisement(),
@@ -59,7 +63,6 @@ class OutingsBody extends StatelessWidget {
           _buildBestOfferListView(),
           _buildTextHeader(textHeader: 'Partners'),
           _buildPartners(),
-
         ],
       ),
     );
@@ -71,14 +74,14 @@ class OutingsBody extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 5.w, // عرض الدائرة
-            height: 26.h, // ارتفاع الدائرة
+            width: 5.w,
+            height: 26.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4.r),
-              color: TextColors.orange, // لون الدائرة
+              color: TextColors.orange,
             ),
           ),
-          SizedBox(width: 8.w), // المسافة بين الدائرة والنص
+          SizedBox(width: 8.w),
           Text(textHeader, style: TextStyles.font20BlackMedium),
         ],
       ),
@@ -116,16 +119,21 @@ class OutingsBody extends StatelessWidget {
     );
   }
 
-  Widget _buildBestSelling() {
+  Widget _buildBestSelling(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 20.0.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _buildTextHeader(textHeader: "Best Selling"),
-          Text(
-            "See all",
-            style: TextStyles.font16BlackRegular,
+          InkWell(
+            onTap: () {
+              context.pushNamed(Routes.BestSellingScreen);
+            },
+            child: Text(
+              "See all",
+              style: TextStyles.font16BlackRegular,
+            ),
           )
         ],
       ),

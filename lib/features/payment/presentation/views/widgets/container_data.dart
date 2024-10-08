@@ -32,7 +32,7 @@ class DateContainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.network(iconPath, width: 24.w, height: 24.h), // Use Image.asset for local images
+          Image.asset(iconPath, width: 24.w, height: 24.h), // Use Image.asset for local images
           SizedBox(width: 16.w),
           Text(
             label,

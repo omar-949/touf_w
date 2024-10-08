@@ -9,7 +9,7 @@ abstract class Assets {
   static const String appbarAction1 = "assets/home/appBarAction1.png";
   static const String appbarAction2 = "assets/home/appBarAction2.png";
   static const String appbarAction3 = "assets/home/appBarAction3.png";
-  static const String mainImage = "assets/home/mainImage.png";
+  static const String mainImage = "assets/home/Group 732 1.png";
   static const String filterImage = "assets/home/mage_filter.png";
   static const String outingsIcon = "assets/svgs/outings.svg";
   static const String hotelsIcon = "assets/svgs/hotels.svg";

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+
+import '../../../../../core/routing/routes.dart';
 
 class BookingSuccessWidget extends StatelessWidget {
   const BookingSuccessWidget({Key? key}) : super(key: key);
@@ -31,7 +34,7 @@ class BookingSuccessWidget extends StatelessWidget {
           child: Column(
             children: [
               Center(
-                child: Image.network('assets/payment/Icon awesome-check-circle.png'),
+                child: Image.asset('assets/payment/Icon awesome-check-circle.png'),
               ),
               SizedBox(height: 10.h), // Optional: Adds space between the image and the text
               Text(
@@ -118,7 +121,7 @@ class BookingSuccessWidget extends StatelessWidget {
           height: 42.h,
           child: ElevatedButton(
             onPressed: () {
-
+              context.pushNamed(Routes.paymentScreen);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: TextColors.orange,
@@ -135,7 +138,9 @@ class BookingSuccessWidget extends StatelessWidget {
           width: 358.w,
           height: 42.h,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.homeScreen);
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent,
               shape: RoundedRectangleBorder(

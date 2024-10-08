@@ -4,8 +4,8 @@ import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/resources/styles.dart';
-import '../../../../../../core/widgets/CustomTextField.dart';
-import '../../../../../../core/widgets/Navigation_link.dart';
+import '../../../../../../core/widgets/custom_text_field.dart';
+import '../../../../../../core/widgets/navigation_link.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 import 'SocialLoginButton.dart';
 
