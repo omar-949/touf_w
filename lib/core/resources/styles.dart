@@ -246,7 +246,7 @@ abstract class TextStyles {
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat'
   );
-  static TextStyle font14darkBlue400Medium = TextStyle(
+  static TextStyle font14darkBlue400Regular = TextStyle(
       fontSize: 14.sp,
       color: TextColors.darkBlue,
       fontWeight: FontWeightHelper.regular,
@@ -276,6 +276,41 @@ abstract class TextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.medium,
     height: 1.22,
+  );
+
+  //salma
+  static TextStyle font10MediumGreyRegularWithLineThrough = TextStyle(
+      fontSize: 10.sp,
+      color: TextColors.mediumGrey,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Montserrat',
+    decoration: TextDecoration.lineThrough,
+      decorationColor: AppColors.mediumGrey,
+    decorationThickness: 1,
+  );
+    static TextStyle font20WhiteMedium = TextStyle(
+      fontSize: 20.sp,
+      color: TextColors.white,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font18darkGreySemiBold = TextStyle(
+      fontSize: 18.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.semiBold,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font14darkBlue500Medium = TextStyle(
+      fontSize: 14.sp,
+      color: TextColors.darkBlue,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font14lightWhite500Medium = TextStyle(
+      fontSize: 14.sp,
+      color: TextColors.lightWhite2,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
   );
 }
 /////

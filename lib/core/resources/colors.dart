@@ -28,4 +28,7 @@ abstract class TextColors {
   static const mediumGrey = Color(0xff777777);
   static const darkGrey = Color(0xff333333);
   static const darkBlue = Color(0xff007489);
+  static const lightGrey2 = Color(0xffCFCFCF);
+  static const lightWhite2 = Color(0xffFAFAFA);
+
 }
