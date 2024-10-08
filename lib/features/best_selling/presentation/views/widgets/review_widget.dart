@@ -48,7 +48,7 @@ class ReviewsWidget extends StatelessWidget {
       children: [
         Text(
           'Write your review “The Egyptian Gulf”',
-          style: TextStyles.font18darkGreyRegular,
+          style: TextStyles.font18DarkGreyRegular,
         ),
         SizedBox(
           height: 20.h,

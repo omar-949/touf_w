@@ -210,6 +210,36 @@ abstract class TextStyles {
   );
   ////
   // rania
+  static TextStyle font16grey400Regular = TextStyle(
+      fontSize: 16.sp,
+      color: TextColors.grey,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font20darkGreyMedium = TextStyle(
+      fontSize: 20.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font18grey500Medium = TextStyle(
+      fontSize: 18.sp,
+      color: TextColors.grey,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font22darkGreyMedium = TextStyle(
+      fontSize: 22.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.semiBold,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font18red500Medium = TextStyle(
+      fontSize: 16.sp,
+      color: TextColors.red500,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
+  );
   static TextStyle font26GreyExtraBold = TextStyle(
     fontSize: 26.sp,
     color: TextColors.grey800,
@@ -254,6 +284,18 @@ abstract class TextStyles {
   );
   /////////
   //onboarding tasneem
+  static TextStyle font19darkGrayMedium = TextStyle(
+      fontSize: 19.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.medium,
+      fontFamily: 'Montserrat'
+  );
+  static TextStyle font18DarkGreyRegular = TextStyle(
+      fontSize: 18.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Montserrat'
+  );
   static TextStyle onboardingTitleStyle = TextStyle(
     fontFamily: 'Inter',
     fontSize: 24.sp,
@@ -262,6 +304,19 @@ abstract class TextStyles {
     letterSpacing: -0.3,
     color: TextColors.white,
 
+  );
+  static TextStyle font16darkGreySemiBold = TextStyle(
+      fontSize: 16.sp,
+      color: TextColors.darkGrey,
+      fontWeight: FontWeightHelper.semiBold,
+      fontFamily: 'Montserrat'
+  );
+
+  static TextStyle font14lightGreyRegular = TextStyle(
+      fontSize: 14.sp,
+      color: TextColors.lightGrey,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Montserrat'
   );
   static TextStyle onboardingDescriptionStyle = TextStyle(
     fontFamily: 'Inter',
