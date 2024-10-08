@@ -3,12 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+import 'package:toufwshouf/core/widgets/custom_appbar.dart';
+import 'package:toufwshouf/core/widgets/stack_image.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/BookingDateTimeWidget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/BookingSuccessWidget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/CounterWidget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/container_data.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/progress_step_widget.dart';
 
 class PaymentWidget extends StatefulWidget {
   final Function(bool)? onCheckboxChanged; // Add this line
-  const PaymentWidget({super.key, this.onCheckboxChanged});
+  final Function(bool)? onCheckboxChanged2;
+  const PaymentWidget({super.key, this.onCheckboxChanged,this.onCheckboxChanged2});
 
   @override
   _PaymentWidgetState createState() => _PaymentWidgetState();
@@ -23,8 +29,28 @@ class _PaymentWidgetState extends State<PaymentWidget> {
   int _busCount = 0;
   int _adultserCount = 0;
   bool _agreeToTerms = false;
+  bool _agreeToTerms2 = false;
   bool _showPaymentConfirmation = false;
   String? _selectedPaymentMethod;
+  Color firstCircleColor = TextColors.orange;
+  Color secondCircleColor = TextColors.lightGrey;
+  Color thirdCircleColor = TextColors.lightGrey;
+  Color lineColor1 = TextColors.lightGrey;
+  Color lineColor2 = TextColors.lightGrey;
+  bool booking_success=false;
+
+  void _onPayPressed() {
+    setState(() {
+      secondCircleColor = TextColors.orange; // Change second circle color
+      lineColor1 = TextColors.orange; // Change line color
+    });
+  }
+  void _onconfirmPressed() {
+    setState(() {
+      thirdCircleColor = TextColors.orange; // Change second circle color
+      lineColor2 = TextColors.orange; // Change line color
+    });
+  }
 
   // Total calculation
   double get total {
@@ -108,104 +134,116 @@ class _PaymentWidgetState extends State<PaymentWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(
+        title: 'Book Now',
+        route: '',
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView( // Make the entire body scrollable
         child: Column(
-          children: [
-            DateContainer(
-              iconPath: 'assets/payment/lets-icons_date-today.png',
-              label: "Trip date:",
-              date: "2/3/2022",
-            ),
-            DateContainer(
-              iconPath: 'assets/payment/clock.png',
-              label: "Time:",
-              date: "18:00",
-            ),
-            Container(
-              width: 358.w,
-              margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
-              padding: EdgeInsets.all(16.sp),
-              decoration: BoxDecoration(
-                color: TextColors.lightwhite,
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Number of people",
-                      style: TextStyles.font18darkGreyMedium),
-                  SizedBox(height: 10.h),
-                  CounterWidget(
-                    label: "Baby",
-                    priceInfo: "20 EGP from 8 to 13 (year)",
-                    count: _babyCount,
-                    increment: _incrementBabyCounter,
-                    decrement: _decrementBabyCounter,
-                  ),
-                  SizedBox(height: 10.h),
-                  CounterWidget(
-                    label: "Child",
-                    priceInfo: "30 EGP From 14 to 19 (year)",
-                    count: _childCount,
-                    increment: _incrementChildCounter,
-                    decrement: _decrementChildCounter,
-                  ),
-                  SizedBox(height: 10.h),
-                  CounterWidget(
-                    label: "Adult",
-                    priceInfo: "50 EGP From 20 to 50 (year)",
-                    count: _adultCount,
-                    increment: _incrementAdultCounter,
-                    decrement: _decrementAdultCounter,
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 358.w,
-              margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
-              padding: EdgeInsets.all(16.sp),
-              decoration: BoxDecoration(
-                color: TextColors.lightwhite,
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Additional Services",
-                      style: TextStyles.font18darkGreyMedium),
-                  SizedBox(height: 10.h),
-                  CounterWidget(
-                    label: "Dinner",
-                    priceInfo: "A Dinner meal in a 5 stars restaurant",
-                    count: _dinnerCount,
-                    increment: _incrementdinnerCounter,
-                    decrement: _decrementdinnerCounter,
-                  ),
-                  SizedBox(height: 10.h),
-                  CounterWidget(
-                    label: "Bus",
-                    priceInfo: "A Bus to drive you to your destination",
-                    count: _busCount,
-                    increment: _incrementbusCounter,
-                    decrement: _decrementbusrCounter,
-                  ),
-                  SizedBox(height: 10.h),
-                  CounterWidget(
-                    label: "Adult",
-                    priceInfo: "50 EGP From 20 to 50 (year)",
-                    count: _adultserCount,
-                    increment: _incrementadultserCounter,
-                    decrement: _decrementadultserCounter,
-                  ),
-                ],
-              ),
-            ),
 
-               Padding(
-                 padding: EdgeInsets.only(left: 16.w,right: 16.w),
-                 child: Column(
+          children: [
+
+          StackImage(
+          imageUrl: 'assets/best_selling/header.png',
+          tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
+        ),
+            ProgressStepWidget(
+              firstCircleColor: firstCircleColor, // Replace with your desired colors
+              secondCircleColor:secondCircleColor,
+              thirdCircleColor:thirdCircleColor,
+              lineColor1:lineColor1,
+              lineColor2:lineColor2,
+            ),
+            if(booking_success)
+              BookingSuccessWidget(),
+            BookingDateTimeWidget(bookingSuccess: booking_success),
+            if(!booking_success)
+              Container(
+                width: 358.w,
+                margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                padding: EdgeInsets.all(16.sp),
+                decoration: BoxDecoration(
+                  color: TextColors.lightwhite,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Number of people",
+                        style: TextStyles.font18darkGreyMedium),
+                    SizedBox(height: 10.h),
+                    CounterWidget(
+                      label: "Baby",
+                      priceInfo: "20 EGP from 8 to 13 (year)",
+                      count: _babyCount,
+                      increment: _incrementBabyCounter,
+                      decrement: _decrementBabyCounter,
+                    ),
+                    SizedBox(height: 10.h),
+                    CounterWidget(
+                      label: "Child",
+                      priceInfo: "30 EGP From 14 to 19 (year)",
+                      count: _childCount,
+                      increment: _incrementChildCounter,
+                      decrement: _decrementChildCounter,
+                    ),
+                    SizedBox(height: 10.h),
+                    CounterWidget(
+                      label: "Adult",
+                      priceInfo: "50 EGP From 20 to 50 (year)",
+                      count: _adultCount,
+                      increment: _incrementAdultCounter,
+                      decrement: _decrementAdultCounter,
+                    ),
+                  ],
+                ),
+              ),
+            if(!booking_success)
+              Container(
+                width: 358.w,
+                margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+                padding: EdgeInsets.all(16.sp),
+                decoration: BoxDecoration(
+                  color: TextColors.lightwhite,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Additional Services",
+                        style: TextStyles.font18darkGreyMedium),
+                    SizedBox(height: 10.h),
+                    CounterWidget(
+                      label: "Dinner",
+                      priceInfo: "A Dinner meal in a 5 stars restaurant",
+                      count: _dinnerCount,
+                      increment: _incrementdinnerCounter,
+                      decrement: _decrementdinnerCounter,
+                    ),
+                    SizedBox(height: 10.h),
+                    CounterWidget(
+                      label: "Bus",
+                      priceInfo: "A Bus to drive you to your destination",
+                      count: _busCount,
+                      increment: _incrementbusCounter,
+                      decrement: _decrementbusrCounter,
+                    ),
+                    SizedBox(height: 10.h),
+                    CounterWidget(
+                      label: "Adult",
+                      priceInfo: "50 EGP From 20 to 50 (year)",
+                      count: _adultserCount,
+                      increment: _incrementadultserCounter,
+                      decrement: _decrementadultserCounter,
+                    ),
+                  ],
+                ),
+              ),
+            if(!booking_success)
+              Padding(
+                padding: EdgeInsets.only(left: 16.w,right: 16.w),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -245,14 +283,16 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                   TextSpan(
                                       text: "I Accept Terms And Conditions and Cancellation policy "),
                                   TextSpan(text: "Read Terms and conditions",
-                                      style: TextStyle(color: Colors.red)),
+                                      style: TextStyle(color:TextColors.darkBlue)),
                                 ],
                               ),
                             ),
                           ),
                         ),
+
                       ],
                     ),
+                    SizedBox(height: 10.h,),
                     SizedBox(
                       width: 358.w,
                       height: 42.h,
@@ -262,6 +302,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                             _showPaymentConfirmation =
                             true; // Show the payment confirmation container
                           });
+                          _onPayPressed();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: TextColors.orange,
@@ -293,110 +334,296 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     ),
                     if (_showPaymentConfirmation) // Display payment confirmation when true
                       SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: 10.h),
-                              Text("Choose payment method",
-                                  style: TextStyles.font18darkGreyMedium),
-                              SizedBox(height: 10.h),
-                               Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          _selectedPaymentMethod = 'visa'; // Set selected method
-                                        });
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10.r),
-                                          color: TextColors.light2white,
-                                          border: _selectedPaymentMethod == 'visa'
-                                              ? Border.all(color: Colors.orange, width: 2)
-                                              : null,
-                                        ),
-                                        width: 107.w,
-                                        height: 53.h,
-                                        child: Center(child: Image.network('assets/payment/visa.png')), // Use Image.asset for local assets
-                                      ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 10.h),
+                            Text("Choose payment method", style: TextStyles.font18darkGreyMedium),
+                            SizedBox(height: 10.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _selectedPaymentMethod = 'visa'; // Set selected method
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      color: TextColors.light2white,
+                                      border: _selectedPaymentMethod == 'visa'
+                                          ? Border.all(color: Colors.orange, width: 2)
+                                          : null,
                                     ),
-                                    SizedBox(width: 10.w), // Add space between payment methods
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          _selectedPaymentMethod = 'mastercard'; // Set selected method
-                                        });
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10.r),
-                                          color: TextColors.light2white,
-                                          border: _selectedPaymentMethod == 'mastercard'
-                                              ? Border.all(color: Colors.orange, width: 2)
-                                              : null,
-                                        ),
-                                        width: 107.w,
-                                        height: 53.h,
-                                        child: Center(child: Image.network('assets/payment/mastercard.png')), // Use Image.asset for local assets
-                                      ),
-                                    ),
-                                    SizedBox(width: 10.w), // Add space between payment methods
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          _selectedPaymentMethod = 'paypal'; // Set selected method
-                                        });
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10.r),
-                                          color: TextColors.light2white,
-                                          border: _selectedPaymentMethod == 'paypal'
-                                              ? Border.all(color: Colors.orange, width: 2)
-                                              : null,
-                                        ),
-                                        width: 107.w,
-                                        height: 53.h,
-                                        child: Center(child: Image.network('assets/payment/paypal.png')), // Use Image.asset for local assets
-                                      ),
-                                    ),
-                                  ],
+                                    width: 107.w,
+                                    height: 53.h,
+                                    child: Center(child: Image.network('assets/payment/visa.png')),
+                                  ),
                                 ),
+                                SizedBox(width: 10.w), // Space between payment methods
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _selectedPaymentMethod = 'mastercard'; // Set selected method
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      color: TextColors.light2white,
+                                      border: _selectedPaymentMethod == 'mastercard'
+                                          ? Border.all(color: Colors.orange, width: 2)
+                                          : null,
+                                    ),
+                                    width: 107.w,
+                                    height: 53.h,
+                                    child: Center(child: Image.network('assets/payment/mastercard.png')),
+                                  ),
+                                ),
+                                SizedBox(width: 10.w), // Space between payment methods
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _selectedPaymentMethod = 'paypal'; // Set selected method
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      color: TextColors.light2white,
+                                      border: _selectedPaymentMethod == 'paypal'
+                                          ? Border.all(color: Colors.orange, width: 2)
+                                          : null,
+                                    ),
+                                    width: 107.w,
+                                    height: 53.h,
+                                    child: Center(child: Image.network('assets/payment/paypal.png')),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 20.h), // Spacing before the text fields
 
-                              SizedBox(height: 20.h), // Spacing before the text fields
-                              TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Credit Card',
-                                  hintText: '3485 ****  ****  ****',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.r),
-                                    borderSide: BorderSide(color: Colors.grey),
+                            // Credit Card and Name on Card Fields Stacked
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Credit Card", style: TextStyles.font16darkGreySemiBold),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    hintText: '3485 ****  ****  ****',
+                                    hintStyle: TextStyles.font14lightGreyRegular,
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      borderSide: BorderSide(color: TextColors.lightGrey),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: const BorderSide(
+                                        color: TextColors.lightGrey,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: const BorderSide(
+                                        color: TextColors.orange,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                                 ),
-                              ),
-                              SizedBox(height: 10.h), // Spacing between text fields
-                              TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Name on card',
-                                  hintText: 'Joe Doe',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.r),
-                                    borderSide: BorderSide(color: Colors.grey),
+                                SizedBox(height: 10.h), // Spacing between fields
+                                Text("Name on card", style: TextStyles.font16darkGreySemiBold),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    hintText: 'Joe Doe',
+                                    hintStyle: TextStyles.font14lightGreyRegular,
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      borderSide: BorderSide(color: Colors.grey),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: const BorderSide(
+                                        color: TextColors.lightGrey,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: const BorderSide(
+                                        color: TextColors.orange,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                                 ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
+
+                            SizedBox(height: 20.h), // Spacing before the new text fields
+
+                            // New Text Fields
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Expiration date", style: TextStyles.font16darkGreySemiBold),
+                                      TextField(
+                                        decoration: InputDecoration(
+                                          hintText: 'MM/YY',
+                                          hintStyle: TextStyles.font14lightGreyRegular,
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10.r),
+                                            borderSide: BorderSide(color: TextColors.lightGrey),
+                                          ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderSide: const BorderSide(
+                                              color: TextColors.lightGrey,
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderSide: const BorderSide(
+                                              color: TextColors.orange,
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(width: 10.w), // Space between the new text fields
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("CVV", style: TextStyles.font16darkGreySemiBold),
+                                      TextField(
+                                        decoration: InputDecoration(
+                                          hintText: '123',
+                                          hintStyle: TextStyles.font14lightGreyRegular,
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10.r),
+                                            borderSide: BorderSide(color: Colors.grey),
+                                          ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderSide: const BorderSide(
+                                              color: TextColors.lightGrey,
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderSide: const BorderSide(
+                                              color: TextColors.orange,
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Checkbox(
+                                  side: BorderSide(color: TextColors.grey600),
+                                  activeColor: TextColors.orange,
+                                  value: _agreeToTerms2,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _agreeToTerms2 = value ?? false;
+                                    });
+                                    if (widget.onCheckboxChanged2 != null) {
+                                      widget.onCheckboxChanged2!(value ?? false);
+                                    }
+                                  },
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 14.h),
+                                    child: RichText(
+                                      text: TextSpan(
+                                        style: TextStyles.font14darkGreyRegular,
+                                        children: [
+                                          TextSpan(text: "Save my payment details for future booking "),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            SizedBox(height: 20.h), // Spacing before the buttons
+
+                            // Buttons Row
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  width: 171.w,
+                                  height: 44.h,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      _onconfirmPressed();
+                                      booking_success=true;
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: TextColors.orange,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(4.r)),
+                                      ),
+                                      elevation: 0,
+                                    ),
+                                    child: Text("Confirm", style: TextStyles.font18WhiteMedium),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 171.w,
+                                  height: 44.h,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:Colors.transparent,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(4.r)),
+                                        side: BorderSide(color: Colors.orange, width: 1.0),
+                                      ),
+                                      elevation: 0,
+                                    ),
+                                    child: Text("Back", style: TextStyles.font18OrangeMedium),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 20.h), // Spacing at the bottom
+                          ],
                         ),
-
-
+                      ),
                   ],
-                               ),
-               ),
+                ),
+              ),
 
           ],
         ),

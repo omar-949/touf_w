@@ -24,13 +24,11 @@ class ExpandableSection extends StatelessWidget {
         width: 358.w,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(12)
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.25),
-              offset: Offset(1,2),
+              offset: Offset(1, 2),
               blurRadius: 6,
               spreadRadius: 0,
             ),
@@ -59,12 +57,13 @@ class ExpandableSection extends StatelessWidget {
             AnimatedContainer(
               duration: const Duration(milliseconds: 500),
               height: isExpanded ? null : 0, // Set height to 0 when collapsed
-              padding: isExpanded ? const EdgeInsets.all(10.0) : EdgeInsets.zero,
+              padding:
+                  isExpanded ? const EdgeInsets.all(10.0) : EdgeInsets.zero,
               child: isExpanded
                   ? Text(
-                content,
-                style: TextStyles.font16BlackRegular,
-              )
+                      content,
+                      style: TextStyles.font16BlackRegular,
+                    )
                   : null,
             ),
           ],

@@ -106,6 +106,9 @@ flutter:
          - asset: assets/fonts/Montserrat-Bold.ttf
          - asset: assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
          - asset: assets/fonts/Montserrat-Medium.ttf
+         - asset: assets/fonts/Montserrat-Regular.ttf
+         - asset: assets/fonts/Montserrat-SemiBold.ttf
+         - asset: assets/fonts/Montserrat-Light.ttf
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,

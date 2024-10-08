@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'info_row.dart';
 
 class InfoBox extends StatelessWidget {
-
   const InfoBox({
     super.key,
   });
@@ -12,7 +11,7 @@ class InfoBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 358.w,
-      height: 186.1.h,
+      height: 188.h,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -25,14 +24,29 @@ class InfoBox extends StatelessWidget {
           ),
         ],
       ),
-      padding: EdgeInsets.all(12.w), // Added padding to make content look nicer
+      padding: EdgeInsets.all(12.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          InfoRow(imageUrl: 'assets/best_selling/Vector (3).png',labelName: 'Location:', value: 'Egypt, Cairo',),
-          InfoRow(imageUrl: 'assets/best_selling/svgexport-6 (82).png',labelName: 'Price:', value: '850 EGP',),
-          InfoRow(imageUrl: 'assets/best_selling/svgexport-6 (83).png',labelName: 'Duration time:', value: '3 Hour/s',),
-          InfoRow(imageUrl: 'assets/best_selling/Group 585.png', value: 'Walking Tour',),
+          InfoRow(
+            imageUrl: 'assets/best_selling/Vector (3).png',
+            labelName: 'Location:',
+            value: 'Egypt, Cairo',
+          ),
+          InfoRow(
+            imageUrl: 'assets/best_selling/svgexport-6 (82).png',
+            labelName: 'Price:',
+            value: '850 EGP',
+          ),
+          InfoRow(
+            imageUrl: 'assets/best_selling/svgexport-6 (83).png',
+            labelName: 'Duration time:',
+            value: '3 Hour/s',
+          ),
+          InfoRow(
+            imageUrl: 'assets/best_selling/Group 585.png',
+            value: 'Walking Tour',
+          ),
         ],
       ),
     );

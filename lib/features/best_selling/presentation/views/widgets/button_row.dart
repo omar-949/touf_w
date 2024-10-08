@@ -3,15 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/resources/styles.dart';
 
-class LableButton extends StatelessWidget {
+class ButtonRow extends StatelessWidget {
   final String label;
-  final String imagePath; // Accept image path as parameter
+  final String imagePath;
   final VoidCallback onPressed;
 
-  const LableButton({
+  const ButtonRow({
     Key? key,
     required this.label,
-    required this.imagePath, // Required image path
+    required this.imagePath,
     required this.onPressed,
   }) : super(key: key);
 
@@ -23,8 +23,8 @@ class LableButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: 30.w,  // Increased width
-            height: 30.h,  // Increased height
+            width: 30.w,
+            height: 30.h,
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
@@ -40,12 +40,12 @@ class LableButton extends StatelessWidget {
             child: Center(
               child: IconButton(
                 onPressed: onPressed,
-                padding: EdgeInsets.all(5),  // Remove default padding
+                padding: EdgeInsets.all(5),
                 icon: Image.asset(
-                  imagePath, // Use the provided image path
+                  imagePath,
                   fit: BoxFit.cover,
-                  width: 16.w,  // Adjust icon size here
-                  height: 15.h,  // Adjust icon size here
+                  width: 16.w,
+                  height: 15.h,
                 ),
               ),
             ),

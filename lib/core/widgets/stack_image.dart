@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../../../../../../core/resources/colors.dart';
-import '../../../../../../core/resources/styles.dart';
+import '../../../core/resources/colors.dart';
+import '../../../core/resources/styles.dart';
 
 class StackImage extends StatefulWidget {
   const StackImage({
@@ -26,12 +26,11 @@ class _StackImageState extends State<StackImage> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Background image
         Container(
           width: 390.w,
           height: 294.68.h,
           child: Image.asset(
-            widget.imageUrl, // Dynamic image
+            widget.imageUrl,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               return Container(
@@ -56,7 +55,7 @@ class _StackImageState extends State<StackImage> {
         Positioned(
           top: 200.h,
           left: 16.h,
-          right: 16.h,
+          right: 30.h,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
