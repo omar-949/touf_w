@@ -28,7 +28,7 @@ class CounterWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(label, style: TextStyles.font16darkGreyMedium),
-              Text(priceInfo, style: TextStyles.font14darkBlue400Medium),
+              Text(priceInfo, style: TextStyles.font14darkBlue500Medium),
             ],
           ),
         ),
