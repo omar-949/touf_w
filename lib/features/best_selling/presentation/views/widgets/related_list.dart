@@ -1,68 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/core/resources/colors.dart';
-import 'package:toufwshouf/core/resources/styles.dart';
+import '../../../../../core/widgets/custom_container_details.dart';
+import '../../../../../core/widgets/horzintal_lists_view_widget.dart';
+import '../../../../../core/widgets/list_view_header.dart';
 
 class RelatedListWidget extends StatelessWidget {
-  final List<Widget> relatedList;
+  final List<CustomContainerDetails> relatedList; // Use your trip details here
+  final VoidCallback? onSeeAllPressed;
 
-  const RelatedListWidget({super.key, required this.relatedList});
-
-  Widget _buildTextHeader({required String textHeader}) {
-    return Padding(
-      padding: EdgeInsets.only(left: 15.0.w, bottom: 15.w, top: 10.h),
-      child: Row(
-        children: [
-          Container(
-            width: 5.w,
-            height: 26.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.r),
-              color: AppColors.orange,
-            ),
-          ),
-          SizedBox(width: 8.w),
-          Text(textHeader, style: TextStyles.font20BlackMedium),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRelatedListHeader() {
-    return Padding(
-      padding: EdgeInsets.only(right: 20.0.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildTextHeader(textHeader: "Related List"),
-          Text(
-            "See all",
-            style: TextStyles.font16BlackRegular,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRelatedListView() {
-    return SizedBox(
-      height: 215.h,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
-          return relatedList[index];
-        },
-        itemCount: relatedList.length,
-      ),
-    );
-  }
+  const RelatedListWidget({
+    Key? key,
+    required this.relatedList,
+    this.onSeeAllPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _buildRelatedListHeader(),
-        _buildRelatedListView(),
+        SectionHeader(
+          title: "Related List",
+          onSeeAllPressed: onSeeAllPressed,
+        ),
+        TripsListView(tripsList: relatedList),
       ],
     );
   }

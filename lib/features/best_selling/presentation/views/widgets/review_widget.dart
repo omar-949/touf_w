@@ -18,9 +18,9 @@ class ReviewsWidget extends StatelessWidget {
         children: [
           ListView.builder(
             shrinkWrap:
-                true, // This allows the ListView to take only the necessary space
+                true,
             physics:
-                NeverScrollableScrollPhysics(), // Disable scrolling for ListView, since SingleChildScrollView will handle it
+                NeverScrollableScrollPhysics(),
             itemCount: reviews.length,
             itemBuilder: (context, index) {
               final review = reviews[index];
@@ -29,7 +29,7 @@ class ReviewsWidget extends StatelessWidget {
                 rating: review['rating'],
                 reviewText: review['reviewText'],
                 imageUrl:
-                    review['ImageUrl'], // Fixed parameter name to 'imageUrl'
+                    review['ImageUrl'],
               );
             },
           ),

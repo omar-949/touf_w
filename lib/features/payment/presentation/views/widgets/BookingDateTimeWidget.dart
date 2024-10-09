@@ -21,7 +21,7 @@ class BookingDateTimeWidget extends StatelessWidget {
           label: "Trip date:",
           date: "2/3/2022",
         ),
-        SizedBox(height: 10.h), // Optional: Add spacing between date and time
+        SizedBox(height: 10.h),
         DateContainer(
           iconPath: 'assets/payment/clock.png',
           label: "Time:",

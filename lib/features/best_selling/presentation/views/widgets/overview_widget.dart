@@ -23,7 +23,7 @@ class _OverviewWidgetState extends State<OverviewWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            widget.overviewMainText, // Accessing the property correctly
+            widget.overviewMainText,
             style: TextStyles.font16DarkGreyRegular,
           ),
           SizedBox(height: 10.h),
@@ -33,7 +33,7 @@ class _OverviewWidgetState extends State<OverviewWidget> {
           ),
           SizedBox(height: 10.h),
           Text(
-            widget.additionalInfo, // Accessing the property correctly
+            widget.additionalInfo,
             style: TextStyles.font16DarkGreyRegular,
           ),
           SizedBox(height: 10.h),
