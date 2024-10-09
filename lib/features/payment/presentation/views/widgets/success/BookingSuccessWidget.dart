@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import '../../../../../core/resources/colors.dart';
-import '../../../../../core/resources/styles.dart';
-import 'booking_detail_row.dart'; // Import the BookingDetailRow
-import 'booking_success_container.dart'; // Import the BookingSuccessContainer
+import '../../../../../../core/resources/colors.dart';
+import '../../../../../../core/resources/styles.dart';
+import 'booking_detail_row.dart';
+import 'booking_success_container.dart';
 
 class BookingSuccessWidget extends StatelessWidget {
   const BookingSuccessWidget({Key? key}) : super(key: key);

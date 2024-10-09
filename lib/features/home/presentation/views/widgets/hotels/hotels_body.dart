@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/custom_container_hotel.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/custom_container_hotel.dart';
 
-import '../../../../../core/resources/assets.dart';
+import '../../../../../../core/resources/assets.dart';
 
 
 class HotelsBody extends StatelessWidget {
@@ -11,9 +11,8 @@ class HotelsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding:  EdgeInsets.only(bottom: 250.h),
+    return  Padding(
+        padding:  EdgeInsets.only(bottom: 2.h),
         child: Column(
             children: [
               Padding(
@@ -35,7 +34,7 @@ class HotelsBody extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  itemCount: 12,
+                  itemCount: 6,
                   itemBuilder: (BuildContext context, int index) {
                     return CustomContainerHotel(
                         imageUrl: Assets.hotelsImage,
@@ -52,7 +51,7 @@ class HotelsBody extends StatelessWidget {
             ],
 
         ),
-      ),
-    );
+      );
+
   }
 }

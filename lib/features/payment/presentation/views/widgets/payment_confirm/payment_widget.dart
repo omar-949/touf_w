@@ -4,12 +4,11 @@ import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/custom_appbar.dart';
 import 'package:toufwshouf/core/widgets/stack_image.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/BookingDateTimeWidget.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/BookingSuccessWidget.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/CounterWidget.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_method_option.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/progress_step_widget.dart';
-
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data/BookingDateTimeWidget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_confirm/payment_method_option.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/success/BookingSuccessWidget.dart';
+import '../passenger_data/CounterWidget.dart';
+import '../passenger_data/progress_step_widget.dart';
 import 'card_details_section.dart';
 import 'checkbox_terms_section.dart';
 import 'confirmation_buttons.dart';
@@ -379,7 +378,11 @@ class _PaymentWidgetState extends State<PaymentWidget> {
             },
           ),
           SizedBox(height: 20.h), // Spacing before the buttons
-          ConfirmationButtons(onConfirmPressed: () {  },),
+          ConfirmationButtons(
+            onConfirmPressed: () {
+              booking_success=true;
+            },
+          ),
           SizedBox(height: 20.h), // Spacing at the bottom
         ],
       ),

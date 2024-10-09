@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/resources/styles.dart';
+import '../../../../../../core/resources/styles.dart';
 
 class SupplementWidget extends StatefulWidget {
   const SupplementWidget({super.key});

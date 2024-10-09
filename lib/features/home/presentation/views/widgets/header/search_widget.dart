@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/resources/colors.dart';
-import '../../../../../core/resources/styles.dart';
+import '../../../../../../core/resources/colors.dart';
+import '../../../../../../core/resources/styles.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({super.key});

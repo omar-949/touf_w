@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/resources/assets.dart';
+import '../../../../../../core/resources/assets.dart';
 
 class AdvertisementWidget extends StatelessWidget {
   const AdvertisementWidget({super.key});

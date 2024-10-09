@@ -8,12 +8,13 @@ import 'package:toufwshouf/core/widgets/custom_appbar.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
 import 'package:toufwshouf/core/widgets/custom_container_details.dart';
 import 'package:toufwshouf/core/widgets/stack_image.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/button_list.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/expandable_section.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/info_box.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/custom_tab_bar.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/related_list.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tab_bar_view.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/header/button_list.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/header/info_box.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tale/expandable_section.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tab_bar_widgets/custom_tab_bar.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tab_bar_widgets/tab_bar_view.dart';
+
+import 'widgets/tale/related_list.dart';
 
 class DetailScreen extends StatefulWidget {
   DetailScreen({super.key});
