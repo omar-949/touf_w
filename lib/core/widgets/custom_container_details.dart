@@ -27,7 +27,7 @@ class CustomContainerDetails extends StatefulWidget {
   final String containerText1;
   final String containerSalary1;
   final bool? isDashed1;
-  final double rating; // Removed the late modifier
+  final double rating;
   final bool? isNotNeed;
   final double? height;
   final double? width;

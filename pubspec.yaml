@@ -96,20 +96,27 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Inter
-       fonts:
-         - asset: assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf
-         - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
-  #         style: Montserrat
-     - family: Montserrat
-       fonts:
-         - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
-         - asset: assets/fonts/Montserrat-Bold.ttf
-         - asset: assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
-         - asset: assets/fonts/Montserrat-Medium.ttf
-         - asset: assets/fonts/Montserrat-Regular.ttf
-         - asset: assets/fonts/Montserrat-SemiBold.ttf
-         - asset: assets/fonts/Montserrat-Light.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf
+          style: italic
+        - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
+          style: italic
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 300
+
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,

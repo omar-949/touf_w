@@ -355,6 +355,7 @@ abstract class TextStyles {
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat'
   );
+
   static TextStyle font18darkGreySemiBold = TextStyle(
       fontSize: 18.sp,
       color: TextColors.darkGrey,

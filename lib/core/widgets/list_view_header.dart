@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../resources/styles.dart';
+
 class SectionHeader extends StatelessWidget {
   final String title;
   final VoidCallback? onSeeAllPressed;
@@ -31,7 +33,7 @@ class SectionHeader extends StatelessWidget {
               SizedBox(width: 8.w),
               Text(
                 title,
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                style: TextStyles.font20BlackMedium
               ),
             ],
           ),
@@ -40,7 +42,7 @@ class SectionHeader extends StatelessWidget {
               onTap: onSeeAllPressed,
               child: Text(
                 "See all",
-                style: TextStyle(fontSize: 16.sp),
+                style: TextStyles.font16BlackRegular
               ),
             ),
         ],
