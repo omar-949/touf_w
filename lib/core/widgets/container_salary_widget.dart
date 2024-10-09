@@ -15,7 +15,7 @@ class ContainerSalaryWidget extends StatelessWidget {
   final String containerText;
   final String containerSalary;
   final bool? isDashed;
-  final bool isBig; // New attribute
+  final bool isBig;
 
   @override
   Widget build(BuildContext context) {

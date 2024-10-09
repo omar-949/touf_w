@@ -1,23 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/resources/styles.dart';
+import 'package:toufwshouf/core/resources/colors.dart';
 
-import '../../../../../../core/resources/colors.dart';
-import '../../../../../../core/resources/styles.dart';
-class CheckboxTermsSection extends StatelessWidget {
-  final ValueChanged<bool?>? onCheckboxChanged;
+class CustomCheckbox extends StatelessWidget {
+  final bool value;
+  final ValueChanged<bool?> onChanged;
+  final String label;
+  final TextStyle labelStyle;
+  final BorderSide borderSide;
 
-  CheckboxTermsSection({required this.onCheckboxChanged});
+  const CustomCheckbox({
+    Key? key,
+    required this.value,
+    required this.onChanged,
+    required this.label,
+    required this.labelStyle,
+    this.borderSide = const BorderSide(color: TextColors.grey600),
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Checkbox(
-          side: BorderSide(color: TextColors.grey600),
+          value: value,
+          onChanged: onChanged,
           activeColor: TextColors.darkBlue,
-          value: false,
-          onChanged: onCheckboxChanged
+          side: borderSide,
         ),
-        Text("Save my payment details for future booking ", style: TextStyles.font14darkGreyRegular),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(top: 14.h),
+            child: Text(label, style: labelStyle),
+          ),
+        ),
       ],
     );
   }

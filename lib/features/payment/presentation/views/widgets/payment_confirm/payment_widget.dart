@@ -370,17 +370,25 @@ class _PaymentWidgetState extends State<PaymentWidget> {
           CardDetailsSection(),
           SizedBox(height: 20.h), // Spacing before the new text fields
           ExpirationAndCVVSection(),
-          CheckboxTermsSection(
-            onCheckboxChanged: (value) {
+          CustomCheckbox(
+            value: _agreeToTerms2,
+            onChanged: (value) {
               setState(() {
-                _agreeToTerms2 = value ?? false; // Handle checkbox change
+                _agreeToTerms2 = value ?? false;
               });
+              if (widget.onCheckboxChanged2 != null) {
+                widget.onCheckboxChanged2!(value ?? false);
+              }
             },
+            label: "Save my payment details for future booking",
+            labelStyle: TextStyles.font14darkGreyRegular,
           ),
+
           SizedBox(height: 20.h), // Spacing before the buttons
           ConfirmationButtons(
             onConfirmPressed: () {
-              booking_success=true;
+              _onconfirmPressed();
+              booking_success = true;
             },
           ),
           SizedBox(height: 20.h), // Spacing at the bottom
