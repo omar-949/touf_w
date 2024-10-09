@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/hotels_body.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/outings_body.dart';
-
-import '../../../../../core/resources/assets.dart';
-import '../../../../../core/resources/colors.dart';
-import '../../../../../core/resources/styles.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/hotels_body.dart';
+import '../../../../../../core/resources/assets.dart';
+import '../../../../../../core/resources/colors.dart';
+import '../../../../../../core/resources/styles.dart';
+import '../outings/outings_body.dart';
 
 class CustomTabWidget extends StatefulWidget {
   const CustomTabWidget({super.key});

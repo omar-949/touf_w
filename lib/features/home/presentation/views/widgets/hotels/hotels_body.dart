@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/custom_container_hotel.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/custom_container_hotel.dart';
 
-import '../../../../../core/resources/assets.dart';
+import '../../../../../../core/resources/assets.dart';
 
 
 class HotelsBody extends StatelessWidget {

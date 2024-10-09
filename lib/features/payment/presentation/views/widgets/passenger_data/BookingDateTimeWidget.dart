@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/container_data.dart';
+import 'container_data.dart';
 
 class BookingDateTimeWidget extends StatelessWidget {
   final bool bookingSuccess;

@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/search_widget.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/tab_bar_widget.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/header/search_widget.dart';
 
-import '../../../../../core/resources/assets.dart';
+import '../../../../../../core/resources/assets.dart';
+import '../header/tab_bar_widget.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});

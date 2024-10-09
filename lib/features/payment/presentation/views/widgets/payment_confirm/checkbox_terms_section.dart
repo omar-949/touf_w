@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/resources/colors.dart';
-import '../../../../../core/resources/styles.dart';
 
+import '../../../../../../core/resources/colors.dart';
+import '../../../../../../core/resources/styles.dart';
 class CheckboxTermsSection extends StatelessWidget {
-  final ValueChanged<bool?>? onCheckboxChanged; // Updated to accept null
+  final ValueChanged<bool?>? onCheckboxChanged;
 
   CheckboxTermsSection({required this.onCheckboxChanged});
 

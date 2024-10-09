@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
+import '../../../../../../core/resources/assets.dart';
+import '../../../../../../core/routing/routes.dart';
+import '../../../../../../core/widgets/custom_container_details.dart';
+import '../../../../../../core/widgets/horzintal_lists_view_widget.dart';
+import '../../../../../../core/widgets/list_view_header.dart';
 
-import '../../../../../core/resources/assets.dart';
-import '../../../../../core/routing/routes.dart';
-import '../../../../../core/widgets/custom_container_details.dart';
-import '../../../../../core/widgets/horzintal_lists_view_widget.dart';
-import '../../../../../core/widgets/list_view_header.dart';
 import 'advertisement_widget.dart';
+
 
 class OutingsBody extends StatelessWidget {
   OutingsBody({super.key});
