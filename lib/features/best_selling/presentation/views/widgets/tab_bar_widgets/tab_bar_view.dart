@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/overview_widget.dart';
-import 'gallery_widget.dart';
-import 'review_widget.dart';
-import 'supplement_widget.dart';
+import '../gallery/gallery_widget.dart';
+import '../overview/overview_widget.dart';
+import '../reviews/review_widget.dart';
+import '../supplement/supplement_widget.dart';
+
 
 class TabBarViewWidget extends StatelessWidget {
   final TabController tabController;

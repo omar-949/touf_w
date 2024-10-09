@@ -136,6 +136,12 @@ abstract class TextStyles {
     fontWeight: FontWeightHelper.semiBold,
       fontFamily: 'Montserrat'
   );
+  static TextStyle font14OrangeSemiBold = TextStyle(
+      fontSize: 14.sp,
+      color: TextColors.orange,
+      fontWeight: FontWeightHelper.semiBold,
+      fontFamily: 'Montserrat'
+  );
   static TextStyle font20BlackMedium = TextStyle(
     fontSize: 20.sp,
     color: TextColors.black,

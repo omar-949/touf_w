@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'photo_tile.dart'; // Import the new PhotoTile widget
 
 class PhotoGalleryWidget extends StatelessWidget {
   final List<String> imageUrls;
@@ -25,17 +26,7 @@ class PhotoGalleryWidget extends StatelessWidget {
               ),
               itemCount: imageUrls.length,
               itemBuilder: (context, index) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    width: 200.w,
-                    height: 162.h,
-                    child: Image.asset(
-                      imageUrls[index],
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                );
+                return PhotoTile(imageUrl: imageUrls[index]); // Use PhotoTile here
               },
             ),
           ),

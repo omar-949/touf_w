@@ -3,23 +3,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/resources/assets.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
-
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/widgets/custom_appbar.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
 import 'package:toufwshouf/core/widgets/custom_container_details.dart';
 import 'package:toufwshouf/core/widgets/stack_image.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/button_list.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/expandable_section.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/info_box.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/custom_tab_bar.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/related_list.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tab_bar_view.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/header/button_list.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/header/info_box.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tale/expandable_section.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tab_bar_widgets/custom_tab_bar.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/tab_bar_widgets/tab_bar_view.dart';
+
+import 'widgets/tale/related_list.dart';
 
 class DetailScreen extends StatefulWidget {
   DetailScreen({super.key});
 
-  final List<Widget> relatedList = [
+  final List<CustomContainerDetails> relatedList = [
     CustomContainerDetails(
       image: 'assets/best_selling/Frame 40.png',
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
@@ -66,13 +66,7 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 10.h),
-            const StackImage(
-              imageUrl: 'assets/best_selling/header.png',
-              tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
-            ),
-            SizedBox(height: 10.h),
-            const ButtonList(),
+            _buildHeaderSection(),
             SizedBox(height: 20.h),
             const InfoBox(),
             SizedBox(height: 20.h),
@@ -80,43 +74,60 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
             TabBarViewWidget(tabController: _tabController),
             _buildExpandableSection(
               title: 'Tour Including',
-              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
+              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
               isExpanded: isTourExpanded,
-              onTap: () {
-                setState(() {
-                  isTourExpanded = !isTourExpanded;
-                });
-              },
+              onTap: () => _toggleExpandableSection('tour'),
             ),
             SizedBox(height: 10.h),
             _buildExpandableSection(
               title: 'Cancellation Policy',
-              content: 'You can cancel up to 24 hours in advance of the experience for a full refund. For a full refund, you must cancel at least 24 hours before the experience’s start time.If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded. Any changes made less than 24 hours before the experience’s start time will not be accepted. Cut-off times are based on the experience’s local time.',
+              content: 'You can cancel up to 24 hours in advance of the experience for a full refund. For a full refund, you must cancel at least 24 hours before the experience’s start time. If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded.',
               isExpanded: isPolicyExpanded,
-              onTap: () {
-                setState(() {
-                  isPolicyExpanded = !isPolicyExpanded;
-                });
-              },
+              onTap: () => _toggleExpandableSection('policy'),
             ),
             SizedBox(height: 30.h),
-            CustomButton(
-              text: 'Book Now',
-              onPressed: () {
-                context.pushNamed(Routes.paymentScreen);
-              },
-
-              backgroundColor: AppColors.orange,
-              width: 358.w,
-            ),
+            _buildBookNowButton(context),
             SizedBox(height: 30.h),
-            RelatedListWidget(
-              relatedList: widget.relatedList,
-            ),
+            RelatedListWidget(relatedList: widget.relatedList),
           ],
         ),
       ),
     );
+  }
+
+  Widget _buildHeaderSection() {
+    return Column(
+      children: [
+        SizedBox(height: 10.h),
+        const StackImage(
+          imageUrl: 'assets/best_selling/header.png',
+          tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
+        ),
+        SizedBox(height: 10.h),
+        const ButtonList(),
+      ],
+    );
+  }
+
+  Widget _buildBookNowButton(BuildContext context) {
+    return CustomButton(
+      text: 'Book Now',
+      onPressed: () {
+        context.pushNamed(Routes.paymentScreen);
+      },
+      backgroundColor: AppColors.orange,
+      width: 358.w,
+    );
+  }
+
+  void _toggleExpandableSection(String section) {
+    setState(() {
+      if (section == 'tour') {
+        isTourExpanded = !isTourExpanded;
+      } else if (section == 'policy') {
+        isPolicyExpanded = !isPolicyExpanded;
+      }
+    });
   }
 
   Widget _buildExpandableSection({
