@@ -90,33 +90,34 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
     );
   }
 
-  Widget _buildTabBarView() {
-    return Padding(
-     padding: EdgeInsets.only(top: 50.h),
-     child: IndexedStack(
-      index: _tabController.index,
-      children: [
-        OutingsBody(),
-       HotelsBody(),
-       const Center(child: Text('Transportation Content')),
-     ],
-    ),
-  );
-  }
-  //
   // Widget _buildTabBarView() {
-  //   return SizedBox(
-  //     height: 900,
-  //       child: Padding(
-  //         padding: EdgeInsets.only(top: 50.h),
-  //         child: TabBarView(
-  //           controller: _tabController,
-  //           children: [
-  //             OutingsBody(),
-  //             HotelsBody(),
-  //             const Center(child: Text('Transportation Content')),
-  //           ],
-  //         ),
-  //       ));
+  //   return Padding(
+  //    padding: EdgeInsets.only(top: 50.h),
+  //    child: IndexedStack(
+  //     index: _tabController.index,
+  //     children: [
+  //       OutingsBody(),
+  //      HotelsBody(),
+  //      const Center(child: Text('Transportation Content')),
+  //    ],
+  //   ),
+  // );
   // }
+  //
+  Widget _buildTabBarView() {
+    return SizedBox(
+      height: 900,
+      child: Padding(
+        padding: EdgeInsets.only(top: 50.h),
+        child: TabBarView(
+          controller: _tabController,
+          children: [
+            OutingsBody(),
+            HotelsBody(),
+            const Center(child: Text('Transportation Content')),
+          ],
+        ),
+      ),
+    );
+  }
 }
