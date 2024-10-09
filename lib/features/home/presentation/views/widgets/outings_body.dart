@@ -51,24 +51,29 @@ class OutingsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: Column(
-        children: [
-          SectionHeader(title: "Best Selling", onSeeAllPressed: (
-              ) {
-            context.pushNamed(Routes.BestSellingScreen);
-          }),
-          TripsListView(tripsList: bestSellingList),
+      child: Padding(
+        padding: EdgeInsets.only(bottom: 250.h),  // Optional padding to add spacing around the content
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SectionHeader(
+              title: "Best Selling",
+              onSeeAllPressed: () {
+                context.pushNamed(Routes.BestSellingScreen);
+              },
+            ),
+            TripsListView(tripsList: bestSellingList),
 
-          SectionHeader(title: "Advertisements"),
-          const AdvertisementWidget(),
+            SectionHeader(title: "Advertisements"),
+            const AdvertisementWidget(),
 
-          SectionHeader(title: "Best Offer"),
-          TripsListView(tripsList: bestOfferList),
+            SectionHeader(title: "Best Offer"),
+            TripsListView(tripsList: bestOfferList),
 
-          SectionHeader(title: "Partners"),
-          _buildPartners(),
-        ],
+            SectionHeader(title: "Partners"),
+            _buildPartners(),
+          ],
+        ),
       ),
     );
   }
@@ -77,9 +82,9 @@ class OutingsBody extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Image.asset( Assets.partners1, height: 52.h, width: 108.w),
-        Image.asset( Assets.partners2, height: 52.h, width: 108.w),
-        Image.asset( Assets.partners3, height: 52.h, width: 108.w),
+        Image.asset(Assets.partners1, height: 52.h, width: 108.w),
+        Image.asset(Assets.partners2, height: 52.h, width: 108.w),
+        Image.asset(Assets.partners3, height: 52.h, width: 108.w),
       ],
     );
   }

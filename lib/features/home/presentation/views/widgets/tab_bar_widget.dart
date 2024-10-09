@@ -37,7 +37,11 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
       child: Column(
         children: [
           _buildCustomTabBar(),
-          _buildTabBarView(),
+          // Constrain the height of the TabBarView to avoid extra space
+          SizedBox(
+            height: MediaQuery.of(context).size.height - kToolbarHeight - 50.h, // Adjust the height as per requirement
+            child: _buildTabBarView(),
+          ),
         ],
       ),
     );
@@ -91,16 +95,13 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
   }
 
   Widget _buildTabBarView() {
-    return Padding(
-     padding: EdgeInsets.only(top: 50.h),
-     child: IndexedStack(
+    return IndexedStack(
       index: _tabController.index,
       children: [
         OutingsBody(),
-       HotelsBody(),
-       const Center(child: Text('Transportation Content')),
-     ],
-    ),
-  );
+        HotelsBody(),
+        const Center(child: Text('Transportation Content')),
+      ],
+    );
   }
 }
