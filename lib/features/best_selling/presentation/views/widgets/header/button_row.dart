@@ -9,11 +9,11 @@ class ButtonRow extends StatelessWidget {
   final VoidCallback onPressed;
 
   const ButtonRow({
-    Key? key,
+    super.key,
     required this.label,
     required this.imagePath,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class ButtonRow extends StatelessWidget {
             child: Center(
               child: IconButton(
                 onPressed: onPressed,
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 icon: Image.asset(
                   imagePath,
                   fit: BoxFit.cover,

@@ -8,19 +8,19 @@ import 'booking_detail_row.dart';
 import 'booking_success_container.dart';
 
 class BookingSuccessWidget extends StatelessWidget {
-  const BookingSuccessWidget({Key? key}) : super(key: key);
+  const BookingSuccessWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     final bookingDetails = [
-      BookingDetailRow(label: "Booking date", value: "2/3/2022"),
-      BookingDetailRow(label: "Trip Date", value: "2/3/2022 at 18:00"),
-      BookingDetailRow(label: "Egyptians Number", value: "1"),
-      BookingDetailRow(label: "Children Number", value: "1"),
-      BookingDetailRow(label: "Total without additional services", value: "440 EGP"),
-      BookingDetailRow(label: "Total", value: "440 EGP"),
-      BookingDetailRow(label: "VAT", value: "17 EGP"),
-      BookingDetailRow(label: "The total includes VAT", value: "457 EGP"),
+      const BookingDetailRow(label: "Booking date", value: "2/3/2022"),
+      const BookingDetailRow(label: "Trip Date", value: "2/3/2022 at 18:00"),
+      const BookingDetailRow(label: "Egyptians Number", value: "1"),
+      const BookingDetailRow(label: "Children Number", value: "1"),
+      const BookingDetailRow(label: "Total without additional services", value: ""),
+      const BookingDetailRow(label: "Total", value: "440 EGP"),
+      const BookingDetailRow(label: "VAT", value: "17 EGP"),
+      const BookingDetailRow(label: "The total includes VAT", value: "457 EGP"),
       Center(child: Text("Cancellation Deadline: 10/3/2022", style: TextStyles.font18red500Medium)),
     ];
 
@@ -51,7 +51,7 @@ class BookingSuccessWidget extends StatelessWidget {
           backgroundColor: isOutlined ? Colors.transparent : color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(3.r)),
-            side: isOutlined ? BorderSide(color: Colors.orange, width: 1.0) : BorderSide.none,
+            side: isOutlined ? const BorderSide(color: Colors.orange, width: 1.0) : BorderSide.none,
           ),
           elevation: 0,
         ),

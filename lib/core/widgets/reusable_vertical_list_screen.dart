@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/resources/styles.dart';
 import '../../../../core/widgets/custom_appbar.dart';
 import 'custom_container_details.dart';
 import 'horzintal_custom_container_detail.dart';
@@ -10,10 +9,10 @@ class ReusableListScreen extends StatelessWidget {
   final List<CustomContainerDetails> items;
 
   const ReusableListScreen({
-    Key? key,
+    super.key,
     required this.title,
     required this.items,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

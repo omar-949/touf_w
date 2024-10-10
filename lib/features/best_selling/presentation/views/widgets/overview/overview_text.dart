@@ -9,8 +9,8 @@ class OverviewText extends StatelessWidget {
   const OverviewText({
     required this.mainText,
     required this.additionalInfo,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

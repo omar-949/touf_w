@@ -11,7 +11,7 @@ class SearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.0.w, vertical: 25.h), // إضافة مسافة من الجانبين
-      child: Container(
+      child: SizedBox(
         height: 36.h,
         width: 318.w,
         child: TextField(
@@ -25,16 +25,16 @@ class SearchWidget extends StatelessWidget {
             // تغيير لون الحدود إلى لون الخلفية
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.0.r),
-              borderSide: BorderSide(color: TextColors.white), // تغيير اللون إلى لون الخلفية
+              borderSide: const BorderSide(color: TextColors.white), // تغيير اللون إلى لون الخلفية
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: TextColors.white, // تغيير اللون إلى لون الخلفية
               ),
               borderRadius: BorderRadius.circular(8.0.r),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: TextColors.white, // تغيير اللون إلى لون الخلفية
               ),
               borderRadius: BorderRadius.circular(8.0.r),

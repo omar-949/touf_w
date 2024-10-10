@@ -5,7 +5,7 @@ import 'package:toufwshouf/core/resources/styles.dart';
 
 class CustomTabBar extends StatelessWidget {
   final TabController tabController;
-  const CustomTabBar({required this.tabController, Key? key}) : super(key: key);
+  const CustomTabBar({required this.tabController, super.key});
 
   @override
   Widget build(BuildContext context) {

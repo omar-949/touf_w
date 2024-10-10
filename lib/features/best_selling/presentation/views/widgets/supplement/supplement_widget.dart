@@ -46,7 +46,7 @@ class _SupplementWidgetState extends State<SupplementWidget> {
           '860 EGP',
         ),
         SizedBox(height: 10.h),
-        Divider(),
+        const Divider(),
         SizedBox(height: 10.h),
         Row(
           children: [
@@ -87,7 +87,7 @@ class _SupplementWidgetState extends State<SupplementWidget> {
   }
 
   Widget _buildSupplementIcon(String image) {
-    return Container(
+    return SizedBox(
       width: 24.w,
       height: 25.h,
       child: Image.asset(

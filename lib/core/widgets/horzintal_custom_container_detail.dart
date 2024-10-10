@@ -10,11 +10,11 @@ class HorzintalCustomContainerDetail extends StatelessWidget {
   final double rating;
 
   const HorzintalCustomContainerDetail({
-    Key? key,
+    super.key,
     required this.containerDetails,
     required this.tripName,
     required this.rating,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -14,7 +14,7 @@ class InfoBox extends StatelessWidget {
       height: 188.h,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(12)),
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
@@ -25,7 +25,7 @@ class InfoBox extends StatelessWidget {
         ],
       ),
       padding: EdgeInsets.all(12.w),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InfoRow(

@@ -31,7 +31,7 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
               tabContentHeight = 965.h; // Height for "Outings"
               break;
             case 1:
-              tabContentHeight = 3000.h; // Height for "Hotels"
+              tabContentHeight = 3030.h; // Height for "Hotels"
               break;
             case 2:
               tabContentHeight = 700.h; // Optional: Add custom height for "Transportation"

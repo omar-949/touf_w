@@ -20,14 +20,14 @@ class DetailScreen extends StatefulWidget {
   DetailScreen({super.key});
 
   final List<CustomContainerDetails> relatedList = [
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: 'assets/best_selling/Frame 40.png',
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,
       containerText1: 'Start From',
       containerSalary1: '850 EGP',
     ),
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: Assets.bestSelling2,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,
@@ -113,12 +113,14 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
     return CustomButton(
       text: 'Book Now',
       onPressed: () {
+
         context.pushNamed(Routes.paymentScreen);
       },
       backgroundColor: AppColors.orange,
       width: 358.w,
     );
   }
+
 
   void _toggleExpandableSection(String section) {
     setState(() {
@@ -129,6 +131,7 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
       }
     });
   }
+
 
   Widget _buildExpandableSection({
     required String title,
@@ -144,3 +147,7 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
     );
   }
 }
+
+
+
+

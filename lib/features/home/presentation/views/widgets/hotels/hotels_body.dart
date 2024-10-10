@@ -16,7 +16,7 @@ class HotelsBody extends StatelessWidget {
         child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 20.w, bottom: 15.h),
+                padding: EdgeInsets.only(left: 20.w, bottom: 15.h,top: 20.h),
                 child: Row(
                   children: [
                     Text(
@@ -31,12 +31,12 @@ class HotelsBody extends StatelessWidget {
                 ),
               ),
               ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
                   itemCount: 6,
                   itemBuilder: (BuildContext context, int index) {
-                    return CustomContainerHotel(
+                    return const CustomContainerHotel(
                         imageUrl: Assets.hotelsImage,
                         containerText2: "Start From",
                         containerSalary2: "850 EGP",

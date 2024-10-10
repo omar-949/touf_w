@@ -22,7 +22,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 15),
+      duration: const Duration(seconds:5),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
@@ -43,7 +43,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     // Start the animations
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _controller.forward();
-      Timer(const Duration(seconds: 4), () {
+      Timer(const Duration(seconds:6), () {
         Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
       });
     });

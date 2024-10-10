@@ -5,6 +5,8 @@ import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/resources/styles.dart';
 
 class CardDetailsSection extends StatelessWidget {
+  const CardDetailsSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +19,7 @@ class CardDetailsSection extends StatelessWidget {
             hintStyle: TextStyles.font14lightGreyRegular,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.r),
-              borderSide: BorderSide(color: TextColors.lightGrey),
+              borderSide: const BorderSide(color: TextColors.lightGrey),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
@@ -44,7 +46,7 @@ class CardDetailsSection extends StatelessWidget {
             hintStyle: TextStyles.font14lightGreyRegular,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.r),
-              borderSide: BorderSide(color: Colors.grey),
+              borderSide: const BorderSide(color: Colors.grey),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),

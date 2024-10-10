@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 
 class CustomCheckbox extends StatelessWidget {
@@ -11,13 +10,13 @@ class CustomCheckbox extends StatelessWidget {
   final BorderSide borderSide;
 
   const CustomCheckbox({
-    Key? key,
+    super.key,
     required this.value,
     required this.onChanged,
     required this.label,
     required this.labelStyle,
     this.borderSide = const BorderSide(color: TextColors.grey600),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

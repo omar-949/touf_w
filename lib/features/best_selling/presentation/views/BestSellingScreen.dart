@@ -4,7 +4,7 @@ import '../../../../core/widgets/custom_container_details.dart';
 import '../../../../core/widgets/reusable_vertical_list_screen.dart';
 
 class BestSellingScreen extends StatelessWidget {
-  const BestSellingScreen({Key? key}) : super(key: key);
+  const BestSellingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

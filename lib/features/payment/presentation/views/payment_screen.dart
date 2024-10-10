@@ -6,6 +6,6 @@ class PaymentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PaymentWidget();
+    return const PaymentWidget();
   }
 }

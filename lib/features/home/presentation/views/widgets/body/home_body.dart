@@ -23,7 +23,7 @@ class _HomeBodyState extends State<HomeBody> {
         // Scroll to a specific position when the center of the screen is tapped
         _scrollController.animateTo(
           _scrollController.position.pixels + 100, // Adjust the scroll offset
-          duration: Duration(milliseconds: 300), // Animation duration
+          duration: const Duration(milliseconds: 300), // Animation duration
           curve: Curves.easeInOut, // Animation curve
         );
       },
@@ -32,7 +32,8 @@ class _HomeBodyState extends State<HomeBody> {
         slivers: [
           // Sliver for the header with search bar and background image
           SliverToBoxAdapter(
-            child: SizedBox(  // Wrapping Stack with a SizedBox to ensure proper layout
+            child: SizedBox(
+              // Wrapping Stack with a SizedBox to ensure proper layout
 
               child: Stack(
                 children: [
@@ -47,11 +48,13 @@ class _HomeBodyState extends State<HomeBody> {
                   ),
                   // Padding for the search row
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                     child: _buildSearchRow(),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 240.h), // Adjust space as needed
+                    padding:
+                        EdgeInsets.only(top: 240.h), // Adjust space as needed
                     child: const CustomTabWidget(),
                   ),
                 ],
@@ -60,7 +63,8 @@ class _HomeBodyState extends State<HomeBody> {
           ),
 
           // Optional: Add space between header and tabs
-          SliverToBoxAdapter(child: SizedBox(height: 16.h)), // Add spacing if necessary
+          SliverToBoxAdapter(
+              child: SizedBox(height: 16.h)), // Add spacing if necessary
 
           // Example SliverList for demonstration purposes
         ],
@@ -72,7 +76,7 @@ class _HomeBodyState extends State<HomeBody> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SearchWidget(),
+        const SearchWidget(),
         Image.asset(
           Assets.filterImage,
           height: 24.h,

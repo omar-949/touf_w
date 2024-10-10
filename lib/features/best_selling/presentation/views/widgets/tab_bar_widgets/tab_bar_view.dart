@@ -9,8 +9,7 @@ import '../supplement/supplement_widget.dart';
 class TabBarViewWidget extends StatelessWidget {
   final TabController tabController;
 
-  const TabBarViewWidget({required this.tabController, Key? key})
-      : super(key: key);
+  const TabBarViewWidget({required this.tabController, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +30,9 @@ class TabBarViewWidget extends StatelessWidget {
   }
 
   Widget _buildOverviewTab() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: const OverviewWidget(
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
+      child: OverviewWidget(
         overviewMainText:
             'A journey through history starting from the gates of Fatimid Cairo at Bab al-Futuh, passing through our monuments and stories of Egyptian history and heritage. From Bab Al-Futuh, through the story of Sidi El-Zouk, passing by Al-Hakim Mosque, Bamir Allah, to the house of Al-Suhaimi. ** Prices include: * Entrance tickets * Arab guide * Prices do not include any meals or drinks.',
         additionalInfo:
@@ -45,7 +44,7 @@ class TabBarViewWidget extends StatelessWidget {
   Widget _buildSupplementTab() {
     return Padding(
       padding: EdgeInsets.all(16.w),
-      child: SupplementWidget(),
+      child: const SupplementWidget(),
     );
   }
 

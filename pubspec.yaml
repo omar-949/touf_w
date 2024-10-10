@@ -51,6 +51,7 @@ dependencies:
   flutter_rating_bar :
   tap_to_expand:
   searchfield: ^1.1.6
+  awesome_dialog:
 
 dev_dependencies:
   flutter_test:

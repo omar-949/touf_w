@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/resources/styles.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'OnboardingInfo.dart';
 
 class OnboardingWidget extends StatefulWidget {
@@ -72,7 +72,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   ],
                 ),
               ),
-
               Positioned(
                 top: 694.h,
                 left: 25.h,
@@ -103,7 +102,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                     contents.length,
-                        (index) => Container(
+                    (index) => Container(
                       height: 3.h,
                       width: 17.w,
                       margin: EdgeInsets.only(right: 12.w),
@@ -126,7 +125,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, Routes.signupScreen);
+                        context.pushNamed(Routes.homeScreen);
                       },
                       child: Container(
                         width: 140.h,
@@ -145,7 +144,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         ),
                         child: Text(
                           'Skip',
-                          style: TextStyles.font16WhiteRegular.copyWith(fontFamily: 'Inter'),
+                          style: TextStyles.font16WhiteRegular
+                              .copyWith(fontFamily: 'Inter'),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -154,7 +154,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     GestureDetector(
                       onTap: () {
                         if (currentIndex == contents.length - 1) {
-                          Navigator.pushReplacementNamed(context, Routes.signupScreen);
+                          context.pushNamed(Routes.homeScreen);
                         } else {
                           navigateToPage(currentIndex + 1);
                         }
@@ -172,7 +172,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         ),
                         child: Text(
                           'Next',
-                          style: TextStyles.font16BlackRegular.copyWith(fontFamily: 'Inter'),
+                          style: TextStyles.font16BlackRegular
+                              .copyWith(fontFamily: 'Inter'),
                           textAlign: TextAlign.center,
                         ),
                       ),

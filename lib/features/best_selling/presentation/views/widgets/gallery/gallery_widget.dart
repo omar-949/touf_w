@@ -5,7 +5,7 @@ import 'photo_tile.dart'; // Import the new PhotoTile widget
 class PhotoGalleryWidget extends StatelessWidget {
   final List<String> imageUrls;
 
-  const PhotoGalleryWidget({required this.imageUrls, Key? key}) : super(key: key);
+  const PhotoGalleryWidget({required this.imageUrls, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class PhotoGalleryWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 10.h),
-          Container(
+          SizedBox(
             height: 450.h,
             width: double.infinity,
             child: GridView.builder(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/core/resources/colors.dart';
+import 'package:toufwshouf/core/routing/routes.dart';
+import 'package:toufwshouf/core/widgets/custom_button.dart';
 
 import '../../../../../../core/resources/assets.dart';
 
@@ -13,7 +17,7 @@ class AdvertisementWidget extends StatelessWidget {
       // height: 132.h,
         width: 360.w,
         padding: EdgeInsets.symmetric(vertical: 10.h),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(Assets.advertisement),
             fit: BoxFit.fill,
@@ -32,11 +36,9 @@ class AdvertisementWidget extends StatelessWidget {
               style: TextStyle(fontSize: 18.sp, color: Colors.white),
             ),
             ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                "Book",
-                style: TextStyle(fontSize: 18.sp, color: Colors.white),
-              ),
+              onPressed: () {
+                _showAlertDialog(context);
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.orange,
                 minimumSize: Size(103.w, 32.h),
@@ -44,10 +46,77 @@ class AdvertisementWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(6.r),
                 ),
               ),
+              child: Text(
+                "Book",
+                style: TextStyle(fontSize: 18.sp, color: Colors.white),
+              ),
             ),
           ],
         ),
       ),
     );
   }
+}
+void _showAlertDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppColors.background,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Account Required',
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                'Don\'t have an account? Sign Up now or Sign In if you already have one.',
+                style: TextStyle(fontSize: 16.sp),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomButton(
+                    text: 'Sign Up',
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      // Navigate to Sign Up screen
+                      context.pushNamed(Routes.signupScreen);
+                    },
+                    backgroundColor: AppColors.orange,
+                    width: 120.w,
+                  ),
+                  CustomButton(
+                    text: 'Sign In',
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      // Navigate to Sign In screen
+                      context.pushNamed(Routes.loginScreen);
+                    },
+                    backgroundColor: Colors.grey,
+                    width: 120.w,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }

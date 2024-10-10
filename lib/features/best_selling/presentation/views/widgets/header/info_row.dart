@@ -21,7 +21,7 @@ class InfoRow extends StatelessWidget {
       padding: const EdgeInsets.only(left: 3.0, top: 6, bottom: 10),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: 24.w,
             height: 24.h,
             child: Image.asset(

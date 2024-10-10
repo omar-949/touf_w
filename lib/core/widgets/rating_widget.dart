@@ -23,7 +23,7 @@ class _CustomRatingWidgetState extends State<CustomRatingWidget> {
       allowHalfRating: true,
       itemCount: 5,
       itemSize: 16.sp,
-      itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+      itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
       itemBuilder: (context, _) => SvgPicture.asset(Assets.star),
       onRatingUpdate: (rating) {
         setState(() {
