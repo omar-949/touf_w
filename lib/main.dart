@@ -14,14 +14,13 @@ bool isLoggedUser = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _initializeApp();
+  await ScreenUtil.ensureScreenSize(); // Ensure this line is executed
   runApp(ToufWShouf(appRouter: AppRouter()));
 }
 
 Future<void> _initializeApp() async {
   await setupServiceLocator();
   await _checkIfLoggedUser();
-  // fixed screen util text bug in release mode
-  await ScreenUtil.ensureScreenSize();
   _setSystemUIStyles();
   _lockPortraitMode();
 }
@@ -34,7 +33,6 @@ void _setSystemUIStyles() {
     ),
   );
 }
-
 
 void _lockPortraitMode() {
   SystemChrome.setPreferredOrientations(

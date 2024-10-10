@@ -6,9 +6,7 @@ import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/widgets/custom_container_details.dart';
 import '../../../../../../core/widgets/horzintal_lists_view_widget.dart';
 import '../../../../../../core/widgets/list_view_header.dart';
-
 import 'advertisement_widget.dart';
-
 
 class OutingsBody extends StatelessWidget {
   OutingsBody({super.key});
@@ -51,26 +49,32 @@ class OutingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: Column(
-        children: [
-          SectionHeader(title: "Best Selling", onSeeAllPressed: (
-              ) {
-            context.pushNamed(Routes.BestSellingScreen);
-          }),
-          TripsListView(tripsList: bestSellingList),
+    print('OutingsBody is being built'); // Debug statement
+    return
+      Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.h), // Adjusted padding
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SectionHeader(
+                      title: "Best Selling",
+                      onSeeAllPressed: () {
+                        context.pushNamed(Routes.BestSellingScreen);
+                      },
+                    ),
+                    TripsListView(tripsList: bestSellingList),
+                    SectionHeader(title: "Advertisements"),
+                    const AdvertisementWidget(),
+                    SectionHeader(title: "Best Offer"),
+                    TripsListView(tripsList: bestOfferList),
+                    SectionHeader(title: "Partners"),
+                    _buildPartners(),
+                    SizedBox(height: 100.h), // Add space at the bottom if needed
+                  ],
+                ),
 
-          SectionHeader(title: "Advertisements"),
-          const AdvertisementWidget(),
 
-          SectionHeader(title: "Best Offer"),
-          TripsListView(tripsList: bestOfferList),
 
-          SectionHeader(title: "Partners"),
-          _buildPartners(),
-        ],
-      ),
     );
   }
 
@@ -78,9 +82,9 @@ class OutingsBody extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Image.asset( Assets.partners1, height: 52.h, width: 108.w),
-        Image.asset( Assets.partners2, height: 52.h, width: 108.w),
-        Image.asset( Assets.partners3, height: 52.h, width: 108.w),
+        Image.asset(Assets.partners1, height: 52.h, width: 108.w),
+        Image.asset(Assets.partners2, height: 52.h, width: 108.w),
+        Image.asset(Assets.partners3, height: 52.h, width: 108.w),
       ],
     );
   }

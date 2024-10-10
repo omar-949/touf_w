@@ -17,11 +17,28 @@ class CustomTabWidget extends StatefulWidget {
 class _CustomTabWidgetState extends State<CustomTabWidget>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  double tabContentHeight = 965.h; // Default height for "Outings" tab
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 3, vsync: this)
+      ..addListener(() {
+        setState(() {
+          // Change the height based on the selected tab index
+          switch (_tabController.index) {
+            case 0:
+              tabContentHeight = 965.h; // Height for "Outings"
+              break;
+            case 1:
+              tabContentHeight = 3000.h; // Height for "Hotels"
+              break;
+            case 2:
+              tabContentHeight = 700.h; // Optional: Add custom height for "Transportation"
+              break;
+          }
+        });
+      });
   }
 
   @override
@@ -32,13 +49,15 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          _buildCustomTabBar(),
-          _buildTabBarView(),
-        ],
-      ),
+    return Column(
+      children: [
+        _buildCustomTabBar(),
+        // The height of the SizedBox will change dynamically based on the selected tab
+        SizedBox(
+          height: tabContentHeight,
+          child: _buildTabBarView(),
+        ),
+      ],
     );
   }
 
@@ -53,11 +72,6 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
       labelStyle: TextStyles.font18OrangeRegular,
       unselectedLabelStyle: TextStyles.font18WhiteRegular,
       labelPadding: EdgeInsets.symmetric(horizontal: 10.w),
-      onTap: (index) {
-        setState(() {
-          _tabController.index = index;
-        });
-      },
       tabs: [
         _buildTab('Outings', Assets.outingsIcon, 0),
         _buildTab('Hotels', Assets.hotelsIcon, 1),
@@ -90,16 +104,36 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
   }
 
   Widget _buildTabBarView() {
-    return Padding(
-     padding: EdgeInsets.only(top: 50.h),
-     child: IndexedStack(
-      index: _tabController.index,
-      children: [
-        OutingsBody(),
-       HotelsBody(),
-       const Center(child: Text('Transportation Content')),
-     ],
-    ),
-  );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Listen for changes in tab index and adjust height accordingly
+        return AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          child: IndexedStack(
+            index: _tabController.index,
+            children: [
+              _buildDynamicHeightContent(OutingsBody()),
+              _buildDynamicHeightContent(const HotelsBody()),
+              _buildDynamicHeightContent(
+                  const Center(child: Text('Transportation Content'))),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  // Widget to calculate and adjust the height dynamically
+  Widget _buildDynamicHeightContent(Widget content) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          setState(() {
+            tabContentHeight = constraints.maxHeight;
+          });
+        });
+        return content;
+      },
+    );
   }
 }
