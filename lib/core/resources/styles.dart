@@ -132,12 +132,16 @@ abstract class TextStyles {
   );
   static TextStyle font16OrangeSemiBold = TextStyle(
     fontSize: 16.sp,
+    wordSpacing: 0,
+    height: 1.h,
+    letterSpacing: 0,
     color: TextColors.orange,
     fontWeight: FontWeightHelper.semiBold,
       fontFamily: 'Montserrat'
   );
   static TextStyle font14OrangeSemiBold = TextStyle(
       fontSize: 14.sp,
+      height: 1.h,
       color: TextColors.orange,
       fontWeight: FontWeightHelper.semiBold,
       fontFamily: 'Montserrat'
@@ -162,12 +166,14 @@ abstract class TextStyles {
   );
   static TextStyle font10MediumGreyRegular = TextStyle(
     fontSize: 10.sp,
+    height: 1.0.h,
     color: TextColors.mediumGrey,
     fontWeight: FontWeightHelper.regular,
       fontFamily: 'Montserrat'
   );
   static TextStyle font18WhiteMedium = TextStyle(
     fontSize: 18.sp,
+    height: 1.h,
     color: TextColors.white,
     fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat'
@@ -342,7 +348,8 @@ abstract class TextStyles {
   //salma
   static TextStyle font10MediumGreyRegularWithLineThrough = TextStyle(
       fontSize: 10.sp,
-      color: TextColors.mediumGrey,
+    height: 1.0.h,
+    color: TextColors.mediumGrey,
       fontWeight: FontWeightHelper.regular,
       fontFamily: 'Montserrat',
     decoration: TextDecoration.lineThrough,

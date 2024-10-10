@@ -32,7 +32,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
             height: 20.h,
             width: 18.w,
           ),
-          visualDensity: VisualDensity(horizontal: -3.0.w),
+          //visualDensity: VisualDensity(horizontal: -3.0.w),
         ),
         IconButton(
           onPressed: () {},
@@ -41,16 +41,18 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
             height: 20.h,
             width: 18.w,
           ),
-          visualDensity: VisualDensity(horizontal: -2.w),
+          //visualDensity: VisualDensity(horizontal: -2.w),
         ),
-        IconButton(
-          onPressed: () {},
-          icon: Image.asset(
-            Assets.appbarAction3,
-            height: 20.h,
-            width: 18.w,
-          ),
+        Padding(
           padding: EdgeInsets.only(right: 20.w),
+          child: IconButton(
+            onPressed: () {},
+            icon: Image.asset(
+              Assets.appbarAction3,
+              height: 20.h,
+              width: 18.w,
+            ),
+          ),
         ),
       ],
     );

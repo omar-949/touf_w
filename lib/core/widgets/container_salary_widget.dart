@@ -20,10 +20,10 @@ class ContainerSalaryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: isBig ? 47.h : 40.h,
+   //   height: isBig ? 44.h : 40.h,
       width: isBig ? 89.w : 73.w,
       padding: isBig
-          ? EdgeInsets.only(top: 6.h, bottom: 6.h, left: 0)
+          ? EdgeInsets.symmetric(vertical: 6.h, horizontal: 6.w)
           : EdgeInsets.symmetric(vertical: 3.h, horizontal: 6.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(bottomRight: Radius.circular(12.r)),
@@ -32,6 +32,8 @@ class ContainerSalaryWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+
         children: [
           Text(
             containerText,
@@ -39,7 +41,11 @@ class ContainerSalaryWidget extends StatelessWidget {
                 ? TextStyles.font10MediumGreyRegular
                 : TextStyles.font10MediumGreyRegularWithLineThrough,
           ),
+          SizedBox(
+            height: 2.h,
+          ),
           Text(
+            maxLines: 1,
             containerSalary,
             style: isBig
                 ? TextStyles.font16OrangeSemiBold

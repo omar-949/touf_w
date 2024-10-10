@@ -50,31 +50,27 @@ class OutingsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('OutingsBody is being built'); // Debug statement
-    return
-      Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.h), // Adjusted padding
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SectionHeader(
-                      title: "Best Selling",
-                      onSeeAllPressed: () {
-                        context.pushNamed(Routes.BestSellingScreen);
-                      },
-                    ),
-                    TripsListView(tripsList: bestSellingList),
-                    SectionHeader(title: "Advertisements"),
-                    const AdvertisementWidget(),
-                    SectionHeader(title: "Best Offer"),
-                    TripsListView(tripsList: bestOfferList),
-                    SectionHeader(title: "Partners"),
-                    _buildPartners(),
-                    SizedBox(height: 100.h), // Add space at the bottom if needed
-                  ],
-                ),
-
-
-
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.h), // Adjusted padding
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SectionHeader(
+            title: "Best Selling",
+            onSeeAllPressed: () {
+              context.pushNamed(Routes.BestSellingScreen);
+            },
+          ),
+          TripsListView(tripsList: bestSellingList),
+          SectionHeader(title: "Advertisements"),
+          const AdvertisementWidget(),
+          SectionHeader(title: "Best Offer"),
+          TripsListView(tripsList: bestOfferList),
+          SectionHeader(title: "Partners"),
+          _buildPartners(),
+          // SizedBox(height: 100.h), // Add space at the bottom if needed
+        ],
+      ),
     );
   }
 
