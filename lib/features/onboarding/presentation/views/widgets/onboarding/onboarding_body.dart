@@ -74,8 +74,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               ),
               Positioned(
                 top: 694.h,
-                left: 25.h,
-                right: 25.h,
+                left: 25.w,
+                right: 25.w,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -97,7 +97,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               ),
               Positioned(
                 top: 750.h,
-                left: 158.h,
+                left: 158.w,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
@@ -128,7 +128,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         context.pushNamed(Routes.homeScreen);
                       },
                       child: Container(
-                        width: 140.h,
+                        width: 140.w,
                         height: 37.h,
                         padding: EdgeInsets.symmetric(
                           horizontal: 25.w,
@@ -139,7 +139,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           borderRadius: BorderRadius.circular(29),
                           border: Border.all(
                             color: TextColors.darkGrey,
-                            width: 1.5,
+                            width: 1.5.w,
                           ),
                         ),
                         child: Text(
@@ -160,7 +160,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         }
                       },
                       child: Container(
-                        width: 140.h,
+                        width: 140.w,
                         height: 37.h,
                         padding: EdgeInsets.symmetric(
                           horizontal: 25.w,
