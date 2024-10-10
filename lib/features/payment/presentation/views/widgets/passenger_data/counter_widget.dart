@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+
 class CounterWidget extends StatelessWidget {
   final String label;
   final String priceInfo;
@@ -35,12 +36,12 @@ class CounterWidget extends StatelessWidget {
         Stack(
           children: [
             Positioned(
-              left:10.w,
+              left: 10.w,
               top: 1.h,
               child: Container(
                 width: 60.w,
                 height: 28.h,
-                color:TextColors.lightgrey,
+                color: TextColors.lightgrey,
               ),
             ),
             Row(

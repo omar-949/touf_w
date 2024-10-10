@@ -8,7 +8,8 @@ class ProgressStepWidget extends StatelessWidget {
   final Color lineColor1;
   final Color lineColor2;
 
-  const ProgressStepWidget({super.key, 
+  const ProgressStepWidget({
+    super.key,
     required this.firstCircleColor,
     required this.secondCircleColor,
     required this.thirdCircleColor,
@@ -52,7 +53,10 @@ class ProgressStepWidget extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: TextStyle(fontSize: 11.sp, color: Colors.white, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 11.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ),
@@ -89,8 +93,12 @@ class ProgressStepWidget extends StatelessWidget {
       child: Center(
         child: Text(
           label,
-          style: TextStyle(fontSize: 16.sp, color: Colors.grey[800], fontWeight: FontWeight.w500),
-          textAlign: TextAlign.center, // Optional: Center text within the Text widget
+          style: TextStyle(
+              fontSize: 16.sp,
+              color: Colors.grey[800],
+              fontWeight: FontWeight.w500),
+          textAlign:
+              TextAlign.center, // Optional: Center text within the Text widget
         ),
       ),
     );

@@ -108,8 +108,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                               color: _getStrength() == 1
                                   ? Colors.green
                                   : _getStrength() >= 0.5
-                                  ? const Color(0xffFFC542)
-                                  : Colors.red,
+                                      ? const Color(0xffFFC542)
+                                      : Colors.red,
                             ),
                           ),
                         ),
@@ -184,12 +184,10 @@ class _ValidationRule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          child: Icon(
-            isValid ? Icons.check : Icons.circle,
-            color: isValid ? Colors.green : const Color(0xffA0AEC0),
-            size: isValid ? 18 : 10,
-          ),
+        Icon(
+          isValid ? Icons.check : Icons.circle,
+          color: isValid ? Colors.green : const Color(0xffA0AEC0),
+          size: isValid ? 18 : 10,
         ),
         const SizedBox(width: 8),
         Expanded(

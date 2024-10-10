@@ -10,7 +10,7 @@ class BestSellingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<CustomContainerDetails> items = List.generate(
       15,
-          (index) => CustomContainerDetails(
+      (index) => CustomContainerDetails(
         image: 'assets/best_selling/Mask Group 4 1.png',
         tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
         rating: 4.5,

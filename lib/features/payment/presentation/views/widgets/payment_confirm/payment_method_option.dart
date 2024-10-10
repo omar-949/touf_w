@@ -23,7 +23,9 @@ class PaymentMethodOption extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           color: Colors.white,
-          border: selectedMethod == method ? Border.all(color: Colors.orange, width: 2) : null,
+          border: selectedMethod == method
+              ? Border.all(color: Colors.orange, width: 2)
+              : null,
         ),
         width: 107.w,
         height: 53.h,

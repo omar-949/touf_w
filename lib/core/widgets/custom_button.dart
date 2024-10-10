@@ -7,7 +7,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color backgroundColor; // Background color parameter
   final double width; // Width parameter
-  final double? height;// Width parameter
+  final double? height; // Width parameter
   final double? radius; // Width parameter
 
   final TextStyle? textStyle;
@@ -18,7 +18,8 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor = const Color(0xFF1B85F3), // Default color
     this.width = 327,
     this.height,
-    this.textStyle, this.radius, // Default width
+    this.textStyle,
+    this.radius, // Default width
   });
 
   @override
@@ -35,17 +36,18 @@ class CustomButton extends StatelessWidget {
               Radius.circular(radius ?? 14.r),
             ),
           ),
-         // padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 10.w),
+          // padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 10.w),
           elevation: 0,
         ),
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: textStyle ?? TextStyles.font16WhiteMedium.copyWith(
-            fontFamily: 'Montserrat',
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
+          style: textStyle ??
+              TextStyles.font16WhiteMedium.copyWith(
+                fontFamily: 'Montserrat',
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
         ),
       ),
     );

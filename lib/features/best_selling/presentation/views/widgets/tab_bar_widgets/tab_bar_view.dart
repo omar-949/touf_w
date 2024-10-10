@@ -5,7 +5,6 @@ import '../overview/overview_widget.dart';
 import '../reviews/review_widget.dart';
 import '../supplement/supplement_widget.dart';
 
-
 class TabBarViewWidget extends StatelessWidget {
   final TabController tabController;
 

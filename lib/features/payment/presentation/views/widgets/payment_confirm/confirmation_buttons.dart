@@ -5,13 +5,15 @@ import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/resources/styles.dart';
 
 class ConfirmationButtons extends StatelessWidget {
-  final Function() onConfirmPressed; // Add a function parameter to handle confirmation
+  final Function()
+      onConfirmPressed; // Add a function parameter to handle confirmation
 
   const ConfirmationButtons({super.key, required this.onConfirmPressed});
 
   @override
   Widget build(BuildContext context) {
-    return Column( // Wrap the Row in a Column to allow for spacing
+    return Column(
+      // Wrap the Row in a Column to allow for spacing
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

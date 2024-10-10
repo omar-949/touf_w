@@ -10,7 +10,8 @@ class SplashWidget extends StatefulWidget {
   State<SplashWidget> createState() => _SplashWidgetState();
 }
 
-class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderStateMixin {
+class _SplashWidgetState extends State<SplashWidget>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _opacityAnimation;
@@ -22,7 +23,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds:5),
+      duration: const Duration(seconds: 5),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
@@ -43,7 +44,7 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
     // Start the animations
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _controller.forward();
-      Timer(const Duration(seconds:6), () {
+      Timer(const Duration(seconds: 6), () {
         Navigator.pushReplacementNamed(context, Routes.onboardingScreen);
       });
     });
@@ -80,7 +81,9 @@ class _SplashWidgetState extends State<SplashWidget> with SingleTickerProviderSt
               child: FadeTransition(
                 opacity: _opacityAnimation,
                 child: SlideTransition(
-                  position: Tween<Offset>(begin: const Offset(0, -1), end: const Offset(0, 0)).animate(
+                  position: Tween<Offset>(
+                          begin: const Offset(0, -1), end: const Offset(0, 0))
+                      .animate(
                     CurvedAnimation(
                       parent: _controller,
                       curve: Curves.easeOut,

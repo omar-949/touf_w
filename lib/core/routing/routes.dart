@@ -9,7 +9,5 @@ abstract class Routes {
   static const String resetpassScreen = '/resetpassScreen';
   static const String datailScreen = '/detailScreen';
   static const String paymentScreen = '/paymentScreen';
-  static const String BestSellingScreen = '/bestSellingScreen';
-
-
+  static const String bestSellingScreen = '/bestSellingScreen';
 }

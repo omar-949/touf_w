@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/resources/styles.dart';
 import 'supplement_icon.dart';
 
-
 class SupplementRow extends StatelessWidget {
   final String description;
   final String price;

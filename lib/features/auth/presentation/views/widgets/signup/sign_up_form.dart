@@ -93,17 +93,22 @@ class SignUpForm extends StatelessWidget {
                       SizedBox(height: 13.h),
                       RichText(
                         text: TextSpan(
-                          style: TextStyle(fontSize: 14.sp, color: Colors.grey[600]),
+                          style: TextStyle(
+                              fontSize: 14.sp, color: Colors.grey[600]),
                           children: const [
                             TextSpan(text: 'I agree to the Platform '),
                             TextSpan(
                               text: 'Terms of Service',
-                              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
                             ),
                             TextSpan(text: ' and '),
                             TextSpan(
                               text: 'Privacy Policy',
-                              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),

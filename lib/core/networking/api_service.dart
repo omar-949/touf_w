@@ -5,7 +5,8 @@ class ApiService {
 
   ApiService(this.dio);
 
-  Future<dynamic> get({required String endpoint, Map<String, dynamic>? queryParameters}) async {
+  Future<dynamic> get(
+      {required String endpoint, Map<String, dynamic>? queryParameters}) async {
     final response = await dio.get(endpoint, queryParameters: queryParameters);
     return response.data;
   }
@@ -20,8 +21,10 @@ class ApiService {
     return response.data;
   }
 
-  Future<dynamic> delete({required String endpoint, Map<String, dynamic>? queryParameters}) async {
-    final response = await dio.delete(endpoint, queryParameters: queryParameters);
+  Future<dynamic> delete(
+      {required String endpoint, Map<String, dynamic>? queryParameters}) async {
+    final response =
+        await dio.delete(endpoint, queryParameters: queryParameters);
     return response.data;
   }
 }

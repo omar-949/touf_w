@@ -7,7 +7,7 @@ import '../resources/assets.dart';
 
 class CustomRatingWidget extends StatefulWidget {
   CustomRatingWidget({super.key, required this.rating});
-    double rating;
+  double rating;
 
   @override
   State<CustomRatingWidget> createState() => _CustomRatingWidgetState();

@@ -49,7 +49,6 @@ class OutingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('OutingsBody is being built'); // Debug statement
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16.h), // Adjusted padding
       child: Column(
@@ -58,7 +57,7 @@ class OutingsBody extends StatelessWidget {
           SectionHeader(
             title: "Best Selling",
             onSeeAllPressed: () {
-              context.pushNamed(Routes.BestSellingScreen);
+              context.pushNamed(Routes.bestSellingScreen);
             },
           ),
           TripsListView(tripsList: bestSellingList),

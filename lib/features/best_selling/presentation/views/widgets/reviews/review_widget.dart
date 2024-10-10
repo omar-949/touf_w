@@ -23,7 +23,8 @@ class ReviewsWidget extends StatelessWidget {
             itemCount: reviews.length,
             itemBuilder: (context, index) {
               final review = reviews[index];
-              return ReviewItem( // Use the ReviewItem here
+              return ReviewItem(
+                // Use the ReviewItem here
                 username: review['username'],
                 rating: review['rating'],
                 reviewText: review['reviewText'],
@@ -65,7 +66,8 @@ class ReviewsWidget extends StatelessWidget {
               hintText: 'Write your feedback',
               hintStyle: TextStyles.font16LightGreyRegular,
               border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             ),
           ),
         ),

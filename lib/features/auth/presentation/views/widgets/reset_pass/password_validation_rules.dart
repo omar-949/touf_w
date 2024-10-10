@@ -20,8 +20,10 @@ class PasswordValidationRules extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _ValidationRule(rule: "At least 8 characters", isValid: isValidLength),
-        _ValidationRule(rule: "At least one uppercase letter", isValid: hasUppercase),
-        _ValidationRule(rule: "At least one lowercase letter", isValid: hasLowercase),
+        _ValidationRule(
+            rule: "At least one uppercase letter", isValid: hasUppercase),
+        _ValidationRule(
+            rule: "At least one lowercase letter", isValid: hasLowercase),
         _ValidationRule(rule: "At least one number", isValid: hasNumber),
       ],
     );

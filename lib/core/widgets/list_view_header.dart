@@ -31,19 +31,13 @@ class SectionHeader extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 8.w),
-              Text(
-                title,
-                style: TextStyles.font20BlackMedium
-              ),
+              Text(title, style: TextStyles.font20BlackMedium),
             ],
           ),
           if (onSeeAllPressed != null)
             InkWell(
               onTap: onSeeAllPressed,
-              child: Text(
-                "See all",
-                style: TextStyles.font16BlackRegular
-              ),
+              child: Text("See all", style: TextStyles.font16BlackRegular),
             ),
         ],
       ),

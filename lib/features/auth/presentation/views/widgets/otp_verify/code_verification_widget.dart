@@ -44,12 +44,16 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
                   logoAsset: "assets/logo_en 2.png",
                   imageAsset: "assets/auth/code_validation.png",
                 ),
-                SizedBox(height: 10.h,),
+                SizedBox(
+                  height: 10.h,
+                ),
                 Text(
                   "Code validation",
                   style: TextStyles.font26GreyExtraBold,
                 ),
-                SizedBox(height: 10.h,),
+                SizedBox(
+                  height: 10.h,
+                ),
                 Text(
                   "Please enter the 4 digit code sent to your mobile number +40 700 000 000",
                   textAlign: TextAlign.center, // Center the text
@@ -73,14 +77,15 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
                               OtpDigitField(
                                 currentFocus: focusNodes[i],
                                 nextFocus: i < 3 ? focusNodes[i + 1] : null,
-                                fieldWidth:40.sp,
+                                fieldWidth: 40.sp,
                               ),
                           ],
                         ),
                         NavigationLink(
                           questionText: "Didn’t get the code?",
                           actionText: "Resend code",
-                          onPressed: () => Navigator.of(context).pushNamed(Routes.loginScreen),
+                          onPressed: () => Navigator.of(context)
+                              .pushNamed(Routes.loginScreen),
                         ),
                         SizedBox(height: 60.h),
                         Align(
@@ -90,7 +95,8 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
                             child: CustomButton(
                               text: "Verify",
                               onPressed: () async {
-                                Navigator.of(context).pushNamed(Routes.homeScreen);
+                                Navigator.of(context)
+                                    .pushNamed(Routes.homeScreen);
                               },
                             ),
                           ),
@@ -109,4 +115,3 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
     );
   }
 }
-

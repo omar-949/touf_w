@@ -7,7 +7,7 @@ import '../../../../../../core/resources/styles.dart';
 import '../../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../../core/widgets/navigation_link.dart';
 import '../../../../../../core/widgets/custom_button.dart';
-import 'SocialLoginButton.dart';
+import 'social_login_button.dart';
 
 class LoginForm extends StatefulWidget {
   final Function? onLogin; // Add this line
@@ -88,7 +88,8 @@ class LoginFormState extends State<LoginForm> {
                         _agreeToTerms = value ?? false;
                       });
                       if (widget.onCheckboxChanged != null) {
-                        widget.onCheckboxChanged!(value ?? false); // Call the onCheckboxChanged
+                        widget.onCheckboxChanged!(
+                            value ?? false); // Call the onCheckboxChanged
                       }
                     },
                   ),
@@ -117,8 +118,8 @@ class LoginFormState extends State<LoginForm> {
               NavigationLink(
                 questionText: "",
                 actionText: "Forget password?",
-                onPressed: () =>
-                    Navigator.of(context).pushNamed(Routes.forgetpasswordScreen),
+                onPressed: () => Navigator.of(context)
+                    .pushNamed(Routes.forgetpasswordScreen),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/header_widget.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/SignUpForm.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/sign_up_form.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -35,7 +35,8 @@ class SignUpScreenState extends State<SignUpScreen> {
     if (_formKey.currentState?.validate() ?? false) {
       if (!_agreeToTerms) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('You must agree to the terms and conditions.')),
+          const SnackBar(
+              content: Text('You must agree to the terms and conditions.')),
         );
         return;
       }
@@ -65,7 +66,8 @@ class SignUpScreenState extends State<SignUpScreen> {
                 child: Center(
                   child: Text(
                     "Sign up",
-                    style: TextStyles.font26GreyExtraBold.copyWith(fontFamily: 'Montserrat'),
+                    style: TextStyles.font26GreyExtraBold
+                        .copyWith(fontFamily: 'Montserrat'),
                   ),
                 ),
               ),
@@ -73,7 +75,8 @@ class SignUpScreenState extends State<SignUpScreen> {
               Center(
                 child: Text(
                   "Hello there! Let’s create your account.",
-                  style: TextStyles.font14GreyMedium.copyWith(fontFamily: 'Montserrat'),
+                  style: TextStyles.font14GreyMedium
+                      .copyWith(fontFamily: 'Montserrat'),
                 ),
               ),
               SizedBox(height: 10.h),

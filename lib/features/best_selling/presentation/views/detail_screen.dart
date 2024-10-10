@@ -40,7 +40,8 @@ class DetailScreen extends StatefulWidget {
   State<DetailScreen> createState() => _DetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMixin {
+class _DetailScreenState extends State<DetailScreen>
+    with TickerProviderStateMixin {
   bool isTourExpanded = false;
   bool isPolicyExpanded = false;
   late TabController _tabController;
@@ -74,14 +75,16 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
             TabBarViewWidget(tabController: _tabController),
             _buildExpandableSection(
               title: 'Tour Including',
-              content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
+              content:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
               isExpanded: isTourExpanded,
               onTap: () => _toggleExpandableSection('tour'),
             ),
             SizedBox(height: 10.h),
             _buildExpandableSection(
               title: 'Cancellation Policy',
-              content: 'You can cancel up to 24 hours in advance of the experience for a full refund. For a full refund, you must cancel at least 24 hours before the experience’s start time. If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded.',
+              content:
+                  'You can cancel up to 24 hours in advance of the experience for a full refund. For a full refund, you must cancel at least 24 hours before the experience’s start time. If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded.',
               isExpanded: isPolicyExpanded,
               onTap: () => _toggleExpandableSection('policy'),
             ),
@@ -113,14 +116,12 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
     return CustomButton(
       text: 'Book Now',
       onPressed: () {
-
         context.pushNamed(Routes.paymentScreen);
       },
       backgroundColor: AppColors.orange,
       width: 358.w,
     );
   }
-
 
   void _toggleExpandableSection(String section) {
     setState(() {
@@ -131,7 +132,6 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
       }
     });
   }
-
 
   Widget _buildExpandableSection({
     required String title,
@@ -147,7 +147,3 @@ class _DetailScreenState extends State<DetailScreen> with TickerProviderStateMix
     );
   }
 }
-
-
-
-

@@ -18,7 +18,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         onTap: () {
           Navigator.of(context).pop();
         },
-        child: const Icon(Icons.arrow_back_ios_outlined, color: Colors.black, size: 18),
+        child: const Icon(Icons.arrow_back_ios_outlined,
+            color: Colors.black, size: 18),
       ),
       backgroundColor: Colors.transparent,
       elevation: 0,

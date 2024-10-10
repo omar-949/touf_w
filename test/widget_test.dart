@@ -14,7 +14,9 @@ import 'package:toufwshouf/touf_w_shouf.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( ToufWShouf(appRouter: AppRouter(),));
+    await tester.pumpWidget(ToufWShouf(
+      appRouter: AppRouter(),
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -28,12 +28,14 @@ class NavigationLink extends StatelessWidget {
           children: [
             Text(
               questionText,
-              style: TextStyles.font13GreyMedium.copyWith(fontFamily: 'Montserrat'),
+              style: TextStyles.font13GreyMedium
+                  .copyWith(fontFamily: 'Montserrat'),
             ),
             SizedBox(width: 4.w),
             Text(
               actionText,
-              style: TextStyles.font13BlueBold.copyWith(fontFamily: 'Montserrat'),
+              style:
+                  TextStyles.font13BlueBold.copyWith(fontFamily: 'Montserrat'),
             ),
           ],
         ),

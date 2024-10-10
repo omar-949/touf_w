@@ -32,7 +32,6 @@ class InfoRow extends StatelessWidget {
           SizedBox(width: 25.w),
           if (labelName != null)
             Text(labelName!, style: TextStyles.font16LightGreyRegular),
-
           Text(value, style: TextStyles.font16DarkGreyRegular),
         ],
       ),

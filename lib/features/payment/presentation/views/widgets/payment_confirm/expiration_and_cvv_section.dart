@@ -38,7 +38,8 @@ class ExpirationAndCVVSection extends StatelessWidget {
                       width: 1.0,
                     ),
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                 ),
               ),
             ],
@@ -72,7 +73,8 @@ class ExpirationAndCVVSection extends StatelessWidget {
                       width: 1.0,
                     ),
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                 ),
               ),
             ],

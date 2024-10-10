@@ -74,8 +74,7 @@ class CustomContainerHotel extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                _buildRowDetails(
-                    imageUrl: Assets.check, text: textCheck),
+                _buildRowDetails(imageUrl: Assets.check, text: textCheck),
                 SizedBox(
                   width: 35.w,
                 ),

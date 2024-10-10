@@ -32,7 +32,8 @@ class DioFactory {
   }
 
   static Future<void> setDefaultHeaders(Dio dio) async {
-    _authToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+    _authToken =
+        await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
 
     dio.options.headers = {
       'Accept': 'application/json',
@@ -48,24 +49,24 @@ class DioFactory {
   }
 
   static void addInterceptors(Dio dio) {
-      dio.interceptors.add(
-        InterceptorsWrapper(
-          onRequest: (options, handler) {
-            if (_authToken.isNotNullOrEmpty()) {
-              options.headers['Authorization'] = 'Bearer $_authToken';
-            }
-            return handler.next(options);
-          },
-        ),
-      );
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) {
+          if (_authToken.isNotNullOrEmpty()) {
+            options.headers['Authorization'] = 'Bearer $_authToken';
+          }
+          return handler.next(options);
+        },
+      ),
+    );
 
-      dio.interceptors.add(
-        PrettyDioLogger(
-          requestBody: true,
-          requestHeader: true,
-          responseBody: true,
-          responseHeader: true,
-        ),
-      );
+    dio.interceptors.add(
+      PrettyDioLogger(
+        requestBody: true,
+        requestHeader: true,
+        responseBody: true,
+        responseHeader: true,
+      ),
+    );
   }
 }

@@ -17,7 +17,7 @@ abstract class Assets {
   static const String bestSelling1 = "assets/home/best_selling1.png";
   static const String bestSelling2 = "assets/home/best_selling2.png";
   static const String bestOffer1 = "assets/home/bestoffer1.png";
-  static const String bestOffer2= "assets/home/bestoffer2.png";
+  static const String bestOffer2 = "assets/home/bestoffer2.png";
   static const String star = "assets/svgs/ph_star-fill.svg";
   static const String partners1 = "assets/home/logo1.png";
   static const String partners2 = "assets/home/logo2.png";

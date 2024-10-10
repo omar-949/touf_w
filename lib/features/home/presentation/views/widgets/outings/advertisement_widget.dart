@@ -14,7 +14,7 @@ class AdvertisementWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-      // height: 132.h,
+        // height: 132.h,
         width: 360.w,
         padding: EdgeInsets.symmetric(vertical: 10.h),
         decoration: const BoxDecoration(
@@ -57,6 +57,7 @@ class AdvertisementWidget extends StatelessWidget {
     );
   }
 }
+
 void _showAlertDialog(BuildContext context) {
   showDialog(
     context: context,
@@ -66,7 +67,7 @@ void _showAlertDialog(BuildContext context) {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: AppColors.background,
             borderRadius: BorderRadius.circular(15),

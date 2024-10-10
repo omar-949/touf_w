@@ -4,10 +4,10 @@ import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/custom_appbar.dart';
 import 'package:toufwshouf/core/widgets/stack_image.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data/BookingDateTimeWidget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data/booking_date_time_widget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_confirm/payment_method_option.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/success/BookingSuccessWidget.dart';
-import '../passenger_data/CounterWidget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/success/booking_success_widget.dart';
+import '../passenger_data/counter_widget.dart';
 import '../passenger_data/progress_step_widget.dart';
 import 'card_details_section.dart';
 import 'checkbox_terms_section.dart';
@@ -21,10 +21,10 @@ class PaymentWidget extends StatefulWidget {
       {super.key, this.onCheckboxChanged, this.onCheckboxChanged2});
 
   @override
-  _PaymentWidgetState createState() => _PaymentWidgetState();
+  PaymentWidgetState createState() => PaymentWidgetState();
 }
 
-class _PaymentWidgetState extends State<PaymentWidget> {
+class PaymentWidgetState extends State<PaymentWidget> {
   // Existing counters
   int _babyCount = 0;
   int _childCount = 0;
@@ -41,7 +41,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
   Color thirdCircleColor = TextColors.lightGrey;
   Color lineColor1 = TextColors.lightGrey;
   Color lineColor2 = TextColors.lightGrey;
-  bool booking_success = false;
+  bool bookingSuccess = false;
 
   void _onPayPressed() {
     setState(() {
@@ -162,9 +162,9 @@ class _PaymentWidgetState extends State<PaymentWidget> {
             lineColor1: lineColor1,
             lineColor2: lineColor2,
           ),
-          if (booking_success) const BookingSuccessWidget(),
-          BookingDateTimeWidget(bookingSuccess: booking_success),
-          if (!booking_success)
+          if (bookingSuccess) const BookingSuccessWidget(),
+          BookingDateTimeWidget(bookingSuccess: bookingSuccess),
+          if (!bookingSuccess)
             Container(
               width: 358.w,
               margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -205,7 +205,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                 ],
               ),
             ),
-          if (!booking_success)
+          if (!bookingSuccess)
             Container(
               width: 358.w,
               margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
@@ -246,7 +246,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                 ],
               ),
             ),
-          if (!booking_success)
+          if (!bookingSuccess)
             Padding(
               padding: EdgeInsets.only(left: 16.w, right: 16.w),
               child: Column(
@@ -388,7 +388,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
           ConfirmationButtons(
             onConfirmPressed: () {
               _onconfirmPressed();
-              booking_success = true;
+              bookingSuccess = true;
             },
           ),
           SizedBox(height: 20.h), // Spacing at the bottom

@@ -15,10 +15,10 @@ class OtpDigitField extends StatefulWidget {
   });
 
   @override
-  _OtpDigitFieldState createState() => _OtpDigitFieldState();
+  OtpDigitFieldState createState() => OtpDigitFieldState();
 }
 
-class _OtpDigitFieldState extends State<OtpDigitField> {
+class OtpDigitFieldState extends State<OtpDigitField> {
   String _inputValue = '';
 
   @override
@@ -47,11 +47,13 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
-                borderSide: const BorderSide(color: TextColors.grey200, width: 1),
+                borderSide:
+                    const BorderSide(color: TextColors.grey200, width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
-                borderSide: const BorderSide(color: TextColors.grey200, width: 1),
+                borderSide:
+                    const BorderSide(color: TextColors.grey200, width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
@@ -61,7 +63,8 @@ class _OtpDigitFieldState extends State<OtpDigitField> {
               counterText: '',
             ),
             controller: TextEditingController(text: _inputValue)
-              ..selection = TextSelection.fromPosition(TextPosition(offset: _inputValue.length)),
+              ..selection = TextSelection.fromPosition(
+                  TextPosition(offset: _inputValue.length)),
             onChanged: (value) {
               if (value.length <= 1) {
                 setState(() {

@@ -67,7 +67,7 @@ class RouteAnimations {
   static PageRouteBuilder buildPageRoute(
       Widget page, RouteSettings settings, TransitionType transitionType,
       {Duration duration = const Duration(milliseconds: 300),
-        Curve curve = Curves.decelerate}) {
+      Curve curve = Curves.decelerate}) {
     PageTransition transition;
 
     switch (transitionType) {

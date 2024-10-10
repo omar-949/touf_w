@@ -11,10 +11,10 @@ class ForgetPasswordWidget extends StatefulWidget {
   const ForgetPasswordWidget({super.key});
 
   @override
-  _ForgetPasswordWidgetState createState() => _ForgetPasswordWidgetState();
+  ForgetPasswordWidgetState createState() => ForgetPasswordWidgetState();
 }
 
-class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
+class ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
 
@@ -37,7 +37,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
     final width = screenSize.width;
     final height = screenSize.height;
 
-    final containerWidth = 0.85 * width;
+    // final containerWidth = 0.85 * width;
     final containerHeight = 0.50 * height;
     final textPadding = 0.04 * width;
 
@@ -54,7 +54,9 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                   imageAsset: "assets/auth/forget_pass.png",
                 ),
                 SizedBox(height: 10.h),
-                Center(child: Text("Forgot password?", style: TextStyles.font26GreyExtraBold)),
+                Center(
+                    child: Text("Forgot password?",
+                        style: TextStyles.font26GreyExtraBold)),
                 SizedBox(height: 10.h),
                 Center(
                   child: Padding(

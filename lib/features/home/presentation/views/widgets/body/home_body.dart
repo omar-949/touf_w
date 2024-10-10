@@ -10,10 +10,10 @@ class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
 
   @override
-  _HomeBodyState createState() => _HomeBodyState();
+  HomeBodyState createState() => HomeBodyState();
 }
 
-class _HomeBodyState extends State<HomeBody> {
+class HomeBodyState extends State<HomeBody> {
   final ScrollController _scrollController = ScrollController();
 
   @override

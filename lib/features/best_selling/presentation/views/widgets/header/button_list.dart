@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'button_row.dart';
 
-
 class ButtonList extends StatelessWidget {
   const ButtonList({super.key});
 
@@ -14,13 +13,17 @@ class ButtonList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            _buildLabelButton(label: 'Add to Wishlist', imagePath: 'assets/best_selling/whishlest.png'),
+            _buildLabelButton(
+                label: 'Add to Wishlist',
+                imagePath: 'assets/best_selling/whishlest.png'),
             SizedBox(width: 60.w),
-            _buildLabelButton(label: 'Map', imagePath: 'assets/best_selling/map.png'),
+            _buildLabelButton(
+                label: 'Map', imagePath: 'assets/best_selling/map.png'),
           ],
         ),
         SizedBox(height: 5.h),
-        _buildLabelButton(label: 'Watch Video', imagePath: 'assets/best_selling/watch.png'),
+        _buildLabelButton(
+            label: 'Watch Video', imagePath: 'assets/best_selling/watch.png'),
       ],
     );
   }
@@ -29,8 +32,7 @@ class ButtonList extends StatelessWidget {
     return ButtonRow(
       label: label,
       imagePath: imagePath,
-      onPressed: () {
-      },
+      onPressed: () {},
     );
   }
 }

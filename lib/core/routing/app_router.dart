@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/routing/route_animations.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-import 'package:toufwshouf/features/auth/presentation/views/codeVerification_screen.dart';
-import 'package:toufwshouf/features/auth/presentation/views/forgetPass_screen.dart';
-import 'package:toufwshouf/features/best_selling/presentation/views/DetailScreen.dart';
+import 'package:toufwshouf/features/auth/presentation/views/code_verification_screen.dart';
+import 'package:toufwshouf/features/auth/presentation/views/forget_pass_screen.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/detail_screen.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:toufwshouf/features/payment/presentation/views/payment_screen.dart';
 
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/reset_password_screen.dart';
-import '../../features/auth/presentation/views/signUp_screen.dart';
-import '../../features/best_selling/presentation/views/BestSellingScreen.dart';
+import '../../features/auth/presentation/views/sign_up_screen.dart';
+import '../../features/best_selling/presentation/views/best_selling_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
-import '../../features/onboarding/presentation/views/SplashScreen.dart';
+import '../../features/onboarding/presentation/views/splash_screen.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -38,7 +38,7 @@ class AppRouter {
         );
       case Routes.forgetpasswordScreen:
         return RouteAnimations.buildPageRoute(
-          const Forget_password_screen(),
+          const ForgetPasswordScreen(),
           settings,
           TransitionType.slideFromLeft,
         );
@@ -76,7 +76,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const PaymentScreen(),
         );
-      case Routes.BestSellingScreen:
+      case Routes.bestSellingScreen:
         return MaterialPageRoute(
           builder: (_) => const BestSellingScreen(),
         );

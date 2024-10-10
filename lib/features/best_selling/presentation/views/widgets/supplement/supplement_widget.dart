@@ -53,7 +53,7 @@ class _SupplementWidgetState extends State<SupplementWidget> {
             _buildSupplementIcon("assets/best_selling/supplementwarn.png"),
             SizedBox(width: 10.w),
             Text(
-             " All prices don't include VAT",
+              " All prices don't include VAT",
               style: TextStyles.font18OrangeMedium,
             ),
           ],
@@ -61,6 +61,7 @@ class _SupplementWidgetState extends State<SupplementWidget> {
       ],
     );
   }
+
   Widget _buildSupplementRow(String description, String price) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

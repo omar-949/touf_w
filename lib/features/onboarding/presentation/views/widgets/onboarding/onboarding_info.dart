@@ -13,6 +13,7 @@ class OnboardingInfo {
     required this.description2,
   });
 }
+
 final List<OnboardingInfo> contents = [
   OnboardingInfo(
     image: 'assets/splash_onboarding/onboarding1.png',

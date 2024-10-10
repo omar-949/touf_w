@@ -26,7 +26,8 @@ class PhotoGalleryWidget extends StatelessWidget {
               ),
               itemCount: imageUrls.length,
               itemBuilder: (context, index) {
-                return PhotoTile(imageUrl: imageUrls[index]); // Use PhotoTile here
+                return PhotoTile(
+                    imageUrl: imageUrls[index]); // Use PhotoTile here
               },
             ),
           ),

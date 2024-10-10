@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import '../../../../../../core/widgets/navigation_link.dart';
-import 'LoginForm.dart';
-import 'SocialLoginButton.dart';
+import 'login_form.dart';
+import 'social_login_button.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
@@ -57,7 +57,8 @@ class LoginWidgetState extends State<LoginWidget> {
           NavigationLink(
             questionText: "First time here?",
             actionText: "Sign up for free",
-            onPressed: () => Navigator.of(context).pushNamed(Routes.signupScreen),
+            onPressed: () =>
+                Navigator.of(context).pushNamed(Routes.signupScreen),
           ),
         ],
       ),

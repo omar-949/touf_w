@@ -20,7 +20,7 @@ class ContainerSalaryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-   //   height: isBig ? 44.h : 40.h,
+      //   height: isBig ? 44.h : 40.h,
       width: isBig ? 89.w : 73.w,
       padding: isBig
           ? EdgeInsets.symmetric(vertical: 6.h, horizontal: 6.w)
@@ -33,7 +33,6 @@ class ContainerSalaryWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-
         children: [
           Text(
             containerText,

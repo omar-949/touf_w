@@ -11,10 +11,10 @@ class CustomTabWidget extends StatefulWidget {
   const CustomTabWidget({super.key});
 
   @override
-  _CustomTabWidgetState createState() => _CustomTabWidgetState();
+  CustomTabWidgetState createState() => CustomTabWidgetState();
 }
 
-class _CustomTabWidgetState extends State<CustomTabWidget>
+class CustomTabWidgetState extends State<CustomTabWidget>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   double tabContentHeight = 965.h; // Default height for "Outings" tab
@@ -34,7 +34,8 @@ class _CustomTabWidgetState extends State<CustomTabWidget>
               tabContentHeight = 3030.h; // Height for "Hotels"
               break;
             case 2:
-              tabContentHeight = 700.h; // Optional: Add custom height for "Transportation"
+              tabContentHeight =
+                  700.h; // Optional: Add custom height for "Transportation"
               break;
           }
         });

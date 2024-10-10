@@ -4,7 +4,7 @@ import '../../../../../../core/resources/styles.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
-import 'OnboardingInfo.dart';
+import 'onboarding_info.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});

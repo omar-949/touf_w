@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+
 class DateContainer extends StatelessWidget {
   final String iconPath;
   final String label;
@@ -32,14 +33,18 @@ class DateContainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(iconPath, width: 24.w, height: 24.h), // Use Image.asset for local images
+          Image.asset(iconPath,
+              width: 24.w, height: 24.h), // Use Image.asset for local images
           SizedBox(width: 16.w),
           Text(
             label,
             style: TextStyles.font16Grey500Medium,
           ),
           SizedBox(width: 4.w),
-          Text(date,style: TextStyles.font16darkGreyMedium,),
+          Text(
+            date,
+            style: TextStyles.font16darkGreyMedium,
+          ),
         ],
       ),
     );

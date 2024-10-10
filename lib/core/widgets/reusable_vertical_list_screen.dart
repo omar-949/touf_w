@@ -29,7 +29,8 @@ class ReusableListScreen extends StatelessWidget {
             // Assuming tripName and rating are part of CustomContainerDetails
             return HorzintalCustomContainerDetail(
               containerDetails: items[index],
-              tripName: items[index].tripName ?? 'Unknown Trip', // Adjust accordingly
+              tripName:
+                  items[index].tripName ?? 'Unknown Trip', // Adjust accordingly
               rating: items[index].rating,
             );
           },

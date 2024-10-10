@@ -93,13 +93,13 @@ class _CustomContainerDetailsState extends State<CustomContainerDetails> {
             ),
             widget.isNotNeed == null
                 ? Expanded(
-                  child: Padding(
+                    child: Padding(
                       padding:
                           EdgeInsets.only(left: 5.w, bottom: 10.h, right: 5.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                         mainAxisAlignment: MainAxisAlignment.end,
-                         mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
                             widget.tripName ?? '',
@@ -110,7 +110,7 @@ class _CustomContainerDetailsState extends State<CustomContainerDetails> {
                         ],
                       ),
                     ),
-                )
+                  )
                 : const SizedBox.shrink(),
           ],
         ),
