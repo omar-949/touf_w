@@ -6,23 +6,23 @@ class BookingDateTimeWidget extends StatelessWidget {
   final bool bookingSuccess;
 
   const BookingDateTimeWidget({
-    Key? key,
+    super.key,
     required this.bookingSuccess,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    if (bookingSuccess) return SizedBox.shrink();
+    if (bookingSuccess) return const SizedBox.shrink();
 
     return Column(
       children: [
-        DateContainer(
+        const DateContainer(
           iconPath: 'assets/payment/lets-icons_date-today.png',
           label: "Trip date:",
           date: "2/3/2022",
         ),
         SizedBox(height: 10.h),
-        DateContainer(
+        const DateContainer(
           iconPath: 'assets/payment/clock.png',
           label: "Time:",
           date: "18:00",

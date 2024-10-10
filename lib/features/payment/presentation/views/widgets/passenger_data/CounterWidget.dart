@@ -15,8 +15,8 @@ class CounterWidget extends StatelessWidget {
     required this.count,
     required this.increment,
     required this.decrement,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class CounterWidget extends StatelessWidget {
                 Container(
                   width: 29.w,
                   height: 30.h,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: TextColors.darkBlue,
                     shape: BoxShape.circle,
                   ),
@@ -69,7 +69,7 @@ class CounterWidget extends StatelessWidget {
                 Container(
                   width: 29.w,
                   height: 30.h,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: TextColors.darkBlue,
                     shape: BoxShape.circle,
                   ),

@@ -9,12 +9,12 @@ class ExpandableSection extends StatelessWidget {
   final VoidCallback onTap;
 
   const ExpandableSection({
-    Key? key,
+    super.key,
     required this.title,
     required this.content,
     required this.isExpanded,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class ExpandableSection extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.25),
-              offset: Offset(1, 2),
+              offset: const Offset(1, 2),
               blurRadius: 6,
               spreadRadius: 0,
             ),

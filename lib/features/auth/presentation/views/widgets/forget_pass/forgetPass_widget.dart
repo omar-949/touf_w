@@ -41,8 +41,6 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
     final containerHeight = 0.50 * height;
     final textPadding = 0.04 * width;
 
-    double getFontSize(double scaleFactor) => scaleFactor * width / 100;
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,

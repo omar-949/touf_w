@@ -8,12 +8,12 @@ class PaymentMethodOption extends StatelessWidget {
   final VoidCallback onSelected;
 
   const PaymentMethodOption({
-    Key? key,
+    super.key,
     required this.assetPath,
     required this.method,
     required this.selectedMethod,
     required this.onSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ import 'review_item.dart';
 class ReviewsWidget extends StatelessWidget {
   final List<Map<String, dynamic>> reviews;
 
-  const ReviewsWidget({required this.reviews, Key? key}) : super(key: key);
+  const ReviewsWidget({required this.reviews, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ReviewsWidget extends StatelessWidget {
         children: [
           ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: reviews.length,
             itemBuilder: (context, index) {
               final review = reviews[index];

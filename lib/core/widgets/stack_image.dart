@@ -26,7 +26,7 @@ class _StackImageState extends State<StackImage> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           width: 390.w,
           height: 294.68.h,
           child: Image.asset(
@@ -72,8 +72,8 @@ class _StackImageState extends State<StackImage> {
                 allowHalfRating: true,
                 itemCount: 5,
                 itemSize: 16.sp,
-                itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                itemBuilder: (context, _) => Icon(
+                itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                itemBuilder: (context, _) => const Icon(
                   Icons.star,
                   color: AppColors.orange,
                 ),

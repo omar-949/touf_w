@@ -20,14 +20,14 @@ class DetailScreen extends StatefulWidget {
   DetailScreen({super.key});
 
   final List<CustomContainerDetails> relatedList = [
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: 'assets/best_selling/Frame 40.png',
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,
       containerText1: 'Start From',
       containerSalary1: '850 EGP',
     ),
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: Assets.bestSelling2,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,

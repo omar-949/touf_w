@@ -7,11 +7,11 @@ class DateContainer extends StatelessWidget {
   final String date;
 
   const DateContainer({
-    Key? key,
+    super.key,
     required this.iconPath,
     required this.label,
     required this.date,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class DateContainer extends StatelessWidget {
             color: Colors.black.withOpacity(0.25),
             spreadRadius: 0,
             blurRadius: 6,
-            offset: Offset(1, 2), // changes position of shadow
+            offset: const Offset(1, 2), // changes position of shadow
           ),
         ],
       ),

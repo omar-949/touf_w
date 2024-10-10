@@ -15,17 +15,17 @@ class ReviewItem extends StatelessWidget {
     required this.rating,
     required this.imageUrl,
     required this.reviewText,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 287.w,
       height: 80.h,
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: 60.w,
             height: 60.h,
             child: Image.asset(

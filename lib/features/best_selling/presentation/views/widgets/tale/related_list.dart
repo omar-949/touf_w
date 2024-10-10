@@ -9,10 +9,10 @@ class RelatedListWidget extends StatelessWidget {
   final VoidCallback? onSeeAllPressed;
 
   const RelatedListWidget({
-    Key? key,
+    super.key,
     required this.relatedList,
     this.onSeeAllPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

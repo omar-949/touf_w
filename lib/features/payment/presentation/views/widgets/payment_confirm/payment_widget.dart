@@ -150,7 +150,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
         body: SingleChildScrollView(
             // Make the entire body scrollable
             child: Column(children: [
-          StackImage(
+          const StackImage(
             imageUrl: 'assets/best_selling/header.png',
             tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
           ),
@@ -162,7 +162,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
             lineColor1: lineColor1,
             lineColor2: lineColor2,
           ),
-          if (booking_success) BookingSuccessWidget(),
+          if (booking_success) const BookingSuccessWidget(),
           BookingDateTimeWidget(bookingSuccess: booking_success),
           if (!booking_success)
             Container(
@@ -267,7 +267,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Checkbox(
-                        side: BorderSide(color: TextColors.grey600),
+                        side: const BorderSide(color: TextColors.grey600),
                         activeColor: TextColors.darkBlue,
                         value: _agreeToTerms,
                         onChanged: (value) {
@@ -285,7 +285,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                           child: RichText(
                             text: TextSpan(
                               style: TextStyles.font14darkGreyRegular,
-                              children: [
+                              children: const [
                                 TextSpan(
                                     text:
                                         "I Accept Terms And Conditions and Cancellation policy "),
@@ -347,7 +347,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
           backgroundColor: Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(12.r)),
-            side: BorderSide(color: Colors.orange, width: 1.0),
+            side: const BorderSide(color: Colors.orange, width: 1.0),
           ),
           elevation: 0,
         ),
@@ -367,9 +367,9 @@ class _PaymentWidgetState extends State<PaymentWidget> {
           SizedBox(height: 10.h),
           _buildPaymentMethodOptions(),
           SizedBox(height: 20.h), // Spacing before the text fields
-          CardDetailsSection(),
+          const CardDetailsSection(),
           SizedBox(height: 20.h), // Spacing before the new text fields
-          ExpirationAndCVVSection(),
+          const ExpirationAndCVVSection(),
           CustomCheckbox(
             value: _agreeToTerms2,
             onChanged: (value) {

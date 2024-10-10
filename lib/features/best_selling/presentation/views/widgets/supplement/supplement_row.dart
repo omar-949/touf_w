@@ -9,10 +9,10 @@ class SupplementRow extends StatelessWidget {
   final String price;
 
   const SupplementRow({
-    Key? key,
+    super.key,
     required this.description,
     required this.price,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

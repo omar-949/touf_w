@@ -12,14 +12,14 @@ class OutingsBody extends StatelessWidget {
   OutingsBody({super.key});
 
   final List<CustomContainerDetails> bestSellingList = [
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: Assets.bestSelling1,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,
       containerText1: 'Start From',
       containerSalary1: '850 EGP',
     ),
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: Assets.bestSelling2,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,
@@ -29,7 +29,7 @@ class OutingsBody extends StatelessWidget {
   ];
 
   final List<CustomContainerDetails> bestOfferList = [
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: Assets.bestOffer1,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,
@@ -37,7 +37,7 @@ class OutingsBody extends StatelessWidget {
       containerSalary1: '850 EGP',
       isDashed1: true,
     ),
-    CustomContainerDetails(
+    const CustomContainerDetails(
       image: Assets.bestOffer2,
       tripName: "The Egyptian Gulf (Hospice of the Sultan)",
       rating: 4.5,
@@ -62,11 +62,11 @@ class OutingsBody extends StatelessWidget {
             },
           ),
           TripsListView(tripsList: bestSellingList),
-          SectionHeader(title: "Advertisements"),
+          const SectionHeader(title: "Advertisements"),
           const AdvertisementWidget(),
-          SectionHeader(title: "Best Offer"),
+          const SectionHeader(title: "Best Offer"),
           TripsListView(tripsList: bestOfferList),
-          SectionHeader(title: "Partners"),
+          const SectionHeader(title: "Partners"),
           _buildPartners(),
           // SizedBox(height: 100.h), // Add space at the bottom if needed
         ],

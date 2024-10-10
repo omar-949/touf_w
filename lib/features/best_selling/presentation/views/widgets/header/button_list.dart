@@ -5,7 +5,7 @@ import 'button_row.dart';
 
 
 class ButtonList extends StatelessWidget {
-  const ButtonList({Key? key}) : super(key: key);
+  const ButtonList({super.key});
 
   @override
   Widget build(BuildContext context) {

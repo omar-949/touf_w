@@ -7,7 +7,7 @@ import '../../../../../../core/resources/styles.dart';
 class ConfirmationButtons extends StatelessWidget {
   final Function() onConfirmPressed; // Add a function parameter to handle confirmation
 
-  const ConfirmationButtons({Key? key, required this.onConfirmPressed}) : super(key: key);
+  const ConfirmationButtons({super.key, required this.onConfirmPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class ConfirmationButtons extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(4.r)),
-                    side: BorderSide(color: Colors.orange, width: 1.0),
+                    side: const BorderSide(color: Colors.orange, width: 1.0),
                   ),
                   elevation: 0,
                 ),

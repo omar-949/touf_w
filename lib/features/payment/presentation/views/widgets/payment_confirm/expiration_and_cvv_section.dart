@@ -5,6 +5,8 @@ import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/resources/styles.dart';
 
 class ExpirationAndCVVSection extends StatelessWidget {
+  const ExpirationAndCVVSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +22,7 @@ class ExpirationAndCVVSection extends StatelessWidget {
                   hintStyle: TextStyles.font14lightGreyRegular,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: TextColors.lightGrey),
+                    borderSide: const BorderSide(color: TextColors.lightGrey),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
@@ -54,7 +56,7 @@ class ExpirationAndCVVSection extends StatelessWidget {
                   hintStyle: TextStyles.font14lightGreyRegular,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: TextColors.lightGrey),
+                    borderSide: const BorderSide(color: TextColors.lightGrey),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),

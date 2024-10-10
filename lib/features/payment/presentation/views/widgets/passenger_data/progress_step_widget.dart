@@ -8,7 +8,7 @@ class ProgressStepWidget extends StatelessWidget {
   final Color lineColor1;
   final Color lineColor2;
 
-  ProgressStepWidget({
+  const ProgressStepWidget({super.key, 
     required this.firstCircleColor,
     required this.secondCircleColor,
     required this.thirdCircleColor,

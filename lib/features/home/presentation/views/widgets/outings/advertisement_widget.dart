@@ -13,7 +13,7 @@ class AdvertisementWidget extends StatelessWidget {
       // height: 132.h,
         width: 360.w,
         padding: EdgeInsets.symmetric(vertical: 10.h),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(Assets.advertisement),
             fit: BoxFit.fill,
@@ -33,16 +33,16 @@ class AdvertisementWidget extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text(
-                "Book",
-                style: TextStyle(fontSize: 18.sp, color: Colors.white),
-              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.orange,
                 minimumSize: Size(103.w, 32.h),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6.r),
                 ),
+              ),
+              child: Text(
+                "Book",
+                style: TextStyle(fontSize: 18.sp, color: Colors.white),
               ),
             ),
           ],

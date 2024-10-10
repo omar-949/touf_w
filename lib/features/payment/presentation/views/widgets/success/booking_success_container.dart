@@ -9,11 +9,11 @@ class BookingSuccessContainer extends StatelessWidget {
   final List<Widget> details;
 
   const BookingSuccessContainer({
-    Key? key,
+    super.key,
     required this.title,
     required this.message,
     required this.details,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
