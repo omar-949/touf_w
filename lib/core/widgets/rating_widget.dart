@@ -6,18 +6,27 @@ import 'package:flutter_svg/svg.dart';
 import '../resources/assets.dart';
 
 class CustomRatingWidget extends StatefulWidget {
-  CustomRatingWidget({super.key, required this.rating});
-  double rating;
+  const CustomRatingWidget({super.key, required this.rating});
+
+  final double rating;
 
   @override
   State<CustomRatingWidget> createState() => _CustomRatingWidgetState();
 }
 
 class _CustomRatingWidgetState extends State<CustomRatingWidget> {
+  late double displayedRating;
+
+  @override
+  void initState() {
+    super.initState();
+    displayedRating = widget.rating;
+  }
+
   @override
   Widget build(BuildContext context) {
     return RatingBar.builder(
-      initialRating: widget.rating,
+      initialRating: displayedRating,
       minRating: 1,
       direction: Axis.horizontal,
       allowHalfRating: true,
@@ -27,7 +36,7 @@ class _CustomRatingWidgetState extends State<CustomRatingWidget> {
       itemBuilder: (context, _) => SvgPicture.asset(Assets.star),
       onRatingUpdate: (rating) {
         setState(() {
-          widget.rating = rating;
+          displayedRating = rating;
         });
       },
     );
