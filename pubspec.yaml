@@ -53,6 +53,7 @@ dependencies:
   searchfield: ^1.1.6
   awesome_dialog:
   flutter_lints: ^5.0.0
+  rating_bar_flutter:
 
 dev_dependencies:
   flutter_test:
