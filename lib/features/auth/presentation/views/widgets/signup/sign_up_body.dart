@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/sign_up_form.dart';
 
 import '../../../../../../core/resources/styles.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/widgets/header_widget.dart';
+
 class SignUpBody extends StatefulWidget {
   const SignUpBody({super.key});
 
@@ -38,9 +42,16 @@ class _SignUpBodyState extends State<SignUpBody> {
           const SnackBar(
               content: Text('You must agree to the terms and conditions.')),
         );
-        return;
+      }else{
+        context.read<SignUpCubit>().signUp(
+            phone: _phoneController.text,
+            email: _emailController.text,
+            userName: "${_firstnameController.text} ${_lastnameController.text}",
+            password: _passwordController.text,
+            nat: "nat",
+            address: "address");
       }
-      Navigator.of(context).pushNamed(Routes.loginScreen);
+      // Navigator.of(context).pushNamed(Routes.loginScreen);
     }
   }
 
@@ -50,54 +61,76 @@ class _SignUpBodyState extends State<SignUpBody> {
     final screenWidth = mediaQuery.size.width;
     final screenHeight = mediaQuery.size.height;
 
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Header(
-            logoAsset: "assets/logo_en 2.png",
-            imageAsset: "assets/auth/sign_up.png",
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 17.h),
-            child: Center(
-              child: Text(
-                "Sign up",
-                style: TextStyles.font26GreyExtraBold
-                    .copyWith(fontFamily: 'Montserrat'),
+    return BlocConsumer<SignUpCubit, SignUpState>(
+      listener: (context, state) {
+        if (state is SignUpLoading) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => const Center(child:  CircularProgressIndicator()),
+          );
+        } else if (state is SignUpSuccess) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Signed up successfully")),
+          );
+        } else if (state is SignUpFailure) {
+          context.pop();
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.errMessage)),
+          );
+        }
+      },
+      builder: (context, state) {
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Header(
+                logoAsset: "assets/logo_en 2.png",
+                imageAsset: "assets/auth/sign_up.png",
               ),
-            ),
+              Padding(
+                padding: EdgeInsets.only(top: 17.h),
+                child: Center(
+                  child: Text(
+                    "Sign up",
+                    style: TextStyles.font26GreyExtraBold
+                        .copyWith(fontFamily: 'Montserrat'),
+                  ),
+                ),
+              ),
+              SizedBox(height: 5.h),
+              Center(
+                child: Text(
+                  "Hello there! Let’s create your account.",
+                  style: TextStyles.font14GreyMedium
+                      .copyWith(fontFamily: 'Montserrat'),
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                child: SignUpForm(
+                  formKey: _formKey,
+                  emailController: _emailController,
+                  firstnameController: _firstnameController,
+                  lastnameController: _lastnameController,
+                  passwordController: _passwordController,
+                  phoneController: _phoneController,
+                  agreeToTerms: _agreeToTerms,
+                  onAgreeToTermsChanged: (value) {
+                    setState(() {
+                      _agreeToTerms = value ?? false;
+                    });
+                  },
+                  onSignUp: _signUp,
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.1),
+            ],
           ),
-          SizedBox(height: 5.h),
-          Center(
-            child: Text(
-              "Hello there! Let’s create your account.",
-              style: TextStyles.font14GreyMedium
-                  .copyWith(fontFamily: 'Montserrat'),
-            ),
-          ),
-          SizedBox(height: 10.h),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-            child: SignUpForm(
-              formKey: _formKey,
-              emailController: _emailController,
-              firstnameController: _firstnameController,
-              lastnameController: _lastnameController,
-              passwordController: _passwordController,
-              phoneController: _phoneController,
-              agreeToTerms: _agreeToTerms,
-              onAgreeToTermsChanged: (value) {
-                setState(() {
-                  _agreeToTerms = value ?? false;
-                });
-              },
-              onSignUp: _signUp,
-            ),
-          ),
-          SizedBox(height: screenHeight * 0.1),
-        ],
-      ),
+        );
+      },
     );
   }
 }
