@@ -27,8 +27,8 @@ Future<void> _initializeApp() async {
 void _setSystemUIStyles() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.white,
-      statusBarColor: Colors.white,
+      systemNavigationBarColor: Colors.black,
+      statusBarColor: Colors.black,
     ),
   );
 }
@@ -43,7 +43,6 @@ void _lockPortraitMode() {
 }
 
 Future<void> _checkIfLoggedUser() async {
-  String? userToken =
-      await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+  String? userToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
   isLoggedUser = userToken.isNotNullOrEmpty();
 }

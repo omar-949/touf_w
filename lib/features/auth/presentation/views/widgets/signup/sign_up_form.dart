@@ -1,6 +1,7 @@
 // sign_up_form.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
 import 'package:toufwshouf/core/widgets/custom_text_field.dart';
@@ -128,7 +129,7 @@ class SignUpForm extends StatelessWidget {
               questionText: "Joined us before?",
               actionText: "Login",
               onPressed: () {
-                Navigator.of(context).pushNamed(Routes.loginScreen);
+                context.pushNamed(Routes.loginScreen);
               },
             ),
           ],

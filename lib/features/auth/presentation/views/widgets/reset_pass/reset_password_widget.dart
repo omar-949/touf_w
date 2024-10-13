@@ -54,7 +54,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
   void _resetPassword() {
     if (_formKey.currentState?.validate() ?? false) {
       String pass = _confirmPasswordController.text;
-      Navigator.pushNamed(context, Routes.codeverificationScreen);
+      Navigator.pushNamed(context, Routes.codeVerificationScreen);
     }
   }
 

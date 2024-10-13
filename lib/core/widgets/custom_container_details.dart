@@ -41,7 +41,7 @@ class _CustomContainerDetailsState extends State<CustomContainerDetails> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.pushNamed(Routes.datailScreen);
+        context.pushNamed(Routes.detailScreen);
       },
       child: Container(
         margin: EdgeInsets.only(

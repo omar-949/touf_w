@@ -36,13 +36,13 @@ class AppRouter {
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.forgetpasswordScreen:
+      case Routes.forgetPasswordScreen:
         return RouteAnimations.buildPageRoute(
           const ForgetPasswordScreen(),
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.codeverificationScreen:
+      case Routes.codeVerificationScreen:
         return RouteAnimations.buildPageRoute(
           const VerifyPasswordScreen(),
           settings,
@@ -60,13 +60,13 @@ class AppRouter {
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.resetpassScreen:
+      case Routes.resetPassScreen:
         return RouteAnimations.buildPageRoute(
           const ResetPasswordScreen(),
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.datailScreen:
+      case Routes.detailScreen:
         return RouteAnimations.buildPageRoute(
           DetailScreen(),
           settings,

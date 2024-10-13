@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import '../../../../../../core/resources/colors.dart';
@@ -119,7 +120,7 @@ class LoginFormState extends State<LoginForm> {
                 questionText: "",
                 actionText: "Forget password?",
                 onPressed: () => Navigator.of(context)
-                    .pushNamed(Routes.forgetpasswordScreen),
+                    .pushNamed(Routes.forgetPasswordScreen),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -173,7 +174,7 @@ class LoginFormState extends State<LoginForm> {
                 questionText: "First time here?",
                 actionText: "Sign up for free",
                 onPressed: () =>
-                    Navigator.of(context).pushNamed(Routes.signupScreen),
+                    context.pushNamed(Routes.signupScreen),
               ),
             ],
           ),

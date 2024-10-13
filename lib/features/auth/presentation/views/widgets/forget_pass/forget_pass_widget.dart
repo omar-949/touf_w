@@ -27,7 +27,7 @@ class ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
   Future<void> _resetPassword() async {
     if (_formKey.currentState?.validate() ?? false) {
       String email = _emailController.text;
-      Navigator.pushNamed(context, Routes.resetpassScreen);
+      Navigator.pushNamed(context, Routes.resetPassScreen);
     }
   }
 
