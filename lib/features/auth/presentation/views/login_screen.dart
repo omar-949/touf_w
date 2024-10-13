@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_form.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_widget.dart';
 
 import '../../../../core/resources/styles.dart';
 import '../../../../core/widgets/header_widget.dart';
@@ -28,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                   child: Text("Welcome back! Please enter your details.",
                       style: TextStyles.font14GreyMedium)),
               SizedBox(height: 10.h),
-              const LoginForm(), // Use the LoginForm widget here
+              const LoginWidget(), // Use the LoginForm widget here
               SizedBox(height: 10.h),
             ],
           ),
