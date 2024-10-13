@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import '../../../../../../core/resources/colors.dart';
@@ -120,7 +119,7 @@ class LoginFormState extends State<LoginForm> {
                 questionText: "",
                 actionText: "Forget password?",
                 onPressed: () => Navigator.of(context)
-                    .pushNamed(Routes.forgetPasswordScreen),
+                    .pushNamed(Routes.forgetpasswordScreen),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -147,35 +146,6 @@ class LoginFormState extends State<LoginForm> {
               ),
               SizedBox(height: 8.0.h),
               // Use the SocialLoginButton widget here
-              SocialLoginButton(
-                imagePath: 'assets/auth/google.png',
-                text: 'Login with Google',
-                onPressed: () {
-                  // Add your Google login logic here
-                },
-              ),
-              SizedBox(height: 8.0.h),
-              SocialLoginButton(
-                imagePath: 'assets/auth/facebook.png',
-                text: 'Login with Facebook',
-                onPressed: () {
-                  // Add your Facebook login logic here
-                },
-              ),
-              SizedBox(height: 8.0.h),
-              SocialLoginButton(
-                imagePath: 'assets/auth/apple.png',
-                text: 'Login with Apple',
-                onPressed: () {
-                  // Add your Apple login logic here
-                },
-              ),
-              NavigationLink(
-                questionText: "First time here?",
-                actionText: "Sign up for free",
-                onPressed: () =>
-                    context.pushNamed(Routes.signupScreen),
-              ),
             ],
           ),
         ),
