@@ -10,4 +10,8 @@ abstract class AuthRepo {
     required String nat,
     required String address
   });
+  Future<Either<Failure, Unit>> login({
+    required String email,
+    required String password,
+  });
 }
