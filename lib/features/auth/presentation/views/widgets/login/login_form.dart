@@ -119,7 +119,7 @@ class LoginFormState extends State<LoginForm> {
                 questionText: "",
                 actionText: "Forget password?",
                 onPressed: () => Navigator.of(context)
-                    .pushNamed(Routes.forgetpasswordScreen),
+                    .pushNamed(Routes.forgetPasswordScreen),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
