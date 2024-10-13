@@ -38,7 +38,7 @@ class LoginWidgetState extends State<LoginWidget> {
             imageAsset: "assets/auth/login.png",
           ),
           SizedBox(height: 10.h),
-          Text("Login", style: TextStyles.font26GreyExtraBold),
+          Center(child: Text("Login", style: TextStyles.font26GreyExtraBold)),
           SizedBox(height: 10.h),
           Center(
               child: Text("Welcome back! Please enter your details.",
