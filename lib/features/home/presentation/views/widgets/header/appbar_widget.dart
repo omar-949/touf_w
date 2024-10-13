@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/core/routing/app_router.dart';
 
 import '../../../../../../core/resources/assets.dart';
+import '../../../../../../core/routing/routes.dart';
 
 class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppbarWidget({super.key});
@@ -34,7 +37,9 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
           //visualDensity: VisualDensity(horizontal: -3.0.w),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(Routes.loginScreen);
+          },
           icon: Image.asset(
             Assets.appbarAction2,
             height: 20.h,
