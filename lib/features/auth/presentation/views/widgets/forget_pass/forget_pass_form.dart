@@ -20,6 +20,7 @@ class _ForgetPassFormState extends State<ForgetPassForm> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autoValidateMode,
       child: SizedBox(
         height: 320.h,
         child: Column(
@@ -29,6 +30,7 @@ class _ForgetPassFormState extends State<ForgetPassForm> {
               hintText: "Insert email address / mobile number",
               controller: forgetPassController,
               validator: Validator.validatePhoneOrEmail,
+              autoValidateMode: autoValidateMode,
             ),
             AppTextButton(
               onPressed: () {

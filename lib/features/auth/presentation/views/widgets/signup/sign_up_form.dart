@@ -62,25 +62,26 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       child: Form(
         key: formKey,
+        autovalidateMode: autoValidateMode,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomTextField(
               hintText: "First name",
               validator: Validator.userNameValidator,
-              controller: firstnameController,
+              controller: firstnameController, autoValidateMode: autoValidateMode,
             ),
             10.verticalSpace,
             CustomTextField(
               hintText: "Last name",
               validator: Validator.userNameValidator,
-              controller: lastnameController,
+              controller: lastnameController, autoValidateMode: autoValidateMode,
             ),
             10.verticalSpace,
             CustomTextField(
               hintText: "Email",
               validator: Validator.emailValidator,
-              controller: emailController,
+              controller: emailController, autoValidateMode: autoValidateMode,
             ),
             10.verticalSpace,
             CustomTextField(
@@ -88,14 +89,14 @@ class _SignUpFormState extends State<SignUpForm> {
               validator: Validator.phoneNumberValidator,
               keyboardType: TextInputType.phone,
               controller: phoneController,
-              isPhoneField: true,
+              isPhoneField: true, autoValidateMode: autoValidateMode,
             ),
             10.verticalSpace,
             CustomTextField(
               hintText: "Password",
               validator: Validator.passwordValidator,
               controller: passwordController,
-              isPassword: true,
+              isPassword: true, autoValidateMode: autoValidateMode,
             ),
             10.verticalSpace,
             AgreeToPolicies(
@@ -124,8 +125,9 @@ class _SignUpFormState extends State<SignUpForm> {
                         ),
                       );
                 } else {
-                  autoValidateMode = AutovalidateMode.always;
-                  setState(() {});
+                  setState(() {
+                    autoValidateMode = AutovalidateMode.always;
+                  });
                 }
               },
             ),

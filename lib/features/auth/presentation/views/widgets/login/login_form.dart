@@ -40,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
             controller: emailController,
             validator: (value) {
               return Validator.emailValidator(value);
-            },
+            }, autoValidateMode: autoValidateMode,
           ),
           10.verticalSpace,
           CustomTextField(
@@ -49,7 +49,7 @@ class _LoginFormState extends State<LoginForm> {
             isPassword: true,
             validator: (value) {
               return Validator.loginPasswordValidator(value);
-            },
+            }, autoValidateMode: autoValidateMode,
           ),
           4.verticalSpace,
           RememberInformation(),

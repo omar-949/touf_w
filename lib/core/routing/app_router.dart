@@ -60,12 +60,12 @@ class AppRouter {
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.resetPassScreen:
-        return RouteAnimations.buildPageRoute(
-          const ResetPasswordScreen(),
-          settings,
-          TransitionType.slideFromLeft,
-        );
+      // case Routes.resetPassScreen:
+      //   return RouteAnimations.buildPageRoute(
+      //     const ResetPasswordScreen(),
+      //     settings,
+      //     TransitionType.slideFromLeft,
+      //   );
       case Routes.detailScreen:
         return RouteAnimations.buildPageRoute(
           DetailScreen(),

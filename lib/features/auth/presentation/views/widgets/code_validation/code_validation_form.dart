@@ -13,7 +13,6 @@ class CodeValidationForm extends StatefulWidget {
 class _CodeValidationFormState extends State<CodeValidationForm> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController otpController = TextEditingController();
-  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +42,6 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
   }
 
   void onSubmitted() {
-    if (formKey.currentState!.validate()) {
-    } else {
-      setState(() {
-        autoValidateMode = AutovalidateMode.always;
-      });
-    }
+    if (formKey.currentState!.validate()) {}
   }
 }
