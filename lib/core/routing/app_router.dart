@@ -3,20 +3,20 @@ import 'package:toufwshouf/core/routing/route_animations.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/features/auth/presentation/views/code_verification_screen.dart';
 import 'package:toufwshouf/features/auth/presentation/views/forget_pass_screen.dart';
+import 'package:toufwshouf/features/auth/presentation/views/sign_up_view.dart';
 import 'package:toufwshouf/features/best_selling/presentation/views/detail_screen.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:toufwshouf/features/payment/presentation/views/payment_screen.dart';
 
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/reset_password_screen.dart';
-import '../../features/auth/presentation/views/sign_up_screen.dart';
 import '../../features/best_selling/presentation/views/best_selling_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/onboarding/presentation/views/splash_screen.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
-    final arguments = settings.arguments;
+    //final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.splashScreen:
         return RouteAnimations.buildPageRoute(
@@ -50,9 +50,9 @@ class AppRouter {
         );
       case Routes.signupScreen:
         return RouteAnimations.buildPageRoute(
-          const SignUpScreen(),
+          const SignUpView(),
           settings,
-          TransitionType.slideFromLeft,
+          TransitionType.slideFromBottom,
         );
       case Routes.homeScreen:
         return RouteAnimations.buildPageRoute(

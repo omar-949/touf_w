@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+
 import '../resources/colors.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -10,6 +11,7 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool isPhoneField;
   final ValueChanged<String>? onChanged;
+  final TextInputType? keyboardType;
 
   const CustomTextField({
     super.key,
@@ -19,6 +21,7 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     this.isPhoneField = false,
     this.onChanged,
+    this.keyboardType,
   });
 
   @override
@@ -55,133 +58,132 @@ class CustomTextFieldState extends State<CustomTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.isPhoneField)
-          TextFormField(
-            controller: widget.controller,
-            decoration: InputDecoration(
-              hintText: widget.hintText,
-              hintStyle: TextStyles.font14Grey600Regular
-                  .copyWith(fontFamily: 'Montserrat'),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: const BorderSide(
-                  color: TextColors.grey200,
-                  width: 1.0,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: const BorderSide(
-                  color: TextColors.grey200,
-                  width: 1.0,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                  width: 2.0,
-                ),
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.04,
-                vertical: 12.0,
-              ),
-              prefixIcon: GestureDetector(
-                onTap: _showCountryPicker,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        _countryFlag,
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      const SizedBox(width: 2),
-                      const Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: Color(0xffB3BECD),
-                        size: 16,
-                      ),
-                      const SizedBox(width: 10),
-                      Container(
-                        width: 1,
-                        height: 30,
-                        color: const Color(0xffB3BECD),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            validator: widget.validator,
-            cursorColor: Colors.black,
-            keyboardType: TextInputType.phone,
-            onChanged: widget.onChanged,
-          ),
-        if (!widget.isPhoneField)
-          Container(
-            constraints: const BoxConstraints(
-              maxHeight: 70,
-            ),
-            child: TextFormField(
-              controller: widget.controller,
-              decoration: InputDecoration(
-                hintText: widget.hintText,
-                hintStyle: TextStyles.font14Grey600Regular
-                    .copyWith(fontFamily: 'Montserrat'),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(
-                    color: TextColors.grey200,
-                    width: 1.0,
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(
-                    color: TextColors.grey200,
-                    width: 1.0,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(
-                    color: Colors.blue,
-                    width: 2.0,
-                  ),
-                ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.04,
-                  vertical: 12.0,
-                ),
-                suffixIcon: widget.isPassword
-                    ? IconButton(
-                        icon: Icon(
-                          _isObscured
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
-                          color: const Color(0xffA0AEC0),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isObscured = !_isObscured;
-                          });
-                        },
-                      )
-                    : null,
-              ),
-              obscureText: _isObscured,
-              validator: widget.validator,
-              cursorColor: Colors.black,
-              onChanged: widget.onChanged,
-            ),
-          ),
+          _buildPhoneField(screenWidth)
+        else
+          _buildTextField(screenWidth),
       ],
+    );
+  }
+
+  Widget _buildPhoneField(double screenWidth) {
+    return TextFormField(
+      controller: widget.controller,
+      decoration: InputDecoration(
+        hintText: widget.hintText,
+        hintStyle: TextStyles.font14Grey600Regular.copyWith(
+          fontFamily: 'Montserrat',
+        ),
+        border: _buildOutlineBorder(),
+        enabledBorder: _buildOutlineBorder(),
+        focusedBorder: _buildFocusedBorder(),
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.04,
+          vertical: 12.0,
+        ),
+        prefixIcon: _buildCountryPickerIcon(),
+      ),
+      validator: (value) {
+        return widget.validator!(value);
+      },
+      cursorColor: Colors.black,
+      keyboardType: TextInputType.phone,
+      onChanged: widget.onChanged,
+    );
+  }
+
+  Widget _buildTextField(double screenWidth) {
+    return Container(
+      constraints: const BoxConstraints(maxHeight: 70),
+      child: TextFormField(
+        controller: widget.controller,
+        keyboardType: widget.keyboardType,
+        obscureText: _isObscured,
+        decoration: InputDecoration(
+          hintText: widget.hintText,
+          hintStyle: TextStyles.font14Grey600Regular.copyWith(
+            fontFamily: 'Montserrat',
+          ),
+          border: _buildOutlineBorder(),
+          enabledBorder: _buildOutlineBorder(),
+          focusedBorder: _buildFocusedBorder(),
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.04,
+            vertical: 12.0,
+          ),
+          suffixIcon: widget.isPassword ? _buildPasswordToggleIcon() : null,
+        ),
+        validator: widget.validator,
+        cursorColor: Colors.black,
+        onChanged: widget.onChanged,
+      ),
+    );
+  }
+
+  OutlineInputBorder _buildOutlineBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: const BorderSide(
+        color: TextColors.grey200,
+        width: 1.0,
+      ),
+    );
+  }
+
+  OutlineInputBorder _buildFocusedBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: const BorderSide(
+        color: Colors.blue,
+        width: 2.0,
+      ),
+    );
+  }
+
+  Widget _buildCountryPickerIcon() {
+    return GestureDetector(
+      onTap: _showCountryPicker,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              _countryFlag,
+              style: const TextStyle(fontSize: 20),
+            ),
+            const SizedBox(width: 2),
+            const Icon(
+              Icons.keyboard_arrow_down_rounded,
+              color: Color(0xffB3BECD),
+              size: 16,
+            ),
+            const SizedBox(width: 10),
+            Container(
+              width: 1,
+              height: 30,
+              color: const Color(0xffB3BECD),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPasswordToggleIcon() {
+    return IconButton(
+      icon: Icon(
+        _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+        color: const Color(0xffA0AEC0),
+      ),
+      onPressed: () {
+        setState(() {
+          _isObscured = !_isObscured;
+        });
+      },
     );
   }
 }

@@ -26,7 +26,7 @@ class AppTextButton extends StatelessWidget {
         elevation: 0,
         backgroundColor: backgroundColor ?? AppColors.blue500,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        minimumSize: Size(double.infinity, 56.h),
+        minimumSize: Size(double.infinity, 46.h),
       ),
       child: Text(
         text,

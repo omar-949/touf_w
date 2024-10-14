@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
-import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/widgets/app_text_button.dart';
-import 'package:toufwshouf/core/widgets/app_text_form_field.dart';
+import 'package:toufwshouf/core/widgets/custom_text_field.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/remember_information.dart';
 
 class LoginForm extends StatefulWidget {
@@ -37,7 +35,7 @@ class _LoginFormState extends State<LoginForm> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          AppTextFormField(
+          CustomTextField(
             hintText: "Email",
             controller: emailController,
             validator: (value) {
@@ -45,26 +43,13 @@ class _LoginFormState extends State<LoginForm> {
             },
           ),
           10.verticalSpace,
-          AppTextFormField(
+          CustomTextField(
             hintText: "Password",
             controller: passwordController,
+            isPassword: true,
             validator: (value) {
               return Validator.loginPasswordValidator(value);
             },
-            enableCopyPaste: false,
-            isObscureText: isObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isObscureText = !isObscureText;
-                });
-              },
-              child: Icon(
-                isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.w,
-                color: AppColors.grey500,
-              ),
-            ),
           ),
           4.verticalSpace,
           RememberInformation(),
@@ -85,4 +70,3 @@ class _LoginFormState extends State<LoginForm> {
     );
   }
 }
-

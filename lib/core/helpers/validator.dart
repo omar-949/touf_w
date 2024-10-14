@@ -31,7 +31,7 @@ class Validator {
     if (value == null || value.isEmpty) {
       return 'Phone number is required.';
     }
-    if (!AppRegex.isPhoneNumberValid(value)) {
+    if (value.length < 9 || value.length > 20) {
       return 'Please enter a valid phone number.';
     }
     return null;
