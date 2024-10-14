@@ -9,6 +9,8 @@ import 'package:toufwshouf/features/auth/data/models/sign_up_model/sign_up_reque
 import 'package:toufwshouf/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/agree_to_policies.dart';
 
+import '../../../../../../core/routing/routes.dart';
+
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
 
@@ -37,7 +39,7 @@ class _SignUpFormState extends State<SignUpForm> {
             const Center(child: CircularProgressIndicator()),
           );
         } else if (state is SignUpSuccess) {
-          context.pop();
+          context.pushNamed(Routes.codeVerificationScreen);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Signed up successfully")),
           );
