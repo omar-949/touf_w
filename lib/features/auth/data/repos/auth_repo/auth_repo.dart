@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:toufwshouf/core/networking/api_failure.dart';
+import 'package:toufwshouf/features/auth/data/models/log_in_model/login_request.dart';
+import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_request.dart';
 
 import '../../models/sign_up_model/sign_up_request.dart';
 
@@ -8,7 +10,9 @@ abstract class AuthRepo {
     required SignUpRequest signUpRequest
   });
   Future<Either<Failure, Unit>> login({
-    required String email,
-    required String password,
+    required LoginRequest loginRequest
+  });
+  Future<Either<Failure, Unit>> validateEmail({
+    required ValidateEmailRequest validateEmailRequest
   });
 }
