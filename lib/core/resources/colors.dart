@@ -4,6 +4,7 @@ abstract class AppColors {
   static const background = Color(0xffFFFFFF);
   static const blue500 = Color(0xff1B85F3);
   static const grey200 = Color(0xffD9DFE6);
+  static const grey500 = Color(0xffA0AEC0);
   static const orange = Color(0xffE07026);
   static const Color darkGrey = Color(0xff333333);
   static const Color mediumGrey = Color(0xff777777);

@@ -20,18 +20,10 @@ void main() async {
 Future<void> _initializeApp() async {
   await setupServiceLocator();
   await _checkIfLoggedUser();
-  _setSystemUIStyles();
   _lockPortraitMode();
 }
 
-void _setSystemUIStyles() {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.black,
-      statusBarColor: Colors.black,
-    ),
-  );
-}
+
 
 void _lockPortraitMode() {
   SystemChrome.setPreferredOrientations(

@@ -21,8 +21,9 @@ class ToufWShouf extends StatelessWidget {
           theme: ThemeData(
             textTheme:
                 GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
+            scaffoldBackgroundColor: Colors.white,
           ),
-          initialRoute: Routes.splashScreen,
+          initialRoute: Routes.loginScreen,
           onGenerateRoute: appRouter.generateRouter,
         );
       },

@@ -7,7 +7,7 @@ import 'package:toufwshouf/features/best_selling/presentation/views/detail_scree
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:toufwshouf/features/payment/presentation/views/payment_screen.dart';
 
-import '../../features/auth/presentation/views/login_screen.dart';
+import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/reset_password_screen.dart';
 import '../../features/auth/presentation/views/sign_up_screen.dart';
 import '../../features/best_selling/presentation/views/best_selling_screen.dart';
@@ -32,7 +32,7 @@ class AppRouter {
         );
       case Routes.loginScreen:
         return RouteAnimations.buildPageRoute(
-          const LoginScreen(),
+          const LoginView(),
           settings,
           TransitionType.slideFromLeft,
         );
