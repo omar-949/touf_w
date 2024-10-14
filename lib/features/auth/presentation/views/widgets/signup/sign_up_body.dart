@@ -44,7 +44,11 @@ class _SignUpBodyState extends State<SignUpBody> {
               content: Text('You must agree to the terms and conditions.')),
         );
       }else{
-        context.read<SignUpCubit>().signUp(signUpRequest:SignUpRequest(phone: _phoneController.text.trim(), email: _emailController.text.trim(), userName: _firstnameController.text.trim(), password: _passwordController.text.trim(), nat: "nat", address: "address"));
+          context.read<SignUpCubit>().signUp(signUpRequest:SignUpRequest(phone: _phoneController.text.trim(), email: _emailController.text.trim(), userName: "${_firstnameController.text.trim()} ${_lastnameController.text.trim()}", password: _passwordController.text.trim(), nat: "1", address: "address"));
+        print(_phoneController.text.trim());
+        print(_emailController.text.trim());
+        print("${_firstnameController.text.trim()} ${_lastnameController.text.trim()}");
+        print(_passwordController.text.trim());
       }
       // Navigator.of(context).pushNamed(Routes.loginScreen);
     }
@@ -66,7 +70,7 @@ class _SignUpBodyState extends State<SignUpBody> {
           );
         } else if (state is SignUpSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Signed up successfully")),
+            SnackBar(content: Text("Please Review Your Mail")),
           );
         } else if (state is SignUpFailure) {
           context.pop();
