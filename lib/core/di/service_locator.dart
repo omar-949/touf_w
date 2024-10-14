@@ -8,10 +8,9 @@ import '../../features/auth/data/repos/auth_repo/auth_repo_impl.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupServiceLocator() async {
+  //dio & ApiService
   Dio dio = await DioFactory.getInstance();
   getIt.registerSingleton<ApiService>(ApiService(dio));
-  getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(
-    apiService: getIt.get<ApiService>(),
-  ));
-
+  //repos
+  getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(apiService: getIt.get<ApiService>()));
 }
