@@ -8,6 +8,7 @@ abstract class AppColors {
   static const orange = Color(0xffE07026);
   static const Color darkGrey = Color(0xff333333);
   static const Color mediumGrey = Color(0xff777777);
+  static const Color yellow500 = Color(0xffFFC542);
 }
 
 abstract class TextColors {

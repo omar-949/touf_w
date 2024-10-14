@@ -13,7 +13,11 @@ class CodeValidationForm extends StatefulWidget {
 class _CodeValidationFormState extends State<CodeValidationForm> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController otpController = TextEditingController();
-
+  @override
+  void dispose() {
+    otpController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(

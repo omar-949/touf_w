@@ -64,13 +64,13 @@ abstract class TextStyles {
       color: TextColors.grey700,
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat');
-  static TextStyle font12Grey500Medium = TextStyle(
-      fontSize: 12.sp,
+  static TextStyle font14Grey500Medium = TextStyle(
+      fontSize: 14.sp,
       color: TextColors.grey500,
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat');
-  static TextStyle font12Green500Medium = TextStyle(
-      fontSize: 12.sp,
+  static TextStyle font14Green500Medium = TextStyle(
+      fontSize: 14.sp,
       color: TextColors.green500,
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat');

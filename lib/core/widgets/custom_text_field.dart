@@ -12,7 +12,8 @@ class CustomTextField extends StatefulWidget {
   final bool isPhoneField;
   final ValueChanged<String>? onChanged;
   final TextInputType? keyboardType;
-  final AutovalidateMode autoValidateMode;
+  final AutovalidateMode? autoValidateMode;
+
   const CustomTextField({
     super.key,
     required this.hintText,
@@ -21,7 +22,8 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     this.isPhoneField = false,
     this.onChanged,
-    this.keyboardType, required this.autoValidateMode,
+    this.keyboardType,
+    this.autoValidateMode,
   });
 
   @override
