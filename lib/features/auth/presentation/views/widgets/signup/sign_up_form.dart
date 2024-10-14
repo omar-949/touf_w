@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
+import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/widgets/app_text_button.dart';
 import 'package:toufwshouf/core/widgets/custom_text_field.dart';
 import 'package:toufwshouf/features/auth/data/models/sign_up_model/sign_up_request.dart';
@@ -27,93 +28,102 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignUpCubit, SignUpState>(
+    return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpLoading) {
           showDialog(
             context: context,
             barrierDismissible: false,
-            builder: (context) =>
-            const Center(child: CircularProgressIndicator()),
+            builder: (context) => Center(
+              child: CircularProgressIndicator(
+                color: AppColors.blue500,
+              ),
+            ),
           );
         } else if (state is SignUpSuccess) {
           context.pop();
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Signed up successfully")),
+          context.pop();
+          context.showSnackBar(
+            Text("Signed up successfully"),
           );
         } else if (state is SignUpFailure) {
           context.pop();
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.errMessage)),
-          );
+          context.showSnackBar(Text(state.errMessage));
         }
       },
-      builder: (context, state) {
-        return Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomTextField(
-                hintText: "First name",
-                validator: Validator.userNameValidator,
-                controller: firstnameController,
-              ),
-              10.verticalSpace,
-              CustomTextField(
-                hintText: "Last name",
-                validator: Validator.userNameValidator,
-                controller: lastnameController,
-              ),
-              10.verticalSpace,
-              CustomTextField(
-                hintText: "Email",
-                validator: Validator.emailValidator,
-                controller: emailController,
-              ),
-              10.verticalSpace,
-              CustomTextField(
-                hintText: "Phone number",
-                validator: Validator.phoneNumberValidator,
-                keyboardType: TextInputType.phone,
-                controller: phoneController,
-                isPhoneField: true,
-              ),
-              10.verticalSpace,
-              CustomTextField(
-                hintText: "Password",
-                validator: Validator.passwordValidator,
-                controller: passwordController,
-                isPassword: true,
-              ),
-              10.verticalSpace,
-              AgreeToPolicies(
-                validator: (value) {
-                  if (value != true) {
-                    return 'You must agree to the terms and conditions.';
-                  }
-                  return null;
-                },
-                autovalidateMode: autoValidateMode,
-              ),
-              10.verticalSpace,
-              AppTextButton(
-                text: "Sign up",
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    context.read<SignUpCubit>().signUp(
-                      signUpRequest: SignUpRequest(phone: phoneController.text.trim(), email: emailController.text.trim(), userName: "${firstnameController.text.trim()} ${lastnameController.text.trim()}", password: passwordController.text.trim(), nat: "1", address: "address",));
-                  } else {
-                    autoValidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                },
-              ),
-              10.verticalSpace,
-            ],
-          ),
-        );
-      },
+      child: Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomTextField(
+              hintText: "First name",
+              validator: Validator.userNameValidator,
+              controller: firstnameController,
+            ),
+            10.verticalSpace,
+            CustomTextField(
+              hintText: "Last name",
+              validator: Validator.userNameValidator,
+              controller: lastnameController,
+            ),
+            10.verticalSpace,
+            CustomTextField(
+              hintText: "Email",
+              validator: Validator.emailValidator,
+              controller: emailController,
+            ),
+            10.verticalSpace,
+            CustomTextField(
+              hintText: "Phone number",
+              validator: Validator.phoneNumberValidator,
+              keyboardType: TextInputType.phone,
+              controller: phoneController,
+              isPhoneField: true,
+            ),
+            10.verticalSpace,
+            CustomTextField(
+              hintText: "Password",
+              validator: Validator.passwordValidator,
+              controller: passwordController,
+              isPassword: true,
+            ),
+            10.verticalSpace,
+            AgreeToPolicies(
+              validator: (value) {
+                if (value != true) {
+                  return 'You must agree to the terms and conditions.';
+                }
+                return null;
+              },
+              autovalidateMode: autoValidateMode,
+            ),
+            10.verticalSpace,
+            AppTextButton(
+              text: "Sign up",
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  context.read<SignUpCubit>().signUp(
+                        signUpRequest: SignUpRequest(
+                          phone: phoneController.text.trim(),
+                          email: emailController.text.trim(),
+                          userName:
+                              "${firstnameController.text.trim()} ${lastnameController.text.trim()}",
+                          password: passwordController.text.trim(),
+                          nat: "1",
+                          address: "address",
+                        ),
+                      );
+                } else {
+                  autoValidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+            ),
+            10.verticalSpace,
+          ],
+        ),
+      ),
     );
   }
 }

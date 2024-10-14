@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_footer.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/sign_up_footer.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/sign_up_form.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/sign_up_header.dart';
