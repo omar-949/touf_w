@@ -85,7 +85,7 @@ class _VerifyPasswordWidgetState extends State<VerifyPasswordWidget> {
                           questionText: "Didn’t get the code?",
                           actionText: "Resend code",
                           onPressed: () => Navigator.of(context)
-                              .pushNamed(Routes.loginScreen),
+                              .pushNamed(Routes.loginView),
                         ),
                         SizedBox(height: 60.h),
                         Align(

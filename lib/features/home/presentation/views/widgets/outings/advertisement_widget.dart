@@ -97,7 +97,7 @@ void _showAlertDialog(BuildContext context) {
                     onPressed: () {
                       Navigator.of(context).pop();
                       // Navigate to Sign Up screen
-                      context.pushNamed(Routes.signupScreen);
+                      context.pushNamed(Routes.signUpView);
                     },
                     backgroundColor: AppColors.orange,
                     width: 120.w,
@@ -107,7 +107,7 @@ void _showAlertDialog(BuildContext context) {
                     onPressed: () {
                       Navigator.of(context).pop();
                       // Navigate to Sign In screen
-                      context.pushNamed(Routes.loginScreen);
+                      context.pushNamed(Routes.loginView);
                     },
                     backgroundColor: Colors.grey,
                     width: 120.w,

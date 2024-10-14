@@ -75,4 +75,22 @@ class Validator {
     }
     return null;
   }
+
+  static String? validatePhoneOrEmail(String? input) {
+    if (input == null || input.isEmpty) {
+      return 'Please enter your email or phone number';
+    }
+
+    final emailRegex = RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+
+    final phoneRegex = RegExp(r"^\+?[0-9]{10,15}$");
+
+    if (emailRegex.hasMatch(input)) {
+      return null; // Valid email
+    } else if (phoneRegex.hasMatch(input)) {
+      return null; // Valid phone number
+    } else {
+      return 'Please enter a valid email or phone number';
+    }
+  }
 }

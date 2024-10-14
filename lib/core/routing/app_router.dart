@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/routing/route_animations.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/features/auth/presentation/views/code_verification_screen.dart';
-import 'package:toufwshouf/features/auth/presentation/views/forget_pass_screen.dart';
+import 'package:toufwshouf/features/auth/presentation/views/forget_pass_view.dart';
 import 'package:toufwshouf/features/auth/presentation/views/sign_up_view.dart';
 import 'package:toufwshouf/features/best_selling/presentation/views/detail_screen.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
@@ -30,17 +30,17 @@ class AppRouter {
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.loginScreen:
+      case Routes.loginView:
         return RouteAnimations.buildPageRoute(
           const LoginView(),
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.forgetPasswordScreen:
+      case Routes.forgetPasswordView:
         return RouteAnimations.buildPageRoute(
-          const ForgetPasswordScreen(),
+          const ForgetPasswordView(),
           settings,
-          TransitionType.slideFromLeft,
+          TransitionType.slideFromRight,
         );
       case Routes.codeVerificationScreen:
         return RouteAnimations.buildPageRoute(
@@ -48,7 +48,7 @@ class AppRouter {
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.signupScreen:
+      case Routes.signUpView:
         return RouteAnimations.buildPageRoute(
           const SignUpView(),
           settings,

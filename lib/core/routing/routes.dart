@@ -1,9 +1,9 @@
 abstract class Routes {
-  static const String splashScreen = '/splashScreen'; // New splash screen route
+  static const String splashScreen = '/splashScreen';
   static const String onboardingScreen = '/onBoardingScreen';
-  static const String loginScreen = '/loginScreen';
-  static const String signupScreen = '/signupScreen';
-  static const String forgetPasswordScreen = '/forgetpasswordScreen';
+  static const String loginView = '/loginView';
+  static const String signUpView = '/signUpView';
+  static const String forgetPasswordView = '/forgetPasswordView';
   static const String codeVerificationScreen = '/codeverificationScreen';
   static const String homeScreen = '/homeScreen';
   static const String resetPassScreen = '/resetpassScreen';

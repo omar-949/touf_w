@@ -37,7 +37,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
         ),
         IconButton(
           onPressed: () {
-            context.pushNamed(Routes.loginScreen);
+            context.pushNamed(Routes.loginView);
           },
           icon: Image.asset(
             Assets.appbarAction2,

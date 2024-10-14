@@ -27,6 +27,15 @@ class _SignUpFormState extends State<SignUpForm> {
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
+  void dispose() {
+    emailController.dispose();
+    firstnameController.dispose();
+    lastnameController.dispose();
+    passwordController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {

@@ -23,7 +23,7 @@ class ToufWShouf extends StatelessWidget {
                 GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
             scaffoldBackgroundColor: Colors.white,
           ),
-          initialRoute: Routes.loginScreen,
+          initialRoute: Routes.loginView,
           onGenerateRoute: appRouter.generateRouter,
         );
       },

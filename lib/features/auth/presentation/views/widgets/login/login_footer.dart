@@ -14,7 +14,9 @@ class LoginFooter extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            context.pushNamed(Routes.forgetPasswordView);
+          },
           child: Text(
             "Forget Password?",
             style: TextStyles.font14Blue500Medium,
@@ -23,7 +25,7 @@ class LoginFooter extends StatelessWidget {
         30.verticalSpace,
         GestureDetector(
           onTap: () {
-            context.pushNamed(Routes.signupScreen);
+            context.pushNamed(Routes.signUpView);
           },
           child: RichText(
             textAlign: TextAlign.center,
