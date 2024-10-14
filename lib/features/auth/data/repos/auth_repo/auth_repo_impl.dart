@@ -21,13 +21,10 @@ class AuthRepoImpl extends AuthRepo {
     required SignUpRequest signUpRequest
   }) async {
     try {
-      final response = await apiService.postWithFormData(
+      await apiService.postWithFormData(
         endPoint: ApiEndpoints.signUp,
         formData: signUpRequest.toJson()
-
-        // data: signUpRequest.toJson(),
       );
-      // final signUpResponse = SignUpResponse.fromJson(response);
       return right(unit);
     } catch (e) {
       if (e is DioException) {
