@@ -15,7 +15,11 @@ class _ForgetPassFormState extends State<ForgetPassForm> {
   final TextEditingController forgetPassController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
-
+  @override
+  void dispose() {
+    forgetPassController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
