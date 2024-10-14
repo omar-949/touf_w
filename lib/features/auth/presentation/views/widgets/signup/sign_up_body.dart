@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/features/auth/data/models/sign_up_model/sign_up_request.dart';
 import 'package:toufwshouf/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/signup/sign_up_form.dart';
 
@@ -43,13 +44,7 @@ class _SignUpBodyState extends State<SignUpBody> {
               content: Text('You must agree to the terms and conditions.')),
         );
       }else{
-        context.read<SignUpCubit>().signUp(
-            phone: _phoneController.text,
-            email: _emailController.text,
-            userName: "${_firstnameController.text} ${_lastnameController.text}",
-            password: _passwordController.text,
-            nat: "nat",
-            address: "address");
+        context.read<SignUpCubit>().signUp(signUpRequest:SignUpRequest(phone: _phoneController.text.trim(), email: _emailController.text.trim(), userName: _firstnameController.text.trim(), password: _passwordController.text.trim(), nat: "nat", address: "address"));
       }
       // Navigator.of(context).pushNamed(Routes.loginScreen);
     }

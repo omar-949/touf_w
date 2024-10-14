@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 
+import 'api_endpoints.dart';
+
 class ApiService {
   final Dio dio;
 
@@ -13,6 +15,22 @@ class ApiService {
 
   Future<dynamic> post({required String endpoint, dynamic data}) async {
     final response = await dio.post(endpoint, data: data);
+    return response.data;
+  }
+  Future<Map<String, dynamic>> postWithFormData({
+    required String endPoint,
+    required FormData formData,
+  }) async {
+    var response = await dio.post(
+      endPoint,
+      data: formData,
+      options: Options(
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      ),
+    );
+
     return response.data;
   }
 

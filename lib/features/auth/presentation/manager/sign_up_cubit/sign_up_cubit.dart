@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:toufwshouf/features/auth/data/repos/auth_repo/auth_repo.dart';
 
+import '../../../data/models/sign_up_model/sign_up_request.dart';
+
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
@@ -9,15 +11,10 @@ class SignUpCubit extends Cubit<SignUpState> {
   final AuthRepo authRepo;
 
   Future<void> signUp({
-    required String phone,
-    required String email,
-    required String userName,
-    required String password,
-    required String nat,
-    required String address,
+  required SignUpRequest signUpRequest
   }) async {
     emit(SignUpLoading());
-    final response = await authRepo.signUp(phone: phone, email: email, userName: userName, password: password, nat: nat, address: address);
+    final response = await authRepo.signUp(signUpRequest: signUpRequest);
     response.fold(
           (failure) => emit(SignUpFailure(errMessage: failure.message)),
           (signUpResponse) => emit(SignUpSuccess()),

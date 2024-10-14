@@ -8,6 +8,7 @@ import '../../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../../core/helpers/shared_pref_keys.dart';
 import '../../../../../core/networking/api_endpoints.dart';
 import '../../../../../core/networking/dio_factory.dart';
+import '../../models/sign_up_model/sign_up_request.dart';
 import 'auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
@@ -17,24 +18,13 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<Failure, Unit>> signUp({
-    required String phone,
-    required String email,
-    required String userName,
-    required String password,
-    required String nat,
-    required String address,
+    required SignUpRequest signUpRequest
   }) async {
     try {
-      final response = await apiService.post(
-        endpoint: ApiEndpoints.signUp,
-        data: {
-          "CNAME": userName,
-          "NAT": nat,
-          "TEL": phone,
-          "C_PASS": password,
-          "p_Mail": email,
-          "C_ADDRESS": email,
-        },
+      final response = await apiService.postWithFormData(
+        endPoint: ApiEndpoints.signUp,
+        formData: signUpRequest.toJson()
+
         // data: signUpRequest.toJson(),
       );
       // final signUpResponse = SignUpResponse.fromJson(response);

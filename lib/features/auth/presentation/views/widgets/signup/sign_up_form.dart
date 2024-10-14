@@ -47,7 +47,6 @@ class SignUpForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             CustomTextField(
               hintText: 'First Name',
               controller: firstnameController,
