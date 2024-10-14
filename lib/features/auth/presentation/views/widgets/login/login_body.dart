@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_bloc_listener.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_footer.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_form.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_header.dart';
@@ -19,7 +20,7 @@ class LoginBody extends StatelessWidget {
             16.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: LoginForm(),
+              child: LoginBlocListener(),
             ),
             16.verticalSpace,
             LoginFooter(),

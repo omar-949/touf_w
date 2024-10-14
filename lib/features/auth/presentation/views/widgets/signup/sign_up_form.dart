@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
-import 'package:toufwshouf/core/resources/colors.dart';
-import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/widgets/app_text_button.dart';
 import 'package:toufwshouf/core/widgets/custom_text_field.dart';
 import 'package:toufwshouf/features/auth/data/models/sign_up_model/sign_up_request.dart';
@@ -38,29 +35,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignUpCubit, SignUpState>(
-      listener: (context, state) {
-        if (state is SignUpLoading) {
-          showDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: (context) => Center(
-              child: CircularProgressIndicator(
-                color: AppColors.blue500,
-              ),
-            ),
-          );
-        } else if (state is SignUpSuccess) {
-          context.pushNamed(Routes.codeVerificationScreen);
-          context.showSnackBar(
-            Text("Please Review Your Mail"),
-          );
-        } else if (state is SignUpFailure) {
-          context.pop();
-          context.showSnackBar(Text(state.errMessage));
-        }
-      },
-      child: Form(
+    return Form(
         key: formKey,
         autovalidateMode: autoValidateMode,
         child: Column(
@@ -134,7 +109,6 @@ class _SignUpFormState extends State<SignUpForm> {
             10.verticalSpace,
           ],
         ),
-      ),
     );
   }
 }

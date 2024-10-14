@@ -1,13 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import 'package:toufwshouf/core/networking/api_failure.dart';
-import 'package:toufwshouf/core/networking/api_service.dart';
 
-import '../../../../../core/helpers/shared_pref_helper.dart';
-import '../../../../../core/helpers/shared_pref_keys.dart';
 import '../../../../../core/networking/api_endpoints.dart';
-import '../../../../../core/networking/dio_factory.dart';
+import '../../../../../core/networking/api_failure.dart';
+import '../../../../../core/networking/api_service.dart';
 import '../../models/log_in_model/login_request.dart';
 import '../../models/sign_up_model/sign_up_request.dart';
 import '../../models/validate_email_model/validate_email_request.dart';
@@ -39,7 +36,7 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<Either<Failure, Unit>> login({required LoginRequest loginRequest}) async {
     try {
-      await apiService.post(
+      await apiService.get(
         endpoint: ApiEndpoints.login(loginRequest: loginRequest),
       );
       // final loginResponse = LoginResponse.fromJson(response);
