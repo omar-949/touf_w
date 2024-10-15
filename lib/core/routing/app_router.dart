@@ -16,7 +16,7 @@ import '../../features/onboarding/presentation/views/splash_screen.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
-    //final arguments = settings.arguments;
+    final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.splashScreen:
         return RouteAnimations.buildPageRoute(
@@ -43,11 +43,17 @@ class AppRouter {
           TransitionType.slideFromRight,
         );
       case Routes.codeVerificationScreen:
+        if(arguments is Map<String, dynamic> &&
+            arguments['email'] is String &&
+            arguments['phone'] is String){
+          final email = arguments['email'] as String;
+          final phone = arguments['phone'] as String;
         return RouteAnimations.buildPageRoute(
-          const CodeValidationView(),
+           CodeValidationView(email: email, phone: phone,),
           settings,
           TransitionType.slideFromRight,
         );
+        }
       case Routes.signUpView:
         return RouteAnimations.buildPageRoute(
           const SignUpView(),
