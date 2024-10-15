@@ -11,29 +11,28 @@ class PasswordValidations extends StatelessWidget {
       required this.minLength,
       required this.hasNumber,
       required this.hasUppercase,
-      required this.hasLowercase});
+      required this.hasLowercase,
+      required this.hasSymbol});
 
   final bool minLength;
   final bool hasNumber;
+  final bool hasSymbol;
   final bool hasUppercase;
   final bool hasLowercase;
 
   @override
   Widget build(BuildContext context) {
-    int criteriaMet = (minLength ? 1 : 0) +
-        (hasNumber ? 1 : 0) +
-        (hasUppercase && hasLowercase ? 1 : 0);
+    int criteriaMet = (minLength ? 1 : 0) + (hasNumber || hasSymbol ? 1 : 0) + (hasUppercase && hasLowercase ? 1 : 0);
 
     const int totalCriteria = 3;
 
     double percent = criteriaMet / totalCriteria;
-    Color progressColor = dynamicProgressColor(percent);
     return Column(
       children: [
         LinearPercentIndicator(
           backgroundColor: AppColors.grey200,
           barRadius: Radius.circular(12.w),
-          progressColor: progressColor,
+          progressColor: dynamicProgressColor(percent),
           percent: percent,
           animation: true,
           animateFromLastPercent: true,
@@ -46,7 +45,7 @@ class PasswordValidations extends StatelessWidget {
         2.verticalSpace,
         buildValidationRow(
           "Least one number (0-9) or symbol",
-          hasNumber,
+          hasNumber || hasSymbol,
         ),
         2.verticalSpace,
         buildValidationRow(
@@ -87,16 +86,14 @@ class PasswordValidations extends StatelessWidget {
   }
 
   Color dynamicProgressColor(double percent) {
-    Color progressColor;
-
-    if (percent == 1 / 3) {
-      return progressColor = Colors.red;
+    if (percent == 1) {
+      return Colors.green; // All criteria met
     } else if (percent == 2 / 3) {
-      return progressColor = AppColors.yellow500;
-    } else if (percent == 1) {
-      return progressColor = Colors.green;
+      return AppColors.yellow500; // Two criteria met
+    } else if (percent == 1 / 3) {
+      return Colors.red; // One criterion met
     } else {
-      return progressColor = AppColors.grey200;
+      return AppColors.grey200; // No criteria met
     }
   }
 }

@@ -15,11 +15,13 @@ class ResetPasswordForm extends StatefulWidget {
 
 class _ResetPasswordFormState extends State<ResetPasswordForm> {
   final TextEditingController newPassController = TextEditingController();
-  final TextEditingController confirmNewPassController = TextEditingController();
+  final TextEditingController confirmNewPassController =
+      TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool minLength = false;
   bool hasNumber = false;
+  bool hasSymbol = false;
   bool hasUppercase = false;
   bool hasLowercase = false;
 
@@ -36,6 +38,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
         hasUppercase = AppRegex.hasUpperCase(newPassController.text);
         hasNumber = AppRegex.hasNumber(newPassController.text);
         minLength = AppRegex.hasMinLength(newPassController.text);
+        hasSymbol = AppRegex.hasSpecialCharacter(newPassController.text);
       });
     });
   }
@@ -68,6 +71,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                   hasNumber: hasNumber,
                   hasUppercase: hasUppercase,
                   hasLowercase: hasLowercase,
+                  hasSymbol: hasSymbol,
                 ),
                 10.verticalSpace,
                 CustomTextField(
