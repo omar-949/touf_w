@@ -20,17 +20,20 @@ class PasswordValidations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int criteriaMet = (minLength ? 1 : 0) + (hasNumber ? 1 : 0) + (hasUppercase && hasLowercase ? 1 : 0);
+    int criteriaMet = (minLength ? 1 : 0) +
+        (hasNumber ? 1 : 0) +
+        (hasUppercase && hasLowercase ? 1 : 0);
 
     const int totalCriteria = 3;
 
     double percent = criteriaMet / totalCriteria;
+    Color progressColor = dynamicProgressColor(percent);
     return Column(
       children: [
         LinearPercentIndicator(
           backgroundColor: AppColors.grey200,
           barRadius: Radius.circular(12.w),
-          progressColor: AppColors.yellow500,
+          progressColor: progressColor,
           percent: percent,
           animation: true,
           animateFromLastPercent: true,
@@ -81,5 +84,19 @@ class PasswordValidations extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Color dynamicProgressColor(double percent) {
+    Color progressColor;
+
+    if (percent == 1 / 3) {
+      return progressColor = Colors.red;
+    } else if (percent == 2 / 3) {
+      return progressColor = AppColors.yellow500;
+    } else if (percent == 1) {
+      return progressColor = Colors.green;
+    } else {
+      return progressColor = AppColors.grey200;
+    }
   }
 }

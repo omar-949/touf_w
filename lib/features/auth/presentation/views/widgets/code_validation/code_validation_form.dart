@@ -36,7 +36,6 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
               //This function triggers automatically when the 6 digit is completed
               onCompleted: (otp) {
                 onSubmitted();
-                print(otp);
               },
             ),
             AppTextButton(
