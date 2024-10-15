@@ -15,8 +15,7 @@ class ResetPasswordForm extends StatefulWidget {
 
 class _ResetPasswordFormState extends State<ResetPasswordForm> {
   final TextEditingController newPassController = TextEditingController();
-  final TextEditingController confirmNewPassController =
-      TextEditingController();
+  final TextEditingController confirmNewPassController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool minLength = false;
