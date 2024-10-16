@@ -13,4 +13,7 @@ abstract class Assets {
   static const String filter = 'assets/home/mage_filter.png';
   static const String star = "assets/svgs/ph_star-fill.svg";
   static const String advertisement = "assets/home/addvartsment.png";
+  static const String partners1 = "assets/home/logo1.png";
+  static const String partners2 = "assets/home/logo2.png";
+  static const String partners3 = "assets/home/logo3.png";
 }

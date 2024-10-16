@@ -5,9 +5,9 @@ import 'package:toufwshouf/features/home/presentation/views/widgets/custom_tab.d
 class CustomTabBar extends StatefulWidget {
 
   const CustomTabBar({
-    super.key,
+    super.key, required this.tabController,
   });
-
+  final TabController tabController;
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
 }
@@ -17,6 +17,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
   @override
   Widget build(BuildContext context) {
     return TabBar(
+      controller: widget.tabController,
       isScrollable: true,
       indicatorColor: AppColors.orange,
       labelColor: AppColors.orange,

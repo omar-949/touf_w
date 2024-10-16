@@ -4,13 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'outings/outings_tab.dart';
 
 class TabBarContent extends StatelessWidget {
-  const TabBarContent({super.key});
+  const TabBarContent({super.key, required this.tabController});
+
+  final TabController tabController;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 900.h,
-      child: const TabBarView(
+      child: TabBarView(
+        controller: tabController,
         physics: NeverScrollableScrollPhysics(),
         children: [
           OutingsTab(),

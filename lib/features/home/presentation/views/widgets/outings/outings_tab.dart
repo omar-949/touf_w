@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/outings/active_programs.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/outings/advertisements.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/outings/best_offer_program.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/outings/partners.dart';
 
 class OutingsTab extends StatelessWidget {
   const OutingsTab({super.key});
@@ -16,6 +17,8 @@ class OutingsTab extends StatelessWidget {
         Advertisements(),
         10.verticalSpace,
         BestOfferProgram(),
+        10.verticalSpace,
+        Partners(),
       ],
     );
   }

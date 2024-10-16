@@ -59,7 +59,7 @@ class PriceTag extends StatelessWidget {
           bottomRight: Radius.circular(12.w),
         ),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
