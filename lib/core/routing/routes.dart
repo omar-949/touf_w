@@ -1,6 +1,5 @@
 abstract class Routes {
-  static const String splashScreen = '/splashScreen';
-  static const String onboardingScreen = '/onBoardingScreen';
+  static const String onboardingView = '/onboardingView';
   static const String loginView = '/loginView';
   static const String signUpView = '/signUpView';
   static const String forgetPasswordView = '/forgetPasswordView';

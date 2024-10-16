@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/widgets/custom_container_details.dart';
-import '../../../../core/widgets/reusable_vertical_list_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:toufwshouf/core/di/service_locator.dart';
+import 'package:toufwshouf/features/best_selling/data/repos/home_repo_impl.dart';
+import 'package:toufwshouf/features/best_selling/presentation/manager/active_program_cubit.dart';
+import 'package:toufwshouf/features/best_selling/presentation/views/widgets/best_selling_body.dart';
 
 class BestSellingScreen extends StatelessWidget {
   const BestSellingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<CustomContainerDetails> items = List.generate(
-      15,
-      (index) => CustomContainerDetails(
-        image: 'assets/best_selling/Mask Group 4 1.png',
-        tripName: 'The Egyptian Gulf (Hospice of the Sultan)',
-        rating: 4.5,
-        containerText1: 'Start From',
-        containerSalary1: '850 EGP',
-        height: 109.h,
-        width: 181.w,
-        isNotNeed: true,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: BlocProvider(
+        create: (context) =>
+            ActiveProgramCubit(getIt.get<ActiveProgramRepoImpl>())
+              ..getAllActivePrograms(
+                flag: 1,
+              ),
+        child: BestSellingBody(),
       ),
-    );
-
-    return ReusableListScreen(
-      title: "Best Selling",
-      items: items,
     );
   }
 }
