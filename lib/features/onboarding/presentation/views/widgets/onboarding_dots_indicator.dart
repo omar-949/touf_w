@@ -6,17 +6,17 @@ import 'package:toufwshouf/core/resources/colors.dart';
 class OnboardingDotsIndicator extends StatelessWidget {
   const OnboardingDotsIndicator({
     super.key,
-    required int currentPage,
-  }) : _currentPage = currentPage;
+    required this.currentPage,
+  });
 
-  final int _currentPage;
+  final int currentPage;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 100.h,
       child: AnimatedSmoothIndicator(
-        activeIndex: _currentPage,
+        activeIndex: currentPage,
         count: 3,
         effect: JumpingDotEffect(
           activeDotColor: Colors.white,
