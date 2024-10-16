@@ -104,6 +104,10 @@ abstract class TextStyles {
       color: TextColors.white,
       fontWeight: FontWeightHelper.regular,
       fontFamily: 'Montserrat');
+  static TextStyle font18Regular = TextStyle(
+      fontSize: 18.sp,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Montserrat');
   static TextStyle font18OrangeRegular = TextStyle(
       fontSize: 18.sp,
       color: TextColors.orange,
@@ -185,6 +189,7 @@ abstract class TextStyles {
       color: TextColors.orange,
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat');
+
   ////
   // rania
   static TextStyle font16grey400Regular = TextStyle(
@@ -247,6 +252,7 @@ abstract class TextStyles {
       color: TextColors.darkBlue,
       fontWeight: FontWeightHelper.regular,
       fontFamily: 'Montserrat');
+
   /////////
   //onboarding tasneem
   static TextStyle font19darkGrayMedium = TextStyle(
