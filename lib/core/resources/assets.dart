@@ -12,4 +12,5 @@ abstract class Assets {
   static const String mainImage = 'assets/home/mainImage.png';
   static const String filter = 'assets/home/mage_filter.png';
   static const String star = "assets/svgs/ph_star-fill.svg";
+  static const String advertisement = "assets/home/addvartsment.png";
 }

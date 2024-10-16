@@ -4,16 +4,15 @@ import 'package:toufwshouf/core/widgets/app_horizontal_list_view.dart';
 import 'package:toufwshouf/core/widgets/app_horizontal_list_view_item.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/home_section_header.dart';
 
-class ActivePrograms extends StatelessWidget {
-  const ActivePrograms({super.key});
+class BestOfferProgram extends StatelessWidget {
+  const BestOfferProgram({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        10.verticalSpace,
         HomeSectionHeader(
-          section: "Active Programs",
+          section: "Best Offer",
           isSeeAll: true,
         ),
         10.verticalSpace,

@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/rating.dart';
 
-class OutingsProgramItem extends StatelessWidget {
-  const OutingsProgramItem({super.key});
+class AppHorizontalListViewItem extends StatelessWidget {
+  const AppHorizontalListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,10 @@ class OutingsProgramItem extends StatelessWidget {
               price: '850',
             ),
             const Spacer(),
-            const _ItemDetails(),
+            const ItemDetails(
+              title: 'The Egyptian Gulf (Hospice of the Sultan)',
+              rating: 3.2,
+            ),
           ],
         ),
       ),
@@ -77,8 +80,11 @@ class PriceTag extends StatelessWidget {
   }
 }
 
-class _ItemDetails extends StatelessWidget {
-  const _ItemDetails();
+class ItemDetails extends StatelessWidget {
+  const ItemDetails({super.key, required this.title, required this.rating});
+
+  final String title;
+  final double rating;
 
   @override
   Widget build(BuildContext context) {
@@ -88,12 +94,12 @@ class _ItemDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'The Egyptian Gulf (Hospice of the Sultan)',
+            title,
             style: TextStyles.font18WhiteMedium,
           ),
           6.verticalSpace,
-          const CustomStarRating(
-            rating: 4.5,
+          CustomStarRating(
+            rating: rating,
           ),
         ],
       ),
