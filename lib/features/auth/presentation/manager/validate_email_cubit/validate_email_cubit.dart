@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_request.dart';
 
 import '../../../data/repos/auth_repo/auth_repo.dart';

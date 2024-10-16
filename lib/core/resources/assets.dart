@@ -1,8 +1,8 @@
 abstract class Assets {
-  static const String walkingIcon = "assets/svgs/walking.svg";
-  static const String splashBackgroundImage = "assets/splash_onboarding/splash.png";
-  static const String splashLogoImage = "assets/splash_onboarding/logo_en 2 (1).png";
-
+  //onboarding
+  static const String onboarding1 = 'assets/onboarding/onboarding_1.png';
+  static const String onboarding2 = 'assets/onboarding/onboarding_2.png';
+  static const String onboarding3 = 'assets/onboarding/onboarding_3.png';
   // home_screen_Salma
   static const String appbarAction1 = "assets/home/appBarAction1.png";
   static const String appbarAction2 = "assets/home/appBarAction2.png";

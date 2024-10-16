@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toufwshouf/features/auth/data/repos/auth_repo/auth_repo.dart';
 
 import '../../../data/models/sign_up_model/sign_up_request.dart';

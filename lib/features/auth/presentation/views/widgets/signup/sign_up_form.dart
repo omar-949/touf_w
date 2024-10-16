@@ -13,10 +13,10 @@ class SignUpForm extends StatefulWidget {
   final TextEditingController phoneController;
 
   const SignUpForm({
-    Key? key,
+    super.key,
     required this.emailController,
     required this.phoneController,
-  }) : super(key: key);
+  });
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();

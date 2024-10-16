@@ -53,8 +53,10 @@ dependencies:
   awesome_dialog:
   flutter_lints: ^5.0.0
   rating_bar_flutter:
+  carousel_slider: ^5.0.0
   icons_plus: ^5.0.0
   percent_indicator: ^4.2.3
+  smooth_page_indicator: ^1.2.0+3
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -83,7 +85,7 @@ flutter:
     - assets/svgs/
     - assets/auth/
     - assets/home/
-    - assets/splash_onboarding/
+    - assets/onboarding/
     - assets/best_selling/
     - assets/payment/
 

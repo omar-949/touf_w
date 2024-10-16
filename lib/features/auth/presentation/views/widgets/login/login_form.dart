@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/widgets/app_text_button.dart';
 import 'package:toufwshouf/core/widgets/custom_text_field.dart';
@@ -9,8 +8,6 @@ import 'package:toufwshouf/features/auth/data/models/log_in_model/login_request.
 import 'package:toufwshouf/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/remember_information.dart';
 
-import '../../../../../../core/resources/colors.dart';
-import '../../../../../../core/routing/routes.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});

@@ -18,7 +18,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
         child: Padding(
           padding: EdgeInsets.only(left: 25.w),
           child: Image.asset(
-            Assets.splashLogoImage,
+            Assets.onboarding1,
             fit: BoxFit.contain,
             width: 100.w,
             height: 50.h,
