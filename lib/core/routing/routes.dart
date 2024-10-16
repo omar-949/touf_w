@@ -11,4 +11,5 @@ abstract class Routes {
 
   //home
   static const String homeView = '/homeView';
+  static const String seeAllView = '/seeAllView';
 }

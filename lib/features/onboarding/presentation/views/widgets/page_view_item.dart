@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/resources/assets.dart';
 import 'package:toufwshouf/features/onboarding/data/models/carousel_item_model.dart';
 
+import 'onboarding_text.dart';
+
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
     super.key,
@@ -36,7 +38,7 @@ class PageViewItem extends StatelessWidget {
           onboardingItem[index].image,
           fit: BoxFit.cover,
         ),
-        //OnboardingText(),
+        OnboardingText(),
       ],
     );
   }
