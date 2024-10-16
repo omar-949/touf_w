@@ -6,18 +6,21 @@ import 'package:toufwshouf/features/auth/presentation/views/forget_pass_view.dar
 import 'package:toufwshouf/features/auth/presentation/views/login_view.dart';
 import 'package:toufwshouf/features/auth/presentation/views/reset_password_view.dart';
 import 'package:toufwshouf/features/auth/presentation/views/sign_up_view.dart';
+import 'package:toufwshouf/features/home/presentation/views/home_view.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
+      // Onboarding
       case Routes.onboardingView:
         return RouteAnimations.buildPageRoute(
           const OnboardingView(),
           settings,
           TransitionType.slideFromRight,
         );
+      // Auth
       case Routes.loginView:
         return RouteAnimations.buildPageRoute(
           const LoginView(),
@@ -30,7 +33,7 @@ class AppRouter {
           settings,
           TransitionType.slideFromRight,
         );
-      case Routes.codeVerificationScreen:
+      case Routes.codeVerificationView:
         final args = arguments as Map<String, dynamic>?;
 
         if (args != null &&
@@ -52,11 +55,19 @@ class AppRouter {
           settings,
           TransitionType.slideFromBottom,
         );
-      case Routes.resetPassScreen:
+      case Routes.resetPassView:
         return RouteAnimations.buildPageRoute(
           const ResetPasswordView(),
           settings,
           TransitionType.slideFromLeft,
+        );
+
+      // Home
+      case Routes.homeView:
+        return RouteAnimations.buildPageRoute(
+          HomeView(),
+          settings,
+          TransitionType.slideFromRight,
         );
       default:
         return null;

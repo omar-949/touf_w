@@ -27,7 +27,7 @@ class SignUpBlocListener extends StatelessWidget {
         );
       } else if (state is SignUpSuccess) {
         context.pop();
-        context.pushNamed(Routes.codeVerificationScreen,arguments: {
+        context.pushNamed(Routes.codeVerificationView,arguments: {
           'email': emailController.text.trim(),
           'phone': phoneController.text.trim()
         });

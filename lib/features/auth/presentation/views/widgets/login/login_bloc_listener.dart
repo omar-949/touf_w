@@ -6,6 +6,7 @@ import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_
 import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../manager/login_cubit/login_cubit.dart';
+
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
 
@@ -13,27 +14,27 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
         listener: (context, state) {
-      if (state is LoginLoading) {
-        showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) => Center(
-            child: CircularProgressIndicator(
-              color: AppColors.blue500,
-            ),
-          ),
-        );
-      } else if (state is LoginSuccess) {
-        context.pop();
-        context.pushNamed(Routes.homeScreen);
-        context.showSnackBar(
-          Text("Please Review Your Mail"),
-        );
-      } else if (state is LoginFailure) {
-        context.pop();
-        context.showSnackBar(Text(state.errMessage));
-      }
-    },
-    child: LoginForm());
+          if (state is LoginLoading) {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) => Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.blue500,
+                ),
+              ),
+            );
+          } else if (state is LoginSuccess) {
+            context.pop();
+            context.pushNamed(Routes.homeView);
+            context.showSnackBar(
+              Text("Please Review Your Mail"),
+            );
+          } else if (state is LoginFailure) {
+            context.pop();
+            context.showSnackBar(Text(state.errMessage));
+          }
+        },
+        child: LoginForm());
   }
 }

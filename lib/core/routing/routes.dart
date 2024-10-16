@@ -1,12 +1,14 @@
 abstract class Routes {
+  //onboarding
   static const String onboardingView = '/onboardingView';
+
+  //Auth
   static const String loginView = '/loginView';
   static const String signUpView = '/signUpView';
   static const String forgetPasswordView = '/forgetPasswordView';
-  static const String codeVerificationScreen = '/codeverificationScreen';
-  static const String homeScreen = '/homeScreen';
-  static const String resetPassScreen = '/resetpassScreen';
-  static const String detailScreen = '/detailScreen';
-  static const String paymentScreen = '/paymentScreen';
-  static const String bestSellingScreen = '/bestSellingScreen';
+  static const String codeVerificationView = '/codeVerificationView';
+  static const String resetPassView = '/resetPassView';
+
+  //home
+  static const String homeView = '/homeView';
 }

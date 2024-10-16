@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
+import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/features/onboarding/presentation/manager/onboarding_cubit.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/widgets/onboarding_button.dart';
 
@@ -21,7 +23,9 @@ class OnboardingButtonRow extends StatelessWidget {
           duration: const Duration(milliseconds: 400),
           curve: Curves.decelerate,
         );
-      } else {}
+      } else {
+        context.pushReplacementNamed(Routes.homeView);
+      }
     }
 
     return Positioned(
@@ -32,7 +36,9 @@ class OnboardingButtonRow extends StatelessWidget {
           OnboardingButton(
             color: AppColors.mediumGrey,
             text: 'Skip',
-            onTap: () {},
+            onTap: () {
+              context.pushReplacementNamed(Routes.homeView);
+            },
           ),
           16.horizontalSpace,
           OnboardingButton(

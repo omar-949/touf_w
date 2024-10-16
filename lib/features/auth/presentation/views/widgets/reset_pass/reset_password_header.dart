@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/core/widgets/header_widget.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/header.dart';
 
 class ResetPasswordHeader extends StatelessWidget {
   const ResetPasswordHeader({super.key});
