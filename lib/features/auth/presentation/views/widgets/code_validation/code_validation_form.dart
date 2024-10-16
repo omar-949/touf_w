@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/widgets/app_text_button.dart';
+import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_request.dart';
+import 'package:toufwshouf/features/auth/presentation/manager/validate_email_cubit/validate_email_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/code_validation/otp_pin_put.dart';
 
 class CodeValidationForm extends StatefulWidget {
-  const CodeValidationForm({super.key});
-
+  const CodeValidationForm({super.key, required this.email, required this.phone});
+  final String email;
+  final String phone;
   @override
   State<CodeValidationForm> createState() => _CodeValidationFormState();
 }
@@ -45,6 +49,8 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
   }
 
   void onSubmitted() {
-    if (formKey.currentState!.validate()) {}
+    if (formKey.currentState!.validate()) {
+      context.read<ValidateEmailCubit>().validateOtp(validateEmailRequest: ValidateEmailRequest(email: widget.email, otpCode: otpController.text.trim(), phone: widget.phone));
+    }
   }
 }
