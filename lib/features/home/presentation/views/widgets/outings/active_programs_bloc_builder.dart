@@ -19,7 +19,7 @@ class ActiveProgramsBlocBuilder extends StatelessWidget {
             return AppHorizontalListView(
               onTap: () {
                 context.pushNamed(Routes.programDetailsView,
-                    arguments: 'Active Program');
+                    arguments: 'Active Program' );
               }, activeProgramModel: state.activeProgramModel,
             );
 
