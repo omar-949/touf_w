@@ -9,6 +9,7 @@ import 'package:toufwshouf/features/auth/presentation/views/sign_up_view.dart';
 import 'package:toufwshouf/features/home/presentation/views/home_view.dart';
 import 'package:toufwshouf/features/home/presentation/views/see_all_view.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:toufwshouf/features/payment/presentation/views/payment_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -67,6 +68,12 @@ class AppRouter {
       case Routes.homeView:
         return RouteAnimations.buildPageRoute(
           HomeView(),
+          settings,
+          TransitionType.slideFromRight,
+        );
+      case Routes.paymentView:
+        return RouteAnimations.buildPageRoute(
+          PaymentView(),
           settings,
           TransitionType.slideFromRight,
         );
