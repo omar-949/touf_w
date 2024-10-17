@@ -17,7 +17,6 @@ class AppHorizontalListViewItem extends StatelessWidget {
           width: 265.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.r),
-            color: Colors.red,
             image: const DecorationImage(
               // Todo: Replace with CachedNetworkImageProvider if needed
               image: AssetImage('assets/home/bestselling1.png'),
