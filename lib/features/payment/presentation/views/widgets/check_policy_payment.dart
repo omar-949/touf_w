@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_check_box.dart';
 
 class CheckPolicyPayment extends StatefulWidget {
   const CheckPolicyPayment({super.key});
@@ -27,32 +27,28 @@ class _CheckPolicyPaymentState extends State<CheckPolicyPayment> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Checkbox(
-                side: const BorderSide(color: TextColors.grey600),
-                activeColor: TextColors.darkBlue,
-                value: agreeToTerms,
+              CustomCheckbox(
+                  value: agreeToTerms,
                 onChanged: (value) {
                   setState(() {
                     agreeToTerms = value ?? false; // Update state when checkbox changes
                   });
                 },
               ),
+              SizedBox(width: 10,),
               Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 14.h),
-                  child: RichText(
-                    text: TextSpan(
-                      style: TextStyles.font14darkGreyRegular,
-                      children:  [
-                        TextSpan(
-                            text:
-                            "I Accept Terms And Conditions and Cancellation policy ",
-                            style: TextStyles.font18DarkGreyRegular.copyWith(color: Colors.black)),
-                        TextSpan(
-                            text: "Read Terms and conditions",
-                            style: TextStyles.font18DarkGreyRegular.copyWith(color:TextColors.darkBlue )),
-                      ],
-                    ),
+                child: RichText(
+                  text: TextSpan(
+                    style: TextStyles.font14darkGreyRegular,
+                    children:  [
+                      TextSpan(
+                          text:
+                          "I Accept Terms And Conditions and Cancellation policy ",
+                          style: TextStyles.font18DarkGreyRegular.copyWith(color: Colors.black)),
+                      TextSpan(
+                          text: "Read Terms and conditions",
+                          style: TextStyles.font18DarkGreyRegular.copyWith(color:TextColors.darkBlue )),
+                    ],
                   ),
                 ),
               ),

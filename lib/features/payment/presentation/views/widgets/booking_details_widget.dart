@@ -19,6 +19,20 @@ class BookingDetailsWidget extends StatefulWidget {
 }
 
 class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
+  void _incrementCount(Person person) {
+    setState(() {
+      person.count++;
+    });
+  }
+
+  void _decrementCount(Person person) {
+    setState(() {
+      if (person.count > 0) {
+        person.count--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,7 +48,7 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
   Widget _buildPaymentMethod() {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xfffffbfb),
+        color: const Color(0xfffffbfb),
         borderRadius: BorderRadius.circular(12),
       ),
       margin: EdgeInsets.symmetric(horizontal: 16.w),
@@ -56,19 +70,12 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
   }
 
   Widget _buildCountSelector(Person person) {
-    return ValueListenableBuilder<int>(
-      valueListenable: person.countNotifier,
-      builder: (context, count, _) {
-        return CountSelector(
-          label: person.label,
-          price: person.price,
-          count: count,
-          onAdd: () => person.countNotifier.value++,
-          onRemove: () {
-            if (count > 0) person.countNotifier.value--;
-          },
-        );
-      },
+    return CountSelector(
+      label: person.label,
+      price: person.price,
+      count: person.count,
+      onAdd: () => _incrementCount(person),
+      onRemove: () => _decrementCount(person),
     );
   }
 }

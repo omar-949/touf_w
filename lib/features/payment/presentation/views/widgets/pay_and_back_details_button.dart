@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/resources/styles.dart';
 
 import '../../../../../core/resources/colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -10,19 +12,28 @@ class PayDetailsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         children: [
-          CustomButton(text: "Buy",
+
+          CustomButton(
+            height: 44.h,
+            borderRadius: BorderRadius.circular(12),
+            text: "Buy",
             backgroundColor: AppColors.orange,
             onPressed:onPressedBuy ,
           ),
-          SizedBox(height: 24,),
+          SizedBox(height: 24.h,),
           CustomButton(
+            borderSideColor:AppColors.orange,
+            height: 42.h,
+            textStyle:TextStyles.font18WhiteMedium.copyWith(color: TextColors.orange),
+            borderRadius: BorderRadius.circular(12),
             text: "Add to my shopping cart",
             backgroundColor: Colors.transparent,
             onPressed:onPressedAddToFavorite,
           ),
+          SizedBox(height: 24.h,)
         ],
       ),
     );
