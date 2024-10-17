@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/hotels_content.dart';
 
 import 'outings/outings_tab.dart';
 
@@ -43,7 +44,8 @@ class _TabBarContentState extends State<TabBarContent> {
         physics: NeverScrollableScrollPhysics(),
         children: [
           SingleChildScrollView(child: OutingsTab()),
-          SingleChildScrollView(child: Center(child: Text('Content for Hotels'))),
+          // SingleChildScrollView(child: Center(child: Text('Content for Hotels'))),
+          SingleChildScrollView(child: HotelsContent()),
           SingleChildScrollView(child: Center(child: Text('Content for Transportation'))),
         ],
       ),

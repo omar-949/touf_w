@@ -14,7 +14,6 @@ class SeeAllAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       centerTitle: true,
-      leading: Icon(Icons.arrow_back_ios_new_outlined),
       title: Text(
         title,
         style: TextStyles.font16BlackMedium,
