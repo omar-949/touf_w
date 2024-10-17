@@ -142,6 +142,11 @@ abstract class TextStyles {
       color: TextColors.darkBlue,
       fontWeight: FontWeightHelper.regular,
       fontFamily: 'Montserrat');
+  static TextStyle font18darkBlueSemiBold = TextStyle(
+      fontSize: 18.sp,
+      color: TextColors.darkBlue,
+      fontWeight: FontWeightHelper.semiBold,
+      fontFamily: 'Montserrat');
   static TextStyle font10MediumGreyRegular = TextStyle(
       fontSize: 10.sp,
       height: 1.0.h,
