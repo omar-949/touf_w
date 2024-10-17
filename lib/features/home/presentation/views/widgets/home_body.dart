@@ -12,7 +12,8 @@ class HomeBody extends StatefulWidget {
   State<HomeBody> createState() => _HomeBodyState();
 }
 
-class _HomeBodyState extends State<HomeBody> with SingleTickerProviderStateMixin {
+class _HomeBodyState extends State<HomeBody>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -29,44 +30,54 @@ class _HomeBodyState extends State<HomeBody> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          10.verticalSpace,
-          Stack(
-            children: [
-              Image.asset(
-                Assets.mainImage,
-                fit: BoxFit.cover,
-                width: double.infinity,
-              ),
-              Row(
-                children: [
-                  Expanded(child: SearchField()),
-                  Image.asset(
-                    Assets.filter,
-                    height: 24.h,
-                    width: 24.w,
-                  ),
-                  10.horizontalSpace,
-                ],
-              ),
-              Positioned(
-                top: 200.h,
-                bottom: 0.h,
-                right: 0,
-                left: 0,
-                child: CustomTabBar(
-                  tabController: _tabController,
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          expandedHeight: 250.h,
+          toolbarHeight: 0,
+          pinned: false,
+          flexibleSpace: FlexibleSpaceBar(
+            background: Stack(
+              children: [
+                Image.asset(
+                  Assets.mainImage,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
                 ),
-              ),
-            ],
+                Positioned(
+                  top: 16.h,
+                  left: 16.w,
+                  right: 16.w,
+                  child: Row(
+                    children: [
+                      Expanded(child: SearchField()),
+                      Image.asset(
+                        Assets.filter,
+                        height: 24.h,
+                        width: 24.w,
+                      ),
+                      10.horizontalSpace,
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: 16.h,
+                  left: 0,
+                  right: 0,
+                  child: CustomTabBar(
+                    tabController: _tabController,
+                  ),
+                ),
+              ],
+            ),
           ),
-          TabBarContent(
+        ),
+        SliverToBoxAdapter(
+          child: TabBarContent(
             tabController: _tabController,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

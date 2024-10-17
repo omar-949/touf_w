@@ -4,36 +4,38 @@ import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/rating.dart';
 
 class AppHorizontalListViewItem extends StatelessWidget {
-  const AppHorizontalListViewItem({super.key});
-
+  const AppHorizontalListViewItem({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 16.0.w),
-      child: Container(
-        height: 216.h,
-        width: 265.w,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.r),
-          color: Colors.red,
-          image: const DecorationImage(
-            // Todo: Replace with CachedNetworkImageProvider if needed
-            image: AssetImage('assets/home/bestselling1.png'),
-            fit: BoxFit.cover,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          height: 216.h,
+          width: 265.w,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.r),
+            image: const DecorationImage(
+              // Todo: Replace with CachedNetworkImageProvider if needed
+              image: AssetImage('assets/home/bestselling1.png'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const PriceTag(
-              price: '850',
-            ),
-            const Spacer(),
-            const ItemDetails(
-              title: 'The Egyptian Gulf (Hospice of the Sultan)',
-              rating: 3.2,
-            ),
-          ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const PriceTag(
+                price: '850',
+              ),
+              const Spacer(),
+              const ItemDetails(
+                title: 'The Egyptian Gulf (Hospice of the Sultan)',
+                rating: 3.2,
+              ),
+            ],
+          ),
         ),
       ),
     );

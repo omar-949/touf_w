@@ -10,6 +10,7 @@ import 'package:toufwshouf/features/home/presentation/views/home_view.dart';
 import 'package:toufwshouf/features/home/presentation/views/see_all_view.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:toufwshouf/features/payment/presentation/views/payment_view.dart';
+import 'package:toufwshouf/features/program_details/presentation/views/program_details_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -67,21 +68,26 @@ class AppRouter {
       // Home
       case Routes.homeView:
         return RouteAnimations.buildPageRoute(
-          HomeView(),
+          const HomeView(),
+          settings,
+          TransitionType.slideFromRight,
+        );
+      case Routes.programDetailsView:
+        return RouteAnimations.buildPageRoute(
+          ProgramDetailsView(appBarTitle: arguments as String,),
           settings,
           TransitionType.slideFromRight,
         );
       case Routes.paymentView:
         return RouteAnimations.buildPageRoute(
-          PaymentView(),
+          const PaymentView(),
           settings,
           TransitionType.slideFromRight,
         );
       case Routes.seeAllView:
         final args = arguments as Map<String, dynamic>?;
 
-        if (args != null &&
-            args['title'] is String) {
+        if (args != null && args['title'] is String) {
           final title = args['title'] as String;
           return RouteAnimations.buildPageRoute(
             SeeAllView(title: title),

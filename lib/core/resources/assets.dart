@@ -16,6 +16,9 @@ abstract class Assets {
   static const String partners1 = "assets/home/logo1.png";
   static const String partners2 = "assets/home/logo2.png";
   static const String partners3 = "assets/home/logo3.png";
+  static const String starFull = "assets/svgs/star_full.svg";
+  static const String starHalf = "assets/svgs/star_half.svg";
+  static const String starEmpty = "assets/svgs/star_empty.svg";
   static const String location = "assets/best_selling/Vector (3).png";
   static const String iconAwesomeBed = "assets/home/Icon awesome-bed.png";
 }

@@ -18,15 +18,19 @@ class ActivePrograms extends StatelessWidget {
         HomeSectionHeader(
           section: "Active Programs",
           isSeeAll: true,
-          onSeeAllPressed: (){
-            context.pushNamed(Routes.seeAllView,arguments: {
+          onSeeAllPressed: () {
+            context.pushNamed(Routes.seeAllView, arguments: {
               'title': 'Active Programs',
             });
           },
         ),
         10.verticalSpace,
         AppHorizontalListView(
-          item: AppHorizontalListViewItem(),
+          item: AppHorizontalListViewItem(
+            onTap: () {
+              context.pushNamed(Routes.programDetailsView,arguments: 'Active Program');
+            },
+          ),
         ),
       ],
     );
