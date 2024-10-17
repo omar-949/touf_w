@@ -3,13 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaymentMethodOption extends StatelessWidget {
   final String assetPath;
-  //final String method;
   final bool isSelected;
 
   const PaymentMethodOption({
     super.key,
     required this.assetPath,
-    //required this.method,
     required this.isSelected,
   });
 
@@ -26,7 +24,7 @@ class PaymentMethodOption extends StatelessWidget {
       ),
       child: Image.asset(
         assetPath,
-        width: 80.w, // Adjust size as needed
+        width: 80.w,
         height: 50.h,
       ),
     );

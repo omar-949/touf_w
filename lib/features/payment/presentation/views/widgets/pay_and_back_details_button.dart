@@ -5,9 +5,9 @@ import 'package:toufwshouf/core/resources/styles.dart';
 import '../../../../../core/resources/colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 class PayDetailsButton extends StatelessWidget {
-  const PayDetailsButton({super.key, this.onPressedBuy, this.onPressedAddToFavorite});
+  const PayDetailsButton({super.key, this.onPressedBuy, this.onPressedAddToCard});
   final void Function()? onPressedBuy;
-  final void Function()? onPressedAddToFavorite;
+  final void Function()? onPressedAddToCard;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class PayDetailsButton extends StatelessWidget {
           CustomButton(
             height: 44.h,
             borderRadius: BorderRadius.circular(12),
-            text: "Buy",
+            text: "Pay",
             backgroundColor: AppColors.orange,
             onPressed:onPressedBuy ,
           ),
@@ -31,7 +31,7 @@ class PayDetailsButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             text: "Add to my shopping cart",
             backgroundColor: Colors.transparent,
-            onPressed:onPressedAddToFavorite,
+            onPressed:onPressedAddToCard,
           ),
           SizedBox(height: 24.h,)
         ],

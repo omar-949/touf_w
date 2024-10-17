@@ -8,10 +8,12 @@ import 'package:toufwshouf/features/payment/presentation/views/widgets/save_paym
 
 class ConfirmBookingSection extends StatelessWidget {
   final VoidCallback onBackPressed;
+  final VoidCallback onConfirmPressed;
 
   const ConfirmBookingSection({
     super.key,
     required this.onBackPressed,
+    required this.onConfirmPressed, // New callback for confirm button
   });
 
   @override
@@ -59,7 +61,7 @@ class ConfirmBookingSection extends StatelessWidget {
           children: [
             Expanded(
               child: CustomButton(
-                onPressed: () {},
+                onPressed: onConfirmPressed,  // Use the new callback for the confirm action
                 height: 52.h,
                 text: "Confirm",
                 borderRadius: BorderRadius.circular(2.r),
@@ -72,7 +74,7 @@ class ConfirmBookingSection extends StatelessWidget {
                 borderSideColor: Colors.orange,
                 backgroundColor: Colors.white,
                 textStyle: TextStyles.font16WhiteMedium.copyWith(color: TextColors.orange),
-                onPressed: onBackPressed,
+                onPressed: onBackPressed,  // Back button uses the onBackPressed callback
                 height: 50.h,
                 borderRadius: BorderRadius.circular(2.r),
                 text: "Back",
