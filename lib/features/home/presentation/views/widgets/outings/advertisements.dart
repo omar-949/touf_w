@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/resources/assets.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/home_section_header.dart';
 
 class Advertisements extends StatelessWidget {
@@ -43,7 +45,9 @@ class Advertisements extends StatelessWidget {
                 ),
                 5.verticalSpace,
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    context.pushNamed(Routes.paymentView);
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       color: AppColors.orange,
