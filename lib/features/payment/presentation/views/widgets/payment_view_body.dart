@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/Payment_method_widget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_method_widget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_date_and_time.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_section.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/check_policy_payment.dart';
@@ -11,6 +11,7 @@ import 'package:toufwshouf/features/payment/presentation/views/widgets/step_indi
 
 class PaymentViewBody extends StatefulWidget {
   const PaymentViewBody({super.key});
+
   @override
   State<PaymentViewBody> createState() => _PaymentViewBodyState();
 }
@@ -26,6 +27,13 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
     });
   }
 
+  void _onBackButtonPressed() {
+    setState(() {
+      currentStep = 1;
+      showPaymentText = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,22 +43,20 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
           const SafeArea(child: CustomAppBar()),
           const StackImagePayment(),
           SizedBox(height: 24.h),
-          StepIndicator(currentStep: currentStep), // Step indicator now updates
+          StepIndicator(currentStep: currentStep),
           SizedBox(height: 24.h),
           const BookingDateAndTime(),
           SizedBox(height: 24.h),
           const BookingSection(),
           SizedBox(height: 10.h),
           const CheckPolicyPayment(),
+          SizedBox(height: 24.h),
           PayDetailsButton(
             onPressedBuy: _onPayButtonPressed,
             onPressedAddToFavorite: () {},
           ),
-          if (showPaymentText) // Conditionally show the text based on state
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.h),
-              child: PaymentMethodWidget(),
-            ),
+          if (showPaymentText)
+            PaymentMethodWidget(onBackPressed: _onBackButtonPressed),
         ],
       ),
     );
