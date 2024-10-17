@@ -43,11 +43,12 @@ class AppHorizontalListViewItem extends StatelessWidget {
 class PriceTag extends StatelessWidget {
   final String? oldPrice;
   final String price;
+  final TextStyle? textStyle;
 
   const PriceTag({
     super.key,
     required this.price,
-    this.oldPrice,
+    this.oldPrice, this.textStyle,
   });
 
   @override
@@ -72,7 +73,7 @@ class PriceTag extends StatelessWidget {
           3.verticalSpace,
           Text(
             '$price EGP',
-            style: TextStyles.font16OrangeSemiBold,
+            style: textStyle ?? TextStyles.font16OrangeSemiBold,
           ),
         ],
       ),
@@ -81,23 +82,32 @@ class PriceTag extends StatelessWidget {
 }
 
 class ItemDetails extends StatelessWidget {
-  const ItemDetails({super.key, required this.title, required this.rating});
+  const ItemDetails(
+      {super.key,
+      required this.title,
+      required this.rating,
+      this.textStyle,
+      this.isSpacer = false, this.verticalSpace, this.horizontalSpace});
 
   final String title;
   final double rating;
+  final TextStyle? textStyle;
+  final bool? isSpacer;
+  final double? verticalSpace;
+  final double? horizontalSpace;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: horizontalSpace ??16.w, vertical: verticalSpace ??8.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: TextStyles.font18WhiteMedium,
+            style: textStyle ?? TextStyles.font18WhiteMedium,
           ),
-          6.verticalSpace,
+          (isSpacer == true) ? const Spacer() : 6.verticalSpace,
           CustomStarRating(
             rating: rating,
           ),

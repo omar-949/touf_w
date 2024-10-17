@@ -7,8 +7,8 @@ import 'package:toufwshouf/features/auth/presentation/views/login_view.dart';
 import 'package:toufwshouf/features/auth/presentation/views/reset_password_view.dart';
 import 'package:toufwshouf/features/auth/presentation/views/sign_up_view.dart';
 import 'package:toufwshouf/features/home/presentation/views/home_view.dart';
+import 'package:toufwshouf/features/home/presentation/views/see_all_view.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
-import 'package:toufwshouf/features/payment/presentation/views/payment_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -62,12 +62,6 @@ class AppRouter {
           settings,
           TransitionType.slideFromLeft,
         );
-      case Routes.paymentView:
-        return RouteAnimations.buildPageRoute(
-          const PaymentView(),
-          settings,
-          TransitionType.slideFromLeft,
-        );
 
       // Home
       case Routes.homeView:
@@ -76,7 +70,18 @@ class AppRouter {
           settings,
           TransitionType.slideFromRight,
         );
+      case Routes.seeAllView:
+        final args = arguments as Map<String, dynamic>?;
 
+        if (args != null &&
+            args['title'] is String) {
+          final title = args['title'] as String;
+          return RouteAnimations.buildPageRoute(
+            SeeAllView(title: title),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
       default:
         return null;
     }
