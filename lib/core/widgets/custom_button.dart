@@ -63,7 +63,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height?.h ?? 32.h,
+      height: height?.h,
       width: width?.w,
       child: Container(
         decoration: BoxDecoration(
@@ -82,14 +82,11 @@ class CustomButton extends StatelessWidget {
             ),
           ),
           child: Center(
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                text,
-                style: textStyle ??
-                    TextStyles.font18WhiteMedium,
+            child: Text(
+              text,
+              style: textStyle ??
+                  TextStyles.font18WhiteMedium,
 
-              ),
             ),
           ),
         ),

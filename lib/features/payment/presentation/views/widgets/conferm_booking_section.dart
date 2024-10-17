@@ -59,22 +59,22 @@ class ConfirmBookingSection extends StatelessWidget {
           children: [
             Expanded(
               child: CustomButton(
-                borderSideColor: Colors.orange,
                 onPressed: () {},
-                height: 50.h,
+                height: 52.h,
                 text: "Confirm",
+                borderRadius: BorderRadius.circular(2.r),
                 textStyle: TextStyles.font16WhiteMedium,
               ),
             ),
             SizedBox(width: 16),
             Expanded(
               child: CustomButton(
-
                 borderSideColor: Colors.orange,
                 backgroundColor: Colors.white,
                 textStyle: TextStyles.font16WhiteMedium.copyWith(color: TextColors.orange),
                 onPressed: onBackPressed,
                 height: 50.h,
+                borderRadius: BorderRadius.circular(2.r),
                 text: "Back",
               ),
             ),

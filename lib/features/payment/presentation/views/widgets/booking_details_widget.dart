@@ -37,10 +37,7 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: _buildPaymentMethod(),
-        ),
+        _buildPaymentMethod(),
       ],
     );
   }
@@ -53,16 +50,17 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
       ),
       margin: EdgeInsets.symmetric(horizontal: 16.w),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        padding: EdgeInsets.symmetric(vertical: 10.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10.h),
             Text(widget.title, style: TextStyles.font18darkGreyMedium),
             SizedBox(height: 16),
-            ...widget.people.map((person) => _buildCountSelector(person)),
-            SizedBox(height: 16),
+            ...widget.people.map((person) => Padding(
+              padding:  EdgeInsets.only(bottom: 16.0.h),
+              child: _buildCountSelector(person,),
+            )),
           ],
         ),
       ),

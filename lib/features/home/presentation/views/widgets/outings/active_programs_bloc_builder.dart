@@ -16,7 +16,6 @@ class ActiveProgramsBlocBuilder extends StatelessWidget {
     return BlocBuilder<ActiveProgramCubit, ActiveProgramState>(
         builder: (context, state) {
           if (state is ActiveProgramSuccess) {
-            print(state.activeProgramModel);
             return AppHorizontalListView(
               onTap: () {
                 context.pushNamed(Routes.programDetailsView,

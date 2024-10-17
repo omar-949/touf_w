@@ -30,11 +30,11 @@ final List<Person> people = [
 final List<Person>additionalService = [
   Person(
     label: "Dinner",
-    price: "A Dinner meal in 5 starts\n resturant",
+    price: "A Dinner meal in 5 starts resturant",
   ),
   Person(
     label: "Bus",
-    price: "A Bus to drive you to your\n destination ",
+    price: "A Bus to drive you to your destination ",
   ),
   Person(
     label: "Adult",
