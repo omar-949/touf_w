@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
+import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_tab_bar_content.dart';
 
 class DetailsTabBarContent extends StatefulWidget {
   const DetailsTabBarContent({super.key, required this.tabController});
@@ -42,9 +43,7 @@ class _DetailsTabBarContentState extends State<DetailsTabBarContent> {
         physics: NeverScrollableScrollPhysics(),
         children: [
           OverviewTabBarContent(),
-          Center(
-            child: Text('Supplement'),
-          ),
+          SupplementTabBarContent(),
           Center(
             child: Text('Photo Gallery'),
           ),
