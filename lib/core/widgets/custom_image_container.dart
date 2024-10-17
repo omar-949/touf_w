@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../resources/styles.dart';
 import 'app_horizontal_list_view_item.dart';
+
 class CustomImageContainer extends StatelessWidget {
-  const CustomImageContainer({super.key, required this.height, required this.width});
+  const CustomImageContainer(
+      {super.key, required this.height, required this.width});
   final double height;
   final double width;
   @override
@@ -25,7 +27,7 @@ class CustomImageContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PriceTag(
-            price: '850',
+            price: 850,
             textStyle: TextStyles.font14OrangeSemiBold,
           ),
         ],

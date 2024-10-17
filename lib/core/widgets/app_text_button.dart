@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
@@ -7,9 +6,9 @@ import 'package:toufwshouf/core/resources/styles.dart';
 class AppTextButton extends StatelessWidget {
   const AppTextButton(
       {super.key,
-        required this.onPressed,
-        required this.text,
-        this.backgroundColor});
+      required this.onPressed,
+      required this.text,
+      this.backgroundColor});
 
   final VoidCallback onPressed;
   final String text;

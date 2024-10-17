@@ -3,9 +3,9 @@ import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/custom_tab.dart';
 
 class CustomTabBar extends StatefulWidget {
-
   const CustomTabBar({
-    super.key, required this.tabController,
+    super.key,
+    required this.tabController,
   });
   final TabController tabController;
   @override

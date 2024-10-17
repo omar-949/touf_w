@@ -39,7 +39,13 @@ class HotelsLocationAndDetailsForContainer extends StatelessWidget {
           width: 22.w,
         ),
         12.horizontalSpace,
-        Expanded(child: Text("Economy double or twin room non-refundable",style: TextStyles.font16LightGrey600regular,maxLines: 2,overflow: TextOverflow.ellipsis,))
+        Expanded(
+            child: Text(
+          "Economy double or twin room non-refundable",
+          style: TextStyles.font16LightGrey600regular,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ))
       ])
     ]);
   }

@@ -6,7 +6,8 @@ class OnboardingButton extends StatelessWidget {
   const OnboardingButton({
     super.key,
     required this.color,
-    required this.text, required this.onTap,
+    required this.text,
+    required this.onTap,
   });
 
   final Color color;

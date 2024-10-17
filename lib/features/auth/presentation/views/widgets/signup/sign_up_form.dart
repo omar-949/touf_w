@@ -98,16 +98,16 @@ class _SignUpFormState extends State<SignUpForm> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 context.read<SignUpCubit>().signUp(
-                  signUpRequest: SignUpRequest(
-                    phone: widget.phoneController.text.trim(),
-                    email: widget.emailController.text.trim(),
-                    userName:
-                    "${firstnameController.text.trim()} ${lastnameController.text.trim()}",
-                    password: passwordController.text.trim(),
-                    nat: "1",
-                    address: "address",
-                  ),
-                );
+                      signUpRequest: SignUpRequest(
+                        phone: widget.phoneController.text.trim(),
+                        email: widget.emailController.text.trim(),
+                        userName:
+                            "${firstnameController.text.trim()} ${lastnameController.text.trim()}",
+                        password: passwordController.text.trim(),
+                        nat: "1",
+                        address: "address",
+                      ),
+                    );
               } else {
                 setState(() {
                   autoValidateMode = AutovalidateMode.always;

@@ -47,7 +47,7 @@ class CustomButton extends StatelessWidget {
     this.textStyle,
     this.height,
     // this.shadow = false,
-    this.width, this.borderSideColor, // Default to false
+    this.width, // Default to false
   });
 
   final String text;
@@ -58,7 +58,6 @@ class CustomButton extends StatelessWidget {
   final double? height;
   // final bool shadow;
   final double? width;
-  final Color? borderSideColor;
 
   @override
   Widget build(BuildContext context) {
@@ -67,10 +66,8 @@ class CustomButton extends StatelessWidget {
       width: width?.w,
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 2,
-            color:borderSideColor??Colors.white,
-          ),
+          // boxShadow:
+          // shadow ? [kBoxShadow] : [],
           borderRadius: borderRadius ?? BorderRadius.circular(10.r),
         ),
         child: TextButton(
@@ -84,12 +81,8 @@ class CustomButton extends StatelessWidget {
           child: Center(
             child: FittedBox(
               fit: BoxFit.scaleDown,
-              child: Text(
-                text,
-                style: textStyle ??
-                    TextStyles.font18WhiteMedium,
-
-              ),
+              child:
+                  Text(text, style: textStyle ?? TextStyles.font18WhiteMedium),
             ),
           ),
         ),

@@ -33,7 +33,6 @@ class ProgramInformationTile extends StatelessWidget {
               ],
             ),
           )
-
         ],
       ),
     );

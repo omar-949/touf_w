@@ -7,7 +7,8 @@ import 'package:toufwshouf/features/auth/presentation/manager/validate_email_cub
 import 'package:toufwshouf/features/auth/presentation/views/widgets/code_validation/otp_pin_put.dart';
 
 class CodeValidationForm extends StatefulWidget {
-  const CodeValidationForm({super.key, required this.email, required this.phone});
+  const CodeValidationForm(
+      {super.key, required this.email, required this.phone});
   final String email;
   final String phone;
   @override
@@ -22,6 +23,7 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
     otpController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -50,7 +52,11 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
 
   void onSubmitted() {
     if (formKey.currentState!.validate()) {
-      context.read<ValidateEmailCubit>().validateOtp(validateEmailRequest: ValidateEmailRequest(email: widget.email, otpCode: otpController.text.trim(), phone: widget.phone));
+      context.read<ValidateEmailCubit>().validateOtp(
+          validateEmailRequest: ValidateEmailRequest(
+              email: widget.email,
+              otpCode: otpController.text.trim(),
+              phone: widget.phone));
     }
   }
 }

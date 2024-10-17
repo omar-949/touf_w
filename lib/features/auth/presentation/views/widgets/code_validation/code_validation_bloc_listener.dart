@@ -6,8 +6,10 @@ import 'package:toufwshouf/features/auth/presentation/views/widgets/code_validat
 
 import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/routing/routes.dart';
+
 class CodeValidationBlocListener extends StatelessWidget {
-  const CodeValidationBlocListener({super.key, required this.email, required this.phone});
+  const CodeValidationBlocListener(
+      {super.key, required this.email, required this.phone});
   final String email;
   final String phone;
   @override

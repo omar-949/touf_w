@@ -37,11 +37,12 @@ class _OnboardingBodyState extends State<OnboardingBody> {
             ),
             OnboardingText(),
             OnboardingDotsIndicator(currentPage: currentPage),
-            OnboardingButtonRow(pageController: _pageController,),
+            OnboardingButtonRow(
+              pageController: _pageController,
+            ),
           ],
         );
       },
     );
   }
 }
-

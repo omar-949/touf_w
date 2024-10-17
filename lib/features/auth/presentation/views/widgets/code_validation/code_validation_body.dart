@@ -4,9 +4,10 @@ import 'package:toufwshouf/features/auth/presentation/views/widgets/code_validat
 import 'package:toufwshouf/features/auth/presentation/views/widgets/code_validation/code_validation_header.dart';
 
 class CodeValidationBody extends StatelessWidget {
-  const CodeValidationBody({super.key, required this.email, required this.phone});
-final String email;
-final String phone;
+  const CodeValidationBody(
+      {super.key, required this.email, required this.phone});
+  final String email;
+  final String phone;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,9 +17,8 @@ final String phone;
             CodeValidationHeader(),
             40.verticalSpace,
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: CodeValidationBlocListener(email: email, phone: phone)
-            ),
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: CodeValidationBlocListener(email: email, phone: phone)),
           ],
         ),
       ),
