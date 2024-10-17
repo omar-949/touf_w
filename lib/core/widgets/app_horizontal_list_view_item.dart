@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/rating.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 
 class AppHorizontalListViewItem extends StatelessWidget {
-  const AppHorizontalListViewItem({super.key, this.onTap});
+  const AppHorizontalListViewItem({super.key, this.onTap, required this.activeProgramModel});
   final void Function()? onTap;
+  final ActiveProgramModel activeProgramModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,22 +19,22 @@ class AppHorizontalListViewItem extends StatelessWidget {
           width: 265.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.r),
-            image: const DecorationImage(
+            image:  DecorationImage(
               // Todo: Replace with CachedNetworkImageProvider if needed
-              image: AssetImage('assets/home/bestselling1.png'),
+              image: activeProgramModel.imgPath != null ? NetworkImage(activeProgramModel.imgPath!) : AssetImage('assets/home/bestselling1.png'),
               fit: BoxFit.cover,
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const PriceTag(
-                price: '850',
+               PriceTag(
+                price: activeProgramModel.startprice ?? 850,
               ),
               const Spacer(),
-              const ItemDetails(
-                title: 'The Egyptian Gulf (Hospice of the Sultan)',
-                rating: 3.2,
+               ItemDetails(
+                title: activeProgramModel.programname ?? 'The Egyptian Gulf (Hospice of the Sultan)',
+                rating: 4,
               ),
             ],
           ),
@@ -40,17 +42,19 @@ class AppHorizontalListViewItem extends StatelessWidget {
       ),
     );
   }
+
 }
 
 class PriceTag extends StatelessWidget {
   final String? oldPrice;
-  final String price;
+  final int price;
   final TextStyle? textStyle;
 
   const PriceTag({
     super.key,
     required this.price,
-    this.oldPrice, this.textStyle,
+    this.oldPrice,
+    this.textStyle,
   });
 
   @override
@@ -89,7 +93,9 @@ class ItemDetails extends StatelessWidget {
       required this.title,
       required this.rating,
       this.textStyle,
-      this.isSpacer = false, this.verticalSpace, this.horizontalSpace});
+      this.isSpacer = false,
+      this.verticalSpace,
+      this.horizontalSpace});
 
   final String title;
   final double rating;
@@ -101,7 +107,8 @@ class ItemDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontalSpace ??16.w, vertical: verticalSpace ??8.h),
+      padding: EdgeInsets.symmetric(
+          horizontal: horizontalSpace ?? 16.w, vertical: verticalSpace ?? 8.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

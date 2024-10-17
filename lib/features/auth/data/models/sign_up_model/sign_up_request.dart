@@ -22,9 +22,9 @@ class SignUpRequest {
     return FormData.fromMap({
       'CNAME': userName,
       'NAT': nat,
-      'TEL': phone,        // Maps to phone
-      'C_PASS': password,  // Maps to password
-      'p_Mail': email,     // Maps to email
+      'TEL': phone, // Maps to phone
+      'C_PASS': password, // Maps to password
+      'p_Mail': email, // Maps to email
       'C_ADDRESS': address // Maps to address
     });
   }

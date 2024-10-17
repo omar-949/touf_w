@@ -14,8 +14,10 @@ class HotelsContent extends StatelessWidget {
       child: Column(
         children: [
           Text.rich(TextSpan(children: [
-            TextSpan(text: 'Search Result', style: TextStyles.font18darkGreyMedium),
-            TextSpan(text: '(50 Hotels)', style: TextStyles.font16darkGreyMedium)
+            TextSpan(
+                text: 'Search Result', style: TextStyles.font18darkGreyMedium),
+            TextSpan(
+                text: '(50 Hotels)', style: TextStyles.font16darkGreyMedium)
           ])),
           16.verticalSpace,
           Expanded(child: HotelsListView())

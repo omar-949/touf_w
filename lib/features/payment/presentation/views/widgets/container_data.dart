@@ -33,11 +33,7 @@ class ContainerDate extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(
-              iconPath,
-              width: 24.w,
-              height: 24.h
-          ),
+          Image.asset(iconPath, width: 24.w, height: 24.h),
           SizedBox(width: 16.w),
           Text(
             label,

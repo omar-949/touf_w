@@ -6,13 +6,8 @@ import 'package:toufwshouf/features/auth/data/models/validate_email_model/valida
 import '../../models/sign_up_model/sign_up_request.dart';
 
 abstract class AuthRepo {
-  Future<Either<Failure, Unit>> signUp({
-    required SignUpRequest signUpRequest
-  });
-  Future<Either<Failure, Unit>> login({
-    required LoginRequest loginRequest
-  });
-  Future<Either<Failure, Unit>> validateEmail({
-    required ValidateEmailRequest validateEmailRequest
-  });
+  Future<Either<Failure, Unit>> signUp({required SignUpRequest signUpRequest});
+  Future<Either<Failure, Unit>> login({required LoginRequest loginRequest});
+  Future<Either<Failure, Unit>> validateEmail(
+      {required ValidateEmailRequest validateEmailRequest});
 }

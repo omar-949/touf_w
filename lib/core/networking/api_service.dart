@@ -15,6 +15,7 @@ class ApiService {
     final response = await dio.post(endpoint, data: data);
     return response.data;
   }
+
   Future<Map<String, dynamic>> postWithFormData({
     required String endPoint,
     required FormData formData,

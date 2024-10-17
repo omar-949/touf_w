@@ -19,4 +19,3 @@ class ProgramDetailsBody extends StatelessWidget {
     );
   }
 }
-

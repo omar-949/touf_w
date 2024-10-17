@@ -5,7 +5,7 @@ import 'package:toufwshouf/core/resources/styles.dart';
 class StepIndicator extends StatelessWidget {
   final int currentStep;
 
-  const StepIndicator({super.key,required this.currentStep});
+  const StepIndicator({super.key, required this.currentStep});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,10 @@ class StepIndicator extends StatelessWidget {
           child: Center(
             child: Text(
               '$step',
-              style: TextStyle(fontSize: 11.sp, color: Colors.white, fontWeight: FontWeight.w500), // زيادة حجم النص
+              style: TextStyle(
+                  fontSize: 11.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500), // زيادة حجم النص
             ),
           ),
         ),
@@ -73,7 +76,7 @@ class StepIndicator extends StatelessWidget {
   }
 
   Color _getLineColor(int step) {
-    return currentStep >= step +1 ? Colors.orange : Colors.grey;
+    return currentStep >= step + 1 ? Colors.orange : Colors.grey;
   }
 
   Widget _buildStepLabels() {
@@ -86,6 +89,7 @@ class StepIndicator extends StatelessWidget {
       ],
     );
   }
+
   Widget _buildStepLabel(String label) {
     return SizedBox(
       width: 120.w,
