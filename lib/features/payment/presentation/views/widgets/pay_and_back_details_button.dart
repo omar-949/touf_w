@@ -14,15 +14,13 @@ class PayDetailsButton extends StatelessWidget {
       child: Column(
         children: [
           CustomButton(text: "Buy",
-            textColor: TextColors.white,
-            backGroundColor: AppColors.orange,
+            backgroundColor: AppColors.orange,
             onPressed:onPressedBuy ,
           ),
           SizedBox(height: 24,),
           CustomButton(
             text: "Add to my shopping cart",
-            textColor: TextColors.orange,
-            backGroundColor: Colors.transparent,
+            backgroundColor: Colors.transparent,
             onPressed:onPressedAddToFavorite,
           ),
         ],
