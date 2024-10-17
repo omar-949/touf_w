@@ -47,7 +47,7 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
             SizedBox(height: 10.h),
             Text(widget.title, style: TextStyles.font18darkGreyMedium),
             SizedBox(height: 16),
-            ...widget.people.map((person) => _buildCountSelector(person)).toList(),
+            ...widget.people.map((person) => _buildCountSelector(person)),
             SizedBox(height: 16),
           ],
         ),
