@@ -21,9 +21,9 @@ abstract class TextColors {
   static const lightgrey = Color(0xfff3f3f3);
   static const blue500 = Color(0xff1B85F3);
   static const green500 = Color(0xff3DD598);
-  static const ligtgrey600 = Color(0xffb3b3b3);
+  static const lightGrey600 = Color(0xffb3b3b3);
   static const white = Color(0xffFFFFFF);
-  static const lightwhite = Color(0xFFFFFBFB);
+  static const lightWhite = Color(0xFFFFFBFB);
   static const light2white = Color(0xFFFDFAFA);
   static const light3white = Color(0xFFFAFAFA);
   static const black = Color(0xff000000);

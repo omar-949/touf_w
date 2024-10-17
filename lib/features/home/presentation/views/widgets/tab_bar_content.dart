@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/hotels_content.dart';
 
 import 'outings/outings_tab.dart';
 
@@ -17,7 +18,8 @@ class TabBarContent extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         children: [
           OutingsTab(),
-          Center(child: Text('Content for Hotels')),
+          HotelsContent(),
+          // Center(child: Text('Content for Hotels')),
           Center(child: Text('Content for Transportation')),
         ],
       ),
