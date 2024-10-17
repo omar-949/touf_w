@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_counter_widget.dart';
 
 import '../../../../../core/resources/styles.dart';
+
 class CountSelector extends StatelessWidget {
   final String label;
   final String price;
@@ -13,7 +14,6 @@ class CountSelector extends StatelessWidget {
   const CountSelector({
     super.key,
     required this.label,
-
     required this.price,
     required this.count,
     required this.onAdd,
@@ -28,7 +28,11 @@ class CountSelector extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(label,style: TextStyles.font16Grey500Medium.copyWith(color: Colors.black),),
+            Text(
+              label,
+              style:
+                  TextStyles.font16Grey500Medium.copyWith(color: Colors.black),
+            ),
             CustomCounterWidget(
               count: count,
               onAdd: onAdd,
@@ -36,9 +40,11 @@ class CountSelector extends StatelessWidget {
             )
           ],
         ),
-        Text(price,style: TextStyles.font14darkBlue500Medium,),
+        Text(
+          price,
+          style: TextStyles.font14darkBlue500Medium,
+        ),
       ],
     );
   }
 }
-

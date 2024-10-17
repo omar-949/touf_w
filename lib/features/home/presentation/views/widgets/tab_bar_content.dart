@@ -43,10 +43,11 @@ class _TabBarContentState extends State<TabBarContent> {
         controller: widget.tabController,
         physics: NeverScrollableScrollPhysics(),
         children: [
-          SingleChildScrollView(child: OutingsTab()),
+          OutingsTab(),
           // SingleChildScrollView(child: Center(child: Text('Content for Hotels'))),
-          SingleChildScrollView(child: HotelsContent()),
-          SingleChildScrollView(child: Center(child: Text('Content for Transportation'))),
+          HotelsContent(),
+          SingleChildScrollView(
+              child: Center(child: Text('Content for Transportation'))),
         ],
       ),
     );

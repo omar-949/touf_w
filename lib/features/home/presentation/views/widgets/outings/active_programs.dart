@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
-import 'package:toufwshouf/core/widgets/app_horizontal_list_view.dart';
-import 'package:toufwshouf/core/widgets/app_horizontal_list_view_item.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/home_section_header.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/outings/active_programs_bloc_builder.dart';
 
 import '../../../../../../core/routing/routes.dart';
 
@@ -25,13 +24,8 @@ class ActivePrograms extends StatelessWidget {
           },
         ),
         10.verticalSpace,
-        AppHorizontalListView(
-          item: AppHorizontalListViewItem(
-            onTap: () {
-              context.pushNamed(Routes.programDetailsView,arguments: 'Active Program');
-            },
-          ),
-        ),
+        ActiveProgramsBlocBuilder()
+
       ],
     );
   }

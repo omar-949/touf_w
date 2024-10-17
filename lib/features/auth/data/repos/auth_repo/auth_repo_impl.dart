@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-
 import '../../../../../core/networking/api_endpoints.dart';
 import '../../../../../core/networking/api_failure.dart';
 import '../../../../../core/networking/api_service.dart';
@@ -16,14 +15,11 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl({required this.apiService});
 
   @override
-  Future<Either<Failure, Unit>> signUp({
-    required SignUpRequest signUpRequest
-  }) async {
+  Future<Either<Failure, Unit>> signUp(
+      {required SignUpRequest signUpRequest}) async {
     try {
       await apiService.postWithFormData(
-        endPoint: ApiEndpoints.signUp,
-        formData: signUpRequest.toJson()
-      );
+          endPoint: ApiEndpoints.signUp, formData: signUpRequest.toJson());
       return right(unit);
     } catch (e) {
       if (e is DioException) {
@@ -33,8 +29,10 @@ class AuthRepoImpl extends AuthRepo {
       }
     }
   }
+
   @override
-  Future<Either<Failure, Unit>> login({required LoginRequest loginRequest}) async {
+  Future<Either<Failure, Unit>> login(
+      {required LoginRequest loginRequest}) async {
     try {
       await apiService.get(
         endpoint: ApiEndpoints.login(loginRequest: loginRequest),
@@ -63,7 +61,8 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure,Unit>> validateEmail({required ValidateEmailRequest validateEmailRequest}) async{
+  Future<Either<Failure, Unit>> validateEmail(
+      {required ValidateEmailRequest validateEmailRequest}) async {
     try {
       await apiService.post(
         endpoint: ApiEndpoints.validateEmail(otp: validateEmailRequest.otpCode),

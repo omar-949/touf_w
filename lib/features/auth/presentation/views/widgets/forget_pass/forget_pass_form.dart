@@ -20,6 +20,7 @@ class _ForgetPassFormState extends State<ForgetPassForm> {
     forgetPassController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(

@@ -13,8 +13,10 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
     final response = await authRepo.login(loginRequest: loginRequest);
     response.fold(
-          (failure) => emit(LoginFailure(errMessage: failure.message,)),
-          (loginResponse) => emit(LoginSuccess()),
+      (failure) => emit(LoginFailure(
+        errMessage: failure.message,
+      )),
+      (loginResponse) => emit(LoginSuccess()),
     );
   }
 }

@@ -81,7 +81,8 @@ class Validator {
       return 'Please enter your email or phone number';
     }
 
-    final emailRegex = RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+    final emailRegex =
+        RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
 
     final phoneRegex = RegExp(r"^\+?[0-9]{10,15}$");
 

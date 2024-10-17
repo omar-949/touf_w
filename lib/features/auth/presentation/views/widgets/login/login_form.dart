@@ -8,7 +8,6 @@ import 'package:toufwshouf/features/auth/data/models/log_in_model/login_request.
 import 'package:toufwshouf/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/remember_information.dart';
 
-
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
@@ -33,46 +32,50 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: formKey,
-        autovalidateMode: autoValidateMode,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CustomTextField(
-              hintText: "Email",
-              controller: emailController,
-              validator: (value) {
-                return Validator.emailValidator(value);
-              }, autoValidateMode: autoValidateMode,
-            ),
-            10.verticalSpace,
-            CustomTextField(
-              hintText: "Password",
-              controller: passwordController,
-              isPassword: true,
-              validator: (value) {
-                return Validator.loginPasswordValidator(value);
-              },
-              autoValidateMode: autoValidateMode,
-            ),
-            4.verticalSpace,
-            RememberInformation(),
-            10.verticalSpace,
-            AppTextButton(
-              text: "Login",
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  context.read<LoginCubit>().login(loginRequest: LoginRequest(email: emailController.text.trim(), password: passwordController.text.trim()));
-                } else {
-                  setState(() {
-                    autoValidateMode = AutovalidateMode.always;
-                  });
-                }
-              },
-            ),
-          ],
-        ),
+      key: formKey,
+      autovalidateMode: autoValidateMode,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CustomTextField(
+            hintText: "Email",
+            controller: emailController,
+            validator: (value) {
+              return Validator.emailValidator(value);
+            },
+            autoValidateMode: autoValidateMode,
+          ),
+          10.verticalSpace,
+          CustomTextField(
+            hintText: "Password",
+            controller: passwordController,
+            isPassword: true,
+            validator: (value) {
+              return Validator.loginPasswordValidator(value);
+            },
+            autoValidateMode: autoValidateMode,
+          ),
+          4.verticalSpace,
+          RememberInformation(),
+          10.verticalSpace,
+          AppTextButton(
+            text: "Login",
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                context.read<LoginCubit>().login(
+                    loginRequest: LoginRequest(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim()));
+              } else {
+                setState(() {
+                  autoValidateMode = AutovalidateMode.always;
+                });
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 }

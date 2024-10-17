@@ -74,7 +74,9 @@ class AppRouter {
         );
       case Routes.programDetailsView:
         return RouteAnimations.buildPageRoute(
-          ProgramDetailsView(appBarTitle: arguments as String,),
+          ProgramDetailsView(
+            appBarTitle: arguments as String,
+          ),
           settings,
           TransitionType.slideFromRight,
         );

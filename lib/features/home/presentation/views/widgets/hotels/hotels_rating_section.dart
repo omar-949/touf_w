@@ -4,7 +4,8 @@ import 'package:toufwshouf/core/widgets/rating.dart';
 import '../../../../../../core/resources/styles.dart';
 
 class HotelsRatingSection extends StatelessWidget {
-  const HotelsRatingSection({super.key, required this.title, required this.rating});
+  const HotelsRatingSection(
+      {super.key, required this.title, required this.rating});
   final String title;
   final double rating;
   @override

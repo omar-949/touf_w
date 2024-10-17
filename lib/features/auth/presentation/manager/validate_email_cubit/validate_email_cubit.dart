@@ -10,12 +10,14 @@ class ValidateEmailCubit extends Cubit<ValidateEmailState> {
   ValidateEmailCubit(this.authRepo) : super(ValidateEmailInitial());
   final AuthRepo authRepo;
 
-  Future<void> validateOtp({required ValidateEmailRequest validateEmailRequest}) async {
+  Future<void> validateOtp(
+      {required ValidateEmailRequest validateEmailRequest}) async {
     emit(ValidateEmailLoading());
-    final response = await authRepo.validateEmail(validateEmailRequest: validateEmailRequest);
+    final response = await authRepo.validateEmail(
+        validateEmailRequest: validateEmailRequest);
     response.fold(
-          (failure) => emit(ValidateEmailFailure(errMessage: failure.message)),
-          (validateOtpResponse) => emit(ValidateEmailSuccess()),
+      (failure) => emit(ValidateEmailFailure(errMessage: failure.message)),
+      (validateOtpResponse) => emit(ValidateEmailSuccess()),
     );
   }
 }

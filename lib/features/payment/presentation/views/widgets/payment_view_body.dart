@@ -8,6 +8,7 @@ import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_ap
 import 'package:toufwshouf/features/payment/presentation/views/widgets/pay_and_back_details_button.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/stack_image_payment.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/step_indicator.dart';
+
 class PaymentViewBody extends StatefulWidget {
   const PaymentViewBody({super.key});
   @override
@@ -42,9 +43,9 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
           SizedBox(height: 10.h),
           const CheckPolicyPayment(),
           PayDetailsButton(
-            onPressedBuy:_onPayButtonPressed,
-            onPressedAddToFavorite: (){}
-            ,),
+            onPressedBuy: _onPayButtonPressed,
+            onPressedAddToFavorite: () {},
+          ),
           if (showPaymentText) // Conditionally show the text based on state
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),

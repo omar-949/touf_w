@@ -22,7 +22,9 @@ class PasswordValidations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int criteriaMet = (minLength ? 1 : 0) + (hasNumber || hasSymbol ? 1 : 0) + (hasUppercase && hasLowercase ? 1 : 0);
+    int criteriaMet = (minLength ? 1 : 0) +
+        (hasNumber || hasSymbol ? 1 : 0) +
+        (hasUppercase && hasLowercase ? 1 : 0);
 
     const int totalCriteria = 3;
 

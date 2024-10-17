@@ -7,7 +7,8 @@ import '../../../../core/di/service_locator.dart';
 import '../../data/repos/auth_repo/auth_repo_impl.dart';
 
 class CodeValidationView extends StatelessWidget {
-  const CodeValidationView({super.key, required this.email, required this.phone});
+  const CodeValidationView(
+      {super.key, required this.email, required this.phone});
   final String email;
   final String phone;
   @override

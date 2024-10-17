@@ -34,7 +34,10 @@ class _RememberInformationState extends State<RememberInformation> {
             width: 1.3,
           ),
         ),
-        Text("Remember Information",style: TextStyles.font14Grey600Medium,),
+        Text(
+          "Remember Information",
+          style: TextStyles.font14Grey600Medium,
+        ),
       ],
     );
   }

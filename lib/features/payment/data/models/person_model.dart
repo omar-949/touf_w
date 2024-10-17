@@ -11,6 +11,7 @@ class Person {
     required this.countNotifier,
   });
 }
+
 final List<Person> people = [
   Person(
     label: "Baby",
@@ -27,9 +28,8 @@ final List<Person> people = [
     price: "50 EGP from 20 to 50 (year)",
     countNotifier: ValueNotifier<int>(0),
   ),
-
 ];
-final List<Person>additionalService = [
+final List<Person> additionalService = [
   Person(
     label: "Dinner",
     price: "A Dinner meal in 5 starts\n resturant",
@@ -45,5 +45,4 @@ final List<Person>additionalService = [
     price: "50 EGP From 20 to 50 (year)",
     countNotifier: ValueNotifier<int>(0),
   ),
-
 ];

@@ -3,15 +3,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 
 import '../../../../../core/resources/styles.dart';
+
 class CustomCounterWidget extends StatelessWidget {
-  const CustomCounterWidget({super.key, required this.count, required this.onAdd, required this.onRemove});
+  const CustomCounterWidget(
+      {super.key,
+      required this.count,
+      required this.onAdd,
+      required this.onRemove});
   final int count;
   final Function() onAdd;
   final Function() onRemove;
 
   @override
   Widget build(BuildContext context) {
-    return   Stack(
+    return Stack(
       children: [
         Positioned(
           left: 10.w,

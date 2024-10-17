@@ -17,4 +17,3 @@ class ProgramDetailsBody extends StatelessWidget {
     );
   }
 }
-

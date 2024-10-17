@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/resources/styles.dart';
+
 class PaymentMethodWidget extends StatelessWidget {
   const PaymentMethodWidget({super.key});
 
@@ -13,12 +14,13 @@ class PaymentMethodWidget extends StatelessWidget {
         SizedBox(height: 10.h),
         PaymentMethodOption(),
         SizedBox(height: 20.h),
-       // const CardDetailsSection(),
+        // const CardDetailsSection(),
         SizedBox(height: 20.h),
       ],
     );
   }
 }
+
 class PaymentMethodOption extends StatefulWidget {
   const PaymentMethodOption({super.key});
 
@@ -33,39 +35,44 @@ class _PaymentMethodOptionState extends State<PaymentMethodOption> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         PaymentMethodOption2(
-            assetPath: 'assets/payment/visa.png',
-            method: 'visa',
+          assetPath: 'assets/payment/visa.png',
+          method: 'visa',
           //  selectedMethod: _selectedPaymentMethod,
-            onSelected: () {
-              setState(() {
+          onSelected: () {
+            setState(() {
               //  _selectedPaymentMethod = 'visa';
-              });
-            }, selectedMethod: '',),
+            });
+          },
+          selectedMethod: '',
+        ),
         SizedBox(width: 10.w), // Space between payment methods
         PaymentMethodOption2(
-            assetPath: 'assets/payment/mastercard.png',
-            method: 'mastercard',
+          assetPath: 'assets/payment/mastercard.png',
+          method: 'mastercard',
           //  selectedMethod: _selectedPaymentMethod,
-            onSelected: () {
-              setState(() {
-             //   _selectedPaymentMethod = 'mastercard';
-              });
-            }, selectedMethod: '',),
+          onSelected: () {
+            setState(() {
+              //   _selectedPaymentMethod = 'mastercard';
+            });
+          },
+          selectedMethod: '',
+        ),
         SizedBox(width: 10.w), // Space between payment methods
         PaymentMethodOption2(
-            assetPath: 'assets/payment/paypal.png',
-            method: 'paypal',
+          assetPath: 'assets/payment/paypal.png',
+          method: 'paypal',
           //  selectedMethod: _selectedPaymentMethod,
-            onSelected: () {
-              setState(() {
-               // _selectedPaymentMethod = 'paypal';
-              });
-            }, selectedMethod: '',),
+          onSelected: () {
+            setState(() {
+              // _selectedPaymentMethod = 'paypal';
+            });
+          },
+          selectedMethod: '',
+        ),
       ],
     );
   }
 }
-
 
 class PaymentMethodOption2 extends StatelessWidget {
   final String assetPath;
@@ -100,5 +107,3 @@ class PaymentMethodOption2 extends StatelessWidget {
     );
   }
 }
-
-

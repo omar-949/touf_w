@@ -81,11 +81,8 @@ class CustomButton extends StatelessWidget {
           child: Center(
             child: FittedBox(
               fit: BoxFit.scaleDown,
-              child: Text(
-                text,
-                style: textStyle ??
-                    TextStyles.font18WhiteMedium
-              ),
+              child:
+                  Text(text, style: textStyle ?? TextStyles.font18WhiteMedium),
             ),
           ),
         ),
