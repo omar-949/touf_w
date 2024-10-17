@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/core/resources/styles.dart';
 
-import '../../../../../../core/resources/styles.dart';
+class ProgramDetailsAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const ProgramDetailsAppBar({super.key, required this.appBarTitle});
 
-class SeeAllAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SeeAllAppBar({super.key, required this.title});
-
-  final String title;
+  final String appBarTitle;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      centerTitle: true,
+      scrolledUnderElevation: 0,
       title: Text(
-        title,
+        appBarTitle,
         style: TextStyles.font16BlackMedium,
       ),
+      centerTitle: true,
       leading: IconButton(
         onPressed: () {
           context.pop();
