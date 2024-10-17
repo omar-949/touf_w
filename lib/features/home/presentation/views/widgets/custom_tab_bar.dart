@@ -3,17 +3,20 @@ import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/custom_tab.dart';
 
 class CustomTabBar extends StatefulWidget {
-
   const CustomTabBar({
-    super.key, required this.tabController,
+    super.key,
+    required this.tabController,
   });
+
   final TabController tabController;
+
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
 }
 
 class _CustomTabBarState extends State<CustomTabBar> {
   int activeIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return TabBar(
@@ -24,6 +27,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
       unselectedLabelColor: Colors.white,
       dividerColor: Colors.transparent,
       tabAlignment: TabAlignment.center,
+      physics: NeverScrollableScrollPhysics(),
       onTap: (index) {
         setState(() {
           activeIndex = index;

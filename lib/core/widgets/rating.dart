@@ -29,7 +29,7 @@ class CustomStarRating extends StatelessWidget {
       direction: Axis.horizontal,
       allowHalfRating: true,
       itemCount: 5,
-      itemSize: 24.w,
+      itemSize: 20.w,
       ratingWidget: RatingWidget(
         full: Padding(
           padding: EdgeInsets.symmetric(horizontal: 1.5.w),

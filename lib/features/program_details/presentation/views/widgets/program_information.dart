@@ -13,26 +13,42 @@ class ProgramInformation extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.w),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 1,
-                blurRadius: 5,
-                offset: Offset(2, 2),
-              ),
-            ],
-          ),
-          child: Column(
-            children: [
-            ProgramInformationTile(svg: 'assets/svgs/location.svg', title: 'Location: ', value: 'Egypt, Cairo'),
-            ProgramInformationTile(svg: 'assets/svgs/price.svg', title: 'Price: ', value: '850 EGP'),
-            ProgramInformationTile(svg: 'assets/svgs/clock.svg', title: 'Duration time: ', value: '3 Hour/s'),
-            ProgramInformationTile(svg: 'assets/svgs/walking.svg', title: '', value: 'Walking Tour'),
-          ])
-        ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16.w),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 0,
+                  blurRadius: 6,
+                  offset: Offset(2, 2),
+                ),
+                BoxShadow(
+                  color: Colors.transparent,
+                  spreadRadius: 0,
+                  blurRadius: 6,
+                  offset: Offset(-2, -2),
+                ),
+              ],
+            ),
+            child: Column(children: [
+              ProgramInformationTile(
+                  svg: 'assets/svgs/location.svg',
+                  title: 'Location: ',
+                  value: 'Egypt, Cairo'),
+              ProgramInformationTile(
+                  svg: 'assets/svgs/price.svg',
+                  title: 'Price: ',
+                  value: '850 EGP'),
+              ProgramInformationTile(
+                  svg: 'assets/svgs/clock.svg',
+                  title: 'Duration time: ',
+                  value: '3 Hour/s'),
+              ProgramInformationTile(
+                  svg: 'assets/svgs/walking.svg',
+                  title: '',
+                  value: 'Walking Tour'),
+            ])),
       ),
     );
   }
