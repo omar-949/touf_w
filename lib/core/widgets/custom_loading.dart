@@ -19,7 +19,7 @@ class CustomLoading extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircularProgressIndicator(
+            const CircularProgressIndicator(
               color: AppColors.blue500,
             ),
             10.verticalSpace,

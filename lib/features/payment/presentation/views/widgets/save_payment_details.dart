@@ -23,7 +23,7 @@ class _SavePaymentDetailsState extends State<SavePaymentDetails> {
             });
           },
         ),
-        SizedBox(width: 5,),
+        const SizedBox(width: 5,),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(right: 70),

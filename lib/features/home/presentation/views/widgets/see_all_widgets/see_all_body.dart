@@ -8,7 +8,7 @@ class SeeAllBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return SeeAllListViewItem();
+        return const SeeAllListViewItem();
       },
       itemCount: 10,
     );

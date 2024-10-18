@@ -64,13 +64,13 @@ class PasswordValidations extends StatelessWidget {
       child: Row(
         children: [
           hasValidate
-              ? Icon(
+              ? const Icon(
                   Icons.check,
                   color: Colors.green,
                 )
               : Padding(
                   padding: EdgeInsets.only(left: 7.w),
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     radius: 3,
                     backgroundColor: AppColors.grey500,
                   ),

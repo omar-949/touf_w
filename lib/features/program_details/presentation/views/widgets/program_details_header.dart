@@ -16,7 +16,7 @@ class ProgramDetailsHeader extends StatelessWidget {
       pinned: false,
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/home/bestselling1.png'),
               fit: BoxFit.cover,
@@ -33,7 +33,7 @@ class ProgramDetailsHeader extends StatelessWidget {
                   style: TextStyles.font18WhiteMedium,
                 ),
                 10.verticalSpace,
-                CustomStarRating(rating: 4.5),
+                const CustomStarRating(rating: 4.5),
               ],
             ),
           ),

@@ -15,13 +15,13 @@ class HotelsContainerDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomImageContainer(height: 195.54, width: 334),
+        const CustomImageContainer(height: 195.54, width: 334),
         12.verticalSpace,
-        HotelsRatingSection(title: "City hostel", rating: 4.1),
+        const HotelsRatingSection(title: "City hostel", rating: 4.1),
         12.verticalSpace,
-        HotelsLocationAndDetailsForContainer(),
+        const HotelsLocationAndDetailsForContainer(),
         12.verticalSpace,
-        HotelsPriceSection(),
+        const HotelsPriceSection(),
         25.verticalSpace,
         CustomButton(
             text: "More Details",

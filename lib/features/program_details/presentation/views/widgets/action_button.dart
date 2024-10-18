@@ -35,9 +35,9 @@ class ActionButton extends StatelessWidget {
                     color: Colors.black.withOpacity(0.2),
                     spreadRadius: 1,
                     blurRadius: 5,
-                    offset: Offset(2, 2),
+                    offset: const Offset(2, 2),
                   ),
-                  BoxShadow(
+                  const BoxShadow(
                     color: Colors.transparent,
                     spreadRadius: 1,
                     blurRadius: 5,

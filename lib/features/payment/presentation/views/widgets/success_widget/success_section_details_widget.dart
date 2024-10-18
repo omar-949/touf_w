@@ -12,12 +12,12 @@ class SuccessSectionDetailsWidget extends StatelessWidget {
       children: [
         Text("The Egyptian Gulf", style: TextStyles.font20BlackMedium),
         SizedBox(height: 16.h),
-        BookingDetailRow(
+        const BookingDetailRow(
           label: "Booking date:",
           value: "2/3/2022",
         ),
         SizedBox(height: 11.h),
-        BookingDetailRow(
+        const BookingDetailRow(
           label: "Trip Date:",
           value: "2/3/2022 at 18:00",
         ),
@@ -42,12 +42,12 @@ class SuccessSectionDetailsWidget extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Text(" 440 EGP",style: TextStyles.font18darkGreyMedium,)),
         SizedBox(height: 11.h,),
-        BookingDetailRow(
+        const BookingDetailRow(
           label: "Total:",
           value: " 440 EGP",
         ),
         SizedBox(height: 11.h,),
-        BookingDetailRow(
+        const BookingDetailRow(
           label: "VAT:",
           value: "17 EGP",
         ),

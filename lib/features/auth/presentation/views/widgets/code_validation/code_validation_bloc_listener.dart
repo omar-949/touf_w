@@ -20,7 +20,7 @@ class CodeValidationBlocListener extends StatelessWidget {
             showDialog(
               context: context,
               barrierDismissible: false,
-              builder: (context) => Center(
+              builder: (context) => const Center(
                 child: CircularProgressIndicator(
                   color: AppColors.blue500,
                 ),
@@ -30,7 +30,7 @@ class CodeValidationBlocListener extends StatelessWidget {
             context.pop();
             context.pushNamed(Routes.homeView);
             context.showSnackBar(
-              Text("Validation Successfully"),
+              const Text("Validation Successfully"),
             );
           } else if (state is ValidateEmailFailure) {
             context.pop();

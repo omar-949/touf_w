@@ -46,7 +46,7 @@ class CountSelector extends StatelessWidget {
             ],
           ),
         ),
-        Spacer(),
+        const Spacer(),
         CustomCounterWidget(
           count: count,
           onAdd: onAdd,

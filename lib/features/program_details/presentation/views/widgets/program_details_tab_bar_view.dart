@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
+import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_tab_bar_content.dart';
+
+class ProgramDetailsTabBarView extends StatefulWidget {
+  const ProgramDetailsTabBarView({super.key});
+
+  @override
+  State<ProgramDetailsTabBarView> createState() => _ProgramDetailsTabBarViewState();
+}
+
+class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: SizedBox(
+        height: 500.h,
+        child: const TabBarView(
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            SingleChildScrollView(child: OverviewTabBarContent()),
+            SupplementTabBarContent(),
+            Center(child: Text('Photo Gallery')),
+          ],
+        ),
+      ),
+    );
+  }
+}

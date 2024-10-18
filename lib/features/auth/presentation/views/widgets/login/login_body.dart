@@ -15,14 +15,14 @@ class LoginBody extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            LoginHeader(),
+            const LoginHeader(),
             16.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: LoginBlocListener(),
+              child: const LoginBlocListener(),
             ),
             16.verticalSpace,
-            LoginFooter(),
+            const LoginFooter(),
             10.verticalSpace,
           ],
         ),

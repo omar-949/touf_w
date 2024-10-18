@@ -82,7 +82,7 @@ class CustomCounterWidget extends StatelessWidget {
             child: Container(
               width: 30.r,
               height: 30.r,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: TextColors.darkBlue,
               ),
@@ -102,7 +102,7 @@ class CustomCounterWidget extends StatelessWidget {
             child: Container(
               width: 30.r,
               height: 30.r,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: TextColors.darkBlue,
               ),

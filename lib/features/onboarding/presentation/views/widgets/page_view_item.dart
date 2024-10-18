@@ -41,7 +41,7 @@ class PageViewItem extends StatelessWidget {
           onboardingItem[index].image,
           fit: BoxFit.cover,
         ),
-        OnboardingText(),
+        const OnboardingText(),
       ],
     );
   }

@@ -27,7 +27,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
       showPaymentText = true;
     });
 
-    Future.delayed(Duration(milliseconds: 300), () {
+    Future.delayed(const Duration(milliseconds: 300), () {
       _scrollToPaymentMethod();
     });
   }
@@ -35,7 +35,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
   void _scrollToPaymentMethod() {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
   }

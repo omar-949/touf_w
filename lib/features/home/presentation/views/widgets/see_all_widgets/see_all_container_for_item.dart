@@ -6,7 +6,7 @@ class SeeAllContainerForItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomImageContainer(
+    return const CustomImageContainer(
       height: 109,
       width: 181,
     );

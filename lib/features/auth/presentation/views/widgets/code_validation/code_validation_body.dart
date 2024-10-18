@@ -14,7 +14,7 @@ class CodeValidationBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            CodeValidationHeader(),
+            const CodeValidationHeader(),
             40.verticalSpace,
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),

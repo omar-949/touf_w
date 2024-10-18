@@ -11,7 +11,7 @@ class OnboardingView extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => OnboardingCubit(),
-        child: OnboardingBody(),
+        child: const OnboardingBody(),
       ),
     );
   }

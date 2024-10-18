@@ -41,12 +41,12 @@ class _TabBarContentState extends State<TabBarContent> {
       height: _currentHeight,
       child: TabBarView(
         controller: widget.tabController,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
-          OutingsTab(),
+          const OutingsTab(),
           // SingleChildScrollView(child: Center(child: Text('Content for Hotels'))),
-          HotelsContent(),
-          SingleChildScrollView(
+          const HotelsContent(),
+          const SingleChildScrollView(
               child: Center(child: Text('Content for Transportation'))),
         ],
       ),

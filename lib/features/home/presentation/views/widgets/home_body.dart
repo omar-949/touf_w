@@ -49,7 +49,7 @@ class _HomeBodyState extends State<HomeBody> with SingleTickerProviderStateMixin
                   right: 16.w,
                   child: Row(
                     children: [
-                      Expanded(child: SearchField()),
+                      const Expanded(child: SearchField()),
                       Image.asset(
                         Assets.filter,
                         height: 24.h,

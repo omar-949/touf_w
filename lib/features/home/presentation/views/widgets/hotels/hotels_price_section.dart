@@ -14,7 +14,7 @@ class HotelsPriceSection extends StatelessWidget {
           '170.66 EGP / person',
           style: TextStyles.font16DarkGreyMedium,
         ),
-        Spacer(),
+        const Spacer(),
         CustomButton(
             text: "Price for 2 nights",
             backgroundColor: TextColors.darkBlue,
