@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_image_and_desc.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_list_view.dart';
 
 import '../../../../../../core/resources/colors.dart';
