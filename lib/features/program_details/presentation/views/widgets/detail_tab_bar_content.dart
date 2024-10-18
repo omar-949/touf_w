@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
+import 'package:toufwshouf/features/program_details/presentation/views/widgets/photo_gallery/photo_gallery_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_tab_bar_content.dart';
 
 class DetailsTabBarContent extends StatefulWidget {
@@ -13,7 +14,7 @@ class DetailsTabBarContent extends StatefulWidget {
 }
 
 class _DetailsTabBarContentState extends State<DetailsTabBarContent> {
-  final List<double> _heights = [920.h, 950.h, 200.h];
+  final List<double> _heights = [920.h, 950.h, 500.h];
   double _currentHeight = 920.h;
 
   @override
@@ -44,9 +45,7 @@ class _DetailsTabBarContentState extends State<DetailsTabBarContent> {
         children: [
           OverviewTabBarContent(),
           SupplementTabBarContent(),
-          Center(
-            child: Text('Photo Gallery'),
-          ),
+          PhotoGalleryTabBarContent(),
         ],
       ),
     );
