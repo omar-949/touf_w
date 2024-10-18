@@ -14,28 +14,24 @@ class ProgramDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: CustomScrollView(
-        slivers: [
-          const ProgramDetailsHeader(),
-          const ProgramActionButtons(),
-          const ProgramInformation(),
-          const ProgramDetailsTabBar(),
-          const ProgramDetailsTabBarView(),
-          const TourDetails(),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: CustomButton(
-                text: 'Book Now',
-                borderRadius: BorderRadius.circular(12.w),
-              ),
+    return CustomScrollView(
+      slivers: [
+        const ProgramDetailsHeader(),
+        const ProgramActionButtons(),
+        const ProgramInformation(),
+        const ProgramDetailsTabBar(),
+        const TourDetails(),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: CustomButton(
+              text: 'Book Now',
+              borderRadius: BorderRadius.circular(12.w),
             ),
           ),
-          const RelatedTrips(),
-        ],
-      ),
+        ),
+        const RelatedTrips(),
+      ],
     );
   }
 }
