@@ -15,7 +15,8 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: const HomeAppBar(),
       body: BlocProvider(
-        create: (context) => ActiveProgramCubit(getIt.get<HomeRepoImpl>())..getAllActivePrograms(),
+        create: (context) => ActiveProgramCubit(getIt.get<HomeRepoImpl>())
+          ..getAllActivePrograms(),
         child: const HomeBody(),
       ),
     );

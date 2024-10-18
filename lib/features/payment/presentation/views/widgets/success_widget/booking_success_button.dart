@@ -5,6 +5,7 @@ import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import '../../../../../../core/widgets/custom_button.dart';
+
 class BookingSuccessButton extends StatelessWidget {
   const BookingSuccessButton({super.key});
 
@@ -31,7 +32,6 @@ class BookingSuccessButton extends StatelessWidget {
           ),
           onPressed: () {
             context.pushNamed(Routes.homeView);
-
           },
           borderSideColor: AppColors.orange,
           backgroundColor: Colors.transparent,

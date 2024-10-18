@@ -24,9 +24,10 @@ class BestOfferProgram extends StatelessWidget {
           },
         ),
         10.verticalSpace,
-        AppHorizontalListView(activeProgramModel: [
-          ActiveProgramModel(programname: 'Omar'),
-        ],
+        AppHorizontalListView(
+          activeProgramModel: [
+            ActiveProgramModel(programname: 'Omar'),
+          ],
         ),
       ],
     );

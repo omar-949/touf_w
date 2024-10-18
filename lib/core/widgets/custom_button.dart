@@ -47,7 +47,8 @@ class CustomButton extends StatelessWidget {
     this.textStyle,
     this.height,
     // this.shadow = false,
-    this.width, this.borderSideColor, // Default to false
+    this.width,
+    this.borderSideColor, // Default to false
   });
 
   final String text;
@@ -69,7 +70,7 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
-            color:borderSideColor??Colors.white,
+            color: borderSideColor ?? Colors.white,
           ),
           borderRadius: borderRadius ?? BorderRadius.circular(10.r),
         ),
@@ -84,9 +85,7 @@ class CustomButton extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: textStyle ??
-                  TextStyles.font18WhiteMedium,
-
+              style: textStyle ?? TextStyles.font18WhiteMedium,
             ),
           ),
         ),

@@ -35,7 +35,8 @@ class ConfirmBookingSection extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Expiration date", style: TextStyles.font16darkGreySemiBold),
+                  Text("Expiration date",
+                      style: TextStyles.font16darkGreySemiBold),
                   const SizedBox(height: 8),
                   const CustomTextFormFieldPay(hintText: "MM/YY"),
                 ],
@@ -61,7 +62,8 @@ class ConfirmBookingSection extends StatelessWidget {
           children: [
             Expanded(
               child: CustomButton(
-                onPressed: onConfirmPressed,  // Use the new callback for the confirm action
+                onPressed:
+                    onConfirmPressed, // Use the new callback for the confirm action
                 height: 52.h,
                 text: "Confirm",
                 borderRadius: BorderRadius.circular(2.r),
@@ -73,8 +75,10 @@ class ConfirmBookingSection extends StatelessWidget {
               child: CustomButton(
                 borderSideColor: Colors.orange,
                 backgroundColor: Colors.white,
-                textStyle: TextStyles.font16WhiteMedium.copyWith(color: TextColors.orange),
-                onPressed: onBackPressed,  // Back button uses the onBackPressed callback
+                textStyle: TextStyles.font16WhiteMedium
+                    .copyWith(color: TextColors.orange),
+                onPressed:
+                    onBackPressed, // Back button uses the onBackPressed callback
                 height: 50.h,
                 borderRadius: BorderRadius.circular(2.r),
                 text: "Back",

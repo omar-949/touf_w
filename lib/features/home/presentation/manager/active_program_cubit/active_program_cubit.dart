@@ -13,8 +13,9 @@ class ActiveProgramCubit extends Cubit<ActiveProgramState> {
     emit(ActiveProgramLoading());
     final result = await homeRepo.getAllActivePrograms();
     result.fold(
-      (failure) => emit(ActiveProgramFailure (errMessage: failure.message)),
-      (activePrograms) => emit(ActiveProgramSuccess(activeProgramModel: activePrograms)),
+      (failure) => emit(ActiveProgramFailure(errMessage: failure.message)),
+      (activePrograms) =>
+          emit(ActiveProgramSuccess(activeProgramModel: activePrograms)),
     );
   }
 }

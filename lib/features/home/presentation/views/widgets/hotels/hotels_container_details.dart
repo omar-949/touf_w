@@ -7,7 +7,6 @@ import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/hotel
 import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/hotels_price_section.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/hotels_rating_section.dart';
 
-
 class HotelsContainerDetails extends StatelessWidget {
   const HotelsContainerDetails({super.key});
 

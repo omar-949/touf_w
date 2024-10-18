@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/custom_booking_details_row.dart';
+
 class SuccessSectionDetailsWidget extends StatelessWidget {
   const SuccessSectionDetailsWidget({super.key});
 
@@ -36,24 +37,37 @@ class SuccessSectionDetailsWidget extends StatelessWidget {
           value: "1",
         ),
         SizedBox(height: 13.h),
-        Text("Total without additional services  ",style: TextStyles.font18grey500Medium,),
-        SizedBox(height: 15.h,),
+        Text(
+          "Total without additional services  ",
+          style: TextStyles.font18grey500Medium,
+        ),
+        SizedBox(
+          height: 15.h,
+        ),
         Align(
             alignment: Alignment.centerRight,
-            child: Text(" 440 EGP",style: TextStyles.font18darkGreyMedium,)),
-        SizedBox(height: 11.h,),
+            child: Text(
+              " 440 EGP",
+              style: TextStyles.font18darkGreyMedium,
+            )),
+        SizedBox(
+          height: 11.h,
+        ),
         const BookingDetailRow(
           label: "Total:",
           value: " 440 EGP",
         ),
-        SizedBox(height: 11.h,),
+        SizedBox(
+          height: 11.h,
+        ),
         const BookingDetailRow(
           label: "VAT:",
           value: "17 EGP",
         ),
         SizedBox(height: 11.h),
         BookingDetailRow(
-          textStyle:TextStyles.font22darkGreyMedium.copyWith(color: Colors.black,fontWeight: FontWeight.w600),
+          textStyle: TextStyles.font22darkGreyMedium
+              .copyWith(color: Colors.black, fontWeight: FontWeight.w600),
           label: "The total includes VAT:",
           value: "457 EGP",
         ),

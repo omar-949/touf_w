@@ -58,9 +58,11 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
             Text(widget.title, style: TextStyles.font18darkGreyMedium),
             const SizedBox(height: 16),
             ...widget.people.map((person) => Padding(
-              padding:  EdgeInsets.only(bottom: 16.0.h),
-              child: _buildCountSelector(person,),
-            )),
+                  padding: EdgeInsets.only(bottom: 16.0.h),
+                  child: _buildCountSelector(
+                    person,
+                  ),
+                )),
           ],
         ),
       ),

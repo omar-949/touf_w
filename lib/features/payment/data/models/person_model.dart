@@ -1,4 +1,3 @@
-
 class Person {
   String label;
   String price;
@@ -26,7 +25,7 @@ final List<Person> people = [
   ),
 ];
 
-final List<Person>additionalService = [
+final List<Person> additionalService = [
   Person(
     label: "Dinner",
     price: "A Dinner meal in 5 starts resturant",
@@ -39,5 +38,4 @@ final List<Person>additionalService = [
     label: "Adult",
     price: "50 EGP From 20 to 50 (year)",
   ),
-
 ];

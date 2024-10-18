@@ -45,7 +45,7 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
         children: [
           const SingleChildScrollView(child: OverviewTabBarContent()),
           const SupplementTabBarContent(),
-          SizedBox(height: 370.h,child: const PhotoGalleryTabBarContent()),
+          SizedBox(height: 370.h, child: const PhotoGalleryTabBarContent()),
           const Center(
             child: Text('Reviews'),
           ),

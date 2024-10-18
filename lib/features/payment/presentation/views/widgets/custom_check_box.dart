@@ -38,10 +38,10 @@ class CustomCheckbox extends StatelessWidget {
         ),
         child: value
             ? Icon(
-          Icons.check,
-          size: size.w * 0.6,
-          color: checkColor,
-        )
+                Icons.check,
+                size: size.w * 0.6,
+                color: checkColor,
+              )
             : null,
       ),
     );

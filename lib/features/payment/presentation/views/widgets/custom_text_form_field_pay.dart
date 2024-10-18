@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+
 class CustomTextFormFieldPay extends StatelessWidget {
   const CustomTextFormFieldPay({super.key, required this.hintText});
-final String hintText;
+  final String hintText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -29,8 +30,7 @@ final String hintText;
             width: 1.0,
           ),
         ),
-        contentPadding:
-        EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+        contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       ),
     );
   }

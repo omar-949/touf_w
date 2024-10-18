@@ -25,7 +25,6 @@ class ActivePrograms extends StatelessWidget {
         ),
         10.verticalSpace,
         const ActiveProgramsBlocBuilder()
-
       ],
     );
   }

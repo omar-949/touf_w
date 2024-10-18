@@ -25,7 +25,6 @@ class SuccessSectionHeader extends StatelessWidget {
           "Thank you for Choosing Touf w shof",
           style: TextStyles.font16grey400Regular,
         ),
-
       ],
     );
   }

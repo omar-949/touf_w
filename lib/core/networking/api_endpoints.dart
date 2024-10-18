@@ -16,4 +16,13 @@ class ApiEndpoints {
   static String getAllActivePrograms({required int flag}) {
     return 'onlyCurrent/$flag';
   }
+  static String getProgramDetails({required final programCode, required final programYear}) {
+    return 'detailsesProgram/$programCode/$programYear';
+  }
+  static String getPhotoGalleryImages({required final programCode, required final programYear}) {
+    return 'Images/$programCode/$programYear';
+  }
+  static String getAllReviews({required final programCode, required final programYear}) {
+    return 'Images/$programCode/$programYear';
+  }
 }

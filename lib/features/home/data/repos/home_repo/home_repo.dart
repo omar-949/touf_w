@@ -5,5 +5,4 @@ import '../../../../../core/networking/api_failure.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, List<ActiveProgramModel>>> getAllActivePrograms();
-
 }

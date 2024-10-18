@@ -5,7 +5,8 @@ import 'package:toufwshouf/core/widgets/rating.dart';
 import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 
 class AppHorizontalListViewItem extends StatelessWidget {
-  const AppHorizontalListViewItem({super.key, this.onTap, required this.activeProgramModel});
+  const AppHorizontalListViewItem(
+      {super.key, this.onTap, required this.activeProgramModel});
   final void Function()? onTap;
   final ActiveProgramModel activeProgramModel;
   @override
@@ -19,21 +20,24 @@ class AppHorizontalListViewItem extends StatelessWidget {
           width: 265.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.r),
-            image:  DecorationImage(
+            image: DecorationImage(
               // Todo: Replace with CachedNetworkImageProvider if needed
-              image: activeProgramModel.imgPath != null ? NetworkImage(activeProgramModel.imgPath!) : const AssetImage('assets/home/bestselling1.png'),
+              image: activeProgramModel.imgPath != null
+                  ? NetworkImage(activeProgramModel.imgPath!)
+                  : const AssetImage('assets/home/bestselling1.png'),
               fit: BoxFit.cover,
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               PriceTag(
+              PriceTag(
                 price: activeProgramModel.startprice ?? 850,
               ),
               const Spacer(),
-               ItemDetails(
-                title: activeProgramModel.programname ?? 'The Egyptian Gulf (Hospice of the Sultan)',
+              ItemDetails(
+                title: activeProgramModel.programname ??
+                    'The Egyptian Gulf (Hospice of the Sultan)',
                 rating: 4,
               ),
             ],
@@ -42,7 +46,6 @@ class AppHorizontalListViewItem extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class PriceTag extends StatelessWidget {

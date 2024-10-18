@@ -11,7 +11,7 @@ class BookingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.h),
       child: Column(
         children: [
           BookingDetailsWidget(title: "Number of people", people: people),

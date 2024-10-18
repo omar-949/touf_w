@@ -21,9 +21,15 @@ class _PaymentMethodOptionSectionState
       children: [
         _buildPaymentOption(0, 'assets/payment/visa.png'),
         SizedBox(width: 10.w),
-        _buildPaymentOption(1, 'assets/payment/mastercard.png',),
+        _buildPaymentOption(
+          1,
+          'assets/payment/mastercard.png',
+        ),
         SizedBox(width: 10.w),
-        _buildPaymentOption(2, 'assets/payment/paypal.png', ),
+        _buildPaymentOption(
+          2,
+          'assets/payment/paypal.png',
+        ),
       ],
     );
   }
@@ -39,7 +45,7 @@ class _PaymentMethodOptionSectionState
       },
       child: PaymentMethodOption(
         assetPath: assetPath,
-       // method: method,
+        // method: method,
         isSelected: isSelected, // Pass selection status
       ),
     );

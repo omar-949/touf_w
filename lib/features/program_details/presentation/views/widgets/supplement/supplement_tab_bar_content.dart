@@ -27,7 +27,8 @@ class SupplementTabBarContent extends StatelessWidget {
           12.verticalSpace,
           Row(
             children: [
-              Image.asset("assets/best_selling/Icon ionic-ios-information-circle-outline.png"),
+              Image.asset(
+                  "assets/best_selling/Icon ionic-ios-information-circle-outline.png"),
               16.horizontalSpace,
               Text(
                 "All prices don't include VAT",

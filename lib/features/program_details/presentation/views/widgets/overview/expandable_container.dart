@@ -40,7 +40,8 @@ class _ExpandableContainerState extends State<ExpandableContainer> {
                   spreadRadius: 0,
                   blurRadius: 6,
                   offset: const Offset(2, 2),
-                ),const BoxShadow(
+                ),
+                const BoxShadow(
                   color: Colors.transparent,
                   spreadRadius: 0,
                   blurRadius: 6,

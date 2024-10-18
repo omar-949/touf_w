@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/booking_success_button.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/success_section_details.dart';
+
 class SuccessSection extends StatelessWidget {
   const SuccessSection({super.key});
 
@@ -19,7 +20,3 @@ class SuccessSection extends StatelessWidget {
     );
   }
 }
-
-
-
-

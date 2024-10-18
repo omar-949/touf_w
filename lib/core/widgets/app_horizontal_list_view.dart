@@ -4,7 +4,8 @@ import 'package:toufwshouf/core/widgets/app_horizontal_list_view_item.dart';
 import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 
 class AppHorizontalListView extends StatelessWidget {
-  const AppHorizontalListView({super.key, required this.activeProgramModel, this.onTap});
+  const AppHorizontalListView(
+      {super.key, required this.activeProgramModel, this.onTap});
   final List<ActiveProgramModel> activeProgramModel;
   final void Function()? onTap;
   @override
@@ -13,7 +14,10 @@ class AppHorizontalListView extends StatelessWidget {
       height: 216.h,
       child: ListView.builder(
         itemBuilder: (context, index) {
-          return AppHorizontalListViewItem(activeProgramModel: activeProgramModel[index],onTap: onTap,);
+          return AppHorizontalListViewItem(
+            activeProgramModel: activeProgramModel[index],
+            onTap: onTap,
+          );
         },
         itemCount: activeProgramModel.length,
         scrollDirection: Axis.horizontal,

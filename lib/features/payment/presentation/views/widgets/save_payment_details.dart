@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_check_box.dart';
+
 class SavePaymentDetails extends StatefulWidget {
   const SavePaymentDetails({super.key});
 
@@ -12,7 +13,7 @@ class _SavePaymentDetailsState extends State<SavePaymentDetails> {
   bool agreeToTerms = false;
   @override
   Widget build(BuildContext context) {
-    return   Row(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomCheckbox(
@@ -23,7 +24,9 @@ class _SavePaymentDetailsState extends State<SavePaymentDetails> {
             });
           },
         ),
-        const SizedBox(width: 5,),
+        const SizedBox(
+          width: 5,
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(right: 70),
