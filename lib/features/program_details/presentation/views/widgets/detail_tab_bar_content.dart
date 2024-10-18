@@ -41,11 +41,11 @@ class _DetailsTabBarContentState extends State<DetailsTabBarContent> {
       height: _currentHeight,
       child: TabBarView(
         controller: widget.tabController,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
-          OverviewTabBarContent(),
-          SupplementTabBarContent(),
-          PhotoGalleryTabBarContent(),
+          const OverviewTabBarContent(),
+          const SupplementTabBarContent(),
+          const PhotoGalleryTabBarContent(),
         ],
       ),
     );

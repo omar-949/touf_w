@@ -20,9 +20,9 @@ class SupplementTabBarContent extends StatelessWidget {
             style: TextStyles.font18darkGreyMedium,
           ),
           16.verticalSpace,
-          SupplementListView(),
+          const SupplementListView(),
           8.verticalSpace,
-          Divider(
+          const Divider(
             color: TextColors.lightGrey,
           ),
           24.verticalSpace,
