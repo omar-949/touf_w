@@ -14,8 +14,8 @@ class DetailsTabBarContent extends StatefulWidget {
 }
 
 class _DetailsTabBarContentState extends State<DetailsTabBarContent> {
-  final List<double> _heights = [920.h, 950.h, 500.h];
-  double _currentHeight = 920.h;
+  final List<double> _heights = [500.h, 500.h, 500.h];
+  double _currentHeight = 500.h;
 
   @override
   void initState() {

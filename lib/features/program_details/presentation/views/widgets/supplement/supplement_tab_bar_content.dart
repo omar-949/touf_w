@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_image_and_desc.dart';
+import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_list_view.dart';
 
 import '../../../../../../core/resources/colors.dart';
 
@@ -20,35 +21,8 @@ class SupplementTabBarContent extends StatelessWidget {
             style: TextStyles.font18darkGreyMedium,
           ),
           16.verticalSpace,
-          const SupplementImageAndDesc(desc: "12 working hours Hyundai H1 car"),
-          16.verticalSpace,
-          Text(
-            "1290 EGP",
-            style: TextStyles.font18darkBlueSemiBold,
-          ),
-          16.verticalSpace,
-          const SupplementImageAndDesc(desc: "12 working hours Kia Carens"),
-          16.verticalSpace,
-          Text(
-            "1150 EGP",
-            style: TextStyles.font18darkBlueSemiBold,
-          ),
-          16.verticalSpace,
-          const SupplementImageAndDesc(desc: "6 working hours Kia Carens"),
-          16.verticalSpace,
-          Text(
-            "780 EGP",
-            style: TextStyles.font18darkBlueSemiBold,
-          ),
-          16.verticalSpace,
-          const SupplementImageAndDesc(
-              desc: "6 working hours of Hyundai H1 car"),
-          16.verticalSpace,
-          Text(
-            "860 EGP",
-            style: TextStyles.font18darkBlueSemiBold,
-          ),
-          24.verticalSpace,
+          SupplementListView(),
+          8.verticalSpace,
           Divider(
             color: TextColors.lightGrey,
           ),
