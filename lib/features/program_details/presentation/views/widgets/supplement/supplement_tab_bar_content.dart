@@ -11,7 +11,7 @@ class SupplementTabBarContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 24.0.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 12.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -21,11 +21,10 @@ class SupplementTabBarContent extends StatelessWidget {
           ),
           16.verticalSpace,
           const SupplementListView(),
-          8.verticalSpace,
           const Divider(
             color: TextColors.lightGrey,
           ),
-          24.verticalSpace,
+          12.verticalSpace,
           Row(
             children: [
               Image.asset("assets/best_selling/Icon ionic-ios-information-circle-outline.png"),

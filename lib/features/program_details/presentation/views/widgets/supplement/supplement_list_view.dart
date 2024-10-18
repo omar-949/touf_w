@@ -11,9 +11,11 @@ class SupplementListView extends StatelessWidget {
       child: ListView.builder(
         itemBuilder: (context, index) {
           return Padding(
-            padding:  EdgeInsets.only(bottom: 16.0.h),
-            child: SupplementListViewItem(
-                desc: "12 working hours Hyundai H1 car", price: 1200),
+            padding: EdgeInsets.only(bottom: 16.0.h),
+            child: const SupplementListViewItem(
+              desc: "12 working hours Hyundai H1 car",
+              price: 1200,
+            ),
           );
         },
         itemCount: 5,

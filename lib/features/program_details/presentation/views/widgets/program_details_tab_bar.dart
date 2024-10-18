@@ -26,6 +26,7 @@ class ProgramDetailsTabBar extends StatelessWidget {
           const Center(child: Text('Overview')),
           const Center(child: Text('Supplement')),
           const Center(child: Text('Photo Gallery')),
+          const Center(child: Text('Reviews')),
         ],
       ),
     );

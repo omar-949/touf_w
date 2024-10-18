@@ -1,14 +1,14 @@
 class DetailsActiveProgramModel {
-  int? progcode;
-  String? programName;
-  int? programYear;
-  int? startPrice;
-  String? startDate;
-  String? endDate;
-  int? day;
-  String? classTrip;
-  String? city;
-  String? overView;
+  final int? progcode;
+  final String? programName;
+  final int? programYear;
+  final int? startPrice;
+  final String? startDate;
+  final String? endDate;
+  final int? day;
+  final String? classTrip;
+  final String? city;
+  final String? overView;
 
   DetailsActiveProgramModel({
     this.progcode,
