@@ -18,7 +18,7 @@ class HotelsListViewItem extends StatelessWidget {
             color: Colors.white,
             border: Border.all(color: TextColors.lightGrey2)),
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-        child: HotelsContainerDetails(),
+        child: const HotelsContainerDetails(),
       ),
     );
   }

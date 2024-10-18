@@ -17,7 +17,7 @@ class SeeAllListViewItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SeeAllContainerForItem(),
+            const SeeAllContainerForItem(),
             16.horizontalSpace,
             Expanded(
               child: ItemDetails(

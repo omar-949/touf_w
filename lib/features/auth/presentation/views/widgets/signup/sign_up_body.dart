@@ -13,14 +13,14 @@ class SignUpBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SignUpHeader(),
+            const SignUpHeader(),
             10.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: SignUpBlocListener(),
+              child: const SignUpBlocListener(),
             ),
             8.verticalSpace,
-            SignUpFooter(),
+            const SignUpFooter(),
             26.verticalSpace,
           ],
         ),

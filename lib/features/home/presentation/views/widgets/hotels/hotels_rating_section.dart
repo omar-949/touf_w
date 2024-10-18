@@ -12,7 +12,7 @@ class HotelsRatingSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: [
       Text(title, style: TextStyles.font20darkGreySemiBold),
-      Spacer(),
+      const Spacer(),
       CustomStarRating(rating: rating),
     ]);
   }

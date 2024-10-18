@@ -8,7 +8,7 @@ class HotelsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return HotelsListViewItem();
+        return const HotelsListViewItem();
       },
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,

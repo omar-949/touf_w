@@ -20,7 +20,7 @@ class HotelsContent extends StatelessWidget {
                 text: '(50 Hotels)', style: TextStyles.font16darkGreyMedium)
           ])),
           16.verticalSpace,
-          Expanded(child: HotelsListView())
+          const Expanded(child: HotelsListView())
         ],
       ),
     );

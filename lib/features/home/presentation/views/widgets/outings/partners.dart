@@ -10,7 +10,7 @@ class Partners extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HomeSectionHeader(
+        const HomeSectionHeader(
           section: "Partners",
         ),
         10.verticalSpace,

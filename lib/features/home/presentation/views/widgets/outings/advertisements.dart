@@ -14,7 +14,7 @@ class Advertisements extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HomeSectionHeader(
+        const HomeSectionHeader(
           section: "Advertisements",
         ),
         10.verticalSpace,
@@ -23,7 +23,7 @@ class Advertisements extends StatelessWidget {
           child: Container(
             width: 358.w,
             height: 132.h,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(Assets.advertisement),
                 fit: BoxFit.cover,

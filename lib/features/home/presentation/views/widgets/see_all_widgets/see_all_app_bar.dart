@@ -22,7 +22,7 @@ class SeeAllAppBar extends StatelessWidget implements PreferredSizeWidget {
         onPressed: () {
           context.pop();
         },
-        icon: Icon(Icons.arrow_back_ios),
+        icon: const Icon(Icons.arrow_back_ios),
       ),
     );
   }

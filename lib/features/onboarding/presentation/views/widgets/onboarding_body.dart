@@ -35,7 +35,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                 context.read<OnboardingCubit>().setCurrentPage(index);
               },
             ),
-            OnboardingText(),
+            const OnboardingText(),
             OnboardingDotsIndicator(currentPage: currentPage),
             OnboardingButtonRow(
               pageController: _pageController,

@@ -12,18 +12,18 @@ class StackImagePayment extends StatelessWidget {
     return Container(
       height: 290.h,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.red,
-        image: const DecorationImage(
+        image: DecorationImage(
           image: AssetImage('assets/home/bestselling1.png'),
           fit: BoxFit.cover,
         ),
       ),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Spacer(),
-          const ItemDetails(
+          Spacer(),
+          ItemDetails(
             title: 'The Egyptian Gulf (Hospice of the Sultan)',
             rating: 3.2,
           ),

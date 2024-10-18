@@ -9,7 +9,7 @@ class SeeAllView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SeeAllAppBar(title: title),
-      body: SeeAllBody(),
+      body: const SeeAllBody(),
     );
   }
 }

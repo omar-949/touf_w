@@ -13,10 +13,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBar(),
+      appBar: const HomeAppBar(),
       body: BlocProvider(
         create: (context) => ActiveProgramCubit(getIt.get<HomeRepoImpl>())..getAllActivePrograms(),
-        child: HomeBody(),
+        child: const HomeBody(),
       ),
     );
   }

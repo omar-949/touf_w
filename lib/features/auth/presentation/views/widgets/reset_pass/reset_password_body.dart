@@ -12,11 +12,11 @@ class ResetPasswordBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            ResetPasswordHeader(),
+            const ResetPasswordHeader(),
             16.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: ResetPasswordForm(),
+              child: const ResetPasswordForm(),
             ),
           ],
         ),

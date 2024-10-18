@@ -21,7 +21,7 @@ class AppHorizontalListViewItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
             image:  DecorationImage(
               // Todo: Replace with CachedNetworkImageProvider if needed
-              image: activeProgramModel.imgPath != null ? NetworkImage(activeProgramModel.imgPath!) : AssetImage('assets/home/bestselling1.png'),
+              image: activeProgramModel.imgPath != null ? NetworkImage(activeProgramModel.imgPath!) : const AssetImage('assets/home/bestselling1.png'),
               fit: BoxFit.cover,
             ),
           ),

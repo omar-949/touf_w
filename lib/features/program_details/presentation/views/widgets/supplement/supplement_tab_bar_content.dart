@@ -13,6 +13,7 @@ class SupplementTabBarContent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 24.0.h),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -49,7 +50,7 @@ class SupplementTabBarContent extends StatelessWidget {
             style: TextStyles.font18darkBlueSemiBold,
           ),
           24.verticalSpace,
-          Divider(
+          const Divider(
             color: TextColors.lightGrey,
           ),
           24.verticalSpace,

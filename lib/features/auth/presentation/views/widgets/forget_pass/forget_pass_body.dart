@@ -14,11 +14,11 @@ class ForgetPassBody extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ForgetPassHeader(),
+            const ForgetPassHeader(),
             20.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: ForgetPassForm(),
+              child: const ForgetPassForm(),
             ),
           ],
         ),

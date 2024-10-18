@@ -18,7 +18,7 @@ class LoginBlocListener extends StatelessWidget {
             showDialog(
               context: context,
               barrierDismissible: false,
-              builder: (context) => Center(
+              builder: (context) => const Center(
                 child: CircularProgressIndicator(
                   color: AppColors.blue500,
                 ),
@@ -28,13 +28,13 @@ class LoginBlocListener extends StatelessWidget {
             context.pop();
             context.pushNamed(Routes.homeView);
             context.showSnackBar(
-              Text("Please Review Your Mail"),
+              const Text("Please Review Your Mail"),
             );
           } else if (state is LoginFailure) {
             context.pop();
             context.showSnackBar(Text(state.errMessage));
           }
         },
-        child: LoginForm());
+        child: const LoginForm());
   }
 }

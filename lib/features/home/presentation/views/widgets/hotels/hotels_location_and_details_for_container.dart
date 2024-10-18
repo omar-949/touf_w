@@ -23,7 +23,7 @@ class HotelsLocationAndDetailsForContainer extends StatelessWidget {
               text: "Cairo",
               style: TextStyles.font16LightGrey600regular,
             ),
-            TextSpan(text: "  "),
+            const TextSpan(text: "  "),
             TextSpan(
               text: "[ Map ]",
               style: TextStyles.font16darkBlue400Regular,

@@ -23,11 +23,11 @@ class ConfirmBookingSection extends StatelessWidget {
       children: [
         Text("Credit Card", style: TextStyles.font16darkGreySemiBold),
         SizedBox(height: 8.h),
-        CustomTextFormFieldPay(hintText: " '3485 ****  ****  ****',"),
+        const CustomTextFormFieldPay(hintText: " '3485 ****  ****  ****',"),
         SizedBox(height: 15.h),
         Text("Name on card", style: TextStyles.font16darkGreySemiBold),
-        SizedBox(height: 8),
-        CustomTextFormFieldPay(hintText: "Joe Doe"),
+        const SizedBox(height: 8),
+        const CustomTextFormFieldPay(hintText: "Joe Doe"),
         SizedBox(height: 15.h),
         Row(
           children: [
@@ -36,26 +36,26 @@ class ConfirmBookingSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Expiration date", style: TextStyles.font16darkGreySemiBold),
-                  SizedBox(height: 8),
-                  CustomTextFormFieldPay(hintText: "MM/YY"),
+                  const SizedBox(height: 8),
+                  const CustomTextFormFieldPay(hintText: "MM/YY"),
                 ],
               ),
             ),
-            SizedBox(width: 15),
+            const SizedBox(width: 15),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("CVV", style: TextStyles.font16darkGreySemiBold),
-                  SizedBox(height: 8),
-                  CustomTextFormFieldPay(hintText: "123"),
+                  const SizedBox(height: 8),
+                  const CustomTextFormFieldPay(hintText: "123"),
                 ],
               ),
             ),
           ],
         ),
         SizedBox(height: 16.h),
-        SavePaymentDetails(),
+        const SavePaymentDetails(),
         SizedBox(height: 8.h),
         Row(
           children: [
@@ -68,7 +68,7 @@ class ConfirmBookingSection extends StatelessWidget {
                 textStyle: TextStyles.font16WhiteMedium,
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
               child: CustomButton(
                 borderSideColor: Colors.orange,

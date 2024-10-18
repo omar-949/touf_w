@@ -56,7 +56,7 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(widget.title, style: TextStyles.font18darkGreyMedium),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ...widget.people.map((person) => Padding(
               padding:  EdgeInsets.only(bottom: 16.0.h),
               child: _buildCountSelector(person,),

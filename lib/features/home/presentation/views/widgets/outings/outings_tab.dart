@@ -12,13 +12,13 @@ class OutingsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ActivePrograms(),
+        const ActivePrograms(),
         10.verticalSpace,
-        Advertisements(),
+        const Advertisements(),
         10.verticalSpace,
-        BestOfferProgram(),
+        const BestOfferProgram(),
         10.verticalSpace,
-        Partners(),
+        const Partners(),
       ],
     );
   }

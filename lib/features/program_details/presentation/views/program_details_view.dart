@@ -10,7 +10,7 @@ class ProgramDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ProgramDetailsAppBar(appBarTitle: appBarTitle),
-      body: ProgramDetailsBody(),
+      body: const ProgramDetailsBody(),
     );
   }
 }
