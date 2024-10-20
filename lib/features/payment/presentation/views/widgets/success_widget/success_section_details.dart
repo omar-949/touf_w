@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/success_section_details_widget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/success_section_header.dart';
-
 class SuccessSectionDetails extends StatelessWidget {
   const SuccessSectionDetails({super.key});
 
