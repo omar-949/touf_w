@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/core/helpers/shared_pref_helper.dart';
+import 'package:toufwshouf/core/helpers/shared_pref_keys.dart';
 import 'package:toufwshouf/core/resources/assets.dart';
 import 'package:toufwshouf/main.dart';
 
 import '../../../../../core/routing/routes.dart';
+import '../../../../../core/widgets/custom_button.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
@@ -35,7 +38,17 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 24.w,
           ),
           onPressed: () {
-            isLoggedUser ? null : context.pushNamed(Routes.loginView);
+            isLoggedUser
+                ? context.showCustomDialog(title: Text("error"),
+              content: Text("You already logged in"),
+              confirmButton: CustomButton(text: "Log Out", onPressed: () {
+                SharedPrefHelper.removeData(key: SharedPrefKeys.accessToken);
+                context.pop();
+              }),
+              cancelButton: CustomButton(text: "cancel", onPressed: () {
+                context.pop();
+              }),)
+                : context.pushNamed(Routes.loginView);
           },
         ),
         IconButton(
