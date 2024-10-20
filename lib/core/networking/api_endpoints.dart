@@ -3,6 +3,8 @@ import '../../features/auth/data/models/log_in_model/login_request.dart';
 class ApiEndpoints {
   static const String baseUrl =
       'http://app.misrtravelco.net:4444/ords/invoice/programes/';
+
+  // auth
   static const String signUp = 'client/';
 
   static String login({required LoginRequest loginRequest}) {
@@ -12,11 +14,15 @@ class ApiEndpoints {
   static String validateEmail({required String otp}) {
     return 'validation/$otp';
   }
+  //--------------------------------------------------
 
+  // home
   static String getAllActivePrograms({required int flag}) {
     return 'onlyCurrent/$flag';
   }
+  //-----------------------------------------------------
 
+  // program details
   static String getProgramDetails(
       {required final programCode, required final programYear}) {
     return 'detailsesProgram/$programCode/$programYear';
@@ -32,16 +38,6 @@ class ApiEndpoints {
     return 'programpolicy/$programCode/$programYear';
   }
 
-  static String getExtraPrograms(
-      {required final programCode, required final programYear}) {
-    return 'ExtraProgram/$programCode/$programYear';
-  }
-
-  static String getAllProgramGroups(
-      {required final programCode, required final programYear}) {
-    return 'ProgramGroups/$programCode/$programYear';
-  }
-
   static String getPolicy(
       {required final programCode,
       required final programYear,
@@ -53,8 +49,25 @@ class ApiEndpoints {
       {required final programCode, required final programYear}) {
     return 'ProgramIncluding/$programCode/$programYear';
   }
+
   static String getTourIncluding(
       {required final programCode, required final programYear}) {
     return 'tourincluding/$programCode/$programYear';
+  }
+  //-----------------------------------------------------
+
+  // payment
+  static String getExtraPrograms(
+      {required final programCode, required final programYear}) {
+    return 'ExtraProgram/$programCode/$programYear';
+  }
+
+  static String getAllProgramGroups(
+      {required final programCode, required final programYear}) {
+    return 'ProgramGroups/$programCode/$programYear';
+  }
+  static String getProgramGroup(
+      {required final programCode, required final programYear,required final groupNum}) {
+    return 'GroupPrice/$programCode/$programYear/$groupNum';
   }
 }

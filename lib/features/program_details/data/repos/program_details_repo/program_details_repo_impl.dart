@@ -129,14 +129,14 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, TourIncludingModel>> getTourIncluding({required String programCode, required String programYear}) async{
+  Future<Either<Failure, TourIncludingModel>> getTourIncluding(
+      {required String programCode, required String programYear}) async {
     try {
       final response = await apiService.get(
           endpoint: ApiEndpoints.getTourIncluding(
               programCode: programCode, programYear: programYear));
       var item = response['items'][0];
-      TourIncludingModel tourIncludingModel =
-      TourIncludingModel.fromJson(item);
+      TourIncludingModel tourIncludingModel = TourIncludingModel.fromJson(item);
 
       return Right(tourIncludingModel);
     } catch (e) {
