@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
@@ -23,7 +24,7 @@ class AppHorizontalListViewItem extends StatelessWidget {
             image: DecorationImage(
               // Todo: Replace with CachedNetworkImageProvider if needed
               image: activeProgramModel.imgPath != null
-                  ? NetworkImage(activeProgramModel.imgPath!)
+                  ? CachedNetworkImageProvider(activeProgramModel.imgPath!)
                   : const AssetImage('assets/home/bestselling1.png'),
               fit: BoxFit.cover,
             ),
@@ -38,7 +39,9 @@ class AppHorizontalListViewItem extends StatelessWidget {
               ItemDetails(
                 title: activeProgramModel.programname ??
                     'The Egyptian Gulf (Hospice of the Sultan)',
-                rating: 4,
+                rating: activeProgramModel.rateReview == "No Review"
+                    ? 0.0
+                    : double.parse(activeProgramModel.rateReview ?? '0.0'),
               ),
             ],
           ),

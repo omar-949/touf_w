@@ -49,11 +49,9 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
           const SingleChildScrollView(child: OverviewTabBarContent()),
           const SupplementTabBarContent(),
           SizedBox(height: 370.h, child: const PhotoGalleryTabBarContent()),
-
-          ReviewItemListView()
+          const ReviewItemListView()
         ],
       ),
     );
   }
 }
-

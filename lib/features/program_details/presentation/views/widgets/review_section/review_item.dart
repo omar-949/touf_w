@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/resources/styles.dart';
 import '../../../../../../core/widgets/rating.dart';
+
 class ReviewItem extends StatelessWidget {
   const ReviewItem({super.key});
 
@@ -11,7 +12,7 @@ class ReviewItem extends StatelessWidget {
     final screenWidth = MediaQuery.sizeOf(context).width;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -52,17 +53,19 @@ class ReviewItem extends StatelessWidget {
                 Text(
                   maxLines: 2,
                   "Lorem ipsum dolor sit amet, cum sapientem honestatis ea, verear ",
-                  style: TextStyles.font16grey400Regular.copyWith(color: Color(0xff333333)),
+                  style: TextStyles.font16grey400Regular
+                      .copyWith(color: Color(0xff333333)),
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 12.h,),
-                const Divider(
-                    thickness: 1,  // Thickness of the divider
-                    color: Color(0xffC7C7C7)  // Color of the divider
+                SizedBox(
+                  height: 12.h,
                 ),
+                const Divider(
+                    thickness: 1, // Thickness of the divider
+                    color: Color(0xffC7C7C7) // Color of the divider
+                    ),
               ],
             ),
-
           ),
         ],
       ),

@@ -11,7 +11,8 @@ class ProgramGroupModel {
     this.progGrpFrom,
   });
 
-  factory ProgramGroupModel.fromJson(Map<String, dynamic> json) => ProgramGroupModel(
+  factory ProgramGroupModel.fromJson(Map<String, dynamic> json) =>
+      ProgramGroupModel(
         paxType: json['pax_type'] as String?,
         pPrice: json['p_price'] as int?,
         progGrpNo: json['prog_grp_no'] as int?,

@@ -35,6 +35,28 @@ extension SnackbarContext on BuildContext {
     ScaffoldMessenger.of(this).showSnackBar(snackBar);
   }
 }
+extension DialogContext on BuildContext {
+  void showCustomDialog({
+    required Widget title,
+    required Widget content,
+    Widget? confirmButton,
+    Widget? cancelButton,
+  }) {
+    showDialog(
+      context: this,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: title,
+          content: content,
+          actions: [
+            if (cancelButton != null) cancelButton,
+            if (confirmButton != null) confirmButton,
+          ],
+        );
+      },
+    );
+  }
+}
 
 extension EmptyStringExtension on String? {
   bool isNullOrEmpty() => this == null || this!.isEmpty;

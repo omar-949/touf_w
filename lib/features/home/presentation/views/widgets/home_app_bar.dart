@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/resources/assets.dart';
+import 'package:toufwshouf/main.dart';
+
+import '../../../../../core/routing/routes.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
@@ -30,7 +34,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             height: 24.h,
             width: 24.w,
           ),
-          onPressed: () {},
+          onPressed: () {
+            isLoggedUser ? null : context.pushNamed(Routes.loginView);
+          },
         ),
         IconButton(
           icon: Image.asset(

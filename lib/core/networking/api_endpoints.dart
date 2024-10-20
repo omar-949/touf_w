@@ -66,8 +66,11 @@ class ApiEndpoints {
       {required final programCode, required final programYear}) {
     return 'ProgramGroups/$programCode/$programYear';
   }
+
   static String getProgramGroup(
-      {required final programCode, required final programYear,required final groupNum}) {
+      {required final programCode,
+      required final programYear,
+      required final groupNum}) {
     return 'GroupPrice/$programCode/$programYear/$groupNum';
   }
 }

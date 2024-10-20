@@ -28,9 +28,9 @@ class CodeValidationBlocListener extends StatelessWidget {
             );
           } else if (state is ValidateEmailSuccess) {
             context.pop();
-            context.pushNamed(Routes.homeView);
+            context.pushNamed(Routes.loginView);
             context.showSnackBar(
-              const Text("Validation Successfully"),
+              const Text("Validation Successfully,Please login now"),
             );
           } else if (state is ValidateEmailFailure) {
             context.pop();

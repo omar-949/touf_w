@@ -58,11 +58,16 @@ class PaymentRepoImpl implements PaymentRepo {
   }
 
   @override
-  Future<Either<Failure, List<ProgramGroupModel>>> getProgramGroup({required String programCode, required String programYear,required int groupNum}) async{
+  Future<Either<Failure, List<ProgramGroupModel>>> getProgramGroup(
+      {required String programCode,
+      required String programYear,
+      required int groupNum}) async {
     try {
       final response = await apiService.get(
           endpoint: ApiEndpoints.getProgramGroup(
-              programCode: programCode, programYear: programYear, groupNum: groupNum));
+              programCode: programCode,
+              programYear: programYear,
+              groupNum: groupNum));
       List<ProgramGroupModel> programGroup = [];
 
       for (var item in response['items']) {
