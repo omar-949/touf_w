@@ -38,19 +38,16 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: _currentHeight,
-      child: TabBarView(
-        controller: widget.tabController,
-        children: [
-          const SingleChildScrollView(child: OverviewTabBarContent()),
-          const SupplementTabBarContent(),
-          SizedBox(height: 370.h, child: const PhotoGalleryTabBarContent()),
-          const Center(
-            child: Text('Reviews'),
-          ),
-        ],
-      ),
+    return TabBarView(
+      controller: widget.tabController,
+      children: [
+        OverviewTabBarContent(),OverviewTabBarContent(),OverviewTabBarContent(),OverviewTabBarContent(),
+        // const SupplementTabBarContent(),
+        // SizedBox(height: 370.h, child: const PhotoGalleryTabBarContent()),
+        // const Center(
+        //   child: Text('Reviews'),
+        // ),
+      ],
     );
   }
 }
