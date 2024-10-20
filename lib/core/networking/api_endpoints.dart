@@ -29,15 +29,32 @@ class ApiEndpoints {
 
   static String getAllReviews(
       {required final programCode, required final programYear}) {
-    return 'Images/$programCode/$programYear';
+    return 'programpolicy/$programCode/$programYear';
   }
 
   static String getExtraPrograms(
       {required final programCode, required final programYear}) {
     return 'ExtraProgram/$programCode/$programYear';
   }
+
   static String getAllProgramGroups(
       {required final programCode, required final programYear}) {
     return 'ProgramGroups/$programCode/$programYear';
+  }
+
+  static String getPolicy(
+      {required final programCode,
+      required final programYear,
+      required String policyType}) {
+    return 'programpolicy/$programCode/$programYear/$policyType';
+  }
+
+  static String getSupplements(
+      {required final programCode, required final programYear}) {
+    return 'ProgramIncluding/$programCode/$programYear';
+  }
+  static String getTourIncluding(
+      {required final programCode, required final programYear}) {
+    return 'tourincluding/$programCode/$programYear';
   }
 }
