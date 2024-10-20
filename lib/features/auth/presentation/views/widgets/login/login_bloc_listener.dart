@@ -28,7 +28,7 @@ class LoginBlocListener extends StatelessWidget {
             context.pop();
             context.pushNamed(Routes.homeView);
             context.showSnackBar(
-              const Text("Please Review Your Mail"),
+              const Text("......."),
             );
           } else if (state is LoginFailure) {
             context.pop();

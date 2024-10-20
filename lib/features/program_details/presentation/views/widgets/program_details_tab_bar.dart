@@ -28,8 +28,7 @@ class _ProgramDetailsTabBarState extends State<ProgramDetailsTabBar>
 
   @override
   Widget build(BuildContext context) {
-    return SliverFillRemaining(
-      fillOverscroll: true,
+    return SliverToBoxAdapter(
       child: Column(
         children: [
           TabBar(
@@ -63,7 +62,7 @@ class _ProgramDetailsTabBarState extends State<ProgramDetailsTabBar>
               ),
             ],
           ),
-          Expanded(child: ProgramDetailsTabBarView(tabController: tabController))
+          ProgramDetailsTabBarView(tabController: tabController)
         ],
       ),
     );

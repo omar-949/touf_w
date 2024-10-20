@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+  import 'package:dio/dio.dart';
 
 abstract class Failure {
   final String message;
@@ -43,11 +43,11 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 404) {
-      return ServerFailure('Your request was not found, please try later');
+      return ServerFailure(response[response.keys.first] ?? 'Your request was not found, please try later');
     } else if (statusCode == 500) {
       return ServerFailure('There is a problem with server, please try later');
     } else if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response['error']['message']);
+      return ServerFailure(response[response.keys.first] ?? 'Unexpected Error, Please try again');
     } else {
       return ServerFailure('There was an error , please try again');
     }
