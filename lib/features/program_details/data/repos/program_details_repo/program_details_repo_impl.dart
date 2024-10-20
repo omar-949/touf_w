@@ -14,12 +14,15 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
 
   ProgramDetailsRepoImpl({required this.apiService});
   @override
-  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails({required String programCode, required String programYear}) async{
+  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails(
+      {required String programCode, required String programYear}) async {
     try {
       final response = await apiService.get(
-          endpoint: ApiEndpoints.getProgramDetails(programCode: programCode, programYear: programYear));
+          endpoint: ApiEndpoints.getProgramDetails(
+              programCode: programCode, programYear: programYear));
       var item = response['items'][0];
-      DetailsActiveProgramModel detailsActiveProgram = DetailsActiveProgramModel.fromJson(item);
+      DetailsActiveProgramModel detailsActiveProgram =
+          DetailsActiveProgramModel.fromJson(item);
 
       return Right(detailsActiveProgram);
     } catch (e) {
@@ -32,10 +35,12 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, List<PhotoGalleryModel>>> getPhotoGalleryImages({required String programCode, required String programYear}) async{
+  Future<Either<Failure, List<PhotoGalleryModel>>> getPhotoGalleryImages(
+      {required String programCode, required String programYear}) async {
     try {
       final response = await apiService.get(
-          endpoint: ApiEndpoints.getPhotoGalleryImages(programCode: programCode, programYear: programYear));
+          endpoint: ApiEndpoints.getPhotoGalleryImages(
+              programCode: programCode, programYear: programYear));
       List<PhotoGalleryModel> photoGalleryImages = [];
 
       for (var item in response['items']) {
@@ -52,10 +57,12 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, List<ReviewsModel>>> getAllReviews({required String programCode, required String programYear}) async{
+  Future<Either<Failure, List<ReviewsModel>>> getAllReviews(
+      {required String programCode, required String programYear}) async {
     try {
       final response = await apiService.get(
-          endpoint: ApiEndpoints.getAllReviews(programCode: programCode, programYear: programYear));
+          endpoint: ApiEndpoints.getAllReviews(
+              programCode: programCode, programYear: programYear));
       List<ReviewsModel> reviews = [];
 
       for (var item in response['items']) {
@@ -70,6 +77,4 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
       }
     }
   }
-
-
 }

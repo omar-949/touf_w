@@ -6,7 +6,10 @@ import 'package:toufwshouf/features/program_details/data/models/reviews_model/re
 import '../../../../../core/networking/api_failure.dart';
 
 abstract class ProgramDetailsRepo {
-  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails({required String programCode, required String programYear});
-  Future<Either<Failure, List<PhotoGalleryModel>>> getPhotoGalleryImages({required String programCode, required String programYear});
-  Future<Either<Failure, List<ReviewsModel>>> getAllReviews({required String programCode, required String programYear});
+  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails(
+      {required String programCode, required String programYear});
+  Future<Either<Failure, List<PhotoGalleryModel>>> getPhotoGalleryImages(
+      {required String programCode, required String programYear});
+  Future<Either<Failure, List<ReviewsModel>>> getAllReviews(
+      {required String programCode, required String programYear});
 }
