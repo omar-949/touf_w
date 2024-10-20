@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_date_and_time.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_section.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/check_policy_payment.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_app_bar.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/pay_and_back_details_button.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_method_widget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/stack_image_payment.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/step_indicator.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/success_section.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/pay_and_back_details_button.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/check_policy_payment.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_method_widget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_app_bar.dart';
+import 'home_view_body_bloc_section.dart';
 
 class PaymentViewBody extends StatefulWidget {
   const PaymentViewBody({super.key});
@@ -59,7 +58,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        controller: _scrollController, // Assign ScrollController
+        controller: _scrollController,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -71,9 +70,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
             if (currentStep == 3)
               const SuccessSection()
             else ...[
-              const BookingDateAndTime(),
-              24.verticalSpace,
-              const BookingSection(),
+              const HomeViewBodyBlocSection(),
               10.verticalSpace,
               const CheckPolicyPayment(),
               24.verticalSpace,

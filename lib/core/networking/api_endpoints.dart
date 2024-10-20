@@ -62,7 +62,7 @@ class ApiEndpoints {
     return 'ExtraProgram/$programCode/$programYear';
   }
 
-  static String getAllProgramGroups(
+  static String getProgramDateAndNumber(
       {required final programCode, required final programYear}) {
     return 'ProgramGroups/$programCode/$programYear';
   }

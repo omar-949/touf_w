@@ -7,11 +7,13 @@ import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_se
 class BookingDetailsWidget extends StatefulWidget {
   final String title;
   final List<Person> people;
+  final int count;
 
   const BookingDetailsWidget({
     super.key,
     required this.title,
     required this.people,
+    required this.count ,
   });
 
   @override
@@ -55,14 +57,18 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.title, style: TextStyles.font18darkGreyMedium),
+            Row(
+              children: [
+                Text(widget.title, style: TextStyles.font18darkGreyMedium),
+                Text('${widget.count}', // Display the number of people
+                    style: TextStyles.font22darkGreyMedium.copyWith(color: Colors.blue)),
+              ],
+            ),
             const SizedBox(height: 16),
             ...widget.people.map((person) => Padding(
-                  padding: EdgeInsets.only(bottom: 16.0.h),
-                  child: _buildCountSelector(
-                    person,
-                  ),
-                )),
+              padding: EdgeInsets.only(bottom: 16.0.h),
+              child: _buildCountSelector(person),
+            )),
           ],
         ),
       ),
