@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toufwshouf/core/networking/dio_factory.dart';
 import 'package:toufwshouf/features/auth/data/models/log_in_model/login_response.dart';
 import 'package:toufwshouf/features/auth/data/repos/auth_repo/auth_repo.dart';
+import 'package:toufwshouf/main.dart';
 
 import '../../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../../core/helpers/shared_pref_keys.dart';
@@ -22,7 +23,12 @@ class LoginCubit extends Cubit<LoginState> {
           emit(LoginFailure(
             errMessage: failure.message,
           )),
-          (loginResponse) => emit(LoginSuccess(loginResponse: loginResponse)),
+          (loginResponse) async {
+        // Save the token and update Dio before emitting success
+        await saveUserToken(loginResponse.token);
+        isLoggedUser = true;
+        emit(LoginSuccess(loginResponse: loginResponse));
+      },
     );
   }
 

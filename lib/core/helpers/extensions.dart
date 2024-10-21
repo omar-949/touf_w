@@ -49,8 +49,8 @@ extension DialogContext on BuildContext {
           title: title,
           content: content,
           actions: [
-            if (cancelButton != null) cancelButton,
             if (confirmButton != null) confirmButton,
+            if (cancelButton != null) cancelButton,
           ],
         );
       },

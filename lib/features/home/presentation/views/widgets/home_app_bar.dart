@@ -43,6 +43,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               content: Text("You already logged in"),
               confirmButton: CustomButton(text: "Log Out", onPressed: () {
                 SharedPrefHelper.removeData(key: SharedPrefKeys.accessToken);
+                isLoggedUser = false;
                 context.pop();
               }),
               cancelButton: CustomButton(text: "cancel", onPressed: () {
