@@ -13,14 +13,21 @@ class ProgramDetailsView extends StatelessWidget {
 
   final String appBarTitle;
   final ActiveProgramModel program;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ProgramDetailsAppBar(appBarTitle: appBarTitle),
       body: BlocProvider(
         create: (context) =>
-            ProgramDetailsCubit(getIt.get<ProgramDetailsRepoImpl>()),
-        child: const ProgramDetailsBody(),
+            ProgramDetailsCubit(getIt.get<ProgramDetailsRepoImpl>())
+              ..fetchAllProgramDetails(
+                programCode: program.code.toString(),
+                programYear: program.programyear.toString(),
+              ),
+        child: ProgramDetailsBody(
+          activeProgramModel: program,
+        ),
       ),
     );
   }

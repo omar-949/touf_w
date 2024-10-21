@@ -1,6 +1,6 @@
 class PolicyModel {
-  String? policy;
-  String? code;
+  final String? policy;
+  final String? code;
 
   PolicyModel({this.policy, this.code});
 

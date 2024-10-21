@@ -20,7 +20,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
   List<SupplementsModel>? supplements;
   TourIncludingModel? tourIncluding;
 
-  int totalMethods = 6;
+  int totalMethods = 5;
   int completedMethods = 0;
 
   ProgramDetailsCubit(this.programDetailsRepoImpl)
@@ -30,7 +30,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     completedMethods++;
     if (completedMethods == totalMethods) {
       emit(
-        ProgramDetailsLoaded(
+        ProgramDetailsSuccess(
           productDetails: productDetails,
           photoGallery: photoGallery,
           reviews: reviews,
@@ -51,7 +51,8 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     await _fetchProductDetails(programCode, programYear);
     await _fetchPhotoGalleryImages(programCode, programYear);
     await _fetchAllReviews(programCode, programYear);
-    await _fetchPolicy(programCode, programYear, "policyType");
+    //Todo: policy issue
+    //await _fetchPolicy(programCode, programYear, 'Basic');
     await _fetchSupplements(programCode, programYear);
     await _fetchTourIncluding(programCode, programYear);
   }
@@ -63,7 +64,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
       programYear: programYear,
     );
     result.fold(
-      (failure) => emit(ProgramDetailsError(failure.message)),
+      (failure) => emit(ProgramDetailsFailure(failure.message)),
       (details) {
         productDetails = details;
         _checkIfAllMethodsCompleted();
@@ -78,7 +79,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
       programYear: programYear,
     );
     result.fold(
-      (failure) => emit(ProgramDetailsError(failure.message)),
+      (failure) => emit(ProgramDetailsFailure(failure.message)),
       (images) {
         photoGallery = images;
         _checkIfAllMethodsCompleted();
@@ -92,7 +93,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
       programYear: programYear,
     );
     result.fold(
-      (failure) => emit(ProgramDetailsError(failure.message)),
+      (failure) => emit(ProgramDetailsFailure(failure.message)),
       (reviewsData) {
         reviews = reviewsData;
         _checkIfAllMethodsCompleted();
@@ -108,7 +109,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
       policyType: policyType,
     );
     result.fold(
-      (failure) => emit(ProgramDetailsError(failure.message)),
+      (failure) => emit(ProgramDetailsFailure(failure.message)),
       (policyData) {
         policy = policyData;
         _checkIfAllMethodsCompleted();
@@ -122,7 +123,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
       programYear: programYear,
     );
     result.fold(
-      (failure) => emit(ProgramDetailsError(failure.message)),
+      (failure) => emit(ProgramDetailsFailure(failure.message)),
       (supplementsData) {
         supplements = supplementsData;
         _checkIfAllMethodsCompleted();
@@ -137,7 +138,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
       programYear: programYear,
     );
     result.fold(
-      (failure) => emit(ProgramDetailsError(failure.message)),
+      (failure) => emit(ProgramDetailsFailure(failure.message)),
       (tourData) {
         tourIncluding = tourData;
         _checkIfAllMethodsCompleted();
