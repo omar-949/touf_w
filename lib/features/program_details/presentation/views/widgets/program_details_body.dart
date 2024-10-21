@@ -35,6 +35,7 @@ class ProgramDetailsBody extends StatelessWidget {
               ProgramDetailsTabBar(
                 detailsActiveProgramModel: state.productDetails!,
                 supplements: state.supplements!,
+                photoGallery: state.photoGallery!,
               ),
               const TourDetails(),
               const ProgramDetailsBookButton(),

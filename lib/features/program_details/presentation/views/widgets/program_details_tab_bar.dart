@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/features/program_details/data/models/details_active_program_model/details_active_program_model.dart';
+import 'package:toufwshouf/features/program_details/data/models/photo_gallery_model/photo_gallery_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/supplement_model/supplements_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/program_details_tab_bar_view.dart';
 
 class ProgramDetailsTabBar extends StatefulWidget {
-  const ProgramDetailsTabBar(
-      {super.key,
-      required this.detailsActiveProgramModel,  required this.supplements,
-      });
+  const ProgramDetailsTabBar({
+    super.key,
+    required this.detailsActiveProgramModel,
+    required this.supplements,
+    required this.photoGallery,
+  });
 
   final DetailsActiveProgramModel detailsActiveProgramModel;
   final List<SupplementsModel> supplements;
+  final List<PhotoGalleryModel> photoGallery;
+
   @override
   State<ProgramDetailsTabBar> createState() => _ProgramDetailsTabBarState();
 }
@@ -73,6 +78,7 @@ class _ProgramDetailsTabBarState extends State<ProgramDetailsTabBar>
             tabController: tabController,
             detailsActiveProgramModel: widget.detailsActiveProgramModel,
             supplements: widget.supplements,
+            photoGallery: widget.photoGallery,
           )
         ],
       ),

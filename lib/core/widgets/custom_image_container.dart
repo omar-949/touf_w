@@ -14,7 +14,7 @@ class CustomImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomImage(
+    return CustomCachedNetworkImage(
       width: width,
       height: height,
       borderRadius: BorderRadius.circular(12.r),

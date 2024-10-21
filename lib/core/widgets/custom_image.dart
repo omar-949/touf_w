@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/resources/colors.dart';
 
-class CustomImage extends StatelessWidget {
-  const CustomImage({
+class CustomCachedNetworkImage extends StatelessWidget {
+  const CustomCachedNetworkImage({
     super.key,
     required this.width,
     required this.height,
@@ -19,15 +21,19 @@ class CustomImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: width.w,
       height: height.h,
-      decoration: BoxDecoration(
-        color: Colors.red,
-        image: DecorationImage(image: AssetImage(url), fit: BoxFit.fill),
+
+      child: ClipRRect(
         borderRadius: borderRadius ?? BorderRadius.circular(0.r),
+        child: CachedNetworkImage(
+          imageUrl: 'http://$url',
+          fit: BoxFit.fill,
+          placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: AppColors.blue500)),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
-      child: child,
     );
   }
 }

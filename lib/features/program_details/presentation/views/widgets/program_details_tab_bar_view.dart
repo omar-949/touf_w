@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/program_details/data/models/details_active_program_model/details_active_program_model.dart';
+import 'package:toufwshouf/features/program_details/data/models/photo_gallery_model/photo_gallery_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/supplement_model/supplements_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/photo_gallery/photo_gallery_tab_bar_content.dart';
@@ -12,11 +13,14 @@ class ProgramDetailsTabBarView extends StatefulWidget {
       {super.key,
       required this.tabController,
       required this.detailsActiveProgramModel,
-      required this.supplements});
+      required this.supplements,
+      required this.photoGallery});
 
   final TabController tabController;
   final DetailsActiveProgramModel detailsActiveProgramModel;
   final List<SupplementsModel> supplements;
+  final List<PhotoGalleryModel> photoGallery;
+
   @override
   State<ProgramDetailsTabBarView> createState() =>
       _ProgramDetailsTabBarViewState();
@@ -59,7 +63,12 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
           SupplementTabBarContent(
             supplements: widget.supplements,
           ),
-          SizedBox(height: 370.h, child: const PhotoGalleryTabBarContent()),
+          SizedBox(
+            height: 370.h,
+            child: PhotoGalleryTabBarContent(
+              photoGallery: widget.photoGallery,
+            ),
+          ),
           const ReviewItemListView()
         ],
       ),
