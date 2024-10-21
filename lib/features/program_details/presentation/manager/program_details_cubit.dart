@@ -23,7 +23,8 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
   int totalMethods = 6;
   int completedMethods = 0;
 
-  ProgramDetailsCubit(this.programDetailsRepoImpl) : super(ProgramDetailsInitial());
+  ProgramDetailsCubit(this.programDetailsRepoImpl)
+      : super(ProgramDetailsInitial());
 
   void _checkIfAllMethodsCompleted() {
     completedMethods++;
@@ -41,7 +42,10 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     }
   }
 
-  Future<void> fetchAllProgramDetails({required String programCode, required String programYear,}) async {
+  Future<void> fetchAllProgramDetails({
+    required String programCode,
+    required String programYear,
+  }) async {
     emit(ProgramDetailsLoading());
 
     await _fetchProductDetails(programCode, programYear);
@@ -52,7 +56,8 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     await _fetchTourIncluding(programCode, programYear);
   }
 
-  Future<void> _fetchProductDetails(String programCode, String programYear) async {
+  Future<void> _fetchProductDetails(
+      String programCode, String programYear) async {
     final result = await programDetailsRepoImpl.getProductDetails(
       programCode: programCode,
       programYear: programYear,
@@ -95,7 +100,8 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     );
   }
 
-  Future<void> _fetchPolicy(String programCode, String programYear, String policyType) async {
+  Future<void> _fetchPolicy(
+      String programCode, String programYear, String policyType) async {
     final result = await programDetailsRepoImpl.getPolicy(
       programCode: programCode,
       programYear: programYear,
@@ -124,7 +130,8 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     );
   }
 
-  Future<void> _fetchTourIncluding(String programCode, String programYear) async {
+  Future<void> _fetchTourIncluding(
+      String programCode, String programYear) async {
     final result = await programDetailsRepoImpl.getTourIncluding(
       programCode: programCode,
       programYear: programYear,

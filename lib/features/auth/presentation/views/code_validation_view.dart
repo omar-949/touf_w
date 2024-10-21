@@ -10,7 +10,7 @@ class CodeValidationView extends StatelessWidget {
   const CodeValidationView(
       {super.key, required this.email, required this.phone});
   final String email;
-  final String phone;
+  final String? phone;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

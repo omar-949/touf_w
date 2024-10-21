@@ -19,11 +19,10 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
     final response = await authRepo.login(loginRequest: loginRequest);
     response.fold(
-          (failure) =>
-          emit(LoginFailure(
-            errMessage: failure.message,
-          )),
-          (loginResponse) async {
+      (failure) => emit(LoginFailure(
+        errMessage: failure.message,
+      )),
+      (loginResponse) async {
         // Save the token and update Dio before emitting success
         await saveUserToken(loginResponse.token);
         isLoggedUser = true;

@@ -36,8 +36,9 @@ class PaymentRepoImpl implements PaymentRepo {
   }
 
   @override
-  Future<Either<Failure, List<ProgramDateAndNumberModel>>> getProgramDateAndNumber(
-      {required String programCode, required String programYear}) async {
+  Future<Either<Failure, List<ProgramDateAndNumberModel>>>
+      getProgramDateAndNumber(
+          {required String programCode, required String programYear}) async {
     try {
       final response = await apiService.get(
           endpoint: ApiEndpoints.getProgramDateAndNumber(

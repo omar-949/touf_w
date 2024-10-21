@@ -42,18 +42,27 @@ class ServerFailure extends Failure {
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    // Check if the first value is a list, and handle accordingly
+    final firstKeyValue = response[response.keys.first];
+
     if (statusCode == 404) {
-      return ServerFailure(response[response.keys.first] ??
-          'Your request was not found, please try later');
+      return ServerFailure(
+        firstKeyValue is List && firstKeyValue.isNotEmpty
+            ? firstKeyValue[0]['Error'].toString() // If it's a list, extract the first error message
+            : firstKeyValue ?? 'Your request was not found, please try later',
+      );
     } else if (statusCode == 500) {
-      return ServerFailure('There is a problem with server, please try later');
+      return ServerFailure('There is a problem with the server, please try later');
     } else if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response[response.keys.first] ??
-          'Unexpected Error, Please try again');
+      return ServerFailure(
+        firstKeyValue is List && firstKeyValue.isNotEmpty
+            ? firstKeyValue[0].toString()  // Handle if it's a list
+            : firstKeyValue ?? 'Unexpected Error, Please try again',
+      );
     } else if (statusCode == 555) {
-      return ServerFailure('كلم الباك مليش فيه انا الايرور دا ');
+      return ServerFailure('كلم الباك مليش فيه انا الايرور دا');
     } else {
-      return ServerFailure('There was an error , please try again');
+      return ServerFailure('There was an error, please try again');
     }
   }
 }

@@ -29,7 +29,7 @@ class LoginBlocListener extends StatelessWidget {
             context.pop();
             context.pushNamed(Routes.homeView);
             context.showSnackBar(
-               Text("Login Successfully,Welcome ${state.loginResponse.name}"),
+              Text("Login Successfully,Welcome ${state.loginResponse.name}"),
             );
           } else if (state is LoginFailure) {
             context.pop();

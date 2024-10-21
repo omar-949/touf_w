@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/auth/presentation/views/widgets/forget_pass/forget_pass_bloc.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/forget_pass/forget_pass_form.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/forget_pass/forget_pass_header.dart';
 
@@ -18,7 +19,7 @@ class ForgetPassBody extends StatelessWidget {
             20.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: const ForgetPassForm(),
+              child: const ForgetPassBloc(),
             ),
           ],
         ),

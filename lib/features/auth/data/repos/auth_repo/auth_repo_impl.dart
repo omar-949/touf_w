@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:toufwshouf/features/auth/data/models/log_in_model/login_response.dart';
+import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_for_forget_password_request.dart';
+import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_for_forget_password_response.dart';
 
 import '../../../../../core/networking/api_endpoints.dart';
 import '../../../../../core/networking/api_failure.dart';
@@ -35,7 +37,7 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<Failure, LoginResponse>> login(
       {required LoginRequest loginRequest}) async {
     try {
-      var response =await apiService.get(
+      var response = await apiService.get(
         endpoint: ApiEndpoints.login(loginRequest: loginRequest),
       );
       final loginResponse = LoginResponse.fromJson(response['item'][0]);
@@ -50,7 +52,7 @@ class AuthRepoImpl extends AuthRepo {
       //   );
       //   DioFactory.setTokenIntoHeaderAfterLogin(loginResponse.tokens.access);
       // }
-      return  Right(loginResponse);
+      return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
@@ -70,6 +72,40 @@ class AuthRepoImpl extends AuthRepo {
         formData: validateEmailRequest.toJson(),
       );
       return right(unit);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> forgetPassword({required String email}) async {
+    try {
+      await apiService.get(
+        endpoint: ApiEndpoints.forgetPassword(email: email),
+      );
+      return right(unit);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, ValidateEmailForForgetPasswordResponse>> validateEmailForForgetPassword({required ValidateEmailForForgetPasswordRequest validateEmailForForgetPasswordRequest}) async{
+    try {
+      var response = await apiService.postWithFormData(
+        endPoint: ApiEndpoints.forgetPassword(email: validateEmailForForgetPasswordRequest.email),
+        formData: validateEmailForForgetPasswordRequest.toJson(),
+      );
+      final validateEmailForForgetPasswordResponse = ValidateEmailForForgetPasswordResponse.fromJson(response);
+      return right(validateEmailForForgetPasswordResponse);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

@@ -10,7 +10,8 @@ abstract class PaymentRepo {
     required String programCode,
     required String programYear,
   });
-  Future<Either<Failure, List<ProgramDateAndNumberModel>>> getProgramDateAndNumber({
+  Future<Either<Failure, List<ProgramDateAndNumberModel>>>
+      getProgramDateAndNumber({
     required String programCode,
     required String programYear,
   });
