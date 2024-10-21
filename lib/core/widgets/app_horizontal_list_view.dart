@@ -4,10 +4,10 @@ import 'package:toufwshouf/core/widgets/app_horizontal_list_view_item.dart';
 import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 
 class AppHorizontalListView extends StatelessWidget {
-  const AppHorizontalListView(
-      {super.key, required this.activeProgramModel, this.onTap});
+  const AppHorizontalListView({super.key, required this.activeProgramModel, this.onTap});
   final List<ActiveProgramModel> activeProgramModel;
-  final void Function()? onTap;
+  final void Function(int index)? onTap;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -16,7 +16,11 @@ class AppHorizontalListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return AppHorizontalListViewItem(
             activeProgramModel: activeProgramModel[index],
-            onTap: onTap,
+            onTap: () {
+              if (onTap != null) {
+                onTap!(index);
+              }
+            },
           );
         },
         itemCount: activeProgramModel.length,
