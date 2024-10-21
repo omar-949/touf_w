@@ -1,6 +1,6 @@
 class TourIncludingModel {
-  String? programName;
-  String? tourIncludin;
+  final String? programName;
+  final String? tourIncludin;
 
   TourIncludingModel({this.programName, this.tourIncludin});
 

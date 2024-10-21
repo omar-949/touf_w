@@ -58,7 +58,6 @@ class _ProgramDetailsTabBarState extends State<ProgramDetailsTabBar>
             ),
             labelPadding:
                 EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-            physics: const NeverScrollableScrollPhysics(),
             tabs: [
               const Center(
                 child: Text('Overview'),

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/program_details/data/models/tour_including_model/tour_including_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/expandable_container.dart';
 
 class TourDetails extends StatelessWidget {
   const TourDetails({
     super.key,
+    required this.tourIncludingModel,
   });
+
+  final TourIncludingModel tourIncludingModel;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +18,9 @@ class TourDetails extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         child: Column(
           children: [
-            const ExpandableContainer(
+            ExpandableContainer(
               title: 'Tour Including',
-              description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.',
+              description: tourIncludingModel.tourIncludin ?? '',
             ),
             12.verticalSpace,
             const ExpandableContainer(

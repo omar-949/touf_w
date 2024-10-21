@@ -5,7 +5,7 @@ import 'package:toufwshouf/features/program_details/data/models/photo_gallery_mo
 import 'package:toufwshouf/features/program_details/data/models/supplement_model/supplements_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/photo_gallery/photo_gallery_tab_bar_content.dart';
-import 'package:toufwshouf/features/program_details/presentation/views/widgets/review_section/review_item_list_view.dart';
+import 'package:toufwshouf/features/program_details/presentation/views/widgets/review_section/review_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_tab_bar_content.dart';
 
 class ProgramDetailsTabBarView extends StatefulWidget {
@@ -27,7 +27,7 @@ class ProgramDetailsTabBarView extends StatefulWidget {
 }
 
 class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
-  final List<double> _heights = [500.h, 500.h, 370.h, 500.h];
+  final List<double> _heights = [500.h, 500.h, 370.h, 600.h];
   double _currentHeight = 500.h;
 
   @override
@@ -53,6 +53,7 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
     return SizedBox(
       height: _currentHeight,
       child: TabBarView(
+        physics: const NeverScrollableScrollPhysics(),
         controller: widget.tabController,
         children: [
           SingleChildScrollView(
@@ -63,13 +64,10 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
           SupplementTabBarContent(
             supplements: widget.supplements,
           ),
-          SizedBox(
-            height: 370.h,
-            child: PhotoGalleryTabBarContent(
-              photoGallery: widget.photoGallery,
-            ),
+          PhotoGalleryTabBarContent(
+            photoGallery: widget.photoGallery,
           ),
-          const ReviewItemListView()
+          const SingleChildScrollView(child: ReviewTabBarContent()),
         ],
       ),
     );

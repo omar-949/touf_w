@@ -12,7 +12,7 @@ class ReviewItem extends StatelessWidget {
     final screenWidth = MediaQuery.sizeOf(context).width;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,7 +28,7 @@ class ReviewItem extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: 16.w), // Space between image and text
+          16.horizontalSpace, // Space between image and text
 
           // Text and Rating
           Expanded(
@@ -47,15 +47,13 @@ class ReviewItem extends StatelessWidget {
                   ],
                 ),
 
-                const SizedBox(height: 5), // Space between name and text
+                5.verticalSpace, // Space between name and text
 
                 // Review Text
                 Text(
-                  maxLines: 2,
                   "Lorem ipsum dolor sit amet, cum sapientem honestatis ea, verear ",
                   style: TextStyles.font16grey400Regular
-                      .copyWith(color: Color(0xff333333)),
-                  overflow: TextOverflow.ellipsis,
+                      .copyWith(color: const Color(0xff333333)),
                 ),
                 SizedBox(
                   height: 12.h,

@@ -7,10 +7,11 @@ class ReviewItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        // physics: NeverScrollableScrollPhysics(),
-        itemCount: 10,
-        itemBuilder: (context, i) {
-          return const ReviewItem();
-        });
+      shrinkWrap: true,
+      itemCount: 2,
+      itemBuilder: (context, i) {
+        return const ReviewItem();
+      },
+    );
   }
 }

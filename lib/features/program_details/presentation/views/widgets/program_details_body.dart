@@ -37,7 +37,9 @@ class ProgramDetailsBody extends StatelessWidget {
                 supplements: state.supplements!,
                 photoGallery: state.photoGallery!,
               ),
-              const TourDetails(),
+              TourDetails(
+                tourIncludingModel: state.tourIncluding!,
+              ),
               const ProgramDetailsBookButton(),
               const RelatedTrips(),
             ],
