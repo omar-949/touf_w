@@ -28,7 +28,7 @@ class DetailsActiveProgramModel {
       progcode: json['PROGCODE'] as int?,
       programName: json['ProgramName'] as String?,
       programYear: json['ProgramYear'] as int?,
-      startPrice: json['StartPrice'] as int?,
+      startPrice: json['StartPrice'] ?? 0 as int?,
       startDate: json['startDate'] as String?,
       endDate: json['endDate'] as String?,
       day: json['day'] as int?,

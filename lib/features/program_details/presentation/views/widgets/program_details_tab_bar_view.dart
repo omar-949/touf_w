@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/program_details/data/models/details_active_program_model/details_active_program_model.dart';
+import 'package:toufwshouf/features/program_details/data/models/supplement_model/supplements_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/photo_gallery/photo_gallery_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/review_section/review_item_list_view.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_tab_bar_content.dart';
-import '../../../../../core/resources/styles.dart';
-import '../../../../../core/widgets/rating.dart';
 
 class ProgramDetailsTabBarView extends StatefulWidget {
-  const ProgramDetailsTabBarView({super.key, required this.tabController});
+  const ProgramDetailsTabBarView(
+      {super.key,
+      required this.tabController,
+      required this.detailsActiveProgramModel,
+      required this.supplements});
 
   final TabController tabController;
-
+  final DetailsActiveProgramModel detailsActiveProgramModel;
+  final List<SupplementsModel> supplements;
   @override
   State<ProgramDetailsTabBarView> createState() =>
       _ProgramDetailsTabBarViewState();
@@ -46,8 +51,14 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
       child: TabBarView(
         controller: widget.tabController,
         children: [
-          const SingleChildScrollView(child: OverviewTabBarContent()),
-          const SupplementTabBarContent(),
+          SingleChildScrollView(
+            child: OverviewTabBarContent(
+              detailsActiveProgramModel: widget.detailsActiveProgramModel,
+            ),
+          ),
+          SupplementTabBarContent(
+            supplements: widget.supplements,
+          ),
           SizedBox(height: 370.h, child: const PhotoGalleryTabBarContent()),
           const ReviewItemListView()
         ],

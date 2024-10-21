@@ -15,7 +15,7 @@ class SupplementImageAndDesc extends StatelessWidget {
             height: 24.h,
             width: 24.h),
         8.horizontalSpace,
-        Text(desc, style: TextStyles.font16DarkGreyRegular)
+        Expanded(child: Text(desc, style: TextStyles.font16DarkGreyRegular))
       ],
     );
   }

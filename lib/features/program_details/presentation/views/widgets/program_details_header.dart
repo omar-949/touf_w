@@ -1,12 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/rating.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 
 class ProgramDetailsHeader extends StatelessWidget {
   const ProgramDetailsHeader({
     super.key,
+    required this.activeProgramModel,
   });
+
+  final ActiveProgramModel activeProgramModel;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +21,11 @@ class ProgramDetailsHeader extends StatelessWidget {
       pinned: false,
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/home/bestselling1.png'),
+              image: CachedNetworkImageProvider(
+                activeProgramModel.imgPath ?? '',
+              ),
               fit: BoxFit.cover,
             ),
           ),
@@ -29,11 +36,15 @@ class ProgramDetailsHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'The Egyptian Gulf (Hospice of the Sultan)',
+                  activeProgramModel.programname ?? '',
                   style: TextStyles.font18WhiteMedium,
                 ),
                 10.verticalSpace,
-                const CustomStarRating(rating: 4.5),
+                CustomStarRating(
+                  rating:
+                      double.tryParse(activeProgramModel.rateReview ?? '0.0') ??
+                          0.0,
+                ),
               ],
             ),
           ),
