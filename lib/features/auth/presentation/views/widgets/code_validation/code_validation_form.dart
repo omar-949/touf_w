@@ -10,19 +10,25 @@ import '../../../../data/models/validate_email_model/validate_email_for_forget_p
 
 class CodeValidationForm extends StatefulWidget {
   const CodeValidationForm(
-      {super.key, required this.email, required this.phone});
+      {super.key,
+      required this.email,
+      required this.phone,
+      required this.otpController});
+
   final String email;
   final String? phone;
+  final TextEditingController otpController;
+
   @override
   State<CodeValidationForm> createState() => _CodeValidationFormState();
 }
 
 class _CodeValidationFormState extends State<CodeValidationForm> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController otpController = TextEditingController();
+
   @override
   void dispose() {
-    otpController.dispose();
+    widget.otpController.dispose();
     super.dispose();
   }
 
@@ -36,7 +42,7 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             OtpPinPut(
-              otpController: otpController,
+              otpController: widget.otpController,
               //This function triggers automatically when the 6 digit is completed
               onCompleted: (otp) {
                 onSubmitted();
@@ -54,11 +60,19 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
 
   void onSubmitted() {
     if (formKey.currentState!.validate()) {
-      widget.phone != null ? context.read<ValidateEmailCubit>().validateOtp(
-          validateEmailRequest: ValidateEmailRequest(
-              email: widget.email,
-              otpCode: otpController.text.trim(),
-              phone: widget.phone!)) : context.read<ValidateEmailCubit>().validateOtpForForgetPassword(validateEmailForForgetPasswordRequest: ValidateEmailForForgetPasswordRequest(email: widget.email, otpCode: otpController.text.trim()));
+      widget.phone != null
+          ? context.read<ValidateEmailCubit>().validateOtp(
+              validateEmailRequest: ValidateEmailRequest(
+                  email: widget.email,
+                  otpCode: widget.otpController.text.trim(),
+                  phone: widget.phone!))
+          : context.read<ValidateEmailCubit>().validateOtpForForgetPassword(
+                validateEmailForForgetPasswordRequest:
+                    ValidateEmailForForgetPasswordRequest(
+                  email: widget.email,
+                  otpCode: widget.otpController.text.trim(),
+                ),
+              );
     }
   }
 }

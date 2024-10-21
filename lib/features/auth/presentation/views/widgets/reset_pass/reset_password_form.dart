@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/app_regex.dart';
 import 'package:toufwshouf/core/helpers/validator.dart';
 import 'package:toufwshouf/core/widgets/app_text_button.dart';
 import 'package:toufwshouf/core/widgets/custom_text_field.dart';
+import 'package:toufwshouf/features/auth/data/models/reset/reset_password_request.dart';
+import 'package:toufwshouf/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/reset_pass/password_validations.dart';
 
 class ResetPasswordForm extends StatefulWidget {
-  const ResetPasswordForm({super.key});
+  const ResetPasswordForm(
+      {super.key,
+      required this.otp,
+      required this.transNo,
+      required this.email});
+
+  final String otp;
+  final int transNo;
+  final String email;
 
   @override
   State<ResetPasswordForm> createState() => _ResetPasswordFormState();
@@ -89,7 +100,16 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             10.verticalSpace,
             AppTextButton(
               onPressed: () {
-                if (formKey.currentState!.validate()) {}
+                if (formKey.currentState!.validate()) {
+                  context.read<ResetPasswordCubit>().resetPassword(
+                        resetPasswordRequest: ResetPasswordRequest(
+                          password: newPassController.text.trim(),
+                          otp: widget.otp,
+                          transNo: widget.transNo,
+                          email: widget.email,
+                        ),
+                      );
+                }
               },
               text: "Submit",
             ),

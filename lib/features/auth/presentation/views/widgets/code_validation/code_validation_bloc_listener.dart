@@ -16,6 +16,7 @@ class CodeValidationBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController otpController = TextEditingController();
     return BlocListener<ValidateEmailCubit, ValidateEmailState>(
         listener: (context, state) {
           if (state is ValidateEmailLoading) {
@@ -36,7 +37,12 @@ class CodeValidationBlocListener extends StatelessWidget {
             );
           } else if (state is ValidateEmailForForgetPasswordSuccess) {
             context.pop();
-            context.pushNamed(Routes.resetPassView);
+            context.pushNamed(Routes.resetPassView, arguments: {
+              'email': email,
+              'otp': otpController.text.trim(),
+              'transNo': state.validateEmailForForgetPasswordResponse.transactionNo,
+            });
+
             context.showSnackBar(
                 const Text("Verifying Successfully,Set your password"));
           } else if (state is ValidateEmailFailure) {
@@ -44,6 +50,6 @@ class CodeValidationBlocListener extends StatelessWidget {
             context.showSnackBar(Text(state.errMessage));
           }
         },
-        child: CodeValidationForm(email: email, phone: phone));
+        child: CodeValidationForm(email: email, phone: phone, otpController: otpController,));
   }
 }

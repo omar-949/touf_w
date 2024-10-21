@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:toufwshouf/features/auth/data/models/log_in_model/login_response.dart';
+import 'package:toufwshouf/features/auth/data/models/reset/reset_password_request.dart';
 import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_for_forget_password_request.dart';
 import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_for_forget_password_response.dart';
 
@@ -106,6 +107,23 @@ class AuthRepoImpl extends AuthRepo {
       );
       final validateEmailForForgetPasswordResponse = ValidateEmailForForgetPasswordResponse.fromJson(response);
       return right(validateEmailForForgetPasswordResponse);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> resetPassword({required ResetPasswordRequest resetPasswordRequest}) async{
+    try {
+      await apiService.put(
+        endpoint: ApiEndpoints.forgetPassword(email: resetPasswordRequest.email,),
+        queryParameters: resetPasswordRequest.toJson(),
+      );
+      return right(unit);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

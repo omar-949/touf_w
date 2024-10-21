@@ -60,11 +60,21 @@ class AppRouter {
           TransitionType.slideFromBottom,
         );
       case Routes.resetPassView:
-        return RouteAnimations.buildPageRoute(
-          const ResetPasswordView(),
-          settings,
-          TransitionType.slideFromLeft,
-        );
+        final args = arguments as Map<String, dynamic>?;
+        if (args != null &&
+            args['email'] is String &&
+            args['otp'] is String&&
+            args['transNo'] is int) {
+          final email = args['email'] as String;
+          final otp = args['otp'] as String;
+          final transNo = args['transNo'] as int;
+
+          return RouteAnimations.buildPageRoute(
+             ResetPasswordView(otpCode: otp, email: email, transNo: transNo,),
+            settings,
+            TransitionType.slideFromLeft,
+          );
+        }
 
       // Home
       case Routes.homeView:
