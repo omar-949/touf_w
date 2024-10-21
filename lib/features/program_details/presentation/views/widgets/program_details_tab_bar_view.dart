@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/program_details/data/models/details_active_program_model/details_active_program_model.dart';
-import 'package:toufwshouf/features/program_details/data/models/photo_gallery_model/photo_gallery_model.dart';
-import 'package:toufwshouf/features/program_details/data/models/reviews_model/reviews_model.dart';
-import 'package:toufwshouf/features/program_details/data/models/supplement_model/supplements_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/photo_gallery/photo_gallery_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/review_section/review_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_tab_bar_content.dart';
 
 class ProgramDetailsTabBarView extends StatefulWidget {
-  const ProgramDetailsTabBarView(
-      {super.key, required this.tabController,});
+  const ProgramDetailsTabBarView({
+    super.key,
+    required this.tabController,
+  });
 
   final TabController tabController;
-
 
   @override
   State<ProgramDetailsTabBarView> createState() =>
@@ -52,13 +49,14 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
         controller: widget.tabController,
         children: [
           const SingleChildScrollView(
-            child: OverviewTabBarContent(
-            ),
+            child: OverviewTabBarContent(),
           ),
           const SupplementTabBarContent(),
-          const PhotoGalleryTabBarContent(
+          const PhotoGalleryTabBarContent(),
+          const SingleChildScrollView(
+            physics: NeverScrollableScrollPhysics(),
+            child: ReviewTabBarContent(),
           ),
-          const SingleChildScrollView(child: ReviewTabBarContent()),
         ],
       ),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
-import 'package:toufwshouf/core/widgets/custom_loading.dart';
 import 'package:toufwshouf/features/auth/presentation/manager/forget_password_cubit/forget_password_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/forget_pass/forget_pass_form.dart';
 

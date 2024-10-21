@@ -1,9 +1,9 @@
 class LoginResponse {
-  int? custCode;
-  String? name;
-  String? telephone;
-  String? email;
-  String token;
+  final int? custCode;
+  final String? name;
+  final String? telephone;
+  final String? email;
+  final String token;
 
   LoginResponse({
     this.custCode,

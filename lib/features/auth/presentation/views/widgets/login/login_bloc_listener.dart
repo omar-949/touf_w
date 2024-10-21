@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
-import 'package:toufwshouf/features/auth/data/models/log_in_model/login_response.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/login/login_form.dart';
 
 import '../../../../../../core/resources/colors.dart';
