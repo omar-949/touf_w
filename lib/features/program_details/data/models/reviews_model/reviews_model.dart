@@ -1,7 +1,7 @@
 class ReviewsModel {
-  String? review;
-  int? rate;
-  String? customer;
+  final String? review;
+  final int? rate;
+  final String? customer;
 
   ReviewsModel({this.review, this.rate, this.customer});
 

@@ -81,6 +81,7 @@ class _ExpandableContainerState extends State<ExpandableContainer> {
                   Text(
                     widget.description,
                     style: TextStyles.font16BlackRegular,
+                    textAlign: TextAlign.left,
                   )
               ],
             ),

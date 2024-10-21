@@ -11,6 +11,10 @@ class SupplementListViewItem extends StatelessWidget {
   final int price;
   @override
   Widget build(BuildContext context) {
+    RegExp regExp = RegExp(r'(\d+)\s*EGP');
+    Match? match = regExp.firstMatch(desc);
+
+    String price = match != null ? match.group(1)! : '0';
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SupplementImageAndDesc(desc: desc),
       16.verticalSpace,

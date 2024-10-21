@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/supplement/supplement_list_view_item.dart';
 
+import '../../../manager/program_details_cubit.dart';
+
 class SupplementListView extends StatelessWidget {
-  const SupplementListView({super.key});
+  const SupplementListView({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +15,13 @@ class SupplementListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(bottom: 16.0.h),
-            child: const SupplementListViewItem(
-              desc: "12 working hours Hyundai H1 car",
+            child:  SupplementListViewItem(
+              desc: context.read<ProgramDetailsCubit>().supplements![index].thePriceIncludesSupplement??'',
               price: 1200,
             ),
           );
         },
-        itemCount: 5,
+        itemCount: context.read<ProgramDetailsCubit>().supplements!.length,
       ),
     );
   }

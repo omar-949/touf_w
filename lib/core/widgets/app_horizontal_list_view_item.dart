@@ -33,7 +33,7 @@ class AppHorizontalListViewItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PriceTag(
-                price: activeProgramModel.startprice ?? 850,
+                price: activeProgramModel.startprice ?? 0,
               ),
               const Spacer(),
               ItemDetails(
@@ -82,7 +82,7 @@ class PriceTag extends StatelessWidget {
                 ? TextStyles.font10MediumGreyRegularWithLineThrough
                 : TextStyles.font10MediumGreyRegular,
           ),
-          3.verticalSpace,
+          4.verticalSpace,
           Text(
             '$price EGP',
             style: textStyle ?? TextStyles.font16OrangeSemiBold,

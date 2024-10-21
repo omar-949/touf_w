@@ -13,7 +13,9 @@ import 'package:toufwshouf/features/program_details/presentation/views/widgets/t
 
 class ProgramDetailsBody extends StatelessWidget {
   const ProgramDetailsBody({super.key, required this.activeProgramModel});
+
   final ActiveProgramModel activeProgramModel;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProgramDetailsCubit, ProgramDetailsState>(
@@ -21,15 +23,21 @@ class ProgramDetailsBody extends StatelessWidget {
         if (state is ProgramDetailsLoading) {
           return const CustomLoading();
         } else if (state is ProgramDetailsSuccess) {
-          return const CustomScrollView(
+          return CustomScrollView(
             slivers: [
-              ProgramDetailsHeader(),
-              ProgramActionButtons(),
-              ProgramInformation(),
-              ProgramDetailsTabBar(),
-              TourDetails(),
-              ProgramDetailsBookButton(),
-              RelatedTrips(),
+              ProgramDetailsHeader(
+                activeProgramModel: activeProgramModel,
+              ),
+              const ProgramActionButtons(),
+              ProgramInformation(
+                detailsActiveProgramModel: state.productDetails!,
+              ),
+              const ProgramDetailsTabBar(),
+              TourDetails(
+                tourIncludingModel: state.tourIncluding!,
+              ),
+              const ProgramDetailsBookButton(),
+              const RelatedTrips(),
             ],
           );
         } else if (state is ProgramDetailsFailure) {

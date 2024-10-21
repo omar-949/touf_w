@@ -72,8 +72,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     );
   }
 
-  Future<void> _fetchPhotoGalleryImages(
-      String programCode, String programYear) async {
+  Future<void> _fetchPhotoGalleryImages(String programCode, String programYear) async {
     final result = await programDetailsRepoImpl.getPhotoGalleryImages(
       programCode: programCode,
       programYear: programYear,

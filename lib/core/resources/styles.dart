@@ -199,6 +199,11 @@ abstract class TextStyles {
       color: TextColors.black,
       fontWeight: FontWeightHelper.medium,
       fontFamily: 'Montserrat');
+  static TextStyle font18BlackRegular = TextStyle(
+      fontSize: 18.sp,
+      color: TextColors.black,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Montserrat');
   static TextStyle font18OrangeMedium = TextStyle(
       fontSize: 18.sp,
       color: TextColors.orange,
