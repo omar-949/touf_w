@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:toufwshouf/core/widgets/custom_loading.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/manager/program_details_cubit.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/program_action_button.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/program_details_book_button.dart';
@@ -10,23 +12,31 @@ import 'package:toufwshouf/features/program_details/presentation/views/widgets/r
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/tour_details.dart';
 
 class ProgramDetailsBody extends StatelessWidget {
-  const ProgramDetailsBody({super.key});
-
+  const ProgramDetailsBody({super.key, required this.activeProgramModel});
+  final ActiveProgramModel activeProgramModel;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProgramDetailsCubit, ProgramDetailsState>(
       builder: (context, state) {
-        return const CustomScrollView(
-          slivers: [
-            ProgramDetailsHeader(),
-            ProgramActionButtons(),
-            ProgramInformation(),
-            ProgramDetailsTabBar(),
-            TourDetails(),
-            ProgramDetailsBookButton(),
-            RelatedTrips(),
-          ],
-        );
+        if (state is ProgramDetailsLoading) {
+          return const CustomLoading();
+        } else if (state is ProgramDetailsSuccess) {
+          return const CustomScrollView(
+            slivers: [
+              ProgramDetailsHeader(),
+              ProgramActionButtons(),
+              ProgramInformation(),
+              ProgramDetailsTabBar(),
+              TourDetails(),
+              ProgramDetailsBookButton(),
+              RelatedTrips(),
+            ],
+          );
+        } else if (state is ProgramDetailsFailure) {
+          return Center(child: Text(state.message));
+        } else {
+          return const Center(child: Text('Unhandled State'));
+        }
       },
     );
   }

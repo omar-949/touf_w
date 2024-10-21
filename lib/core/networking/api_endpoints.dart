@@ -35,7 +35,7 @@ class ApiEndpoints {
 
   static String getAllReviews(
       {required final programCode, required final programYear}) {
-    return 'programpolicy/$programCode/$programYear';
+    return 'programReview/$programCode/$programYear';
   }
 
   static String getPolicy(

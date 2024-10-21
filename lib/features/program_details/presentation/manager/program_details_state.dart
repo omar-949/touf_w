@@ -7,7 +7,7 @@ class ProgramDetailsInitial extends ProgramDetailsState {}
 
 class ProgramDetailsLoading extends ProgramDetailsState {}
 
-class ProgramDetailsLoaded extends ProgramDetailsState {
+class ProgramDetailsSuccess extends ProgramDetailsState {
   final DetailsActiveProgramModel? productDetails;
   final List<PhotoGalleryModel>? photoGallery;
   final List<ReviewsModel>? reviews;
@@ -15,7 +15,7 @@ class ProgramDetailsLoaded extends ProgramDetailsState {
   final List<SupplementsModel>? supplements;
   final TourIncludingModel? tourIncluding;
 
-  ProgramDetailsLoaded({
+  ProgramDetailsSuccess({
     this.productDetails,
     this.photoGallery,
     this.reviews,
@@ -25,8 +25,8 @@ class ProgramDetailsLoaded extends ProgramDetailsState {
   });
 }
 
-class ProgramDetailsError extends ProgramDetailsState {
+class ProgramDetailsFailure extends ProgramDetailsState {
   final String message;
-  ProgramDetailsError(this.message);
+  ProgramDetailsFailure(this.message);
 }
 

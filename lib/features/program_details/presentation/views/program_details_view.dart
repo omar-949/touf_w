@@ -8,17 +8,26 @@ import 'package:toufwshouf/features/program_details/presentation/views/widgets/p
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/program_details_body.dart';
 
 class ProgramDetailsView extends StatelessWidget {
-  const ProgramDetailsView({super.key, required this.appBarTitle, required this.program});
+  const ProgramDetailsView(
+      {super.key, required this.appBarTitle, required this.program});
 
   final String appBarTitle;
   final ActiveProgramModel program;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ProgramDetailsAppBar(appBarTitle: appBarTitle),
       body: BlocProvider(
-        create: (context) => ProgramDetailsCubit(getIt.get<ProgramDetailsRepoImpl>()),
-        child: const ProgramDetailsBody(),
+        create: (context) =>
+            ProgramDetailsCubit(getIt.get<ProgramDetailsRepoImpl>())
+              ..fetchAllProgramDetails(
+                programCode: program.code.toString(),
+                programYear: program.programyear.toString(),
+              ),
+        child: ProgramDetailsBody(
+          activeProgramModel: program,
+        ),
       ),
     );
   }
