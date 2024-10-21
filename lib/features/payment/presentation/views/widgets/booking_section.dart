@@ -9,7 +9,8 @@ import '../../../data/models/person_model.dart';
 class BookingSection extends StatelessWidget {
   const BookingSection({super.key, required this.programDateAndNumberModel});
 
-  final ProgramDateAndNumberModel? programDateAndNumberModel; // استخدام null-aware operator
+  final ProgramDateAndNumberModel?
+      programDateAndNumberModel; // استخدام null-aware operator
   final double total = 2555;
 
   @override
@@ -19,12 +20,13 @@ class BookingSection extends StatelessWidget {
       child: Column(
         children: [
           BookingDetailsWidget(
-            count: programDateAndNumberModel?.paxAval ?? 0,  // إذا كانت null نعرض 0
+            count:
+                programDateAndNumberModel?.paxAval ?? 0, // إذا كانت null نعرض 0
             title: "Number of people ",
             people: people,
           ),
           BookingDetailsWidget(
-            count:  0,
+            count: 0,
             title: "Additional Services",
             people: additionalService,
           ),
@@ -35,7 +37,8 @@ class BookingSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Total", style: TextStyles.font24darkGreymedium),
-              Text("${total.toStringAsFixed(2)} EGP", style: TextStyles.font24darkGreymedium),
+              Text("${total.toStringAsFixed(2)} EGP",
+                  style: TextStyles.font24darkGreymedium),
             ],
           ),
         ],

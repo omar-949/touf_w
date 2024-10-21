@@ -14,7 +14,9 @@ class PaymentView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GetProgramDateAndNumberCubit(getIt.get<PaymentRepoImpl>())..getProgramDateAndNumber(programCode: '4', programYear: '2024'),
+          create: (context) => GetProgramDateAndNumberCubit(
+              getIt.get<PaymentRepoImpl>())
+            ..getProgramDateAndNumber(programCode: '4', programYear: '2024'),
         ),
       ],
       child: const Scaffold(

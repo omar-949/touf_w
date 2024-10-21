@@ -13,7 +13,8 @@ class HomeViewBodyBlocSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetProgramDateAndNumberCubit, GetProgramDateAndNumberState>(
+    return BlocBuilder<GetProgramDateAndNumberCubit,
+        GetProgramDateAndNumberState>(
       builder: (context, state) {
         if (state is GetProgramDateAndNumberLoading) {
           return const Center(child: CustomLoading());

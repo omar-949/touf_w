@@ -6,11 +6,13 @@ import 'package:toufwshouf/features/auth/data/models/validate_email_model/valida
 import 'package:toufwshouf/features/auth/presentation/manager/validate_email_cubit/validate_email_cubit.dart';
 import 'package:toufwshouf/features/auth/presentation/views/widgets/code_validation/otp_pin_put.dart';
 
+import '../../../../data/models/validate_email_model/validate_email_for_forget_password_request.dart';
+
 class CodeValidationForm extends StatefulWidget {
   const CodeValidationForm(
       {super.key, required this.email, required this.phone});
   final String email;
-  final String phone;
+  final String? phone;
   @override
   State<CodeValidationForm> createState() => _CodeValidationFormState();
 }
@@ -52,11 +54,11 @@ class _CodeValidationFormState extends State<CodeValidationForm> {
 
   void onSubmitted() {
     if (formKey.currentState!.validate()) {
-      context.read<ValidateEmailCubit>().validateOtp(
+      widget.phone != null ? context.read<ValidateEmailCubit>().validateOtp(
           validateEmailRequest: ValidateEmailRequest(
               email: widget.email,
               otpCode: otpController.text.trim(),
-              phone: widget.phone));
+              phone: widget.phone!)) : context.read<ValidateEmailCubit>().validateOtpForForgetPassword(validateEmailForForgetPasswordRequest: ValidateEmailForForgetPasswordRequest(email: widget.email, otpCode: otpController.text.trim()));
     }
   }
 }

@@ -15,11 +15,15 @@ Future<void> setupServiceLocator() async {
   Dio dio = await DioFactory.getInstance();
   getIt.registerSingleton<ApiService>(ApiService(dio));
   //repos
-  getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(apiService: getIt.get<ApiService>()));
+  getIt.registerSingleton<AuthRepoImpl>(
+      AuthRepoImpl(apiService: getIt.get<ApiService>()));
 
-  getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(apiService: getIt.get<ApiService>()));
+  getIt.registerSingleton<HomeRepoImpl>(
+      HomeRepoImpl(apiService: getIt.get<ApiService>()));
 
-  getIt.registerSingleton<PaymentRepoImpl>(PaymentRepoImpl(apiService: getIt.get<ApiService>()));
+  getIt.registerSingleton<PaymentRepoImpl>(
+      PaymentRepoImpl(apiService: getIt.get<ApiService>()));
 
-  getIt.registerSingleton<ProgramDetailsRepoImpl>(ProgramDetailsRepoImpl(apiService: getIt.get<ApiService>()));
+  getIt.registerSingleton<ProgramDetailsRepoImpl>(
+      ProgramDetailsRepoImpl(apiService: getIt.get<ApiService>()));
 }

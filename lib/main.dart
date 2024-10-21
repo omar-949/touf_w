@@ -36,7 +36,7 @@ Future<void> _checkIfLoggedUser() async {
   String? userToken =
       await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
   isLoggedUser = userToken.isNotNullOrEmpty();
-  print (isLoggedUser);
+  print(isLoggedUser);
   print(userToken);
   print(SharedPrefKeys.accessToken);
 }

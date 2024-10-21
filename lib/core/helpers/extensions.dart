@@ -35,6 +35,7 @@ extension SnackbarContext on BuildContext {
     ScaffoldMessenger.of(this).showSnackBar(snackBar);
   }
 }
+
 extension DialogContext on BuildContext {
   void showCustomDialog({
     required Widget title,

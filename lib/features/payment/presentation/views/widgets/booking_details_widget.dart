@@ -13,7 +13,7 @@ class BookingDetailsWidget extends StatefulWidget {
     super.key,
     required this.title,
     required this.people,
-    required this.count ,
+    required this.count,
   });
 
   @override
@@ -61,14 +61,15 @@ class _BookingDetailsWidgetState extends State<BookingDetailsWidget> {
               children: [
                 Text(widget.title, style: TextStyles.font18darkGreyMedium),
                 Text('${widget.count}', // Display the number of people
-                    style: TextStyles.font22darkGreyMedium.copyWith(color: Colors.blue)),
+                    style: TextStyles.font22darkGreyMedium
+                        .copyWith(color: Colors.blue)),
               ],
             ),
             const SizedBox(height: 16),
             ...widget.people.map((person) => Padding(
-              padding: EdgeInsets.only(bottom: 16.0.h),
-              child: _buildCountSelector(person),
-            )),
+                  padding: EdgeInsets.only(bottom: 16.0.h),
+                  child: _buildCountSelector(person),
+                )),
           ],
         ),
       ),

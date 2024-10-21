@@ -10,8 +10,10 @@ import '../../../../../../core/routing/routes.dart';
 class CodeValidationBlocListener extends StatelessWidget {
   const CodeValidationBlocListener(
       {super.key, required this.email, required this.phone});
+
   final String email;
-  final String phone;
+  final String? phone;
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<ValidateEmailCubit, ValidateEmailState>(
@@ -30,8 +32,13 @@ class CodeValidationBlocListener extends StatelessWidget {
             context.pop();
             context.pushNamed(Routes.loginView);
             context.showSnackBar(
-              const Text("Validation Successfully,Please login now"),
+              const Text("Verifying Successfully,Please login now"),
             );
+          } else if (state is ValidateEmailForForgetPasswordSuccess) {
+            context.pop();
+            context.pushNamed(Routes.resetPassView);
+            context.showSnackBar(
+                const Text("Verifying Successfully,Set your password"));
           } else if (state is ValidateEmailFailure) {
             context.pop();
             context.showSnackBar(Text(state.errMessage));

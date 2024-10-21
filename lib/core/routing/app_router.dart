@@ -42,9 +42,9 @@ class AppRouter {
 
         if (args != null &&
             args['email'] is String &&
-            args['phone'] is String) {
+            args['phone'] is String?) {
           final email = args['email'] as String;
-          final phone = args['phone'] as String;
+          final phone = args['phone'] as String?;
 
           return RouteAnimations.buildPageRoute(
             CodeValidationView(email: email, phone: phone),

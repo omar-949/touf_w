@@ -14,6 +14,10 @@ class ApiEndpoints {
   static String validateEmail({required String otp}) {
     return 'validation/$otp';
   }
+
+  static String forgetPassword({required String email}) {
+    return 'forgetPassword/$email';
+  }
   //--------------------------------------------------
 
   // home

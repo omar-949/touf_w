@@ -29,4 +29,3 @@ class ProgramDetailsFailure extends ProgramDetailsState {
   final String message;
   ProgramDetailsFailure(this.message);
 }
-
