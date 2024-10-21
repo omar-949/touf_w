@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/program_details/data/models/reviews_model/reviews_model.dart';
 
 import '../../../../../../core/resources/styles.dart';
 import '../../../../../../core/widgets/rating.dart';
 
 class ReviewItem extends StatelessWidget {
-  const ReviewItem({super.key});
+  const ReviewItem({super.key, required this.reviews});
+
+  final ReviewsModel reviews;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +42,12 @@ class ReviewItem extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        "Ahmed kamel",
+                        reviews.customer ?? '',
                         style: TextStyles.font19darkGrayMedium,
                       ),
                     ),
-                    const CustomStarRating(rating: 3.5), // Rating widget
+                    CustomStarRating(rating: reviews.rate?.toDouble() ?? 0.0),
+                    // Rating widget
                   ],
                 ),
 
@@ -51,7 +55,7 @@ class ReviewItem extends StatelessWidget {
 
                 // Review Text
                 Text(
-                  "Lorem ipsum dolor sit amet, cum sapientem honestatis ea, verear ",
+                  reviews.review ?? '',
                   style: TextStyles.font16grey400Regular
                       .copyWith(color: const Color(0xff333333)),
                 ),
@@ -59,9 +63,9 @@ class ReviewItem extends StatelessWidget {
                   height: 12.h,
                 ),
                 const Divider(
-                    thickness: 1, // Thickness of the divider
-                    color: Color(0xffC7C7C7) // Color of the divider
-                    ),
+                  thickness: 1, // Thickness of the divider
+                  color: Color(0xffC7C7C7), // Color of the divider
+                ),
               ],
             ),
           ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/features/program_details/data/models/details_active_program_model/details_active_program_model.dart';
+import 'package:toufwshouf/features/program_details/presentation/manager/program_details_cubit.dart';
 
 class OverviewTabBarContent extends StatelessWidget {
-  const OverviewTabBarContent({super.key, required this.detailsActiveProgramModel});
-  final DetailsActiveProgramModel detailsActiveProgramModel;
+  const OverviewTabBarContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class OverviewTabBarContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            detailsActiveProgramModel.overView ?? '',
+            context.read<ProgramDetailsCubit>().productDetails!.overView ?? '',
             style: TextStyles.font16BlackRegular,
           ),
           // 16.verticalSpace,

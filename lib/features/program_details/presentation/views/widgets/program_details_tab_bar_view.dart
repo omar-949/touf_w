@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/program_details/data/models/details_active_program_model/details_active_program_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/photo_gallery_model/photo_gallery_model.dart';
+import 'package:toufwshouf/features/program_details/data/models/reviews_model/reviews_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/supplement_model/supplements_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/overview/overview_tab_bar_content.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/photo_gallery/photo_gallery_tab_bar_content.dart';
@@ -10,16 +11,10 @@ import 'package:toufwshouf/features/program_details/presentation/views/widgets/s
 
 class ProgramDetailsTabBarView extends StatefulWidget {
   const ProgramDetailsTabBarView(
-      {super.key,
-      required this.tabController,
-      required this.detailsActiveProgramModel,
-      required this.supplements,
-      required this.photoGallery});
+      {super.key, required this.tabController,});
 
   final TabController tabController;
-  final DetailsActiveProgramModel detailsActiveProgramModel;
-  final List<SupplementsModel> supplements;
-  final List<PhotoGalleryModel> photoGallery;
+
 
   @override
   State<ProgramDetailsTabBarView> createState() =>
@@ -27,7 +22,7 @@ class ProgramDetailsTabBarView extends StatefulWidget {
 }
 
 class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
-  final List<double> _heights = [500.h, 500.h, 370.h, 600.h];
+  final List<double> _heights = [500.h, 500.h, 370.h, 580.h];
   double _currentHeight = 500.h;
 
   @override
@@ -56,16 +51,12 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
         physics: const NeverScrollableScrollPhysics(),
         controller: widget.tabController,
         children: [
-          SingleChildScrollView(
+          const SingleChildScrollView(
             child: OverviewTabBarContent(
-              detailsActiveProgramModel: widget.detailsActiveProgramModel,
             ),
           ),
-          SupplementTabBarContent(
-            supplements: widget.supplements,
-          ),
-          PhotoGalleryTabBarContent(
-            photoGallery: widget.photoGallery,
+          const SupplementTabBarContent(),
+          const PhotoGalleryTabBarContent(
           ),
           const SingleChildScrollView(child: ReviewTabBarContent()),
         ],

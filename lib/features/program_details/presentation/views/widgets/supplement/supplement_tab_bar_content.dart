@@ -7,9 +7,8 @@ import 'package:toufwshouf/features/program_details/presentation/views/widgets/s
 import '../../../../../../core/resources/colors.dart';
 
 class SupplementTabBarContent extends StatelessWidget {
-  const SupplementTabBarContent({super.key, required this.supplements});
+  const SupplementTabBarContent({super.key,});
 
-  final List<SupplementsModel> supplements;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +22,7 @@ class SupplementTabBarContent extends StatelessWidget {
             style: TextStyles.font18darkGreyMedium,
           ),
           16.verticalSpace,
-          SupplementListView(
-            supplements: supplements,
-          ),
+          SupplementListView(),
           const Divider(
             color: TextColors.lightGrey,
           ),

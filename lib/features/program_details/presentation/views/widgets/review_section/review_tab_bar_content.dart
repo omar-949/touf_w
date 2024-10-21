@@ -3,7 +3,7 @@ import 'package:toufwshouf/features/program_details/presentation/views/widgets/r
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/review_section/review_item_list_view.dart';
 
 class ReviewTabBarContent extends StatelessWidget {
-  const ReviewTabBarContent({super.key});
+  const ReviewTabBarContent({super.key,});
 
   @override
   Widget build(BuildContext context) {
