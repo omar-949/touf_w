@@ -6,6 +6,7 @@ import 'package:toufwshouf/features/auth/presentation/views/forget_pass_view.dar
 import 'package:toufwshouf/features/auth/presentation/views/login_view.dart';
 import 'package:toufwshouf/features/auth/presentation/views/reset_password_view.dart';
 import 'package:toufwshouf/features/auth/presentation/views/sign_up_view.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 import 'package:toufwshouf/features/home/presentation/views/home_view.dart';
 import 'package:toufwshouf/features/home/presentation/views/see_all_view.dart';
 import 'package:toufwshouf/features/onboarding/presentation/views/onboarding_view.dart';
@@ -73,9 +74,11 @@ class AppRouter {
           TransitionType.slideFromRight,
         );
       case Routes.programDetailsView:
+        final args = arguments as Map<String, dynamic>;
         return RouteAnimations.buildPageRoute(
           ProgramDetailsView(
-            appBarTitle: arguments as String,
+            appBarTitle: args['title'] as String,
+            program: args['program'] as ActiveProgramModel,
           ),
           settings,
           TransitionType.slideFromRight,

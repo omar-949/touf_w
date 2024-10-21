@@ -7,9 +7,26 @@ class ProgramDetailsInitial extends ProgramDetailsState {}
 
 class ProgramDetailsLoading extends ProgramDetailsState {}
 
-class ProgramDetailsSuccess extends ProgramDetailsState {}
+class ProgramDetailsLoaded extends ProgramDetailsState {
+  final DetailsActiveProgramModel? productDetails;
+  final List<PhotoGalleryModel>? photoGallery;
+  final List<ReviewsModel>? reviews;
+  final PolicyModel? policy;
+  final List<SupplementsModel>? supplements;
+  final TourIncludingModel? tourIncluding;
 
-class ProgramDetailsFailure extends ProgramDetailsState {
-  final String errorMessage;
-  ProgramDetailsFailure({required this.errorMessage});
+  ProgramDetailsLoaded({
+    this.productDetails,
+    this.photoGallery,
+    this.reviews,
+    this.policy,
+    this.supplements,
+    this.tourIncluding,
+  });
 }
+
+class ProgramDetailsError extends ProgramDetailsState {
+  final String message;
+  ProgramDetailsError(this.message);
+}
+
