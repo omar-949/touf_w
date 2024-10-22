@@ -94,11 +94,17 @@ class AppRouter {
           TransitionType.slideFromRight,
         );
       case Routes.paymentView:
-        return RouteAnimations.buildPageRoute(
-          const PaymentView(),
+        final args = arguments as Map<String, dynamic>?;
+        if (args != null &&
+            args['activeProgramModel'] is ActiveProgramModel){
+          final activeProgramModel = args['activeProgramModel'] as ActiveProgramModel;
+
+          return RouteAnimations.buildPageRoute(
+           PaymentView(activeProgramModel: activeProgramModel,),
           settings,
           TransitionType.slideFromRight,
         );
+        }
       case Routes.seeAllView:
         final args = arguments as Map<String, dynamic>?;
 

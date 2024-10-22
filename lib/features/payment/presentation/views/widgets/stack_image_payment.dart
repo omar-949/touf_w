@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/widgets/app_horizontal_list_view_item.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 
 class StackImagePayment extends StatelessWidget {
   const StackImagePayment({
-    super.key,
+    super.key, required this.activeProgramModel,
   });
-
+  final ActiveProgramModel activeProgramModel;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 290.h,
       width: double.infinity,
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         color: Colors.red,
         image: DecorationImage(
-          image: AssetImage('assets/home/bestselling1.png'),
+          image: NetworkImage(activeProgramModel.imgPath ?? ''),
           fit: BoxFit.cover,
         ),
       ),
-      child: const Column(
+      child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Spacer(),
+          const Spacer(),
           ItemDetails(
-            title: 'The Egyptian Gulf (Hospice of the Sultan)',
-            rating: 3.2,
+            title: activeProgramModel.programname ?? '',
+            rating: double.parse(
+              activeProgramModel.rateReview ?? '0.0',
+            ),
           ),
         ],
       ),

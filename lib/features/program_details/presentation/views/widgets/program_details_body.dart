@@ -36,7 +36,7 @@ class ProgramDetailsBody extends StatelessWidget {
               TourDetails(
                 tourIncludingModel: state.tourIncluding!,
               ),
-              const ProgramDetailsBookButton(),
+              ProgramDetailsBookButton(activeProgramModel: activeProgramModel),
               const RelatedTrips(),
             ],
           );

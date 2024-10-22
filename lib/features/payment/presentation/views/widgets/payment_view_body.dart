@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/stack_image_payment.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/step_indicator.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/success_section.dart';
@@ -10,8 +11,8 @@ import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_ap
 import 'booking_view_body_bloc_builder.dart';
 
 class PaymentViewBody extends StatefulWidget {
-  const PaymentViewBody({super.key});
-
+  const PaymentViewBody({super.key, required this.activeProgramModel});
+  final ActiveProgramModel activeProgramModel;
   @override
   State<PaymentViewBody> createState() => _PaymentViewBodyState();
 }
@@ -66,7 +67,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SafeArea(child: CustomAppBar()),
-            const StackImagePayment(),
+             StackImagePayment(activeProgramModel: widget.activeProgramModel,),
             24.verticalSpace,
             StepIndicator(currentStep: currentStep),
             24.verticalSpace,
