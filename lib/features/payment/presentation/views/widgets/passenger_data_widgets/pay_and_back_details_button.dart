@@ -6,8 +6,14 @@ import '../../../../../../core/resources/colors.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 
 class PayDetailsButton extends StatelessWidget {
-  const PayDetailsButton(
-      {super.key, this.onPressedBuy, this.onPressedAddToCard});
+  const PayDetailsButton({
+    super.key,
+    required this.agreeToTerms, // إضافة متغير للتحقق من الموافقة
+    this.onPressedBuy,
+    this.onPressedAddToCard,
+  });
+
+  final bool agreeToTerms; // متغير للتحقق من الموافقة
   final void Function()? onPressedBuy;
   final void Function()? onPressedAddToCard;
 
@@ -22,7 +28,7 @@ class PayDetailsButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             text: "Pay",
             backgroundColor: AppColors.orange,
-            onPressed: onPressedBuy,
+            onPressed: agreeToTerms ? onPressedBuy : null,
           ),
           SizedBox(
             height: 24.h,
@@ -31,7 +37,7 @@ class PayDetailsButton extends StatelessWidget {
             borderSideColor: AppColors.orange,
             height: 42.h,
             textStyle:
-                TextStyles.font18WhiteMedium.copyWith(color: TextColors.orange),
+            TextStyles.font18WhiteMedium.copyWith(color: TextColors.orange),
             borderRadius: BorderRadius.circular(12),
             text: "Add to my shopping cart",
             backgroundColor: Colors.transparent,
@@ -39,7 +45,7 @@ class PayDetailsButton extends StatelessWidget {
           ),
           SizedBox(
             height: 24.h,
-          )
+          ),
         ],
       ),
     );

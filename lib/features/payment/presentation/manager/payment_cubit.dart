@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toufwshouf/features/payment/data/models/extra_model/extra_model.dart';
 import 'package:toufwshouf/features/payment/data/models/program_date_and_number_model/program_date_and_number_model.dart';
 import 'package:toufwshouf/features/payment/data/models/program_group_model/program_group_model.dart';
-
 import '../../data/repos/payment_repo/payment_repo.dart';
 
 part 'payment_state.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
   PaymentCubit(this.paymentRepo) : super(PaymentInitial());
+
   final PaymentRepo paymentRepo;
   List<ProgramDateAndNumberModel> programsDateAndNumber = [];
   List<ExtraModel> extraPrograms = [];
@@ -29,12 +29,10 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
 
-  getPaymentData({
+  Future<void> getPaymentData({
     required String programCode,
     required String programYear,
-    required int groupNum,
   }) async {
-
     emit(PaymentLoading());
 
     await getProgramDateAndNumber(
@@ -45,54 +43,64 @@ class PaymentCubit extends Cubit<PaymentState> {
       programCode: programCode,
       programYear: programYear,
     );
-    await getProgramGroup(
-      programCode: programCode,
-      programYear: programYear,
-      groupNum: groupNum,
-    );
+
+    // استخدم أول عنصر للحصول على groupNum
+    if (programsDateAndNumber.isNotEmpty) {
+      int groupNum = programsDateAndNumber.first.progGrpNo ?? 1; // استخدام رقم المجموعة من أول عنصر
+      await getProgramGroup(
+        programCode: programCode,
+        programYear: programYear,
+        groupNum: groupNum,
+      );
+    }
   }
 
-  Future<void> getProgramDateAndNumber(
-      {required String programCode, required String programYear}) async {
+  Future<void> getProgramDateAndNumber({
+    required String programCode,
+    required String programYear,
+  }) async {
     final response = await paymentRepo.getProgramDateAndNumber(
         programCode: programCode, programYear: programYear);
     response.fold(
-      (failure) => emit(PaymentFailure(
+          (failure) => emit(PaymentFailure(
         errMessage: failure.message,
       )),
-      (success) {
+          (success) {
         programsDateAndNumber = success;
         _checkIfAllMethodsCompleted();
       },
     );
   }
 
-  Future<void> getExtraPrograms(
-      {required String programCode, required String programYear}) async {
+  Future<void> getExtraPrograms({
+    required String programCode,
+    required String programYear,
+  }) async {
     final response = await paymentRepo.getExtraPrograms(
         programCode: programCode, programYear: programYear);
     response.fold(
-      (failure) => emit(PaymentFailure(
+          (failure) => emit(PaymentFailure(
         errMessage: failure.message,
       )),
-      (success) {
+          (success) {
         extraPrograms = success;
         _checkIfAllMethodsCompleted();
       },
     );
   }
 
-  Future<void> getProgramGroup(
-      {required String programCode,
-      required String programYear,
-      required int groupNum}) async {
+  Future<void> getProgramGroup({
+    required String programCode,
+    required String programYear,
+    required int groupNum,
+  }) async {
     final response = await paymentRepo.getProgramGroup(
         programCode: programCode, programYear: programYear, groupNum: groupNum);
     response.fold(
-      (failure) => emit(PaymentFailure(
+          (failure) => emit(PaymentFailure(
         errMessage: failure.message,
       )),
-      (success) {
+          (success) {
         programGroup = success;
         _checkIfAllMethodsCompleted();
       },

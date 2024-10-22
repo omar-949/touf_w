@@ -20,16 +20,19 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
   int currentStep = 1;
   bool showPaymentText = false;
   final ScrollController _scrollController = ScrollController();
+  bool agreeToTerms = false; // إضافة متغير لحفظ حالة الموافقة
 
   void _onPayButtonPressed() {
-    setState(() {
-      currentStep = 2;
-      showPaymentText = true;
-    });
+    if (agreeToTerms) { // تحقق من الموافقة قبل المتابعة
+      setState(() {
+        currentStep = 2;
+        showPaymentText = true;
+      });
 
-    Future.delayed(const Duration(milliseconds: 300), () {
-      _scrollToPaymentMethod();
-    });
+      Future.delayed(const Duration(milliseconds: 300), () {
+        _scrollToPaymentMethod();
+      });
+    }
   }
 
   void _scrollToPaymentMethod() {
@@ -72,9 +75,16 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
             else ...[
               const BookingViewBodyBlocBuilder(),
               10.verticalSpace,
-              const CheckPolicyPayment(),
+              CheckPolicyPayment(
+                onAgreeChanged: (value) {
+                  setState(() {
+                    agreeToTerms = value;
+                  });
+                },
+              ),
               24.verticalSpace,
               PayDetailsButton(
+                agreeToTerms: agreeToTerms,
                 onPressedBuy: _onPayButtonPressed,
                 onPressedAddToCard: () {},
               ),
@@ -83,10 +93,11 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                   onConfirmPressed: _onConfirmButtonPressed,
                   onBackPressed: _onBackButtonPressed,
                 ),
-            ]
+            ],
           ],
         ),
       ),
     );
   }
 }
+
