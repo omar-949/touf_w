@@ -11,5 +11,5 @@ class TotalUpdated extends TotalState {
   TotalUpdated(this.total);
 
   @override
-  List<Object> get props => [total]; // إضافة props لتمكين المقارنة
+  List<Object> get props => [total];
 }

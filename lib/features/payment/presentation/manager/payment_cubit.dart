@@ -44,9 +44,8 @@ class PaymentCubit extends Cubit<PaymentState> {
       programYear: programYear,
     );
 
-    // استخدم أول عنصر للحصول على groupNum
     if (programsDateAndNumber.isNotEmpty) {
-      int groupNum = programsDateAndNumber.first.progGrpNo ?? 1; // استخدام رقم المجموعة من أول عنصر
+      int groupNum = programsDateAndNumber.first.progGrpNo ?? 1;
       await getProgramGroup(
         programCode: programCode,
         programYear: programYear,
