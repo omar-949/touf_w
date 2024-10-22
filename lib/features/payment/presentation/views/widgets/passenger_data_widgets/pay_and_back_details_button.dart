@@ -8,12 +8,12 @@ import '../../../../../../core/widgets/custom_button.dart';
 class PayDetailsButton extends StatelessWidget {
   const PayDetailsButton({
     super.key,
-    required this.agreeToTerms, // إضافة متغير للتحقق من الموافقة
+    required this.agreeToTerms,
     this.onPressedBuy,
     this.onPressedAddToCard,
   });
 
-  final bool agreeToTerms; // متغير للتحقق من الموافقة
+  final bool agreeToTerms;
   final void Function()? onPressedBuy;
   final void Function()? onPressedAddToCard;
 

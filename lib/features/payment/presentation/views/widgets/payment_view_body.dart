@@ -23,11 +23,10 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
   int currentStep = 1;
   bool showPaymentText = false;
   final ScrollController _scrollController = ScrollController();
-  bool agreeToTerms = false; // إضافة متغير لحفظ حالة الموافقة
+  bool agreeToTerms = false;
 
   void _onPayButtonPressed() {
     if (agreeToTerms) {
-      // تحقق من الموافقة قبل المتابعة
       setState(() {
         currentStep = 2;
         showPaymentText = true;
@@ -36,6 +35,14 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
       Future.delayed(const Duration(milliseconds: 300), () {
         _scrollToPaymentMethod();
       });
+    } else {
+      // Display a SnackBar message if terms are not agreed
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('You must agree to the terms and conditions'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -82,7 +89,14 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
               const BookingViewBodyBlocBuilder(),
               10.verticalSpace,
               CheckPolicyPayment(
-                onAgreeChanged: (value) {
+                validator: (value) {
+                  if (value != true) {
+                    return 'You must agree to the terms and conditions.';
+                  }
+                  return null;
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                onAgreeChanged: (bool value) {
                   setState(() {
                     agreeToTerms = value;
                   });

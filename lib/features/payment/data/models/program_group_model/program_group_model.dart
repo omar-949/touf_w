@@ -1,7 +1,7 @@
 class ProgramGroupModel {
   final String? paxType;
   final int? pPrice;
-  int count; // Count property
+  int count;
   final int? progGrpNo;
   final String? progGrpFrom;
 

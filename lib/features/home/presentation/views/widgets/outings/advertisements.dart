@@ -46,7 +46,6 @@ class Advertisements extends StatelessWidget {
                 5.verticalSpace,
                 GestureDetector(
                   onTap: () {
-                    context.pushNamed(Routes.paymentView);
                   },
                   child: Container(
                     decoration: BoxDecoration(
