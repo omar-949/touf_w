@@ -12,7 +12,9 @@ import 'booking_view_body_bloc_builder.dart';
 
 class PaymentViewBody extends StatefulWidget {
   const PaymentViewBody({super.key, required this.activeProgramModel});
+
   final ActiveProgramModel activeProgramModel;
+
   @override
   State<PaymentViewBody> createState() => _PaymentViewBodyState();
 }
@@ -24,7 +26,8 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
   bool agreeToTerms = false; // إضافة متغير لحفظ حالة الموافقة
 
   void _onPayButtonPressed() {
-    if (agreeToTerms) { // تحقق من الموافقة قبل المتابعة
+    if (agreeToTerms) {
+      // تحقق من الموافقة قبل المتابعة
       setState(() {
         currentStep = 2;
         showPaymentText = true;
@@ -67,7 +70,9 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SafeArea(child: CustomAppBar()),
-             StackImagePayment(activeProgramModel: widget.activeProgramModel,),
+            StackImagePayment(
+              activeProgramModel: widget.activeProgramModel,
+            ),
             24.verticalSpace,
             StepIndicator(currentStep: currentStep),
             24.verticalSpace,
@@ -101,4 +106,3 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
     );
   }
 }
-

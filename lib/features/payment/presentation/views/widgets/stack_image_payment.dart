@@ -14,7 +14,6 @@ class StackImagePayment extends StatelessWidget {
       height: 290.h,
       width: double.infinity,
       decoration:  BoxDecoration(
-        color: Colors.red,
         image: DecorationImage(
           image: NetworkImage(activeProgramModel.imgPath ?? ''),
           fit: BoxFit.cover,

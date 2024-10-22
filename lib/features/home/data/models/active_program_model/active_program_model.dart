@@ -22,7 +22,7 @@ class ActiveProgramModel {
       programyear: json['programyear'] as int?,
       startprice: json['startprice'] as int?,
       imgPath: json['img_path'] as String?,
-      rateReview: json['rate_review'] as String?,
+      rateReview: (json['rate_review'] != null && json['rate_review'] != 'No Review') ? json['rate_review'] as String? : '0.0',
     );
   }
 

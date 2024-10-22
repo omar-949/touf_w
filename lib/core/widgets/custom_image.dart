@@ -24,7 +24,6 @@ class CustomCachedNetworkImage extends StatelessWidget {
     return SizedBox(
       width: width.w,
       height: height.h,
-
       child: ClipRRect(
         borderRadius: borderRadius ?? BorderRadius.circular(0.r),
         child: CachedNetworkImage(

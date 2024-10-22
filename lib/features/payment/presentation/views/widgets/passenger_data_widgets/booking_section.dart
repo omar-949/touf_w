@@ -12,31 +12,13 @@ class BookingSection extends StatelessWidget {
   final List<ProgramGroupModel> programGroupModel;
   final List<ExtraModel> extraServices;
   final int peopleCount;
-
+  final int maxAval;
   const BookingSection({
     super.key,
     required this.extraServices,
     required this.peopleCount,
-    required this.programGroupModel,
+    required this.programGroupModel, required this.maxAval,
   });
-
-  double calculateTotal() {
-    double total = 0.0;
-    for (var service in extraServices) {
-      if (service.extPrice != null) {
-        total += (service.extPrice! * service.count);
-      }
-    }
-
-    // Sum the prices of the program groups based on count
-    for (var program in programGroupModel) {
-      if (program.pPrice != null) {
-        total += (program.pPrice! * program.count);
-      }
-    }
-
-    return total;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +26,20 @@ class BookingSection extends StatelessWidget {
       children: [
         NumberOfPeopleWidget(
           onUpdate: () {
-            context.read<TotalCubit>().updateTotal(extraServices, programGroupModel);
+            context
+                .read<TotalCubit>()
+                .updateTotal(extraServices, programGroupModel);
           },
           title: "Number of People",
           people: programGroupModel,
-          count: peopleCount,
+          count: peopleCount, maxAval: maxAval,
         ),
         SizedBox(height: 16.h),
         BookingDetailsAdditionalWidget(
           onUpdate: () {
-            context.read<TotalCubit>().updateTotal(extraServices, programGroupModel);
+            context
+                .read<TotalCubit>()
+                .updateTotal(extraServices, programGroupModel);
           },
           additionalServices: extraServices,
         ),
@@ -71,7 +57,8 @@ class BookingSection extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Total", style: TextStyles.font24darkGreymedium),
-                  Text("${total.toStringAsFixed(2)} EGP", style: TextStyles.font24darkGreymedium),
+                  Text("${total.toStringAsFixed(2)} EGP",
+                      style: TextStyles.font24darkGreymedium),
                 ],
               ),
             );

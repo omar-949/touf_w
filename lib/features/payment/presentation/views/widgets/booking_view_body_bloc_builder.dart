@@ -15,26 +15,22 @@ class BookingViewBodyBlocBuilder extends StatelessWidget {
     return BlocBuilder<PaymentCubit, PaymentState>(builder: (context, state) {
       if (state is PaymentLoading) {
         return const CustomLoading();
-
       } else if (state is PaymentSuccess) {
         return Column(
           children: [
             BookingDateAndTime(
                 programDateAndNumber: state.programDateAndNumber.first),
             24.verticalSpace,
-           BookingSection(
-               extraServices: state.extraPrograms,
-               peopleCount: state.programDateAndNumber.first.paxAval ?? 0,
-               programGroupModel: state.programGroups
-           )
+            BookingSection(
+                extraServices: state.extraPrograms,
+                peopleCount: state.programDateAndNumber.first.paxAval ?? 0,
+                programGroupModel: state.programGroups, maxAval: state.programDateAndNumber.first.paxAval!,)
           ],
         );
-      }
-      else if (state is PaymentFailure) {
+      } else if (state is PaymentFailure) {
         return CustomFailureWidget(errMessage: state.errMessage);
-      }
-      else {
-        return const Center(child:  Text("undefined error"));
+      } else {
+        return const Center(child: Text("undefined error"));
       }
     });
   }
