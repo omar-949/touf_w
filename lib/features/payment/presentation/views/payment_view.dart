@@ -7,24 +7,24 @@ import 'package:toufwshouf/features/payment/presentation/manager/total_cubit.dar
 import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_view_body.dart';
 
 class PaymentView extends StatelessWidget {
-  const PaymentView({super.key});
+  const PaymentView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => PaymentCubit(getIt.get<PaymentRepoImpl>())
-            ..getPaymentData(programCode: '9', programYear: '2024'),
+          create: (context) => PaymentCubit(
+              getIt.get<PaymentRepoImpl>())
+            ..getPaymentData(programCode: '9', programYear: '2024' ),
         ),
         BlocProvider(create: (_) => TotalCubit()),
+
       ],
-      child: Scaffold(
-        body: Builder(
-          builder: (context) {
-            return const PaymentViewBody();
-          },
-        ),
+      child: const Scaffold(
+        body: PaymentViewBody(),
       ),
     );
   }
