@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PaymentMethodOption extends StatelessWidget {
+class PaymentMethodOptionWidget extends StatelessWidget {
   final String assetPath;
   final bool isSelected;
 
-  const PaymentMethodOption({
+  const PaymentMethodOptionWidget({
     super.key,
     required this.assetPath,
     required this.isSelected,

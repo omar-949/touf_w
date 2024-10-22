@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/stack_image_payment.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/step_indicator.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/success_widget/success_section.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/pay_and_back_details_button.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/pay_and_back_details_button.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/check_policy_payment.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_method_widget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/confirm_booking_widgets/payment_method_widget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_app_bar.dart';
-import 'home_view_body_bloc_builder2.dart';
+import 'booking_view_body_bloc_builder.dart';
 
 class PaymentViewBody extends StatefulWidget {
   const PaymentViewBody({super.key});
@@ -70,7 +70,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
             if (currentStep == 3)
               const SuccessSection()
             else ...[
-              const HomeViewBodyBlocBuilder2(),
+              const BookingViewBodyBlocBuilder(),
               10.verticalSpace,
               const CheckPolicyPayment(),
               24.verticalSpace,

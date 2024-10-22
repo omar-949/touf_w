@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_selector.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/number_selector_widget.dart';
 import 'package:toufwshouf/features/payment/data/models/extra_model/extra_model.dart';
+
+
 
 class BookingDetailsAdditionalWidget extends StatefulWidget {
   final List<ExtraModel> additionalServices;
@@ -15,8 +17,7 @@ class BookingDetailsAdditionalWidget extends StatefulWidget {
   });
 
   @override
-  _BookingDetailsAdditionalWidgetState createState() =>
-      _BookingDetailsAdditionalWidgetState();
+  State<BookingDetailsAdditionalWidget> createState() => _BookingDetailsAdditionalWidgetState();
 }
 
 class _BookingDetailsAdditionalWidgetState extends State<BookingDetailsAdditionalWidget> {
@@ -25,20 +26,20 @@ class _BookingDetailsAdditionalWidgetState extends State<BookingDetailsAdditiona
   @override
   void initState() {
     super.initState();
-    services = widget.additionalServices; // نسخ البيانات عند الإنشاء
+    services = widget.additionalServices;
   }
 
   void _incrementCount(ExtraModel service) {
     setState(() {
       service.incrementCount();
-      widget.onUpdate(); // استدعاء دالة التحديث هنا
+      widget.onUpdate();
     });
   }
 
   void _decrementCount(ExtraModel service) {
     setState(() {
       service.decrementCount();
-      widget.onUpdate(); // استدعاء دالة التحديث هنا
+      widget.onUpdate();
     });
   }
 
@@ -50,7 +51,7 @@ class _BookingDetailsAdditionalWidgetState extends State<BookingDetailsAdditiona
         borderRadius: BorderRadius.circular(12),
       ),
       margin: EdgeInsets.symmetric(horizontal: 16.w),
-      padding: EdgeInsets.symmetric(vertical: 10.h), // إضافة Padding داخلي
+      padding: EdgeInsets.symmetric(vertical: 10.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -60,7 +61,7 @@ class _BookingDetailsAdditionalWidgetState extends State<BookingDetailsAdditiona
           ),
           SizedBox(height: 16.h),
           ...services.map((service) => Padding(
-            padding: EdgeInsets.only(bottom: 16.0.h),
+            padding: EdgeInsets.only(bottom: 16.0.h,left: 10.w,right: 10.w),
             child: _buildAdditionalServiceSelector(service),
           )).toList(),
         ],
@@ -75,10 +76,10 @@ class _BookingDetailsAdditionalWidgetState extends State<BookingDetailsAdditiona
       description: service.extDescr ?? "",
       count: service.count,
       onAdd: () {
-        _incrementCount(service); // استخدم الدالة للتحديث
+        _incrementCount(service);
       },
       onRemove: () {
-        _decrementCount(service); // استخدم الدالة للتحديث
+        _decrementCount(service);
       },
     );
   }

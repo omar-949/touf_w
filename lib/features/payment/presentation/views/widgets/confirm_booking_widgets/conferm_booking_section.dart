@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_text_form_field_pay.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/save_payment_details.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/confirm_booking_widgets/custom_text_form_field_pay.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/confirm_booking_widgets/save_payment_details.dart';
 
 class ConfirmBookingSection extends StatelessWidget {
   final VoidCallback onBackPressed;
@@ -13,7 +13,7 @@ class ConfirmBookingSection extends StatelessWidget {
   const ConfirmBookingSection({
     super.key,
     required this.onBackPressed,
-    required this.onConfirmPressed, // New callback for confirm button
+    required this.onConfirmPressed,
   });
 
   @override
@@ -63,7 +63,7 @@ class ConfirmBookingSection extends StatelessWidget {
             Expanded(
               child: CustomButton(
                 onPressed:
-                    onConfirmPressed, // Use the new callback for the confirm action
+                    onConfirmPressed,
                 height: 52.h,
                 text: "Confirm",
                 borderRadius: BorderRadius.circular(2.r),
@@ -78,7 +78,7 @@ class ConfirmBookingSection extends StatelessWidget {
                 textStyle: TextStyles.font16WhiteMedium
                     .copyWith(color: TextColors.orange),
                 onPressed:
-                    onBackPressed, // Back button uses the onBackPressed callback
+                    onBackPressed,
                 height: 50.h,
                 borderRadius: BorderRadius.circular(2.r),
                 text: "Back",

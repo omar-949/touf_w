@@ -5,10 +5,10 @@ import 'package:toufwshouf/core/widgets/custom_failure_widget.dart';
 import 'package:toufwshouf/core/widgets/custom_loading.dart';
 import 'package:toufwshouf/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/booking_date_and_time.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_section.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/booking_section.dart';
 
-class HomeViewBodyBlocBuilder2 extends StatelessWidget {
-  const HomeViewBodyBlocBuilder2({super.key});
+class BookingViewBodyBlocBuilder extends StatelessWidget {
+  const BookingViewBodyBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {

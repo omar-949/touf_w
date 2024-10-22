@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/payment/data/models/program_group_model/program_group_model.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_selector.dart';
-import '../../../../../core/resources/styles.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/number_selector_widget.dart';
+import '../../../../../../core/resources/styles.dart';
 
 class NumberOfPeopleWidget extends StatefulWidget {
   final String title;
@@ -61,14 +61,14 @@ class _NumberOfPeopleWidgetState extends State<NumberOfPeopleWidget> {
               children: [
                 Text(widget.title, style: TextStyles.font18darkGreyMedium),
                 SizedBox(width: 8.w),
-                Text('${widget.count}', // Display the total number of people
+                Text('${widget.count}',
                     style: TextStyles.font22darkGreyMedium
                         .copyWith(color: Colors.blue)),
               ],
             ),
             const SizedBox(height: 16),
             ...widget.people.map((person) => Padding(
-              padding: EdgeInsets.only(bottom: 16.0.h),
+              padding: EdgeInsets.only(bottom: 16.0.h,left: 10.w,right: 10.w),
               child: _buildCountSelector(person),
             )),
           ],
@@ -78,15 +78,15 @@ class _NumberOfPeopleWidgetState extends State<NumberOfPeopleWidget> {
   }
 
   Widget _buildCountSelector(ProgramGroupModel person) {
-    return CountSelectorNumber(
+    return NumberSelectorWidget(
       label: person.paxType??"",
       price: person.pPrice?.toString()?? 0 .toString(),
       count: person.count,
       onAdd: () {
-        _incrementCount(person); // استخدم الدالة للتحديث
+        _incrementCount(person);
       },
       onRemove: () {
-        _decrementCount(person); // استخدم الدالة للتحديث
+        _decrementCount(person);
       },
     );
   }

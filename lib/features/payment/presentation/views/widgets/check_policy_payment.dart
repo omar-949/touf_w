@@ -11,7 +11,7 @@ class CheckPolicyPayment extends StatefulWidget {
 }
 
 class _CheckPolicyPaymentState extends State<CheckPolicyPayment> {
-  bool agreeToTerms = false; // Variable to track checkbox state
+  bool agreeToTerms = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _CheckPolicyPaymentState extends State<CheckPolicyPayment> {
                 onChanged: (value) {
                   setState(() {
                     agreeToTerms =
-                        value ?? false; // Update state when checkbox changes
+                        value ?? false;
                   });
                 },
               ),

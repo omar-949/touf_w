@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_counter_widget.dart';
-import '../../../../../core/resources/styles.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/custom_counter_widget.dart';
+import '../../../../../../core/resources/styles.dart';
 
-class CountSelectorNumber extends StatelessWidget {
+class NumberSelectorWidget extends StatelessWidget {
   final String label;
   final String price;
   final int count;
   final Function() onAdd;
   final Function() onRemove;
 
-  const CountSelectorNumber({
+  const NumberSelectorWidget({
     super.key,
     required this.label,
     required this.price,

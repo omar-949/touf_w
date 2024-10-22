@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_check_box.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/custom_check_box.dart';
 
 class SavePaymentDetails extends StatefulWidget {
   const SavePaymentDetails({super.key});

@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/payment/data/models/extra_model/extra_model.dart';
 import 'package:toufwshouf/features/payment/data/models/program_group_model/program_group_model.dart';
 import 'package:toufwshouf/features/payment/presentation/manager/total_cubit.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_details_additional_widget.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/number_of_people_widget.dart';
-import '../../../../../core/resources/styles.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/booking_details_additional_widget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/passenger_data_widgets/number_of_people_widget.dart';
+import '../../../../../../core/resources/styles.dart';
 
 class BookingSection extends StatelessWidget {
   final List<ProgramGroupModel> programGroupModel;
@@ -22,18 +22,16 @@ class BookingSection extends StatelessWidget {
 
   double calculateTotal() {
     double total = 0.0;
-
-    // Sum the prices of the extra services based on count
     for (var service in extraServices) {
       if (service.extPrice != null) {
-        total += (service.extPrice! * service.count); // Multiply price by count
+        total += (service.extPrice! * service.count);
       }
     }
 
     // Sum the prices of the program groups based on count
     for (var program in programGroupModel) {
       if (program.pPrice != null) {
-        total += (program.pPrice! * program.count); // Multiply price by count
+        total += (program.pPrice! * program.count);
       }
     }
 
@@ -42,8 +40,6 @@ class BookingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double total = calculateTotal(); // Calculate the total
-
     return Column(
       children: [
         NumberOfPeopleWidget(

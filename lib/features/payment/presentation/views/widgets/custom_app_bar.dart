@@ -9,7 +9,6 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      //  mainAxisAlignment: MainAxisAlignment.,
       children: [
         IconButton(
             onPressed: () {

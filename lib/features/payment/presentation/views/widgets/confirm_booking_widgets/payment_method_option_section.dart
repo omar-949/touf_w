@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_method_option.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/confirm_booking_widgets/payment_method_option_widget.dart';
 
 class PaymentMethodOptionSection extends StatefulWidget {
   const PaymentMethodOptionSection({super.key});
@@ -12,7 +12,7 @@ class PaymentMethodOptionSection extends StatefulWidget {
 
 class _PaymentMethodOptionSectionState
     extends State<PaymentMethodOptionSection> {
-  int _selectedIndex = -1; // To track the selected index
+  int _selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +40,13 @@ class _PaymentMethodOptionSectionState
     return GestureDetector(
       onTap: () {
         setState(() {
-          _selectedIndex = index; // Update selected index
+          _selectedIndex = index;
         });
       },
-      child: PaymentMethodOption(
+      child: PaymentMethodOptionWidget(
         assetPath: assetPath,
         // method: method,
-        isSelected: isSelected, // Pass selection status
+        isSelected: isSelected,
       ),
     );
   }

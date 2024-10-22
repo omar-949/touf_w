@@ -46,7 +46,7 @@ class StepIndicator extends StatelessWidget {
               style: TextStyle(
                   fontSize: 11.sp,
                   color: Colors.white,
-                  fontWeight: FontWeight.w500), // زيادة حجم النص
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ),
@@ -54,7 +54,6 @@ class StepIndicator extends StatelessWidget {
     );
   }
 
-  // Widget to build horizontal line
   Widget _buildHorizontalLine(int step) {
     Color lineColor = _getLineColor(step);
     return Expanded(
