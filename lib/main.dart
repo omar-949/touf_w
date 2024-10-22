@@ -13,7 +13,7 @@ bool isLoggedUser = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _initializeApp();
-  await ScreenUtil.ensureScreenSize(); // Ensure this line is executed
+  await ScreenUtil.ensureScreenSize();
   runApp(ToufWShouf(appRouter: AppRouter()));
 }
 
@@ -33,10 +33,6 @@ void _lockPortraitMode() {
 }
 
 Future<void> _checkIfLoggedUser() async {
-  String? userToken =
-      await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+  String? userToken = await SharedPrefHelper.getString(key: SharedPrefKeys.token);
   isLoggedUser = userToken.isNotNullOrEmpty();
-  print(isLoggedUser);
-  print(userToken);
-  print(SharedPrefKeys.accessToken);
 }

@@ -33,7 +33,7 @@ class DioFactory {
 
   static Future<void> setDefaultHeaders(Dio dio) async {
     _authToken =
-        await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+        await SharedPrefHelper.getString(key: SharedPrefKeys.token);
 
     dio.options.headers = {
       'Accept': 'application/json',

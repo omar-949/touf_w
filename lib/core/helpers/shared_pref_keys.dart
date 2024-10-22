@@ -1,4 +1,4 @@
 class SharedPrefKeys {
-  static const String accessToken = "accessToken";
-  static const String refreshToken = "refreshToken";
+  static const String token = "accessToken";
+  static const String custName = "custName";
 }

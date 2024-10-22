@@ -22,8 +22,7 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<Failure, Unit>> signUp(
       {required SignUpRequest signUpRequest}) async {
     try {
-      await apiService.postWithFormData(
-          endPoint: ApiEndpoints.signUp, formData: signUpRequest.toJson());
+      await apiService.postWithFormData(endPoint: ApiEndpoints.signUp, formData: signUpRequest.toJson());
       return right(unit);
     } catch (e) {
       if (e is DioException) {

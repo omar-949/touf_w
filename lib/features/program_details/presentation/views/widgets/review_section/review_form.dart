@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
+import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
+import 'package:toufwshouf/main.dart';
 
 class ReviewForm extends StatefulWidget {
   const ReviewForm({super.key});
@@ -79,11 +82,13 @@ class _ReviewFormState extends State<ReviewForm> {
   Widget _buildSubmitButton() {
     return CustomButton(
       onPressed: () {
-        setState(() {
-          autoValidateMode = AutovalidateMode.always;
-        });
-
-        if (_formKey.currentState?.validate() ?? false) {
+        if (!isLoggedUser) {
+          context.pushNamed(Routes.loginView);
+        } else {
+          setState(() {
+            autoValidateMode = AutovalidateMode.always;
+          });
+          if (_formKey.currentState?.validate() ?? false) {}
         }
       },
       text: 'Submit',

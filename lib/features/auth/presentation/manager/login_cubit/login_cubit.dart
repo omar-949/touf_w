@@ -25,6 +25,10 @@ class LoginCubit extends Cubit<LoginState> {
       (loginResponse) async {
         // Save the token and update Dio before emitting success
         await saveUserToken(loginResponse.token);
+        await SharedPrefHelper.setData(
+          key: SharedPrefKeys.custName,
+          value: loginResponse.custCode,
+        );
         isLoggedUser = true;
         emit(LoginSuccess(loginResponse: loginResponse));
       },
@@ -32,8 +36,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> saveUserToken(String token) async {
-    await SharedPrefHelper.setData(
-        key: SharedPrefKeys.accessToken, value: token);
+    await SharedPrefHelper.setData(key: SharedPrefKeys.token, value: token);
     DioFactory.updateAuthToken(token);
   }
 }
