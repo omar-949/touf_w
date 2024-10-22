@@ -7,7 +7,7 @@ import 'package:toufwshouf/features/payment/presentation/views/widgets/pay_and_b
 import 'package:toufwshouf/features/payment/presentation/views/widgets/check_policy_payment.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/payment_method_widget.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_app_bar.dart';
-import 'home_view_body_bloc_section.dart';
+import 'home_view_body_bloc_builder2.dart';
 
 class PaymentViewBody extends StatefulWidget {
   const PaymentViewBody({super.key});
@@ -70,7 +70,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
             if (currentStep == 3)
               const SuccessSection()
             else ...[
-              const HomeViewBodyBlocSection(),
+              const HomeViewBodyBlocBuilder2(),
               10.verticalSpace,
               const CheckPolicyPayment(),
               24.verticalSpace,

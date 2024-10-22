@@ -26,4 +26,5 @@ Future<void> setupServiceLocator() async {
 
   getIt.registerSingleton<ProgramDetailsRepoImpl>(
       ProgramDetailsRepoImpl(apiService: getIt.get<ApiService>()));
+
 }

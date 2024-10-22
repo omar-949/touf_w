@@ -1,48 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/payment/data/models/program_date_and_number_model/program_date_and_number_model.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_details_widget.dart';
-
+import 'package:toufwshouf/features/payment/data/models/extra_model/extra_model.dart';
+import 'package:toufwshouf/features/payment/data/models/program_group_model/program_group_model.dart';
+import 'package:toufwshouf/features/payment/presentation/manager/total_cubit.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/booking_details_additional_widget.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/number_of_people_widget.dart';
 import '../../../../../core/resources/styles.dart';
-import '../../../data/models/person_model.dart';
 
 class BookingSection extends StatelessWidget {
-  const BookingSection({super.key, required this.programDateAndNumberModel});
+  final List<ProgramGroupModel> programGroupModel;
+  final List<ExtraModel> extraServices;
+  final int peopleCount;
 
-  final ProgramDateAndNumberModel?
-      programDateAndNumberModel; // استخدام null-aware operator
-  final double total = 2555;
+  const BookingSection({
+    super.key,
+    required this.extraServices,
+    required this.peopleCount,
+    required this.programGroupModel,
+  });
+
+  double calculateTotal() {
+    double total = 0.0;
+
+    // Sum the prices of the extra services based on count
+    for (var service in extraServices) {
+      if (service.extPrice != null) {
+        total += (service.extPrice! * service.count); // Multiply price by count
+      }
+    }
+
+    // Sum the prices of the program groups based on count
+    for (var program in programGroupModel) {
+      if (program.pPrice != null) {
+        total += (program.pPrice! * program.count); // Multiply price by count
+      }
+    }
+
+    return total;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.h),
-      child: Column(
-        children: [
-          BookingDetailsWidget(
-            count:
-                programDateAndNumberModel?.paxAval ?? 0, // إذا كانت null نعرض 0
-            title: "Number of people ",
-            people: people,
-          ),
-          BookingDetailsWidget(
-            count: 0,
-            title: "Additional Services",
-            people: additionalService,
-          ),
-          SizedBox(
-            height: 24.h,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Total", style: TextStyles.font24darkGreymedium),
-              Text("${total.toStringAsFixed(2)} EGP",
-                  style: TextStyles.font24darkGreymedium),
-            ],
-          ),
-        ],
-      ),
+    double total = calculateTotal(); // Calculate the total
+
+    return Column(
+      children: [
+        NumberOfPeopleWidget(
+          onUpdate: () {
+            context.read<TotalCubit>().updateTotal(extraServices, programGroupModel);
+          },
+          title: "Number of People",
+          people: programGroupModel,
+          count: peopleCount,
+        ),
+        SizedBox(height: 16.h),
+        BookingDetailsAdditionalWidget(
+          onUpdate: () {
+            context.read<TotalCubit>().updateTotal(extraServices, programGroupModel);
+          },
+          additionalServices: extraServices,
+        ),
+        SizedBox(height: 16.h),
+        BlocBuilder<TotalCubit, TotalState>(
+          builder: (context, state) {
+            double total = 0.0;
+            if (state is TotalUpdated) {
+              total = state.total;
+            }
+
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Total", style: TextStyles.font24darkGreymedium),
+                  Text("${total.toStringAsFixed(2)} EGP", style: TextStyles.font24darkGreymedium),
+                ],
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }

@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/payment/presentation/views/widgets/custom_counter_widget.dart';
-
 import '../../../../../core/resources/styles.dart';
 
-class CountSelector extends StatelessWidget {
+class CountSelectorNumber extends StatelessWidget {
   final String label;
   final String price;
-
   final int count;
   final Function() onAdd;
   final Function() onRemove;
 
-  const CountSelector({
+  const CountSelectorNumber({
     super.key,
     required this.label,
     required this.price,
@@ -39,9 +37,15 @@ class CountSelector extends StatelessWidget {
                     .copyWith(color: Colors.black),
               ),
               8.verticalSpace,
-              Text(
-                price,
-                style: TextStyles.font14darkBlue400Regular,
+              Row(
+                children: [
+                  Text("price : ", style: TextStyles.font14darkBlue400Regular),
+                  8.horizontalSpace,
+                  Text(
+                    price,
+                    style: TextStyles.font14darkBlue400Regular,
+                  ),
+                ],
               ),
             ],
           ),
@@ -51,32 +55,71 @@ class CountSelector extends StatelessWidget {
           count: count,
           onAdd: onAdd,
           onRemove: onRemove,
-        )
+        ),
       ],
     );
   }
 }
-// return Column(
-//   crossAxisAlignment: CrossAxisAlignment.start,
-//   children: [
-//     Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//       children: [
-//         Text(
-//           label,
-//           style:
-//               TextStyles.font16Grey500Medium.copyWith(color: Colors.black),
-//         ),
-//         CustomCounterWidget(
-//           count: count,
-//           onAdd: onAdd,
-//           onRemove: onRemove,
-//         )
-//       ],
-//     ),
-//     Text(
-//       price,
-//       style: TextStyles.font14darkBlue500Medium,
-//     ),
-//   ],
-// );
+class CountSelectorAdditionalService extends StatelessWidget {
+  final String label;
+  final String price,description;
+  final int count;
+  final Function() onAdd;
+  final Function() onRemove;
+
+  const CountSelectorAdditionalService({
+    super.key,
+    required this.label,
+    required this.price,
+    required this.count,
+    required this.onAdd,
+    required this.onRemove, required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 210.w,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                label,
+                style: TextStyles.font16Grey500Medium
+                    .copyWith(color: Colors.black),
+              ),
+              8.verticalSpace,
+              Text(
+                description,
+                style: TextStyles.font14darkBlue400Regular,
+              ),
+              8.verticalSpace,
+              Row(
+                children: [
+                  Text("Price : ", style: TextStyles.font14darkBlue400Regular),
+                  8.horizontalSpace,
+                  Text(
+                    price,
+                    style: TextStyles.font14darkBlue400Regular,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const Spacer(),
+        CustomCounterWidget(
+          count: count,
+          onAdd: onAdd,
+          onRemove: onRemove,
+        ),
+      ],
+    );
+  }
+}
+
