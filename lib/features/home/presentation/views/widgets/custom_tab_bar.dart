@@ -27,7 +27,6 @@ class _CustomTabBarState extends State<CustomTabBar> {
       unselectedLabelColor: Colors.white,
       dividerColor: Colors.transparent,
       tabAlignment: TabAlignment.center,
-      physics: const NeverScrollableScrollPhysics(),
       onTap: (index) {
         setState(() {
           activeIndex = index;
