@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/shared_pref_helper.dart';
@@ -21,8 +24,13 @@ class DioFactory {
         ..options.receiveTimeout = timeout
         ..options.connectTimeout = timeout
         ..options.sendTimeout = timeout;
-
-      //aaaaa
+      // disable SSl check
+      (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
+        final client = HttpClient();
+        client.badCertificateCallback =
+            (X509Certificate cert, String host, int port) => true;
+        return client;
+      };
       await setDefaultHeaders(dio);
       addInterceptors(dio);
 
@@ -32,8 +40,7 @@ class DioFactory {
   }
 
   static Future<void> setDefaultHeaders(Dio dio) async {
-    _authToken =
-        await SharedPrefHelper.getString(key: SharedPrefKeys.token);
+    _authToken = await SharedPrefHelper.getString(key: SharedPrefKeys.token);
 
     dio.options.headers = {
       'Accept': 'application/json',

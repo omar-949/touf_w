@@ -19,18 +19,20 @@ class ProgramInformationTile extends StatelessWidget {
         children: [
           SvgPicture.asset(svg),
           10.horizontalSpace,
-          Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: title,
-                  style: TextStyles.font16MediumGreyRegular,
-                ),
-                TextSpan(
-                  text: value,
-                  style: TextStyles.font16BlackRegular,
-                ),
-              ],
+          Expanded(
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: title,
+                    style: TextStyles.font16MediumGreyRegular,
+                  ),
+                  TextSpan(
+                    text: value,
+                    style: TextStyles.font16BlackRegular,
+                  ),
+                ],
+              ),
             ),
           )
         ],

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/widgets/rating.dart';
 import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
@@ -8,40 +9,57 @@ import 'package:toufwshouf/features/home/data/models/active_program_model/active
 class AppHorizontalListViewItem extends StatelessWidget {
   const AppHorizontalListViewItem(
       {super.key, this.onTap, required this.activeProgramModel});
+
   final void Function()? onTap;
   final ActiveProgramModel activeProgramModel;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 16.0.w),
       child: GestureDetector(
         onTap: onTap,
-        child: Container(
+        child: SizedBox(
           height: 216.h,
           width: 265.w,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
-            image: DecorationImage(
-              // Todo: Replace with CachedNetworkImageProvider if needed
-              image: activeProgramModel.imgPath != null
-                  ? CachedNetworkImageProvider(activeProgramModel.imgPath!)
-                  : const AssetImage('assets/home/bestselling1.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
             children: [
-              PriceTag(
-                price: activeProgramModel.startprice ?? 0,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12.r),
+                child: CachedNetworkImage(
+                  imageUrl: activeProgramModel.imgPath!,
+                  fit: BoxFit.cover,
+                  height: 216.h,
+                  width: 265.w,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => Container(
+                    color: AppColors.grey500,
+                    child: const Icon(Icons.error),
+                  ),
+                ),
               ),
-              const Spacer(),
-              ItemDetails(
-                title: activeProgramModel.programname ??
-                    'The Egyptian Gulf (Hospice of the Sultan)',
-                rating: activeProgramModel.rateReview == "No Review"
-                    ? 0.0
-                    : double.parse(activeProgramModel.rateReview ?? '0.0'),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  color: Colors.black.withOpacity(0.5),
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  PriceTag(
+                    price: activeProgramModel.startprice ?? 0,
+                  ),
+                  const Spacer(),
+                  ItemDetails(
+                    title: activeProgramModel.programname ?? 'No Title',
+                    rating: activeProgramModel.rateReview == "No Review"
+                        ? 0.0
+                        : double.parse(activeProgramModel.rateReview ?? '0.0'),
+                  ),
+                ],
               ),
             ],
           ),
@@ -96,12 +114,12 @@ class PriceTag extends StatelessWidget {
 class ItemDetails extends StatelessWidget {
   const ItemDetails(
       {super.key,
-      required this.title,
-      required this.rating,
-      this.textStyle,
-      this.isSpacer = false,
-      this.verticalSpace,
-      this.horizontalSpace});
+        required this.title,
+        required this.rating,
+        this.textStyle,
+        this.isSpacer = false,
+        this.verticalSpace,
+        this.horizontalSpace});
 
   final String title;
   final double rating;

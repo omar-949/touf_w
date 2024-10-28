@@ -60,7 +60,7 @@ class ServerFailure extends Failure {
             : firstKeyValue ?? 'Unexpected Error, Please try again',
       );
     } else if (statusCode == 555) {
-      return ServerFailure('كلم الباك مليش فيه انا الايرور دا');
+      return ServerFailure('Error from the backend');
     } else {
       return ServerFailure('There was an error, please try again');
     }

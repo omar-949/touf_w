@@ -63,7 +63,7 @@ class _BookingDetailsAdditionalWidgetState extends State<BookingDetailsAdditiona
           ...services.map((service) => Padding(
             padding: EdgeInsets.only(bottom: 16.0.h,left: 10.w,right: 10.w),
             child: _buildAdditionalServiceSelector(service),
-          )).toList(),
+          )),
         ],
       ),
     );
