@@ -25,12 +25,12 @@ class DioFactory {
         ..options.connectTimeout = timeout
         ..options.sendTimeout = timeout;
       // disable SSl check
-      (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
-        final client = HttpClient();
-        client.badCertificateCallback =
-            (X509Certificate cert, String host, int port) => true;
-        return client;
-      };
+      // (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
+      //   final client = HttpClient();
+      //   client.badCertificateCallback =
+      //       (X509Certificate cert, String host, int port) => true;
+      //   return client;
+      // };
       await setDefaultHeaders(dio);
       addInterceptors(dio);
 

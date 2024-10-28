@@ -27,7 +27,7 @@ class AppHorizontalListViewItem extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12.r),
                 child: CachedNetworkImage(
-                  imageUrl: 'http://app.misrtravelco.net:8080/dec_mst/Files_DOC/2024/1/373/1.jpg',
+                  imageUrl: 'https://app.misrtravelco.net:4444/i/images/OnlineSystem/Program/Basic_2024_4_1.jpg' ?? '',
                   fit: BoxFit.cover,
                   height: 216.h,
                   width: 265.w,
