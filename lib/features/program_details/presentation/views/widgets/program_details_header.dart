@@ -24,7 +24,7 @@ class ProgramDetailsHeader extends StatelessWidget {
         background: Stack(
           children: [
             CachedNetworkImage(
-              imageUrl: 'activeProgramModel.imgPath',
+              imageUrl: activeProgramModel.imgPath!,
               fit: BoxFit.cover,
               width: double.infinity,
               height: 280.h,
