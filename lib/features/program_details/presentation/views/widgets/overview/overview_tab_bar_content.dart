@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/features/program_details/presentation/manager/program_details_cubit.dart';
 
+import '../../../../../../core/widgets/custom_loading.dart';
+
 class OverviewTabBarContent extends StatelessWidget {
   const OverviewTabBarContent({super.key});
 
@@ -15,10 +17,14 @@ class OverviewTabBarContent extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            context.read<ProgramDetailsCubit>().productDetails!.overView ?? '',
-            style: TextStyles.font16BlackRegular,
-          ),
+          context.read<ProgramDetailsCubit>().productDetails != null &&
+                  context.read<ProgramDetailsCubit>().productDetails!.isNotEmpty
+              ? Text(
+                  context.read<ProgramDetailsCubit>().productDetails![0].overView ?? '',
+                  style: TextStyles.font16BlackRegular,
+                )
+              : const CustomLoading(),
+
           // 16.verticalSpace,
           // Text(
           //   'Additional Info',

@@ -9,7 +9,7 @@ import '../../../../../core/networking/api_failure.dart';
 import '../../models/supplement_model/supplements_model.dart';
 
 abstract class ProgramDetailsRepo {
-  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails({
+  Future<Either<Failure, List<DetailsActiveProgramModel>>> getProductDetails({
     required String programCode,
     required String programYear,
     required String languageCode,
@@ -25,7 +25,7 @@ abstract class ProgramDetailsRepo {
     required String programYear,
   });
 
-  Future<Either<Failure, PolicyModel>> getPolicy({
+  Future<Either<Failure, List<PolicyModel>>> getPolicy({
     required String programCode,
     required String programYear,
     required String policyType,
@@ -35,7 +35,7 @@ abstract class ProgramDetailsRepo {
     required String programCode,
     required String programYear,
   });
-  Future<Either<Failure, TourIncludingModel>> getTourIncluding({
+  Future<Either<Failure, List<TourIncludingModel>>> getTourIncluding({
     required String programCode,
     required String programYear,
   });

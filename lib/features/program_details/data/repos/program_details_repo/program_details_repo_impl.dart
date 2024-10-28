@@ -11,6 +11,7 @@ import 'package:toufwshouf/features/program_details/data/repos/program_details_r
 
 import '../../../../../core/networking/api_endpoints.dart';
 import '../../../../../core/networking/api_service.dart';
+import '../../models/policy_model/policy_model.dart';
 
 class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   final ApiService apiService;
@@ -18,7 +19,7 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   ProgramDetailsRepoImpl({required this.apiService});
 
   @override
-  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails({
+  Future<Either<Failure, List<DetailsActiveProgramModel>>> getProductDetails({
     required String programCode,
     required String programYear,
     required String languageCode,
@@ -31,8 +32,11 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
           languageCode: languageCode,
         ),
       );
-      var item = response['items'][0];
-      DetailsActiveProgramModel detailsActiveProgram = DetailsActiveProgramModel.fromJson(item);
+      List<DetailsActiveProgramModel> detailsActiveProgram = [];
+      var item = response['items'];
+      for (var item in response['items']) {
+        detailsActiveProgram.add(DetailsActiveProgramModel.fromJson(item));
+      }
 
       return Right(detailsActiveProgram);
     } catch (e) {
@@ -89,7 +93,7 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, PolicyModel>> getPolicy(
+  Future<Either<Failure, List<PolicyModel>>> getPolicy(
       {required String programCode,
       required String programYear,
       required String policyType}) async {
@@ -100,8 +104,10 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
         programYear: programYear,
         policyType: policyType,
       ));
-      var item = response['items'][0];
-      PolicyModel policyModel = PolicyModel.fromJson(item);
+      List<PolicyModel> policyModel = [];
+      for(var item in response['items']){
+        policyModel.add(PolicyModel.fromJson(item));
+      }
       return Right(policyModel);
     } catch (e) {
       if (e is DioException) {
@@ -135,14 +141,18 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, TourIncludingModel>> getTourIncluding(
+  Future<Either<Failure, List<TourIncludingModel>>> getTourIncluding(
       {required String programCode, required String programYear}) async {
     try {
       final response = await apiService.get(
           endpoint: ApiEndpoints.getTourIncluding(
               programCode: programCode, programYear: programYear));
-      var item = response['items'][0];
-      TourIncludingModel tourIncludingModel = TourIncludingModel.fromJson(item);
+      List<TourIncludingModel> tourIncludingModel = [];
+      var item = response['items'];
+
+      for (var item in response['items']) {
+        tourIncludingModel.add(TourIncludingModel.fromJson(item));
+      }
 
       return Right(tourIncludingModel);
     } catch (e) {

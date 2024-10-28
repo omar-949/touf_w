@@ -8,12 +8,12 @@ class ProgramDetailsInitial extends ProgramDetailsState {}
 class ProgramDetailsLoading extends ProgramDetailsState {}
 
 class ProgramDetailsSuccess extends ProgramDetailsState {
-  final DetailsActiveProgramModel? productDetails;
+  final List<DetailsActiveProgramModel>? productDetails;
   final List<PhotoGalleryModel>? photoGallery;
   final List<ReviewsModel>? reviews;
-  final PolicyModel? policy;
+  final List<PolicyModel>? policy;
   final List<SupplementsModel>? supplements;
-  final TourIncludingModel? tourIncluding;
+  final List<TourIncludingModel>? tourIncluding;
 
   ProgramDetailsSuccess({
     this.productDetails,

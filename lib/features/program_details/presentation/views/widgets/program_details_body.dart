@@ -29,13 +29,12 @@ class ProgramDetailsBody extends StatelessWidget {
                 activeProgramModel: activeProgramModel,
               ),
               const ProgramActionButtons(),
-              ProgramInformation(
-                detailsActiveProgramModel: state.productDetails!,
-              ),
+              state.productDetails != null && state.productDetails!.isNotEmpty ? ProgramInformation(detailsActiveProgramModel: state.productDetails![0]) : SliverToBoxAdapter(child: const CustomLoading()),
               const ProgramDetailsTabBar(),
               TourDetails(
-                tourIncludingModel: state.tourIncluding!,
-              ),
+                  tourIncludingModel: state.tourIncluding ?? [],
+                  policyModel: state.policy ?? [],
+                ),
               ProgramDetailsBookButton(activeProgramModel: activeProgramModel),
               const RelatedTrips(),
             ],
@@ -47,5 +46,17 @@ class ProgramDetailsBody extends StatelessWidget {
         }
       },
     );
+  }
+
+  Widget _buildContentOrIndicator<T>({
+    required List<T>? content,
+    required Widget widget,
+  }) {
+    if (content == null || content.isEmpty) {
+      return const SliverToBoxAdapter(child: CustomLoading());
+    }else{
+      return widget;
+    }
+
   }
 }

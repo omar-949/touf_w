@@ -27,7 +27,7 @@ class ProgramDetailsView extends StatelessWidget {
                 languageCode: program.languageCode.toString(),
               ),
         child: ProgramDetailsBody(
-          activeProgramModel: program,
+          activeProgramModel: program
         ),
       ),
     );

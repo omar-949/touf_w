@@ -13,14 +13,14 @@ part 'program_details_state.dart';
 class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
   final ProgramDetailsRepoImpl programDetailsRepoImpl;
 
-  DetailsActiveProgramModel? productDetails;
+  List<DetailsActiveProgramModel>? productDetails;
   List<PhotoGalleryModel>? photoGallery;
   List<ReviewsModel>? reviews;
-  PolicyModel? policy;
+  List<PolicyModel>? policy;
   List<SupplementsModel>? supplements;
-  TourIncludingModel? tourIncluding;
+  List<TourIncludingModel>? tourIncluding;
 
-  int totalMethods = 5;
+  int totalMethods = 6;
   int completedMethods = 0;
 
   ProgramDetailsCubit(this.programDetailsRepoImpl)
@@ -53,7 +53,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     await _fetchPhotoGalleryImages(programCode, programYear);
     await _fetchAllReviews(programCode, programYear);
     //Todo: policy issue
-    //await _fetchPolicy(programCode, programYear, 'Basic');
+    await _fetchPolicy(programCode, programYear, 'Cancel');
     await _fetchSupplements(programCode, programYear);
     await _fetchTourIncluding(programCode, programYear);
   }
