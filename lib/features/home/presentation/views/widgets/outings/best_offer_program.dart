@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
-import 'package:toufwshouf/core/widgets/app_horizontal_list_view.dart';
-import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/home_section_header.dart';
 
 import '../../../../../../core/routing/routes.dart';
@@ -24,11 +22,12 @@ class BestOfferProgram extends StatelessWidget {
           },
         ),
         10.verticalSpace,
-        AppHorizontalListView(
-          activeProgramModel: [
-            ActiveProgramModel(programname: 'Omar'),
-          ],
-        ),
+        //Todo: implement best offer
+        // AppHorizontalListView(
+        //   activeProgramModel: [
+        //     ActiveProgramModel(programname: 'Omar'),
+        //   ],
+        // ),
       ],
     );
   }

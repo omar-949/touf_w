@@ -26,10 +26,16 @@ class ProgramDetailsHeader extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: activeProgramModel.imgPath ?? '',
               fit: BoxFit.cover,
+              color: Colors.white,
               width: double.infinity,
               height: 280.h,
-              placeholder: (context, url) => const Center(
-                child: CircularProgressIndicator(),
+              placeholder: (context, url) => Container(
+                color: AppColors.grey500,
+                child: const Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.blue500,
+                  ),
+                ),
               ),
               errorWidget: (context, url, error) => Container(
                 color: AppColors.grey500,

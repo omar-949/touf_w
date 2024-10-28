@@ -31,8 +31,13 @@ class AppHorizontalListViewItem extends StatelessWidget {
                   fit: BoxFit.cover,
                   height: 216.h,
                   width: 265.w,
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(),
+                  placeholder: (context, url) => Container(
+                    color: AppColors.grey500,
+                    child: const Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.blue500,
+                      ),
+                    ),
                   ),
                   errorWidget: (context, url, error) => Container(
                     color: AppColors.grey500,
@@ -114,12 +119,12 @@ class PriceTag extends StatelessWidget {
 class ItemDetails extends StatelessWidget {
   const ItemDetails(
       {super.key,
-        required this.title,
-        required this.rating,
-        this.textStyle,
-        this.isSpacer = false,
-        this.verticalSpace,
-        this.horizontalSpace});
+      required this.title,
+      required this.rating,
+      this.textStyle,
+      this.isSpacer = false,
+      this.verticalSpace,
+      this.horizontalSpace});
 
   final String title;
   final double rating;
