@@ -24,6 +24,7 @@ class ProgramDetailsView extends StatelessWidget {
               ..fetchAllProgramDetails(
                 programCode: program.code.toString(),
                 programYear: program.programyear.toString(),
+                languageCode: program.languageCode.toString(),
               ),
         child: ProgramDetailsBody(
           activeProgramModel: program,

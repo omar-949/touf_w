@@ -12,6 +12,7 @@ abstract class ProgramDetailsRepo {
   Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails({
     required String programCode,
     required String programYear,
+    required String languageCode,
   });
 
   Future<Either<Failure, List<PhotoGalleryModel>>> getPhotoGalleryImages({

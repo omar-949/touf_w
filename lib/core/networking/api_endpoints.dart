@@ -28,8 +28,8 @@ class ApiEndpoints {
 
   // program details
   static String getProgramDetails(
-      {required final programCode, required final programYear}) {
-    return 'detailsesProgram/$programCode/$programYear';
+      {required final programCode, required final programYear,required final languageCode}) {
+    return 'detailsesProgram/$programCode/$programYear/$languageCode';
   }
 
   static String getPhotoGalleryImages(

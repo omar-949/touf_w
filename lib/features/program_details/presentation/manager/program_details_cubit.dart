@@ -45,10 +45,11 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
   Future<void> fetchAllProgramDetails({
     required String programCode,
     required String programYear,
+    required String languageCode,
   }) async {
     emit(ProgramDetailsLoading());
 
-    await _fetchProductDetails(programCode, programYear);
+    await _fetchProductDetails(programCode, programYear,languageCode);
     await _fetchPhotoGalleryImages(programCode, programYear);
     await _fetchAllReviews(programCode, programYear);
     //Todo: policy issue
@@ -58,10 +59,11 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
   }
 
   Future<void> _fetchProductDetails(
-      String programCode, String programYear) async {
+      String programCode, String programYear, String languageCode) async {
     final result = await programDetailsRepoImpl.getProductDetails(
       programCode: programCode,
       programYear: programYear,
+      languageCode: languageCode,
     );
     result.fold(
       (failure) => emit(ProgramDetailsFailure(failure.message)),
@@ -72,7 +74,8 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
     );
   }
 
-  Future<void> _fetchPhotoGalleryImages(String programCode, String programYear) async {
+  Future<void> _fetchPhotoGalleryImages(
+      String programCode, String programYear) async {
     final result = await programDetailsRepoImpl.getPhotoGalleryImages(
       programCode: programCode,
       programYear: programYear,

@@ -18,15 +18,21 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   ProgramDetailsRepoImpl({required this.apiService});
 
   @override
-  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails(
-      {required String programCode, required String programYear}) async {
+  Future<Either<Failure, DetailsActiveProgramModel>> getProductDetails({
+    required String programCode,
+    required String programYear,
+    required String languageCode,
+  }) async {
     try {
       final response = await apiService.get(
-          endpoint: ApiEndpoints.getProgramDetails(
-              programCode: programCode, programYear: programYear));
+        endpoint: ApiEndpoints.getProgramDetails(
+          programCode: programCode,
+          programYear: programYear,
+          languageCode: languageCode,
+        ),
+      );
       var item = response['items'][0];
-      DetailsActiveProgramModel detailsActiveProgram =
-          DetailsActiveProgramModel.fromJson(item);
+      DetailsActiveProgramModel detailsActiveProgram = DetailsActiveProgramModel.fromJson(item);
 
       return Right(detailsActiveProgram);
     } catch (e) {
