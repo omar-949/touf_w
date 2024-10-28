@@ -24,13 +24,12 @@ class ProgramDetailsHeader extends StatelessWidget {
         background: Stack(
           children: [
             CachedNetworkImage(
-              imageUrl: activeProgramModel.imgPath ?? '',
+              imageUrl: 'activeProgramModel.imgPath',
               fit: BoxFit.cover,
-              color: Colors.white,
               width: double.infinity,
               height: 280.h,
               placeholder: (context, url) => Container(
-                color: AppColors.grey500,
+                color: AppColors.darkGrey,
                 child: const Center(
                   child: CircularProgressIndicator(
                     color: AppColors.blue500,

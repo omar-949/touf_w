@@ -27,7 +27,7 @@ class AppHorizontalListViewItem extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12.r),
                 child: CachedNetworkImage(
-                  imageUrl: activeProgramModel.imgPath!,
+                  imageUrl: 'http://app.misrtravelco.net:8080/dec_mst/Files_DOC/2024/1/373/1.jpg',
                   fit: BoxFit.cover,
                   height: 216.h,
                   width: 265.w,
@@ -43,12 +43,6 @@ class AppHorizontalListViewItem extends StatelessWidget {
                     color: AppColors.grey500,
                     child: const Icon(Icons.error),
                   ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.r),
-                  color: Colors.black.withOpacity(0.5),
                 ),
               ),
               Column(
