@@ -11,7 +11,6 @@ import 'package:toufwshouf/features/program_details/data/repos/program_details_r
 
 import '../../../../../core/networking/api_endpoints.dart';
 import '../../../../../core/networking/api_service.dart';
-import '../../models/policy_model/policy_model.dart';
 
 class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   final ApiService apiService;
@@ -33,7 +32,6 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
         ),
       );
       List<DetailsActiveProgramModel> detailsActiveProgram = [];
-      var item = response['items'];
       for (var item in response['items']) {
         detailsActiveProgram.add(DetailsActiveProgramModel.fromJson(item));
       }
@@ -148,7 +146,6 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
           endpoint: ApiEndpoints.getTourIncluding(
               programCode: programCode, programYear: programYear));
       List<TourIncludingModel> tourIncludingModel = [];
-      var item = response['items'];
 
       for (var item in response['items']) {
         tourIncludingModel.add(TourIncludingModel.fromJson(item));

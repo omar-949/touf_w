@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/features/payment/data/models/program_group_model/program_group_model.dart';
-import 'package:toufwshouf/features/payment/presentation/views/widgets/build_count_selector.dart';
+import 'package:toufwshouf/features/payment/presentation/views/widgets/count_selector_list.dart';
 import '../../../../../../core/resources/styles.dart';
 
 class NumberOfPeopleWidget extends StatelessWidget {
@@ -9,13 +9,13 @@ class NumberOfPeopleWidget extends StatelessWidget {
   final List<ProgramGroupModel> people;
   final int count;
   final VoidCallback onUpdate;
-  final int maxAval;
-   const NumberOfPeopleWidget({
-    super.key,
-    required this.title,
-    required this.people,
-    required this.count, required this.onUpdate, required this.maxAval,
-  });
+
+  const NumberOfPeopleWidget(
+      {super.key,
+      required this.title,
+      required this.people,
+      required this.count,
+      required this.onUpdate});
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +41,7 @@ class NumberOfPeopleWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            ...people.map((person) => Padding(
-              padding: EdgeInsets.only(bottom: 16.0.h,left: 10.w,right: 10.w),
-              child: BuildCountSelector(maxAval: maxAval,person: person,  onUpdate: onUpdate,),
-            )),
+            CountSelectorList(people: people, count: count, onUpdate: onUpdate)
           ],
         ),
       ),

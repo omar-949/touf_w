@@ -12,12 +12,11 @@ class BookingSection extends StatelessWidget {
   final List<ProgramGroupModel> programGroupModel;
   final List<ExtraModel> extraServices;
   final int peopleCount;
-  final int maxAval;
   const BookingSection({
     super.key,
     required this.extraServices,
     required this.peopleCount,
-    required this.programGroupModel, required this.maxAval,
+    required this.programGroupModel
   });
 
   @override
@@ -26,13 +25,11 @@ class BookingSection extends StatelessWidget {
       children: [
         NumberOfPeopleWidget(
           onUpdate: () {
-            context
-                .read<TotalCubit>()
-                .updateTotal(extraServices, programGroupModel);
+            context.read<TotalCubit>().updateTotal(extraServices, programGroupModel);
           },
           title: "Number of People",
           people: programGroupModel,
-          count: peopleCount, maxAval: maxAval,
+          count: peopleCount
         ),
         SizedBox(height: 16.h),
         BookingDetailsAdditionalWidget(
@@ -50,7 +47,6 @@ class BookingSection extends StatelessWidget {
             if (state is TotalUpdated) {
               total = state.total;
             }
-
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Row(
