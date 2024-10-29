@@ -24,7 +24,7 @@ class BookingViewBodyBlocBuilder extends StatelessWidget {
             BookingSection(
                 extraServices: state.extraPrograms,
                 peopleCount: state.programDateAndNumber.first.paxAval ?? 0,
-                programGroupModel: state.programGroups, maxAval: state.programDateAndNumber.first.paxAval!,)
+                programGroupModel: state.programGroups,)
           ],
         );
       } else if (state is PaymentFailure) {
