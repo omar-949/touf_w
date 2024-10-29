@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/core/resources/assets.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
@@ -20,6 +23,7 @@ class ReviewForm extends StatefulWidget {
 class _ReviewFormState extends State<ReviewForm> {
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  double reviewRating = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +37,35 @@ class _ReviewFormState extends State<ReviewForm> {
             style: TextStyles.font18BlackRegular,
           ),
           SizedBox(height: 8.h),
-          Text(
-            'Reviews',
-            style: TextStyles.font18BlackMedium,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Reviews',
+                style: TextStyles.font18BlackMedium,
+              ),
+              RatingBar(
+                initialRating: double.tryParse(
+                        widget.activeProgramModel.rateReview ?? '') ??
+                    0.0,
+                minRating: 0,
+                maxRating: 5,
+                itemPadding: EdgeInsets.symmetric(horizontal: 2.w),
+                itemSize: 24.w,
+                glow: false,
+                allowHalfRating: true,
+                itemCount: 5,
+                updateOnDrag: true,
+                ratingWidget: RatingWidget(
+                  full: SvgPicture.asset(Assets.starFull),
+                  half: SvgPicture.asset(Assets.starHalf),
+                  empty: SvgPicture.asset(Assets.starEmpty),
+                ),
+                onRatingUpdate: (rating) {
+                  reviewRating = rating;
+                },
+              )
+            ],
           ),
           SizedBox(height: 16.h),
           _buildReviewTextField(),
