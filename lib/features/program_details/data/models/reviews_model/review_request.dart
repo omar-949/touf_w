@@ -1,13 +1,13 @@
 class ReviewRequest {
+  final int cust;
+  final String rate;
   final String review;
-  final double rate;
-  final String cust;
 
   ReviewRequest({required this.review, required this.rate, required this.cust});
 
   Map<String, dynamic> toJson() => {
-        'review': review,
+        'cust': cust,
         'rate': rate,
-        'customer': cust,
+        'review': review,
       };
 }

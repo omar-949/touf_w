@@ -4,6 +4,7 @@ import 'package:toufwshouf/core/networking/api_failure.dart';
 import 'package:toufwshouf/features/program_details/data/models/details_active_program_model/details_active_program_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/photo_gallery_model/photo_gallery_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/policy_model/policy_model.dart';
+import 'package:toufwshouf/features/program_details/data/models/reviews_model/review_request.dart';
 import 'package:toufwshouf/features/program_details/data/models/reviews_model/reviews_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/supplement_model/supplements_model.dart';
 import 'package:toufwshouf/features/program_details/data/models/tour_including_model/tour_including_model.dart';
@@ -103,7 +104,7 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
         policyType: policyType,
       ));
       List<PolicyModel> policyModel = [];
-      for(var item in response['items']){
+      for (var item in response['items']) {
         policyModel.add(PolicyModel.fromJson(item));
       }
       return Right(policyModel);
@@ -152,6 +153,30 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
       }
 
       return Right(tourIncludingModel);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, ReviewsModel>> postCustReview(
+      {required int programCode,
+      required int programYear,
+      required ReviewRequest reviewRequest}) async {
+    try {
+      final response = await apiService.post(
+        endpoint: ApiEndpoints.postReview(
+          programCode: programCode,
+          programYear: programYear,
+        ),
+        data: reviewRequest.toJson(),
+      );
+      final ReviewsModel reviewsModel = ReviewsModel.fromJson(response);
+      return Right(reviewsModel);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

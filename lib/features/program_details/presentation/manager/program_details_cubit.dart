@@ -49,7 +49,7 @@ class ProgramDetailsCubit extends Cubit<ProgramDetailsState> {
   }) async {
     emit(ProgramDetailsLoading());
 
-    await _fetchProductDetails(programCode, programYear,languageCode);
+    await _fetchProductDetails(programCode, programYear, languageCode);
     await _fetchPhotoGalleryImages(programCode, programYear);
     await _fetchAllReviews(programCode, programYear);
     //Todo: policy issue

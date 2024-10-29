@@ -56,7 +56,6 @@ class _ProgramDetailsTabBarViewState extends State<ProgramDetailsTabBarView> {
           const SupplementTabBarContent(),
           const PhotoGalleryTabBarContent(),
            SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
             child: ReviewTabBarContent(activeProgramModel: widget.activeProgramModel,),
           ),
         ],
