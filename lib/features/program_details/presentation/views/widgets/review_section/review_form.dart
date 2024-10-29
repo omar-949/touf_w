@@ -28,11 +28,9 @@ class _ReviewFormState extends State<ReviewForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Text(
-              'Write your review “${widget.activeProgramModel.programname}”',
-              style: TextStyles.font18BlackRegular,
-            ),
+          Text(
+            'Write your review “${widget.activeProgramModel.programname}”',
+            style: TextStyles.font18BlackRegular,
           ),
           SizedBox(height: 8.h),
           Text(

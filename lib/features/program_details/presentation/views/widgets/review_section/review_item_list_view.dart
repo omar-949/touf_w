@@ -12,7 +12,7 @@ class ReviewItemListView extends StatelessWidget {
     return SizedBox(
       height: 300.h,
       child: ListView.builder(
-        itemCount: context.read<ProgramDetailsCubit>().reviews!.length,
+        itemCount: context.read<ProgramDetailsCubit>().reviews?.length ?? 0,
         itemBuilder: (context, i) {
           return ReviewItem(
             reviews: context.read<ProgramDetailsCubit>().reviews![i],
