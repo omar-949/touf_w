@@ -35,7 +35,7 @@ class SeeAllListViewItem extends StatelessWidget {
             16.horizontalSpace,
             Expanded(
               child: ItemDetails(
-                title: programModel.programname ?? '',
+                title: programModel.programname ?? 'No Name',
                 rating: double.tryParse(programModel.rateReview ?? 'No Review') ?? 0.0,
                 textStyle: TextStyles.font16BlackMedium,
                 isSpacer: true,
