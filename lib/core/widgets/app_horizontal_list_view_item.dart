@@ -136,12 +136,9 @@ class ItemDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Text(
-              title,
-              style: textStyle ?? TextStyles.font18WhiteMedium,
-              overflow: TextOverflow.ellipsis,
-            ),
+          Text(
+            title,
+            style: textStyle ?? TextStyles.font18WhiteMedium,
           ),
           (isSpacer == true) ? const Spacer() : 6.verticalSpace,
           CustomStarRating(
