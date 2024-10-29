@@ -57,7 +57,7 @@ class _LoginFormState extends State<LoginForm> {
             autoValidateMode: autoValidateMode,
           ),
           4.verticalSpace,
-          const RememberInformation(),
+          //const RememberInformation(),
           10.verticalSpace,
           AppTextButton(
             text: "Login",
