@@ -29,3 +29,11 @@ class ProgramDetailsFailure extends ProgramDetailsState {
   final String message;
   ProgramDetailsFailure(this.message);
 }
+class ProgramReviewLoading extends ProgramDetailsState {}
+class ProgramReviewSuccess extends ProgramDetailsState {
+
+}
+class ProgramReviewFailure extends ProgramDetailsState {
+  final String message;
+  ProgramReviewFailure(this.message);
+}

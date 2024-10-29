@@ -5,10 +5,13 @@ import 'package:toufwshouf/core/resources/colors.dart';
 import 'package:toufwshouf/core/resources/styles.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 import 'package:toufwshouf/main.dart';
 
 class ReviewForm extends StatefulWidget {
-  const ReviewForm({super.key});
+  const ReviewForm({super.key, required this.activeProgramModel});
+
+  final ActiveProgramModel activeProgramModel;
 
   @override
   State<ReviewForm> createState() => _ReviewFormState();
@@ -25,9 +28,11 @@ class _ReviewFormState extends State<ReviewForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Write your review “The Egyptian Gulf”',
-            style: TextStyles.font18BlackRegular,
+          Expanded(
+            child: Text(
+              'Write your review “${widget.activeProgramModel.programname}”',
+              style: TextStyles.font18BlackRegular,
+            ),
           ),
           SizedBox(height: 8.h),
           Text(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/helpers/shared_pref_helper.dart';
-import 'package:toufwshouf/core/helpers/shared_pref_keys.dart';
 import 'package:toufwshouf/core/resources/assets.dart';
 import 'package:toufwshouf/main.dart';
 
@@ -45,8 +44,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                     confirmButton: CustomButton(
                         text: "Log Out",
                         onPressed: () {
-                          SharedPrefHelper.removeData(
-                              key: SharedPrefKeys.token);
+                          SharedPrefHelper.clearAllData();
                           isLoggedUser = false;
                           context.pop();
                         }),
