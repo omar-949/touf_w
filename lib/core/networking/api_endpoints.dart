@@ -1,7 +1,8 @@
 import '../../features/auth/data/models/log_in_model/login_request.dart';
 
 class ApiEndpoints {
-  static const String baseUrl = 'http://app.misrtravelco.net:4370/ords/invoice/programes/';
+  static const String baseUrl =
+      'http://app.misrtravelco.net:4370/ords/invoice/programes/';
 
   // auth
   static const String signUp = 'client/';
@@ -17,17 +18,21 @@ class ApiEndpoints {
   static String forgetPassword({required String email}) {
     return 'forgetPassword/$email';
   }
+
   //--------------------------------------------------
 
   // home
   static String getAllActivePrograms({required int flag}) {
     return 'onlyCurrent/$flag';
   }
+
   //-----------------------------------------------------
 
   // program details
   static String getProgramDetails(
-      {required final programCode, required final programYear,required final languageCode}) {
+      {required final programCode,
+      required final programYear,
+      required final languageCode}) {
     return 'detailsesProgram/$programCode/$programYear/$languageCode';
   }
 
@@ -37,6 +42,11 @@ class ApiEndpoints {
   }
 
   static String getAllReviews(
+      {required final programCode, required final programYear}) {
+    return 'programReview/$programCode/$programYear';
+  }
+
+  static String postReview(
       {required final programCode, required final programYear}) {
     return 'programReview/$programCode/$programYear';
   }
@@ -57,6 +67,7 @@ class ApiEndpoints {
       {required final programCode, required final programYear}) {
     return 'tourincluding/$programCode/$programYear';
   }
+
   //-----------------------------------------------------
 
   // payment

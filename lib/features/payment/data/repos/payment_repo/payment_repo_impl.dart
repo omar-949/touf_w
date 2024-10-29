@@ -40,9 +40,7 @@ class PaymentRepoImpl implements PaymentRepo {
       getProgramDateAndNumber(
           {required String programCode, required String programYear}) async {
     try {
-      final response = await apiService.get(
-          endpoint: ApiEndpoints.getProgramDateAndNumber(
-              programCode: programCode, programYear: programYear));
+      final response = await apiService.get(endpoint: ApiEndpoints.getProgramDateAndNumber(programCode: programCode, programYear: programYear));
       List<ProgramDateAndNumberModel> programGroups = [];
 
       for (var item in response['items']) {

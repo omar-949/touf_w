@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/colors.dart';
+import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
 import 'package:toufwshouf/features/program_details/presentation/views/widgets/program_details_tab_bar_view.dart';
 
 class ProgramDetailsTabBar extends StatefulWidget {
-  const ProgramDetailsTabBar({super.key,});
+  const ProgramDetailsTabBar({super.key, required this.activeProgramModel,});
+  final ActiveProgramModel activeProgramModel;
 
 
   @override
@@ -63,7 +65,7 @@ class _ProgramDetailsTabBarState extends State<ProgramDetailsTabBar>
             ],
           ),
           ProgramDetailsTabBarView(
-            tabController: tabController,
+            tabController: tabController, activeProgramModel: widget.activeProgramModel,
           )
         ],
       ),

@@ -30,7 +30,7 @@ class ProgramDetailsBody extends StatelessWidget {
               ),
               const ProgramActionButtons(),
               state.productDetails != null && state.productDetails!.isNotEmpty ? ProgramInformation(detailsActiveProgramModel: state.productDetails![0]) : SliverToBoxAdapter(child: const CustomLoading()),
-              const ProgramDetailsTabBar(),
+               ProgramDetailsTabBar(activeProgramModel: activeProgramModel,),
               TourDetails(
                   tourIncludingModel: state.tourIncluding ?? [],
                   policyModel: state.policy ?? [],
