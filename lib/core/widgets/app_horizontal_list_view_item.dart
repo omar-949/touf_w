@@ -86,12 +86,13 @@ class PriceTag extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(12.w),
+          bottomRight: Radius.circular(20.w),
         ),
       ),
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             oldPrice != null ? '$oldPrice Egp' : 'Start From',
@@ -135,9 +136,12 @@ class ItemDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: textStyle ?? TextStyles.font18WhiteMedium,
+          Expanded(
+            child: Text(
+              title,
+              style: textStyle ?? TextStyles.font18WhiteMedium,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           (isSpacer == true) ? const Spacer() : 6.verticalSpace,
           CustomStarRating(
