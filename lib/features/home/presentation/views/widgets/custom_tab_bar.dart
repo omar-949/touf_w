@@ -1,54 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:toufwshouf/core/resources/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toufwshouf/features/home/presentation/manager/tab_bar_cubit/tab_bar_cubit.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/custom_tab.dart';
 
-class CustomTabBar extends StatefulWidget {
-  const CustomTabBar({
-    super.key,
-    required this.tabController,
-  });
-
-  final TabController tabController;
-
-  @override
-  State<CustomTabBar> createState() => _CustomTabBarState();
-}
-
-class _CustomTabBarState extends State<CustomTabBar> {
-  int activeIndex = 0;
+class CustomTabBar extends StatelessWidget {
+  const CustomTabBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return TabBar(
-      controller: widget.tabController,
-      isScrollable: true,
-      indicatorColor: AppColors.orange,
-      labelColor: AppColors.orange,
-      unselectedLabelColor: Colors.white,
-      dividerColor: Colors.transparent,
-      tabAlignment: TabAlignment.center,
-      onTap: (index) {
-        setState(() {
-          activeIndex = index;
-        });
-      },
-      tabs: [
-        CustomTab(
-          iconPath: 'assets/svgs/outings.svg',
-          text: 'Outings',
-          isActive: activeIndex == 0,
-        ),
-        CustomTab(
-          iconPath: 'assets/svgs/hotels.svg',
-          text: 'Hotels',
-          isActive: activeIndex == 1,
-        ),
-        CustomTab(
-          iconPath: 'assets/svgs/Transportation.svg',
-          text: 'Transportation',
-          isActive: activeIndex == 2,
-        ),
-      ],
+    return SizedBox(
+      height: 80.h,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 3,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          final tabNames = ['Outings', 'Hotels', 'Transportation'];
+          final tabIcons = [
+            'assets/svgs/outings.svg',
+            'assets/svgs/hotels.svg',
+            'assets/svgs/Transportation.svg',
+          ];
+          return BlocBuilder<TabBarCubit, TabBarState>(
+            builder: (context, state) {
+              final cubit = context.read<TabBarCubit>();
+              if (state is TabBarIndexUpdated) {
+                return GestureDetector(
+                  onTap: () => cubit.changeTab(index),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: CustomTab(
+                      iconPath: tabIcons[index],
+                      text: tabNames[index],
+                      isActive: state.index == index,
+                    ),
+                  ),
+                );
+              }
+              return Container();
+            },
+          );
+        },
+      ),
     );
   }
 }

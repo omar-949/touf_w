@@ -1,55 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/hotels/hotels_content.dart';
+import 'package:toufwshouf/features/home/presentation/views/widgets/outings/outings_tab.dart';
 
-import 'outings/outings_tab.dart';
+class TabBarContent extends StatelessWidget {
+  final int index;
 
-class TabBarContent extends StatefulWidget {
-  const TabBarContent({super.key, required this.tabController});
-
-  final TabController tabController;
-
-  @override
-  State<TabBarContent> createState() => _TabBarContentState();
-}
-
-class _TabBarContentState extends State<TabBarContent> {
-  final List<double> _heights = [920.h, 950.h, 200.h];
-  double _currentHeight = 920.h;
-
-  @override
-  void initState() {
-    super.initState();
-    widget.tabController.addListener(_updateHeight);
-  }
-
-  @override
-  void dispose() {
-    widget.tabController.removeListener(_updateHeight);
-    super.dispose();
-  }
-
-  void _updateHeight() {
-    setState(() {
-      _currentHeight = _heights[widget.tabController.index];
-    });
-  }
+  const TabBarContent({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: _currentHeight,
-      child: TabBarView(
-        controller: widget.tabController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          const OutingsTab(),
-          // SingleChildScrollView(child: Center(child: Text('Content for Hotels'))),
-          const HotelsContent(),
-          const SingleChildScrollView(
-              child: Center(child: Text('Content for Transportation'))),
-        ],
-      ),
+    switch (index) {
+      case 0:
+        return const OutingsTab();
+      case 1:
+        return const HotelsTab();
+      case 2:
+        return const TransportationTab();
+      default:
+        return Container();
+    }
+  }
+}
+
+class HotelsTab extends StatelessWidget {
+  const HotelsTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Hotels Tab Content'),
+    );
+  }
+}
+
+class TransportationTab extends StatelessWidget {
+  const TransportationTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Transportation Tab Content'),
     );
   }
 }

@@ -16,7 +16,7 @@ class OutingsTab extends StatelessWidget {
         10.verticalSpace,
         const Advertisements(),
         10.verticalSpace,
-        const BestOfferProgram(),
+        //const BestOfferProgram(),
         10.verticalSpace,
         const Partners(),
       ],

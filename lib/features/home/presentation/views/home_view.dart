@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:toufwshouf/features/home/presentation/manager/tab_bar_cubit/tab_bar_cubit.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/home_app_bar.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/home_body.dart';
 
@@ -14,9 +15,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const HomeAppBar(),
-      body: BlocProvider(
-        create: (context) => ActiveProgramCubit(getIt.get<HomeRepoImpl>())
-          ..getAllActivePrograms(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => ActiveProgramCubit(getIt.get<HomeRepoImpl>())
+              ..getAllActivePrograms(),
+          ),
+          BlocProvider(create: (context) => TabBarCubit()),
+        ],
         child: const HomeBody(),
       ),
     );

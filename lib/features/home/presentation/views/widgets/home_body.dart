@@ -1,32 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toufwshouf/core/resources/assets.dart';
+import 'package:toufwshouf/features/home/presentation/manager/tab_bar_cubit/tab_bar_cubit.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/custom_tab_bar.dart';
-import 'package:toufwshouf/features/home/presentation/views/widgets/search_field.dart';
 import 'package:toufwshouf/features/home/presentation/views/widgets/tab_bar_content.dart';
 
-class HomeBody extends StatefulWidget {
+class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
-
-  @override
-  State<HomeBody> createState() => _HomeBodyState();
-}
-
-class _HomeBodyState extends State<HomeBody>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 3, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,37 +25,44 @@ class _HomeBodyState extends State<HomeBody>
                   fit: BoxFit.cover,
                   width: double.infinity,
                 ),
+                // Positioned(
+                //   top: 16.h,
+                //   left: 16.w,
+                //   right: 16.w,
+                //   child: Row(
+                //     children: [
+                //       const Expanded(child: SearchField()),
+                //       Image.asset(
+                //         Assets.filter,
+                //         height: 24.h,
+                //         width: 24.w,
+                //       ),
+                //       10.horizontalSpace,
+                //     ],
+                //   ),
+                // ),
                 Positioned(
-                  top: 16.h,
-                  left: 16.w,
-                  right: 16.w,
-                  child: Row(
-                    children: [
-                      const Expanded(child: SearchField()),
-                      Image.asset(
-                        Assets.filter,
-                        height: 24.h,
-                        width: 24.w,
-                      ),
-                      10.horizontalSpace,
-                    ],
-                  ),
-                ),
-                Positioned(
-                  bottom: 16.h,
+                  bottom: 0.h,
                   left: 0,
                   right: 0,
-                  child: CustomTabBar(
-                    tabController: _tabController,
-                  ),
+                  child: const CustomTabBar(),
                 ),
               ],
             ),
           ),
         ),
         SliverToBoxAdapter(
-          child: TabBarContent(
-            tabController: _tabController,
+          child: BlocBuilder<TabBarCubit, TabBarState>(
+            builder: (context, state) {
+              if (state is TabBarIndexUpdated) {
+                return TabBarContent(
+                  index: state.index,
+                );
+              }
+              return const TabBarContent(
+                index: 0,
+              );
+            },
           ),
         ),
       ],

@@ -18,24 +18,21 @@ class CustomTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.h),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SvgPicture.asset(
-            iconPath,
-            colorFilter: isActive
-                ? const ColorFilter.mode(AppColors.orange, BlendMode.srcIn)
-                : const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-          ),
-          6.horizontalSpace,
-          Text(
-            text,
-            style: TextStyles.font18Regular,
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SvgPicture.asset(
+          iconPath,
+          colorFilter: isActive
+              ? const ColorFilter.mode(AppColors.orange, BlendMode.srcIn)
+              : const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        ),
+        6.horizontalSpace,
+        Text(
+          text,
+          style: isActive ? TextStyles.font18OrangeRegular : TextStyles.font18WhiteRegular,
+        ),
+      ],
     );
   }
 }
