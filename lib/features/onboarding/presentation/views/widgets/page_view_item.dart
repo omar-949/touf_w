@@ -14,20 +14,17 @@ class PageViewItem extends StatelessWidget {
   static const List<OnboardingItemModel> onboardingItem = [
     OnboardingItemModel(
       title: 'Embark On Your Simple Travel Experience',
-      subTitle:
-          'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
+      subTitle: 'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
       image: Assets.onboarding1,
     ),
     OnboardingItemModel(
       title: 'Embark On Your Simple Travel Experience',
-      subTitle:
-          'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
+      subTitle: 'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
       image: Assets.onboarding2,
     ),
     OnboardingItemModel(
       title: 'Embark On Your Simple Travel Experience',
-      subTitle:
-          'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
+      subTitle: 'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
       image: Assets.onboarding3,
     ),
   ];
@@ -41,7 +38,6 @@ class PageViewItem extends StatelessWidget {
           onboardingItem[index].image,
           fit: BoxFit.cover,
         ),
-        const OnboardingText(),
       ],
     );
   }

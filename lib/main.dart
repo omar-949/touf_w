@@ -20,7 +20,7 @@ void main() async {
 Future<void> _initializeApp() async {
   await SharedPrefHelper.init();
   await setupServiceLocator();
-  await _checkIfLoggedUser();
+  _checkIfLoggedUser();
   _lockPortraitMode();
 }
 
@@ -33,7 +33,7 @@ void _lockPortraitMode() {
   );
 }
 
-Future<void> _checkIfLoggedUser() async {
-  String? userToken = await SharedPrefHelper.getString(key: SharedPrefKeys.token);
+void _checkIfLoggedUser() {
+  String? userToken = SharedPrefHelper.getString(key: SharedPrefKeys.token);
   isLoggedUser = userToken.isNotNullOrEmpty();
 }

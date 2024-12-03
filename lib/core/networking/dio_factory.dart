@@ -29,7 +29,7 @@ class DioFactory {
       //       (X509Certificate cert, String host, int port) => true;
       //   return client;
       // };
-      await setDefaultHeaders(dio);
+      setDefaultHeaders(dio);
       addInterceptors(dio);
 
       _dioInstance = dio;
@@ -37,8 +37,8 @@ class DioFactory {
     return _dioInstance!;
   }
 
-  static Future<void> setDefaultHeaders(Dio dio) async {
-    _authToken = await SharedPrefHelper.getString(key: SharedPrefKeys.token);
+  static void setDefaultHeaders(Dio dio)  {
+    _authToken =  SharedPrefHelper.getString(key: SharedPrefKeys.token);
 
     dio.options.headers = {
       'Accept': 'application/json',

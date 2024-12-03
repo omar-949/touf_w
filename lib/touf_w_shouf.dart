@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 
+import 'main.dart';
+
 class ToufWShouf extends StatelessWidget {
   const ToufWShouf({super.key, required this.appRouter});
 
@@ -14,7 +16,7 @@ class ToufWShouf extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       minTextAdapt: true,
-      splitScreenMode: true, // Ensures better handling of screen split mode
+      splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -23,7 +25,7 @@ class ToufWShouf extends StatelessWidget {
                 GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
             scaffoldBackgroundColor: Colors.white,
           ),
-          initialRoute: Routes.homeView,
+          initialRoute: isLoggedUser ? Routes.homeView : Routes.onboardingView,
           onGenerateRoute: appRouter.generateRouter,
         );
       },
