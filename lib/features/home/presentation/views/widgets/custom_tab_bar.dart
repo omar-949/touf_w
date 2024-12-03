@@ -13,14 +13,18 @@ class CustomTabBar extends StatelessWidget {
       height: 80.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 3,
+        itemCount: 1,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          final tabNames = ['Outings', 'Hotels', 'Transportation'];
+          final tabNames = [
+            'Outings',
+            // 'Hotels',
+            // 'Transportation',
+          ];
           final tabIcons = [
             'assets/svgs/outings.svg',
-            'assets/svgs/hotels.svg',
-            'assets/svgs/Transportation.svg',
+            // 'assets/svgs/hotels.svg',
+            // 'assets/svgs/Transportation.svg',
           ];
           return BlocBuilder<TabBarCubit, TabBarState>(
             builder: (context, state) {

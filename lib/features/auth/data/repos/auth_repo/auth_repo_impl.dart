@@ -50,7 +50,6 @@ class AuthRepoImpl extends AuthRepo {
         value: loginResponse.token,
       );
       DioFactory.updateAuthToken(loginResponse.token);
-      isLoggedUser = true;
       return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {

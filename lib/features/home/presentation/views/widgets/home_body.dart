@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,10 +21,23 @@ class HomeBody extends StatelessWidget {
           flexibleSpace: FlexibleSpaceBar(
             background: Stack(
               children: [
-                Image.asset(
-                  Assets.mainImage,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
+                CarouselSlider.builder(
+                  itemCount: 3,
+                  itemBuilder: (context, index, realIndex) {
+                    return Image.asset(
+                      Assets.mainImage,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    );
+                  },
+                  options: CarouselOptions(
+                    height: 250.h,
+                    viewportFraction: 1,
+                    enableInfiniteScroll: true,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 5),
+
+                  ),
                 ),
                 Positioned(
                   bottom: 0.h,
@@ -53,4 +67,3 @@ class HomeBody extends StatelessWidget {
     );
   }
 }
-

@@ -152,14 +152,10 @@ class _ReviewFormState extends State<ReviewForm> {
   Widget _buildSubmitButton() {
     return CustomButton(
       onPressed: () {
-        if (!isLoggedUser) {
-          context.pushNamed(Routes.loginView);
-        } else {
           setState(() {
             autoValidateMode = AutovalidateMode.always;
           });
           _submitReview();
-        }
       },
       text: 'Submit',
       width: 160.w,

@@ -24,7 +24,7 @@ class OnboardingButtonRow extends StatelessWidget {
           curve: Curves.decelerate,
         );
       } else {
-        context.pushReplacementNamed(Routes.homeView);
+        context.pushReplacementNamed(Routes.loginView);
       }
     }
 
@@ -37,7 +37,7 @@ class OnboardingButtonRow extends StatelessWidget {
             color: AppColors.mediumGrey,
             text: 'Skip',
             onTap: () {
-              context.pushReplacementNamed(Routes.homeView);
+              context.pushReplacementNamed(Routes.loginView);
             },
           ),
           16.horizontalSpace,

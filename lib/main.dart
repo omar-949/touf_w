@@ -8,7 +8,6 @@ import 'package:toufwshouf/core/helpers/shared_pref_keys.dart';
 import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/touf_w_shouf.dart';
 
-bool isLoggedUser = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +19,6 @@ void main() async {
 Future<void> _initializeApp() async {
   await SharedPrefHelper.init();
   await setupServiceLocator();
-  _checkIfLoggedUser();
   _lockPortraitMode();
 }
 
@@ -33,7 +31,4 @@ void _lockPortraitMode() {
   );
 }
 
-void _checkIfLoggedUser() {
-  String? userToken = SharedPrefHelper.getString(key: SharedPrefKeys.token);
-  isLoggedUser = userToken.isNotNullOrEmpty();
-}
+

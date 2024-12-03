@@ -4,7 +4,6 @@ import 'package:toufwshouf/core/helpers/extensions.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
 import 'package:toufwshouf/core/widgets/custom_button.dart';
 import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
-import 'package:toufwshouf/main.dart';
 
 class ProgramDetailsBookButton extends StatelessWidget {
   const ProgramDetailsBookButton({super.key, required this.activeProgramModel});
@@ -20,25 +19,10 @@ class ProgramDetailsBookButton extends StatelessWidget {
           text: 'Book Now',
           borderRadius: BorderRadius.circular(12.r),
           onPressed: () {
-            isLoggedUser
-                ? context.pushNamed(Routes.paymentView,
-                    arguments: {'activeProgramModel': activeProgramModel})
-                : context.showCustomDialog(
-                    title: const Text("error"),
-                    content: const Text("You are not logged in"),
-                    confirmButton: CustomButton(
-                      text: "Go to Login",
-                      onPressed: () {
-                        context.pushNamed(Routes.loginView);
-                      },
-                    ),
-                    cancelButton: CustomButton(
-                      text: "cancel",
-                      onPressed: () {
-                        context.pop();
-                      },
-                    ),
-                  );
+            context.pushNamed(
+              Routes.paymentView,
+              arguments: {'activeProgramModel': activeProgramModel},
+            );
           },
         ),
       ),

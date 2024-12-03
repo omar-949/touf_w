@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toufwshouf/core/helpers/extensions.dart';
+import 'package:toufwshouf/core/helpers/shared_pref_helper.dart';
+import 'package:toufwshouf/core/helpers/shared_pref_keys.dart';
 import 'package:toufwshouf/core/routing/app_router.dart';
 import 'package:toufwshouf/core/routing/routes.dart';
-
-import 'main.dart';
 
 class ToufWShouf extends StatelessWidget {
   const ToufWShouf({super.key, required this.appRouter});
@@ -25,10 +26,15 @@ class ToufWShouf extends StatelessWidget {
                 GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
             scaffoldBackgroundColor: Colors.white,
           ),
-          initialRoute: isLoggedUser ? Routes.homeView : Routes.onboardingView,
+          initialRoute: isLoggedUser() ? Routes.homeView : Routes.onboardingView,
           onGenerateRoute: appRouter.generateRouter,
         );
       },
     );
+  }
+
+  bool isLoggedUser() {
+    String? userToken = SharedPrefHelper.getString(key: SharedPrefKeys.token);
+    return userToken.isNotNullOrEmpty();
   }
 }
