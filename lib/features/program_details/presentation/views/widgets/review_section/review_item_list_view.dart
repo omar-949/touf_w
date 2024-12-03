@@ -11,6 +11,7 @@ class ReviewItemListView extends StatelessWidget {
     return ListView.builder(
       itemCount: context.read<ProgramDetailsCubit>().reviews?.length ?? 0,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, i) {
         return ReviewItem(
           reviews: context.read<ProgramDetailsCubit>().reviews![i],

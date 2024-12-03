@@ -118,12 +118,9 @@ class ProgramDetailsRepoImpl implements ProgramDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, List<SupplementsModel>>> getSupplements(
-      {required String programCode, required String programYear}) async {
+  Future<Either<Failure, List<SupplementsModel>>> getSupplements({required String programCode, required String programYear}) async {
     try {
-      final response = await apiService.get(
-          endpoint: ApiEndpoints.getSupplements(
-              programCode: programCode, programYear: programYear));
+      final response = await apiService.get(endpoint: ApiEndpoints.getSupplements(programCode: programCode, programYear: programYear));
       List<SupplementsModel> supplements = [];
 
       for (var item in response['items']) {

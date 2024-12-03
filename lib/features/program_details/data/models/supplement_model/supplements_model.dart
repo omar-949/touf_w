@@ -7,13 +7,7 @@ class SupplementsModel {
   factory SupplementsModel.fromJson(Map<String, dynamic> json) {
     return SupplementsModel(
       code: json['code'] as String?,
-      thePriceIncludesSupplement:
-          json['the price includes supplement'] as String?,
+      thePriceIncludesSupplement: json['the_price_includes_supplement'] as String?,
     );
   }
-
-  Map<String, dynamic> toJson() => {
-        'code': code,
-        'the price includes supplement': thePriceIncludesSupplement,
-      };
 }

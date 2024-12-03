@@ -11,23 +11,27 @@ class PhotoGalleryTabBarContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-      scrollDirection: Axis.horizontal,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 16.w,
-        mainAxisSpacing: 16.h,
+    return SizedBox(
+      height: 400.w,
+      child: GridView.builder(
+        shrinkWrap: true,
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+        scrollDirection: Axis.horizontal,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 12.w,
+          mainAxisSpacing: 12.h,
+        ),
+        itemCount: context.read<ProgramDetailsCubit>().photoGallery!.length,
+        itemBuilder: (context, index) {
+          return CustomCachedNetworkImage(
+            url: context.read<ProgramDetailsCubit>().photoGallery![index].image!,
+            width: 0,
+            height: 0,
+            borderRadius: BorderRadius.circular(12),
+          );
+        },
       ),
-      itemCount: context.read<ProgramDetailsCubit>().photoGallery!.length,
-      itemBuilder: (context, index) {
-        return CustomCachedNetworkImage(
-          url: context.read<ProgramDetailsCubit>().photoGallery![index].image!,
-          width: 200.w,
-          height: 162.h,
-          borderRadius: BorderRadius.circular(12),
-        );
-      },
     );
   }
 }

@@ -5,8 +5,7 @@ import 'package:toufwshouf/features/program_details/presentation/views/widgets/s
 import '../../../../../../core/resources/styles.dart';
 
 class SupplementListViewItem extends StatelessWidget {
-  const SupplementListViewItem(
-      {super.key, required this.desc, required this.price});
+  const SupplementListViewItem({super.key, required this.desc, required this.price});
   final String desc;
   final int price;
   @override

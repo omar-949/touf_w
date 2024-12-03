@@ -12,7 +12,7 @@ class OverviewTabBarContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,17 +24,6 @@ class OverviewTabBarContent extends StatelessWidget {
                   style: TextStyles.font16BlackRegular,
                 )
               : const CustomLoading(),
-
-          // 16.verticalSpace,
-          // Text(
-          //   'Additional Info',
-          //   style: TextStyles.font18MediumDarkGreyMedium,
-          // ),
-          // 8.verticalSpace,
-          // Text(
-          //   'Return Details Returns to original departure point Departure Point 77 Salah Salem, Al Omraneyah Ash Sharqeyah, Giza District, Giza Governorate, Egypt As per requested time our tour guide will be waiting in the lobby of your hotel and he will be holding a sign showing your name on it',
-          //   style: TextStyles.font16BlackRegular,
-          // ),
         ],
       ),
     );

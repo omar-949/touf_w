@@ -5,7 +5,9 @@ import '../../../../../../core/resources/styles.dart';
 
 class SupplementImageAndDesc extends StatelessWidget {
   const SupplementImageAndDesc({super.key, required this.desc});
+
   final String desc;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,7 +17,12 @@ class SupplementImageAndDesc extends StatelessWidget {
             height: 24.h,
             width: 24.h),
         8.horizontalSpace,
-        Expanded(child: Text(desc, style: TextStyles.font16DarkGreyRegular))
+        Expanded(
+          child: Text(
+            desc,
+            style: TextStyles.font16DarkGreyRegular,
+          ),
+        )
       ],
     );
   }

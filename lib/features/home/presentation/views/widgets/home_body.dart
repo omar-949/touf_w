@@ -25,22 +25,6 @@ class HomeBody extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: double.infinity,
                 ),
-                // Positioned(
-                //   top: 16.h,
-                //   left: 16.w,
-                //   right: 16.w,
-                //   child: Row(
-                //     children: [
-                //       const Expanded(child: SearchField()),
-                //       Image.asset(
-                //         Assets.filter,
-                //         height: 24.h,
-                //         width: 24.w,
-                //       ),
-                //       10.horizontalSpace,
-                //     ],
-                //   ),
-                // ),
                 Positioned(
                   bottom: 0.h,
                   left: 0,
@@ -69,3 +53,4 @@ class HomeBody extends StatelessWidget {
     );
   }
 }
+

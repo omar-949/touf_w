@@ -1,73 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toufwshouf/core/resources/colors.dart';
-import 'package:toufwshouf/features/home/data/models/active_program_model/active_program_model.dart';
-import 'package:toufwshouf/features/program_details/presentation/views/widgets/program_details_tab_bar_view.dart';
+import 'package:toufwshouf/core/resources/styles.dart';
+import 'package:toufwshouf/features/program_details/presentation/manager/details_tab_bar_cubit/details_tab_bar_cubit.dart';
 
-class ProgramDetailsTabBar extends StatefulWidget {
-  const ProgramDetailsTabBar({super.key, required this.activeProgramModel,});
-  final ActiveProgramModel activeProgramModel;
+class ProgramDetailsTabBar extends StatelessWidget {
+  const ProgramDetailsTabBar({super.key,});
 
 
-  @override
-  State<ProgramDetailsTabBar> createState() => _ProgramDetailsTabBarState();
-}
-
-class _ProgramDetailsTabBarState extends State<ProgramDetailsTabBar>
-    with SingleTickerProviderStateMixin {
-  late TabController tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    tabController = TabController(length: 4, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    tabController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Column(
-        children: [
-          TabBar(
-            controller: tabController,
-            isScrollable: true,
-            indicatorColor: AppColors.orange,
-            labelColor: AppColors.orange,
-            unselectedLabelColor: AppColors.mediumGrey,
-            dividerColor: Colors.transparent,
-            splashFactory: NoSplash.splashFactory,
-            tabAlignment: TabAlignment.center,
-            labelStyle: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w500,
-            ),
-            labelPadding:
-                EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-            tabs: [
-              const Center(
-                child: Text('Overview'),
-              ),
-              const Center(
-                child: Text('Supplement'),
-              ),
-              const Center(
-                child: Text('Photo Gallery'),
-              ),
-              const Center(
-                child: Text('Reviews'),
-              ),
-            ],
-          ),
-          ProgramDetailsTabBarView(
-            tabController: tabController, activeProgramModel: widget.activeProgramModel,
-          )
-        ],
+      child: SizedBox(
+        height: 30.h,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 4,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            final tabNames = [
+              'Overview',
+              'Supplement',
+              'Photo Gallery',
+              'Reviews'
+            ];
+            return BlocBuilder<DetailsTabBarCubit, DetailsTabBarState>(
+              builder: (context, state) {
+                final cubit = context.read<DetailsTabBarCubit>();
+                if (state is DetailsTabBarIndexUpdated) {
+                  return GestureDetector(
+                    onTap: () => cubit.changeTab(index),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      child: Text(tabNames[index], style: state.index == index
+                          ? TextStyles.font18OrangeMedium
+                          : TextStyles.font18MediumGreyMedium,
+                      ),
+                    ),
+                  );
+                }
+                return Container();
+              },
+            );
+          },
+        ),
       ),
     );
   }

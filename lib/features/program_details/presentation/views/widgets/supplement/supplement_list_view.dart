@@ -10,19 +10,19 @@ class SupplementListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.only(bottom: 16.0.h),
-            child:  SupplementListViewItem(
-              desc: context.read<ProgramDetailsCubit>().supplements![index].thePriceIncludesSupplement??'',
-              price: 1200,
-            ),
-          );
-        },
-        itemCount: context.read<ProgramDetailsCubit>().supplements!.length,
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: EdgeInsets.only(bottom: 16.0.h),
+          child:  SupplementListViewItem(
+            desc: context.read<ProgramDetailsCubit>().supplements![index].thePriceIncludesSupplement??'No Data',
+            price: 1200,
+          ),
+        );
+      },
+      itemCount: context.read<ProgramDetailsCubit>().supplements!.length,
     );
   }
 }

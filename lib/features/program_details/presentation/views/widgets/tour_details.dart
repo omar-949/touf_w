@@ -29,7 +29,6 @@ class TourDetails extends StatelessWidget {
              ExpandableContainer(
               title: 'Cancellation policy',
               description: policyModel.isNotEmpty ? policyModel[0].policy ?? 'There is no policy' : 'There is no policy',
-                  // 'You can cancel up to 24 hours in advance of the experience for a full refund. For a full refund, you must cancel at least 24 hours before the experience’s start time.If you cancel less than 24 hours before the experience’s start time, the amount you paid will not be refunded. Any changes made less than 24 hours before the experience’s start time will not be accepted. Cut-off times are based on theexperience’s local time.',
             ),
           ],
         ),
