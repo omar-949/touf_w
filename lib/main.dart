@@ -18,6 +18,7 @@ void main() async {
 }
 
 Future<void> _initializeApp() async {
+  await SharedPrefHelper.init();
   await setupServiceLocator();
   await _checkIfLoggedUser();
   _lockPortraitMode();

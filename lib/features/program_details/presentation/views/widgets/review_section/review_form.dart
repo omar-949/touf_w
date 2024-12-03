@@ -179,7 +179,7 @@ class _ReviewFormState extends State<ReviewForm> {
             reviewRequest: ReviewRequest(
               review: reviewController.text,
               rate: reviewRating.toString(),
-              cust: await SharedPrefHelper.getInt(key: SharedPrefKeys.custName),
+              cust: SharedPrefHelper.getInt(key: SharedPrefKeys.custName) ?? 0,
             ),
           );
     }
