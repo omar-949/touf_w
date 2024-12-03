@@ -6,7 +6,6 @@ import 'package:toufwshouf/core/widgets/app_text_button.dart';
 import 'package:toufwshouf/core/widgets/custom_text_field.dart';
 import 'package:toufwshouf/features/auth/data/models/log_in_model/login_request.dart';
 import 'package:toufwshouf/features/auth/presentation/manager/login_cubit/login_cubit.dart';
-import 'package:toufwshouf/features/auth/presentation/views/widgets/login/remember_information.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -64,9 +63,11 @@ class _LoginFormState extends State<LoginForm> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 context.read<LoginCubit>().login(
-                    loginRequest: LoginRequest(
+                      loginRequest: LoginRequest(
                         email: emailController.text.trim(),
-                        password: passwordController.text.trim()));
+                        password: passwordController.text.trim(),
+                      ),
+                    );
               } else {
                 setState(() {
                   autoValidateMode = AutovalidateMode.always;

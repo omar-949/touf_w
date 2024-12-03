@@ -7,8 +7,6 @@ import 'package:toufwshouf/features/auth/data/models/log_in_model/login_response
 import 'package:toufwshouf/features/auth/data/models/reset/reset_password_request.dart';
 import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_for_forget_password_request.dart';
 import 'package:toufwshouf/features/auth/data/models/validate_email_model/validate_email_for_forget_password_response.dart';
-import 'package:toufwshouf/main.dart';
-
 import '../../../../../core/networking/api_endpoints.dart';
 import '../../../../../core/networking/api_failure.dart';
 import '../../../../../core/networking/api_service.dart';
@@ -48,6 +46,10 @@ class AuthRepoImpl extends AuthRepo {
       await SharedPrefHelper.setData(
         key: SharedPrefKeys.token,
         value: loginResponse.token,
+      );
+      await SharedPrefHelper.setData(
+        key: SharedPrefKeys.custCode,
+        value: loginResponse.custCode,
       );
       DioFactory.updateAuthToken(loginResponse.token);
       return Right(loginResponse);
